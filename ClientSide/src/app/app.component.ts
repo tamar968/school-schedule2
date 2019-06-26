@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { basename } from 'path';
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'clientSide';
+  baseUrl='http://localhost:54198/api'; 
+  
+  public getBaseUrl() {
+    return this.baseUrl;
+  }
 }

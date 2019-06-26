@@ -1,0 +1,42 @@
+
+<div  class="container">
+  <h2>העדרות למורה</h2>
+  <form role="form" >
+     <div class="form-group">
+      <label for="abscentTeacher">מורה חסרה</label>
+      <select #abscentTeacher name="abscentTeacher" class="select">
+        <option>aaaaa</option>
+        <option>bbbb</option>
+        <option>ccccc</option>
+        <option>ddddd</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+   <label for="fromDate">מתאריך</label>
+    <input type="datetime" #fromDate name="fromDate">
+    </div> 
+    <div class="form-group">
+    <label for="toDate">עד תאריך</label>
+    <input type="datetime" #toDate name="toDate">
+    </div>
+
+    <div class="checkbox">
+      <input type="checkbox" name="wholeDay" #wholeDay  ><label>טיפול יומי גורף</label>
+    </div>
+
+    
+    <div *ngIf="wholeDay.checked" class="form-group">
+        <label for="standInTeacher">ממלאת מקום</label>
+        <select #standInTeacher name="standInTeacher" class="select">
+            <option>aaaaa</option>
+            <option>bbbb</option>
+            <option>ccccc</option>
+            <option>ddddd</option>
+          </select>
+    </div>
+
+    <button type="submit" class="btn btn-default">אישור</button>
+  </form>
+</div>
+
