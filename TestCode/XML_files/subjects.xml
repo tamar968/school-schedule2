@@ -1,0 +1,426 @@
+<?xml version="1.0" encoding="windows-1255" standalone="yes"?>
+<root school_id="540401" data_type="subjects" EG_time2="07-01-2019 12:29">
+  <data num="2105" map="2000" BackColor="010000" ForeColor="140000">
+    <name>"תוספת.בניה"</name>
+  </data>
+  <data num="2020" map="2001" BackColor="010000" ForeColor="140000">
+    <name>אומנות</name>
+  </data>
+  <data num="2052" map="2002" BackColor="010000" ForeColor="140000">
+    <name>אומנות בגן</name>
+  </data>
+  <data num="2060" map="2003" BackColor="010000" ForeColor="140000">
+    <name>אורחות יושר</name>
+  </data>
+  <data num="2093" map="2004" BackColor="010000" ForeColor="140000">
+    <name>אורינות מדעית</name>
+  </data>
+  <data num="2082" map="2005" BackColor="010000" ForeColor="140000">
+    <name>אז נדברו</name>
+  </data>
+  <data num="2013" map="2006" BackColor="010000" ForeColor="140000">
+    <name>אזרחות</name>
+  </data>
+  <data num="2077" map="2007" BackColor="010000" ForeColor="140000">
+    <name>אחת שאלתי</name>
+  </data>
+  <data num="2122" map="2008" BackColor="010000" ForeColor="140000">
+    <name>איסט' למידה</name>
+  </data>
+  <data num="2069" map="2009" BackColor="010000" ForeColor="140000">
+    <name>אמונה ובטחון</name>
+  </data>
+  <data num="2014" map="2010" BackColor="010000" ForeColor="140000">
+    <name>אנגלית</name>
+  </data>
+  <data num="2073" map="2011" BackColor="010000" ForeColor="140000">
+    <name>אנגלית מדברת א,</name>
+  </data>
+  <data num="2079" map="2012" BackColor="010000" ForeColor="140000">
+    <name>אנגלית מדוברת א,2</name>
+  </data>
+  <data num="2131" map="2013" BackColor="000000" ForeColor="000000">
+    <name>בית  יודי </name>
+  </data>
+  <data num="2003" map="2014" BackColor="010000" ForeColor="140000">
+    <name>בקיאות</name>
+  </data>
+  <data num="2030" map="2015" BackColor="010000" ForeColor="140000">
+    <name>דיון  ושיח</name>
+  </data>
+  <data num="2072" map="2016" BackColor="010000" ForeColor="140000">
+    <name>דיוקים בתנ"ך</name>
+  </data>
+  <data num="2007" map="2017" BackColor="010000" ForeColor="140000">
+    <name>דינים</name>
+  </data>
+  <data num="2008" map="2018" BackColor="010000" ForeColor="140000">
+    <name>דעות ומידות</name>
+  </data>
+  <data num="2124" map="2019" BackColor="010000" ForeColor="140000">
+    <name>דעת עצמנו</name>
+  </data>
+  <data num="2023" map="2020" BackColor="010000" ForeColor="140000">
+    <name>דקדוק</name>
+  </data>
+  <data num="2046" map="2021" BackColor="010000" ForeColor="140000">
+    <name>דרשו</name>
+  </data>
+  <data num="2166" map="2022" BackColor="010000" ForeColor="140000">
+    <name>האזינו</name>
+  </data>
+  <data num="2068" map="2023" BackColor="010000" ForeColor="140000">
+    <name>הבית יהודי</name>
+  </data>
+  <data num="2038" map="2024" BackColor="010000" ForeColor="140000">
+    <name>הבעה והבנה</name>
+  </data>
+  <data num="2117" map="2025" BackColor="010000" ForeColor="140000">
+    <name>הל' כבוד או"א</name>
+  </data>
+  <data num="2249" map="2026" BackColor="010000" ForeColor="140000">
+    <name>הל' כבוד אן"א</name>
+  </data>
+  <data num="2128" map="2027" BackColor="010000" ForeColor="140000">
+    <name>הל,יחוד</name>
+  </data>
+  <data num="2127" map="2028" BackColor="010000" ForeColor="140000">
+    <name>הל,מוקצה</name>
+  </data>
+  <data num="2025" map="2029" BackColor="010000" ForeColor="140000">
+    <name>הסטוריה</name>
+  </data>
+  <data num="2010" map="2030" BackColor="010000" ForeColor="140000">
+    <name>הסטוריה י</name>
+  </data>
+  <data num="2083" map="2031" BackColor="010000" ForeColor="140000">
+    <name>הסטוריה ישראלית</name>
+  </data>
+  <data num="2011" map="2032" BackColor="010000" ForeColor="140000">
+    <name>הסטוריה כ</name>
+  </data>
+  <data num="2112" map="2033" BackColor="010000" ForeColor="140000">
+    <name>העצמה חינוכית</name>
+  </data>
+  <data num="2999" map="2034" BackColor="000000" ForeColor="000000">
+    <name>העשרה</name>
+  </data>
+  <data num="2066" map="2035" BackColor="010000" ForeColor="140000">
+    <name>הצגה בלמידה</name>
+  </data>
+  <data num="2090" map="2036" BackColor="010000" ForeColor="140000">
+    <name>הקנית מושגים</name>
+  </data>
+  <data num="2100" map="2037" BackColor="010000" ForeColor="140000">
+    <name>השקפה ואקטואליה</name>
+  </data>
+  <data num="2026" map="2038" BackColor="010000" ForeColor="140000">
+    <name>התעמלות</name>
+  </data>
+  <data num="2092" map="2039" BackColor="010000" ForeColor="140000">
+    <name>התפתחות רגשית</name>
+  </data>
+  <data num="2048" map="2040" BackColor="010000" ForeColor="140000">
+    <name>ודברת בם</name>
+  </data>
+  <data num="2101" map="2041" BackColor="010000" ForeColor="140000">
+    <name>ודברת בם</name>
+  </data>
+  <data num="2045" map="2042" BackColor="010000" ForeColor="140000">
+    <name>והערב נא</name>
+  </data>
+  <data num="2009" map="2043" BackColor="010000" ForeColor="140000">
+    <name>ח הלבבות</name>
+  </data>
+  <data num="2071" map="2044" BackColor="010000" ForeColor="140000">
+    <name>חורבן יהדות אירופה</name>
+  </data>
+  <data num="2120" map="2045" BackColor="010000" ForeColor="140000">
+    <name>חיי עולם</name>
+  </data>
+  <data num="2036" map="2046" BackColor="010000" ForeColor="140000">
+    <name>חינוך</name>
+  </data>
+  <data num="2104" map="2047" BackColor="010000" ForeColor="140000">
+    <name>חכמת נשים</name>
+  </data>
+  <data num="2085" map="2048" BackColor="010000" ForeColor="140000">
+    <name>חנוך לנער</name>
+  </data>
+  <data num="2095" map="2049" BackColor="010000" ForeColor="140000">
+    <name>חשבון</name>
+  </data>
+  <data num="2080" map="2050" BackColor="010000" ForeColor="140000">
+    <name>חשבון בגן</name>
+  </data>
+  <data num="2070" map="2051" BackColor="010000" ForeColor="140000">
+    <name>טבע בגן</name>
+  </data>
+  <data num="2059" map="2052" BackColor="010000" ForeColor="140000">
+    <name>טכסטיל</name>
+  </data>
+  <data num="2001" map="2053" BackColor="010000" ForeColor="140000">
+    <name>יהדות</name>
+  </data>
+  <data num="2088" map="2054" BackColor="010000" ForeColor="140000">
+    <name>ימים מיוחדים</name>
+  </data>
+  <data num="2012" map="2055" BackColor="010000" ForeColor="140000">
+    <name>כימיה</name>
+  </data>
+  <data num="2074" map="2056" BackColor="010000" ForeColor="140000">
+    <name>כלים בלמידה</name>
+  </data>
+  <data num="2000" map="2057" BackColor="010000" ForeColor="140000">
+    <name>כתובים</name>
+  </data>
+  <data num="2064" map="2058" BackColor="010000" ForeColor="140000">
+    <name>כתובים ק'</name>
+  </data>
+  <data num="2078" map="2059" BackColor="010000" ForeColor="140000">
+    <name>לישרים תהילה</name>
+  </data>
+  <data num="2134" map="2060" BackColor="010000" ForeColor="140000">
+    <name>למועד הימים</name>
+  </data>
+  <data num="2094" map="2061" BackColor="010000" ForeColor="140000">
+    <name>לשוב לאיתנים</name>
+  </data>
+  <data num="2084" map="2062" BackColor="010000" ForeColor="140000">
+    <name>לשון</name>
+  </data>
+  <data num="2032" map="2063" BackColor="010000" ForeColor="140000">
+    <name>מבוא לח"מ</name>
+  </data>
+  <data num="2114" map="2064" BackColor="010000" ForeColor="140000">
+    <name>מבקשי</name>
+  </data>
+  <data num="2091" map="2065" BackColor="010000" ForeColor="140000">
+    <name>מג' טכנלוגית</name>
+  </data>
+  <data num="2096" map="2066" BackColor="010000" ForeColor="140000">
+    <name>מג' ספר עיונים</name>
+  </data>
+  <data num="2067" map="2067" BackColor="010000" ForeColor="140000">
+    <name>מגילות</name>
+  </data>
+  <data num="2024" map="2068" BackColor="010000" ForeColor="140000">
+    <name>מדעים</name>
+  </data>
+  <data num="2076" map="2069" BackColor="010000" ForeColor="140000">
+    <name>מודעות</name>
+  </data>
+  <data num="2043" map="2070" BackColor="010000" ForeColor="140000">
+    <name>מוכנות לחשבון</name>
+  </data>
+  <data num="2098" map="2071" BackColor="010000" ForeColor="140000">
+    <name>מוכניות</name>
+  </data>
+  <data num="2075" map="2072" BackColor="010000" ForeColor="140000">
+    <name>מוסר וחסידות</name>
+  </data>
+  <data num="2062" map="2073" BackColor="010000" ForeColor="140000">
+    <name>מוסר ומידות</name>
+  </data>
+  <data num="2016" map="2074" BackColor="010000" ForeColor="140000">
+    <name>מחשבים</name>
+  </data>
+  <data num="2108" map="2075" BackColor="010000" ForeColor="140000">
+    <name>מחשבת לתיכונים</name>
+  </data>
+  <data num="2109" map="2076" BackColor="010000" ForeColor="140000">
+    <name>מטעמי המקרא</name>
+  </data>
+  <data num="2126" map="2077" BackColor="010000" ForeColor="140000">
+    <name>מכתב מאליהו</name>
+  </data>
+  <data num="2056" map="2078" BackColor="010000" ForeColor="140000">
+    <name>מן המקור</name>
+  </data>
+  <data num="2103" map="2079" BackColor="010000" ForeColor="140000">
+    <name>מסורת העברת התורה</name>
+  </data>
+  <data num="2022" map="2080" BackColor="010000" ForeColor="140000">
+    <name>מסילת ישרים</name>
+  </data>
+  <data num="2113" map="2081" BackColor="010000" ForeColor="140000">
+    <name>מעגלי יושר</name>
+  </data>
+  <data num="2139" map="2082" BackColor="000000" ForeColor="000000">
+    <name>מעשי אבות</name>
+  </data>
+  <data num="2063" map="2083" BackColor="010000" ForeColor="140000">
+    <name>מפרשי התורה</name>
+  </data>
+  <data num="2081" map="2084" BackColor="010000" ForeColor="140000">
+    <name>מפרשי התורה</name>
+  </data>
+  <data num="2138" map="2085" BackColor="000000" ForeColor="000000">
+    <name>מצוות תמידיות</name>
+  </data>
+  <data num="2089" map="2086" BackColor="010000" ForeColor="140000">
+    <name>מקראי קדש</name>
+  </data>
+  <data num="2054" map="2087" BackColor="010000" ForeColor="140000">
+    <name>משאבי למידה</name>
+  </data>
+  <data num="2087" map="2088" BackColor="010000" ForeColor="140000">
+    <name>משחקים דידקטים</name>
+  </data>
+  <data num="2133" map="2089" BackColor="010000" ForeColor="140000">
+    <name>משנת חכמים</name>
+  </data>
+  <data num="2034" map="2090" BackColor="010000" ForeColor="140000">
+    <name>מתוד'   לגן</name>
+  </data>
+  <data num="2051" map="2091" BackColor="010000" ForeColor="140000">
+    <name>מתוד,כללית</name>
+  </data>
+  <data num="2028" map="2092" BackColor="010000" ForeColor="140000">
+    <name>מתוד,קדש</name>
+  </data>
+  <data num="2042" map="2093" BackColor="010000" ForeColor="140000">
+    <name>מתור, לחשבון</name>
+  </data>
+  <data num="2021" map="2094" BackColor="010000" ForeColor="140000">
+    <name>מתמטיקה</name>
+  </data>
+  <data num="2005" map="2095" BackColor="010000" ForeColor="140000">
+    <name>נ אחרונים</name>
+  </data>
+  <data num="2004" map="2096" BackColor="010000" ForeColor="140000">
+    <name>נ ראשונים</name>
+  </data>
+  <data num="2037" map="2097" BackColor="010000" ForeColor="140000">
+    <name>נביא</name>
+  </data>
+  <data num="2102" map="2098" BackColor="010000" ForeColor="140000">
+    <name>סוגיות בחינוך</name>
+  </data>
+  <data num="2065" map="2099" BackColor="010000" ForeColor="140000">
+    <name>סוגיות חינוכיות</name>
+  </data>
+  <data num="2035" map="2100" BackColor="010000" ForeColor="140000">
+    <name>ספורי תורה</name>
+  </data>
+  <data num="2116" map="2101" BackColor="010000" ForeColor="140000">
+    <name>ספר החנוך</name>
+  </data>
+  <data num="2033" map="2102" BackColor="010000" ForeColor="140000">
+    <name>ספריה</name>
+  </data>
+  <data num="2017" map="2103" BackColor="010000" ForeColor="140000">
+    <name>ע ראשונה</name>
+  </data>
+  <data num="2047" map="2104" BackColor="010000" ForeColor="140000">
+    <name>עברית</name>
+  </data>
+  <data num="2031" map="2105" BackColor="010000" ForeColor="140000">
+    <name>עיונים</name>
+  </data>
+  <data num="2106" map="2106" BackColor="010000" ForeColor="140000">
+    <name>עיונים.במשנת</name>
+  </data>
+  <data num="2058" map="2107" BackColor="010000" ForeColor="140000">
+    <name>עיצוב</name>
+  </data>
+  <data num="2119" map="2108" BackColor="010000" ForeColor="140000">
+    <name>עיקבתא דמשיחא</name>
+  </data>
+  <data num="2097" map="2109" BackColor="010000" ForeColor="140000">
+    <name>עלי ספר-עיונים</name>
+  </data>
+  <data num="2040" map="2110" BackColor="010000" ForeColor="140000">
+    <name>פ השבוע</name>
+  </data>
+  <data num="2099" map="2111" BackColor="010000" ForeColor="140000">
+    <name>פ"ש בגן</name>
+  </data>
+  <data num="2027" map="2112" BackColor="010000" ForeColor="140000">
+    <name>פדגוגיה</name>
+  </data>
+  <data num="2006" map="2113" BackColor="010000" ForeColor="140000">
+    <name>פיוט ואגדתא</name>
+  </data>
+  <data num="2018" map="2114" BackColor="010000" ForeColor="140000">
+    <name>פס בהוראה</name>
+  </data>
+  <data num="2019" map="2115" BackColor="010000" ForeColor="140000">
+    <name>פס עיונית</name>
+  </data>
+  <data num="2055" map="2116" BackColor="010000" ForeColor="140000">
+    <name>פסיכולוגיה</name>
+  </data>
+  <data num="2123" map="2117" BackColor="010000" ForeColor="140000">
+    <name>פרטני</name>
+  </data>
+  <data num="2118" map="2118" BackColor="010000" ForeColor="140000">
+    <name>צוות בצותא</name>
+  </data>
+  <data num="2041" map="2119" BackColor="010000" ForeColor="140000">
+    <name>קול יוצר</name>
+  </data>
+  <data num="2049" map="2120" BackColor="010000" ForeColor="140000">
+    <name>קומי עורי</name>
+  </data>
+  <data num="2061" map="2121" BackColor="010000" ForeColor="140000">
+    <name>קשרים</name>
+  </data>
+  <data num="2044" map="2122" BackColor="010000" ForeColor="140000">
+    <name>קשרים וכשורים</name>
+  </data>
+  <data num="2086" map="2123" BackColor="010000" ForeColor="140000">
+    <name>רישומים דידקטים</name>
+  </data>
+  <data num="2050" map="2124" BackColor="010000" ForeColor="140000">
+    <name>ריתמיקה</name>
+  </data>
+  <data num="2125" map="2125" BackColor="010000" ForeColor="140000">
+    <name>שה"ש</name>
+  </data>
+  <data num="2129" map="2126" BackColor="010000" ForeColor="140000" DfShehia="1">
+    <name>שהייה</name>
+  </data>
+  <data num="2115" map="2127" BackColor="010000" ForeColor="140000">
+    <name>שיח מחנכת</name>
+  </data>
+  <data num="2130" map="2128" BackColor="010000" ForeColor="140000">
+    <name>שיחה</name>
+  </data>
+  <data num="2135" map="2129" BackColor="010000" ForeColor="140000">
+    <name>שמונה פרקים</name>
+  </data>
+  <data num="2029" map="2130" BackColor="010000" ForeColor="140000">
+    <name>שמיה"ל</name>
+  </data>
+  <data num="2015" map="2131" BackColor="010000" ForeColor="140000">
+    <name>שמיטה</name>
+  </data>
+  <data num="2111" map="2132" BackColor="010000" ForeColor="140000">
+    <name>שמיטה</name>
+  </data>
+  <data num="2121" map="2133" BackColor="010000" ForeColor="140000">
+    <name>שערי תפילה</name>
+  </data>
+  <data num="2110" map="2134" BackColor="010000" ForeColor="140000">
+    <name>שערים לתפילה</name>
+  </data>
+  <data num="2107" map="2135" BackColor="010000" ForeColor="140000">
+    <name>תהילים</name>
+  </data>
+  <data num="2136" map="2136" BackColor="010000" ForeColor="140000" DfTomhot="1">
+    <name>תומכות הוראה</name>
+  </data>
+  <data num="2002" map="2137" BackColor="010000" ForeColor="140000">
+    <name>תורה</name>
+  </data>
+  <data num="2053" map="2138" BackColor="010000" ForeColor="140000">
+    <name>תזונה ובריאות</name>
+  </data>
+  <data num="2039" map="2139" BackColor="010000" ForeColor="140000">
+    <name>תחביר</name>
+  </data>
+  <data num="2057" map="2140" BackColor="010000" ForeColor="140000">
+    <name>תפירה</name>
+  </data>
+</root>

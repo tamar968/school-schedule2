@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="windows-1255" standalone="yes"?>
+<root school_id="540401" data_type="list" EG_time2="07-01-2019 12:29">
+  <data num="0" map="0" name="משרד החינוך" show_in_teken="1" />
+  <data num="1" map="1" name="רשות מקומית" show_in_teken="1" />
+  <data num="2" map="2" name="אחר" show_in_teken="0" />
+  <data num="3" map="3" name="מ.חינוך" show_in_teken="0" />
+  <data num="4" map="4" name="ר.מקמית" show_in_teken="0" />
+</root>

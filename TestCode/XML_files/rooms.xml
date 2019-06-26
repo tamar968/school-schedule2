@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="windows-1255" standalone="yes"?>
+<root school_id="540401" data_type="rooms" EG_time2="07-01-2019 12:29">
+  <data num="3006" map="3000" BackColor="010000" ForeColor="140000">
+    <name>הקב, 1</name>
+  </data>
+  <data num="3007" map="3001" BackColor="010000" ForeColor="140000">
+    <name>הקב, 2</name>
+  </data>
+  <data num="3008" map="3002" BackColor="010000" ForeColor="140000">
+    <name>הקב, 3</name>
+  </data>
+  <data num="3009" map="3003" BackColor="010000" ForeColor="140000">
+    <name>הקב, 4</name>
+  </data>
+  <data num="3010" map="3004" BackColor="010000" ForeColor="140000">
+    <name>הקב, 5</name>
+  </data>
+  <data num="3011" map="3005" BackColor="010000" ForeColor="140000">
+    <name>הקב, 6</name>
+  </data>
+  <data num="3012" map="3006" BackColor="010000" ForeColor="140000">
+    <name>הקב, 7</name>
+  </data>
+  <data num="3013" map="3007" BackColor="010000" ForeColor="140000">
+    <name>הקב, 8</name>
+  </data>
+  <data num="3998" map="3008" BackColor="000000" ForeColor="000000">
+    <name>קב' 9</name>
+  </data>
+  <data num="3018" map="3009" BackColor="010000" ForeColor="140000">
+    <name>התעמלות</name>
+  </data>
+  <data num="3016" map="3010" BackColor="010000" ForeColor="140000">
+    <name>חדר יהדות</name>
+  </data>
+  <data num="3029" map="3011" BackColor="010000" ForeColor="140000">
+    <name>ט 1</name>
+  </data>
+  <data num="3030" map="3012" BackColor="010000" ForeColor="140000">
+    <name>ט 2</name>
+  </data>
+  <data num="3031" map="3013" BackColor="010000" ForeColor="140000">
+    <name>ט 3</name>
+  </data>
+  <data num="3032" map="3014" BackColor="010000" ForeColor="140000">
+    <name>ט 4</name>
+  </data>
+  <data num="3033" map="3015" BackColor="010000" ForeColor="140000">
+    <name>ט 5</name>
+  </data>
+  <data num="3034" map="3016" BackColor="010000" ForeColor="140000">
+    <name>ט 6</name>
+  </data>
+  <data num="3035" map="3017" BackColor="010000" ForeColor="140000">
+    <name>ט 7</name>
+  </data>
+  <data num="3036" map="3018" BackColor="010000" ForeColor="140000">
+    <name>ט 8</name>
+  </data>
+  <data num="3037" map="3019" BackColor="010000" ForeColor="140000">
+    <name>ט 9</name>
+  </data>
+  <data num="3038" map="3020" BackColor="010000" ForeColor="140000">
+    <name>ט 10</name>
+  </data>
+  <data num="3019" map="3021" BackColor="010000" ForeColor="140000">
+    <name>י 1</name>
+  </data>
+  <data num="3020" map="3022" BackColor="010000" ForeColor="140000">
+    <name>י 2</name>
+  </data>
+  <data num="3021" map="3023" BackColor="010000" ForeColor="140000">
+    <name>י 3</name>
+  </data>
+  <data num="3028" map="3024" BackColor="010000" ForeColor="140000">
+    <name>י 4</name>
+  </data>
+  <data num="3022" map="3025" BackColor="010000" ForeColor="140000">
+    <name>י 5</name>
+  </data>
+  <data num="3023" map="3026" BackColor="010000" ForeColor="140000">
+    <name>י 6</name>
+  </data>
+  <data num="3024" map="3027" BackColor="010000" ForeColor="140000">
+    <name>י 7</name>
+  </data>
+  <data num="3025" map="3028" BackColor="010000" ForeColor="140000">
+    <name>י 8</name>
+  </data>
+  <data num="3026" map="3029" BackColor="010000" ForeColor="140000">
+    <name>י 9</name>
+  </data>
+  <data num="3027" map="3030" BackColor="010000" ForeColor="140000">
+    <name>י 10</name>
+  </data>
+  <data num="3000" map="3031" BackColor="010000" ForeColor="140000">
+    <name>מחשבים 1</name>
+  </data>
+  <data num="3001" map="3032" BackColor="010000" ForeColor="140000">
+    <name>מחשבים 2</name>
+  </data>
+  <data num="3002" map="3033" BackColor="010000" ForeColor="140000">
+    <name>מחשבים 3</name>
+  </data>
+  <data num="3003" map="3034" BackColor="010000" ForeColor="140000">
+    <name>מחשבים 4</name>
+  </data>
+  <data num="3004" map="3035" BackColor="010000" ForeColor="140000">
+    <name>מחשבים 5</name>
+  </data>
+  <data num="3005" map="3036" BackColor="010000" ForeColor="140000">
+    <name>מחשבים 6</name>
+  </data>
+  <data num="3040" map="3037" BackColor="010000" ForeColor="140000">
+    <name>מחשבים 7</name>
+  </data>
+  <data num="3041" map="3038" BackColor="010000" ForeColor="140000">
+    <name>מחשבים 8</name>
+  </data>
+  <data num="3017" map="3039" BackColor="010000" ForeColor="140000">
+    <name>ספריה</name>
+  </data>
+  <data num="3042" map="3040" BackColor="010000" ForeColor="140000">
+    <name>תפירה 1</name>
+  </data>
+  <data num="3043" map="3041" BackColor="010000" ForeColor="140000">
+    <name>תפירה 2</name>
+  </data>
+  <data num="3044" map="3042" BackColor="010000" ForeColor="140000">
+    <name>תפירה 3</name>
+  </data>
+  <data num="3045" map="3043" BackColor="010000" ForeColor="140000">
+    <name>תפירה 4</name>
+  </data>
+</root>

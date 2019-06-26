@@ -1,0 +1,20 @@
+<form #loginForm="ngForm" (ngSubmit)="onLogin()">
+  <div class="imgcontainer">
+    <!--img src="" alt="Avatar" class="avatar"-->
+  </div>
+
+  <div class="container">
+
+    <label for="psw"><b>סיסמה</b></label>
+    <input type="password" #pass="ngModel" [(ngModel)]="password"  placeholder="הזיני קוד כניסה למערכת" name="psw" required>
+    <p  class="imgcontainer" *ngIf="!pass.valid && pass.touched">הסיסמה הכרחית</p>
+    <button type="submit"[disabled]="!loginForm.form.valid" >כניסה</button>
+    
+  </div>
+
+  <div class="container" style="background-color:#f1f1f1 ;display: flex ; justify-content: space-between;">   
+  <span class="psw">שכחת <a href="#">סיסמה?</a></span>
+
+    <a type="button" class="cancelbtn"href="">בטול</a>
+  </div>
+</form>

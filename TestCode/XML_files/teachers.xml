@@ -1,0 +1,1035 @@
+<?xml version="1.0" encoding="windows-1255" standalone="yes"?>
+<root school_id="540401" data_type="teachers" EG_time2="07-01-2019 12:29">
+  <data num="1197" map="1000" id="(CRP-641)dtעbB#a" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אדלר ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1231" map="1001" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אדלר ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1151" map="1002" id="(CRP-641)eד/חNfaש" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אדלר מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1100" map="1003" id="(CRP-641)y)~גNZז!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אדלר ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1073" map="1004" id="(CRP-641)dYOZBe;8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אדלשטיין ה</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1006" map="1005" id="(CRP-641)VY~AטZpL" BackColor="010000" ForeColor="140000" WantedDays="5">
+    <name>אולמן ד</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1180" map="1006" id="(CRP-641)MYHת{e;ש" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אולמן ה</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1098" map="1007" id="(CRP-641)yuטתc-;w" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>איזנשטיין ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1084" map="1008" id="(CRP-641)*YFחcXzש0" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>איזנשטיין ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1177" map="1009" id="(CRP-641)y)OוN-;F" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>איתן י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1099" map="1010" id="(CRP-641)yץבZ Zcr" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>איתן מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1159" map="1011" id="(CRP-641)yu~נ1X;F" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אלחרר ש"צ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1189" map="1012" id="(CRP-641)yJOג1Xkשx" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אלטוסקי.ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1138" map="1013" id="(CRP-641)Muטת_XCf" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אלפא ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1050" map="1014" id="(CRP-641)Kt~ת_vkn" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אלפר ג</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1178" map="1015" id="(CRP-641)VJאנ{צז8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אנגל פ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1160" map="1016" id="(CRP-641)d)Fם1X;r" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>אריאלי ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1000" map="1017" id="(CRP-641)M)רח@P;n" BackColor="030000" ForeColor="150000" WantedDays="6">
+    <name>בביוף..ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1157" map="1018" id="(CRP-641)eדHג&amp;צm" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>בוגץ ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1109" map="1019" id="(CRP-641)dmאWטXp8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>בוימרינד ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1179" map="1020" id="(CRP-641)yדבג #זL" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>בידרמן ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1114" map="1021" id="(CRP-641)Mmעם@qזf5" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>בלום ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1034" map="1022" id="(CRP-641)e7אג{eC" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>בן שלמה א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1033" map="1023" id="(CRP-641)dA~bcZCw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>בן- שלמה</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1024" map="1024" id="(CRP-641)eYאגcPpn" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>בק  ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1090" map="1025" id="(CRP-641)dYOb1PkF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ברגמן ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1240" map="1026" id="(CRP-641)MYטם&amp;eCL" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ברדנשטיין ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1119" map="1027" id="(CRP-641)d7בו_XcF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ברונפמן מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1124" map="1028" id="(CRP-641)M7FZc#(n" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ברטלר א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1115" map="1029" id="(CRP-641)yJרW1צawס" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ברטלר מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1125" map="1030" id="(CRP-641)yדרb1qzL" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ברטלר ש</name>
+    <details goremMeshalem="0" customReformaHours="0" remark="בכתה י 2  נא לשבץ בקצה" status_misra="0" />
+  </data>
+  <data num="1091" map="1031" id="(CRP-641)yץרם_ecw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ברלינגר י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1055" map="1032" id="(CRP-641)du~Z Zpw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ברמן א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1081" map="1033" id="(CRP-641)M)FZB#pש" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ברמן פ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1156" map="1034" id="(CRP-641)MmרZNPcFz" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ברנפלד ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1247" map="1035" id="(CRP-641)M)Hו@#pש" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ברנשטיין ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1062" map="1036" id="(CRP-641)dmFו{-זL" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גוטליב.ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1194" map="1037" id="(CRP-641)MtעZ@qaש" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גולדברג פ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1183" map="1038" id="(CRP-641)yuOוBvmw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גולדוסר.מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1023" map="1039" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גולדיש הרב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1170" map="1040" id="(CRP-641)y)~וNצzr" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גילרנטר ב"ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1149" map="1041" id="(CRP-641)Mדאג1qzL" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גינזבורג א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1039" map="1042" id="(CRP-641)yYבb&amp;X(F" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גינזבורג מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1195" map="1043" id="(CRP-641)Mדעם{-;!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גינסברגר א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1226" map="1044" id="(CRP-641)MJFתcfpw5" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גינסברגר ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1185" map="1045" id="(CRP-641)yuFםטXan" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גלעד ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1061" map="1046" id="(CRP-641)dm~חNXmr" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גנוט ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1132" map="1047" id="(CRP-641)yדבג -cr" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גרבוז ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1105" map="1048" id="(CRP-641)dדHחBXz}" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גרוב ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1049" map="1049" id="(CRP-641)M7עםNq;" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>גרינולד מרים</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1279" map="1050" id="(CRP-641)*ד/תBZar9" BackColor="000000" ForeColor="000000" WantedDays="0">
+    <name>גרמן ב</name>
+    <details customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1184" map="1051" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>דויטש ג</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1208" map="1052" id="(CRP-641)d7עג צzr" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>דויטש ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1080" map="1053" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>דיאמנט הרב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1068" map="1054" id="(CRP-641)dA/ו@צC}" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>דינקל ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1999" map="1055" id="(CRP-641)*7בו fcr0" BackColor="000000" ForeColor="000000" WantedDays="0">
+    <name>דינר רות</name>
+    <details customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1191" map="1056" id="(CRP-641)MY/וcPmF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>דסקל מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1027" map="1057" id="(CRP-641)MtFו1ZCw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>דרבקין ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1026" map="1058" id="(CRP-641)yץרנ@eaw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>דרבקין ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1095" map="1059" id="(CRP-641)Mץרג1X(L" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>דרורי ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1162" map="1060" id="(CRP-641)MYאח1-a!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>הורביץ ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1104" map="1061" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>הלפרן ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1233" map="1062" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>הלר ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1032" map="1063" id="(CRP-641)~Y~A fa" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>הרב וולף</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1130" map="1064" id="(CRP-641)yדרb Zc8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>הרב וולף ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1020" map="1065" id="(CRP-641)yuOZ qa8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>הרשלר א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1021" map="1066" id="(CRP-641)Ktבנ{Xkr" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>הרשלר ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1031" map="1067" id="(CRP-641)d)אA@ZCn" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>וולף ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1215" map="1068" id="(CRP-641)Kuאנ1vkf" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>וייס ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1083" map="1069" id="(CRP-641)yד~נ Z(8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>וינטר ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1082" map="1070" id="(CRP-641)dtאג&amp;v(F" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>וינטרויב י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1102" map="1071" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ויספיש א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1212" map="1072" id="(CRP-641)KtFA&amp;q(r" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ויספיש ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1103" map="1073" id="(CRP-641)yuHת@q;L" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ויספיש פ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1196" map="1074" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ולדודה צ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1145" map="1075" id="(CRP-641)MY/A{q;ש" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ולדמן ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1071" map="1076" id="(CRP-641)d7Hו&amp;fm}" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>זייציק ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1161" map="1077" id="(CRP-641)d7/ח_צ;" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>זיכרמן ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1070" map="1078" id="(CRP-641)yY/Z@צar" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>זילבר ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1018" map="1079" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>זינגר ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1202" map="1080" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>זיסמן מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1131" map="1081" id="(CRP-641)dt~םcqm!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>זכריש ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1205" map="1082" id="(CRP-641)ymOb1-aF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>זלושינסקי</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1140" map="1083" id="(CRP-641)y7בbcPaF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>זלזניק ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1137" map="1084" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>זנדמן ת</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1094" map="1085" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>זריצקי ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1066" map="1086" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ח שולזינגר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1154" map="1087" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>חיים ל</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1004" map="1088" id="(CRP-641)MJבA{fan" BackColor="010000" ForeColor="140000" WantedDays="4">
+    <name>טאוב ל</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1153" map="1089" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>טאובה ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1225" map="1090" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>טאראב מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1142" map="1091" id="(CRP-641)yuHם -mn" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>טופורוביץ ת</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1044" map="1092" id="(CRP-641)eדHA_-C!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>טננבוים ב"ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1075" map="1093" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>טננהויז א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1199" map="1094" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>יוגל ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1206" map="1095" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>יוספי מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1211" map="1096" id="(CRP-641)MAאג{Zzn" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>יחזקאל בש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1217" map="1097" id="(CRP-641)dmטנ1#pw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>יעבץ ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1063" map="1098" id="(CRP-641)yץבםB#pr" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>יעקבוביץ ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1069" map="1099" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>יעקבוביץ.א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1079" map="1100" id="(CRP-641)yץ~A&amp;ea8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>יעקבזון נ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1078" map="1101" id="(CRP-641)dדFb1XC}" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>יעקבזון ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1182" map="1102" id="(CRP-641)dA/ו&amp;PC8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>יערי.ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1146" map="1103" id="(CRP-641)MmאנcqaF=" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ישראל ב"ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1218" map="1104" id="(CRP-641)*uעםטXkw0" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ישראלזון ל</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1117" map="1105" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ישרמי י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1122" map="1106" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>כהן ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1120" map="1107" id="(CRP-641)yuבb1PCn" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>כהן ל</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1256" map="1108" BackColor="000000" ForeColor="000000" WantedDays="0">
+    <name>כהן פ </name>
+    <details customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1121" map="1109" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>כהן ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1123" map="1110" id="(CRP-641)y7Fת1Zzn" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>כהן רחל</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1213" map="1111" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>כהן ת</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1074" map="1112" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>כהן..רחל..2</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1201" map="1113" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>כץ נ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1214" map="1114" id="(CRP-641)M7HתNqmn0" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לאבנשטיין ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1096" map="1115" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לוי ד</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1234" map="1116" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לוי מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1152" map="1117" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לוי ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1112" map="1118" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לוין א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1251" map="1119" BackColor="000000" ForeColor="000000" WantedDays="0">
+    <name>לורוא ל</name>
+    <details customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1059" map="1120" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לוריא י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1186" map="1121" id="(CRP-641)yJFנBfa}x" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לוריא ל</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1058" map="1122" id="(CRP-641)dmFח_qc}" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לוריא מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1060" map="1123" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לוריא ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1209" map="1124" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לורנץ ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1040" map="1125" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ליבוביץ ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1249" map="1126" id="(CRP-641)yYעZ fa8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ליבוביץ מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1051" map="1127" id="(CRP-641)MJ~bcfa80" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ליברמן י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1047" map="1128" id="(CRP-641)dtHW&amp;vC" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לידר ל</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1046" map="1129" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לידר נ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1171" map="1130" id="(CRP-641)Mץ/W_vזL" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ליזנובסקי ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1200" map="1131" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ליטקה ה</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1193" map="1132" id="(CRP-641)dmHWB#(r" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לנדא ל</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1168" map="1133" id="(CRP-641)dYOחNצ(f" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לנציצקי א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1155" map="1134" id="(CRP-641)emאWBqzF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לרנר ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1037" map="1135" id="(CRP-641)*Yאנ@#;8x" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>לרר פ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1175" map="1136" id="(CRP-641)MAעA@vmw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מאגר א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1092" map="1137" id="(CRP-641)y7~ו צזF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מאיר ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1141" map="1138" id="(CRP-641)dץObNXc" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מאירוביץ ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1203" map="1139" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מובשוביץ ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1147" map="1140" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מונדרי צ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1227" map="1141" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מונק מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1077" map="1142" id="(CRP-641)VJFZ_eז8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מילר א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1236" map="1143" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מילר י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1219" map="1144" id="(CRP-641)d)HA{Xp8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מינצר ת</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1242" map="1145" id="(CRP-641)KJאת_PCF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מליק ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1057" map="1146" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מלכא ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1221" map="1147" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מן ה</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1222" map="1148" id="(CRP-641)dJרנ&amp;fז}" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>מרמרוש ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1150" map="1149" id="(CRP-641)duאb1qzw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>נבנצאל ג</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1220" map="1150" id="(CRP-641)Mץ~ח{P(F" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>נובק ת</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1048" map="1151" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>נוימן ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1025" map="1152" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>סאלם א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1017" map="1153" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>סבו ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1015" map="1154" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>סגל א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1016" map="1155" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>סגל ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1045" map="1156" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>סגל ת</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1134" map="1157" id="(CRP-641)*ד~ח_-knW" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>סופר ב</name>
+    <details phone1="035783367" phone2="036189601" goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1243" map="1158" id="(CRP-641)MץOתNצmw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>סימפולינסקי ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1106" map="1159" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>סלובס מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1239" map="1160" id="(CRP-641)MmטWטfCF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ספרא א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1148" map="1161" id="(CRP-641)Mt~נ{f;!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ספרא צ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1093" map="1162" id="(CRP-641)Mדבח1Zaש9" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>עמרם ד</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1110" map="1163" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>עמרם ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1163" map="1164" id="(CRP-641)MYבוNfCf" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פוברסקי ד</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1190" map="1165" id="(CRP-641)dYOA&amp;e;L" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פוריס ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1198" map="1166" id="(CRP-641)MmאbcצpשW" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פיינשטיין נ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1237" map="1167" id="(CRP-641)yץטו&amp;#mF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פיינשטיין ע</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1245" map="1168" id="(CRP-641)Mm~Z{XkL" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פינקלשטיין נ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1228" map="1169" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פיפרמן מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1108" map="1170" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פישהוף א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1107" map="1171" id="(CRP-641)duאZטqזL" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פישהוף ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1133" map="1172" id="(CRP-641)yץ/WcZזn" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פישר ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1223" map="1173" id="(CRP-641)yץ~ג vזF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פליישמן ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1244" map="1174" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פלר פ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1111" map="1175" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פסטבסקי ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1252" map="1176" id="(CRP-641)yJאANצCשפ" BackColor="000000" ForeColor="000000" WantedDays="0">
+    <name>פקירו ט</name>
+    <details customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1056" map="1177" id="(CRP-641)duOZט-pr" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פרוינד ד</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1207" map="1178" id="(CRP-641)Mד/תטvpr" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פרוכטר ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1187" map="1179" id="(CRP-641)du/םטצz!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פרידלנדר ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1126" map="1180" id="(CRP-641)yץ~םטPkש" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פרידמן ד</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1128" map="1181" id="(CRP-641)MtHA{Ppw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פרידמן מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1127" map="1182" id="(CRP-641)*u/ZBצ(8W" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פרידמן שפ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1204" map="1183" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פרץ א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1238" map="1184" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>פרקש ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1030" map="1185" id="(CRP-641)dA~A@vCF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>צביון ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1013" map="1186" id="(CRP-641)dmרם1v(f" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>צוקר ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1139" map="1187" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>צייטלין מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1067" map="1188" id="(CRP-641)Mץרם{epf" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>צימרמן נ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1229" map="1189" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>צלר ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1166" map="1190" id="(CRP-641)*YרZ@-;nz" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קויפמן ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1076" map="1191" id="(CRP-641)dAHח{fC8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קויפמן ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1143" map="1192" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קופשיץ.מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1011" map="1193" id="(CRP-641)MYרחטfc}" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קורלנסקי ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1012" map="1194" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קורלנסקי ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1022" map="1195" id="(CRP-641)dAOג{qzn" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קורנפלד ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1176" map="1196" id="(CRP-641)yuעW{ez!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קימל י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1116" map="1197" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קינסטלכער ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1038" map="1198" id="(CRP-641)MAHת@qaF" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קיסנר ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1241" map="1199" id="(CRP-641)dץOb Zpש" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קלויזנר ז</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1254" map="1200" id="(CRP-641)yAHW@q(ש" BackColor="000000" ForeColor="000000" WantedDays="0">
+    <name>קלויזנר ר</name>
+    <details customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1054" map="1201" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קלופט ל</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1003" map="1202" id="(CRP-641)*דטWט#CL+" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קלופר י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1230" map="1203" id="(CRP-641)*דFZ_vk}9" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קליין א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1118" map="1204" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קליין מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1097" map="1205" id="(CRP-641)d)רת@צz!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קליינמן ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1009" map="1206" id="(CRP-641)yדאZcZז!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קלרמן ה</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1010" map="1207" id="(CRP-641)MץרW_-(F" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קלרמן נ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1216" map="1208" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קנובל א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1246" map="1209" id="(CRP-641)MmטbNemFס" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קנופלר י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1248" map="1210" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קצבורג צ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1035" map="1211" id="(CRP-641)yJאb@f(w5" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קראוס י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1113" map="1212" id="(CRP-641)MmOA@צזf0" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קראוס נ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1165" map="1213" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קראוס ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1052" map="1214" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קרלשטיין מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1101" map="1215" id="(CRP-641)dד/W&amp;XC8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>קרפט ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1065" map="1216" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ר שולזינגר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1087" map="1217" id="(CRP-641)yJ~חBqpF=" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ראובן</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1053" map="1218" id="(CRP-641)y7~W #Cf" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ראם ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1043" map="1219" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ראקוב י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1169" map="1220" id="(CRP-641)dAבת@qaL" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רבינוביץ ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1172" map="1221" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רבנים</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1210" map="1222" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רבנים ו</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1235" map="1223" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רהאן</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1088" map="1224" id="(CRP-641)dtענ{vaf" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רובין ת</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1167" map="1225" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רוזן ה</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1164" map="1226" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רוזנברג ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1029" map="1227" id="(CRP-641)yץ/ם1qkש" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רוט א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1028" map="1228" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רוט ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1036" map="1229" id="(CRP-641)yAHb_fm!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רוטר ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1144" map="1230" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רוכלין ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1135" map="1231" id="(CRP-641)MJFו{P(w=" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>רייכנברג ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1181" map="1232" id="(CRP-641)d7עA{Xזw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>ריינר א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1005" map="1233" id="(CRP-641)yuFת_Z(r" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שוב ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1232" map="1234" id="(CRP-641)Kץ~גט-(r" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שוגול י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1002" map="1235" id="(CRP-641)dA~ו{Z;n" BackColor="010000" ForeColor="140000" WantedDays="4">
+    <name>שוורץ ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1173" map="1236" id="(CRP-641)*mטbB-(!0" BackColor="000000" ForeColor="000000" WantedDays="0">
+    <name>שוורצברג</name>
+    <details customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1041" map="1237" id="(CRP-641)y7/b{vmw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שוורצמן מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1014" map="1238" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שולזינגר ג</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1174" map="1239" id="(CRP-641)MY~ם1XזL" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שולזינגר ח</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1064" map="1240" id="(CRP-641)yYעZ@Pc!" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שולזינגר ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1192" map="1241" id="(CRP-641)y)רA{ZC8" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שטיינהרטר..ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1224" map="1242" id="(CRP-641)du/ו@-zn" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שטמר ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1188" map="1243" id="(CRP-641)dYOAcP;}" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שטראוס ע</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1001" map="1244" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שטרנגר מ</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1086" map="1245" id="(CRP-641)yYאתc-ז}" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שיף א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1089" map="1246" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שיף ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1257" map="1247" BackColor="000000" ForeColor="000000" WantedDays="0">
+    <name>שיף ג</name>
+    <details customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1085" map="1248" id="(CRP-641)MYOחNZ;L" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שיף מא</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1136" map="1249" id="(CRP-641)yAObcf(L" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שניידר י</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1072" map="1250" id="(CRP-641)duעb&amp;Xzn" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שנק ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1278" map="1251" id="(CRP-641)*Yאם{f(rx" BackColor="000000" ForeColor="000000" WantedDays="0">
+    <name>שפיץ</name>
+    <details customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1019" map="1252" id="(CRP-641)y)Oם Zzr" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שפירא ש</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1042" map="1253" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שפרנצלס ט</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1129" map="1254" id="(CRP-641)yA/ו_Xזש" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שרייבר א</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1007" map="1255" id="(CRP-641)dץFנ1vkw" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שרייבר ב</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1008" map="1256" id="(CRP-641)yAטתcfkL" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שרייבר ר</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+  <data num="1158" map="1257" id="(CRP-641)MY/נ PC}" BackColor="010000" ForeColor="140000" WantedDays="6">
+    <name>שרייבר ר"ל</name>
+    <details goremMeshalem="0" customReformaHours="0" status_misra="0" />
+  </data>
+</root>

@@ -1,0 +1,1195 @@
+<?xml version="1.0" encoding="windows-1255" standalone="yes"?>
+<root school_id="540401" data_type="blocks" EG_time2="07-01-2019 12:29">
+  <general>
+    <daily day="7" type="1" />
+    <hourly hour="0" type="1" />
+    <hourly hour="9" type="1" />
+    <hourly hour="10" type="1" />
+    <hourly hour="11" type="1" />
+    <hourly hour="12" type="1" />
+    <hourly hour="13" type="1" />
+    <hourly hour="14" type="1" />
+    <hourly hour="15" type="1" />
+    <lesson day="6" hour="5" type="1" />
+    <lesson day="6" hour="6" type="1" />
+    <lesson day="6" hour="7" type="1" />
+    <lesson day="6" hour="8" type="1" />
+  </general>
+  <classes num="0">
+    <lesson day="3" hour="7" type="1" />
+  </classes>
+  <classes num="2">
+    <lesson day="3" hour="7" type="1" />
+  </classes>
+  <classes num="3">
+    <lesson day="1" hour="7" type="1" />
+  </classes>
+  <classes num="5">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+  </classes>
+  <classes num="6">
+    <lesson day="5" hour="7" type="1" />
+  </classes>
+  <classes num="7">
+    <lesson day="3" hour="7" type="1" />
+  </classes>
+  <classes num="9">
+    <lesson day="1" hour="7" type="1" />
+  </classes>
+  <classes num="10">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+  </classes>
+  <classes num="11">
+    <lesson day="5" hour="8" type="1" />
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+  </classes>
+  <classes num="12">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+  </classes>
+  <classes num="19">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+  </classes>
+  <classes num="13">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+  </classes>
+  <classes num="15">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+  </classes>
+  <classes num="14">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+  </classes>
+  <classes num="16">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+  </classes>
+  <classes num="17">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+  </classes>
+  <classes num="18">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+  </classes>
+  <classes num="20">
+    <lesson day="1" hour="7" type="1" />
+    <lesson day="1" hour="8" type="1" />
+  </classes>
+  <classes num="21">
+    <lesson day="1" hour="7" type="1" />
+    <lesson day="1" hour="8" type="1" />
+  </classes>
+  <classes num="22">
+    <lesson day="1" hour="7" type="1" />
+    <lesson day="1" hour="8" type="1" />
+  </classes>
+  <classes num="29">
+    <lesson day="4" hour="7" type="1" />
+    <lesson day="4" hour="8" type="1" />
+  </classes>
+  <classes num="23">
+    <lesson day="4" hour="7" type="1" />
+    <lesson day="4" hour="8" type="1" />
+  </classes>
+  <classes num="24">
+    <lesson day="4" hour="7" type="1" />
+    <lesson day="4" hour="8" type="1" />
+  </classes>
+  <classes num="25">
+    <lesson day="1" hour="7" type="1" />
+    <lesson day="1" hour="8" type="1" />
+  </classes>
+  <classes num="26">
+    <lesson day="4" hour="7" type="1" />
+    <lesson day="4" hour="8" type="1" />
+  </classes>
+  <classes num="27">
+    <lesson day="1" hour="7" type="1" />
+    <lesson day="1" hour="8" type="1" />
+  </classes>
+  <classes num="28">
+    <lesson day="4" hour="7" type="1" />
+    <lesson day="4" hour="8" type="1" />
+  </classes>
+  <classes num="30">
+    <lesson day="6" hour="1" type="1" />
+    <lesson day="6" hour="2" type="1" />
+    <lesson day="6" hour="3" type="1" />
+    <lesson day="6" hour="4" type="1" />
+    <lesson day="6" hour="5" type="1" />
+    <lesson day="6" hour="6" type="1" />
+    <lesson day="6" hour="7" type="1" />
+    <lesson day="6" hour="8" type="1" />
+    <lesson day="6" hour="9" type="1" />
+    <lesson day="6" hour="10" type="1" />
+    <lesson day="6" hour="11" type="1" />
+    <lesson day="6" hour="12" type="1" />
+    <lesson day="6" hour="13" type="1" />
+    <lesson day="6" hour="14" type="1" />
+    <lesson day="6" hour="15" type="1" />
+    <lesson day="2" hour="7" type="1" />
+    <lesson day="2" hour="8" type="1" />
+  </classes>
+  <classes num="31">
+    <lesson day="2" hour="7" type="1" />
+    <lesson day="2" hour="8" type="1" />
+  </classes>
+  <classes num="32">
+    <lesson day="2" hour="8" type="1" />
+  </classes>
+  <classes num="33">
+    <lesson day="6" hour="0" type="1" />
+    <lesson day="6" hour="3" type="1" />
+    <lesson day="6" hour="4" type="1" />
+    <lesson day="6" hour="5" type="1" />
+    <lesson day="6" hour="6" type="1" />
+    <lesson day="6" hour="7" type="1" />
+    <lesson day="6" hour="8" type="1" />
+    <lesson day="6" hour="9" type="1" />
+    <lesson day="6" hour="10" type="1" />
+    <lesson day="6" hour="11" type="1" />
+    <lesson day="6" hour="12" type="1" />
+    <lesson day="6" hour="13" type="1" />
+    <lesson day="6" hour="14" type="1" />
+    <lesson day="6" hour="15" type="1" />
+    <lesson day="2" hour="8" type="1" />
+  </classes>
+  <classes num="34">
+    <lesson day="6" hour="2" type="1" />
+    <lesson day="6" hour="3" type="1" />
+    <lesson day="6" hour="4" type="1" />
+    <lesson day="6" hour="5" type="1" />
+    <lesson day="6" hour="6" type="1" />
+    <lesson day="6" hour="7" type="1" />
+    <lesson day="6" hour="8" type="1" />
+    <lesson day="6" hour="9" type="1" />
+    <lesson day="6" hour="10" type="1" />
+    <lesson day="6" hour="11" type="1" />
+    <lesson day="6" hour="12" type="1" />
+    <lesson day="6" hour="13" type="1" />
+    <lesson day="6" hour="14" type="1" />
+    <lesson day="6" hour="15" type="1" />
+    <lesson day="2" hour="7" type="1" />
+    <lesson day="2" hour="8" type="1" />
+  </classes>
+  <classes num="35">
+    <lesson day="2" hour="8" type="1" />
+  </classes>
+  <classes num="36">
+    <lesson day="2" hour="7" type="1" />
+    <lesson day="2" hour="8" type="1" />
+  </classes>
+  <classes num="37">
+    <lesson day="6" hour="0" type="1" />
+    <lesson day="6" hour="3" type="1" />
+    <lesson day="6" hour="4" type="1" />
+    <lesson day="6" hour="5" type="1" />
+    <lesson day="6" hour="6" type="1" />
+    <lesson day="6" hour="7" type="1" />
+    <lesson day="6" hour="8" type="1" />
+    <lesson day="6" hour="9" type="1" />
+    <lesson day="6" hour="10" type="1" />
+    <lesson day="6" hour="11" type="1" />
+    <lesson day="6" hour="12" type="1" />
+    <lesson day="6" hour="13" type="1" />
+    <lesson day="6" hour="14" type="1" />
+    <lesson day="6" hour="15" type="1" />
+    <lesson day="2" hour="7" type="1" />
+    <lesson day="2" hour="8" type="1" />
+  </classes>
+  <classes num="38">
+    <lesson day="6" hour="0" type="1" />
+    <lesson day="6" hour="2" type="1" />
+    <lesson day="6" hour="3" type="1" />
+    <lesson day="6" hour="4" type="1" />
+    <lesson day="6" hour="5" type="1" />
+    <lesson day="6" hour="6" type="1" />
+    <lesson day="6" hour="7" type="1" />
+    <lesson day="6" hour="8" type="1" />
+    <lesson day="6" hour="9" type="1" />
+    <lesson day="6" hour="10" type="1" />
+    <lesson day="6" hour="11" type="1" />
+    <lesson day="6" hour="12" type="1" />
+    <lesson day="6" hour="13" type="1" />
+    <lesson day="6" hour="14" type="1" />
+    <lesson day="6" hour="15" type="1" />
+    <lesson day="2" hour="8" type="1" />
+  </classes>
+  <classes num="39">
+    <lesson day="6" hour="0" type="1" />
+    <lesson day="6" hour="2" type="1" />
+    <lesson day="6" hour="3" type="1" />
+    <lesson day="6" hour="4" type="1" />
+    <lesson day="6" hour="5" type="1" />
+    <lesson day="6" hour="6" type="1" />
+    <lesson day="6" hour="7" type="1" />
+    <lesson day="6" hour="8" type="1" />
+    <lesson day="6" hour="9" type="1" />
+    <lesson day="6" hour="10" type="1" />
+    <lesson day="6" hour="11" type="1" />
+    <lesson day="6" hour="12" type="1" />
+    <lesson day="6" hour="13" type="1" />
+    <lesson day="6" hour="14" type="1" />
+    <lesson day="6" hour="15" type="1" />
+    <lesson day="2" hour="8" type="1" />
+  </classes>
+  <classes num="40">
+    <daily day="6" type="1" />
+    <lesson day="3" hour="7" type="1" />
+  </classes>
+  <classes num="41">
+    <daily day="6" type="1" />
+  </classes>
+  <classes num="42">
+    <daily day="6" type="1" />
+  </classes>
+  <classes num="43">
+    <daily day="6" type="1" />
+  </classes>
+  <classes num="44">
+    <daily day="6" type="1" />
+  </classes>
+  <classes num="45">
+    <lesson day="6" hour="0" type="1" />
+    <lesson day="6" hour="2" type="1" />
+    <lesson day="6" hour="3" type="1" />
+    <lesson day="6" hour="4" type="1" />
+    <lesson day="6" hour="5" type="1" />
+    <lesson day="6" hour="6" type="1" />
+    <lesson day="6" hour="7" type="1" />
+    <lesson day="6" hour="8" type="1" />
+    <lesson day="6" hour="9" type="1" />
+    <lesson day="6" hour="10" type="1" />
+    <lesson day="6" hour="11" type="1" />
+    <lesson day="6" hour="12" type="1" />
+    <lesson day="6" hour="13" type="1" />
+    <lesson day="6" hour="14" type="1" />
+    <lesson day="6" hour="15" type="1" />
+  </classes>
+  <classes num="46">
+    <lesson day="6" hour="2" type="1" />
+    <lesson day="6" hour="3" type="1" />
+    <lesson day="6" hour="4" type="1" />
+    <lesson day="6" hour="5" type="1" />
+    <lesson day="6" hour="6" type="1" />
+    <lesson day="6" hour="7" type="1" />
+    <lesson day="6" hour="8" type="1" />
+    <lesson day="6" hour="9" type="1" />
+    <lesson day="6" hour="10" type="1" />
+    <lesson day="6" hour="11" type="1" />
+    <lesson day="6" hour="12" type="1" />
+    <lesson day="6" hour="13" type="1" />
+    <lesson day="6" hour="14" type="1" />
+    <lesson day="6" hour="15" type="1" />
+  </classes>
+  <classes num="47">
+    <daily day="6" type="1" />
+  </classes>
+  <classes num="48">
+    <daily day="6" type="1" />
+  </classes>
+  <classes num="49">
+    <daily day="6" type="1" />
+  </classes>
+  <classes num="50">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+  </classes>
+  <classes num="51">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+  </classes>
+  <classes num="52">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+  </classes>
+  <classes num="53">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+  </classes>
+  <classes num="54">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+  </classes>
+  <classes num="55">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+  </classes>
+  <classes num="56">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+  </classes>
+  <classes num="57">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+  </classes>
+  <classes num="58">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+  </classes>
+  <classes num="59">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+  </classes>
+  <teachers num="1197">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1151">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+    <lesson day="5" hour="3" type="1" />
+    <lesson day="5" hour="4" type="1" />
+    <lesson day="5" hour="5" type="1" />
+    <lesson day="2" hour="6" type="1" />
+  </teachers>
+  <teachers num="1073">
+    <daily day="6" type="1" />
+    <daily day="4" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1006">
+    <lesson day="1" hour="0" type="1" />
+    <lesson day="1" hour="1" type="1" />
+    <lesson day="1" hour="2" type="1" />
+    <lesson day="1" hour="7" type="1" />
+    <lesson day="1" hour="8" type="1" />
+    <lesson day="1" hour="9" type="1" />
+    <lesson day="1" hour="10" type="1" />
+    <lesson day="1" hour="11" type="1" />
+    <lesson day="1" hour="12" type="1" />
+    <lesson day="1" hour="13" type="1" />
+    <lesson day="1" hour="14" type="1" />
+    <lesson day="1" hour="15" type="1" />
+  </teachers>
+  <teachers num="1180">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+    <lesson day="1" hour="8" type="1" />
+  </teachers>
+  <teachers num="1098">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1084">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+    <daily day="4" type="1" />
+    <daily day="3" type="1" />
+    <lesson day="1" hour="7" type="1" />
+  </teachers>
+  <teachers num="1177">
+    <daily day="6" type="1" />
+    <daily day="4" type="1" />
+  </teachers>
+  <teachers num="1099">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1159">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1189">
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1160">
+    <daily day="5" type="1" />
+    <daily day="4" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1157">
+    <daily day="3" type="1" />
+    <lesson day="5" hour="4" type="1" />
+    <lesson day="5" hour="5" type="1" />
+    <lesson day="5" hour="6" type="1" />
+    <lesson day="5" hour="7" type="1" />
+    <lesson day="5" hour="8" type="1" />
+  </teachers>
+  <teachers num="1179">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1034">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1024">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1119">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+    <lesson day="2" hour="1" type="1" />
+    <lesson day="2" hour="2" type="1" />
+  </teachers>
+  <teachers num="1124">
+    <daily day="6" type="1" />
+    <daily day="4" type="1" />
+  </teachers>
+  <teachers num="1125">
+    <daily day="6" type="1" />
+  </teachers>
+  <teachers num="1055">
+    <lesson day="2" hour="1" type="1" />
+  </teachers>
+  <teachers num="1081">
+    <daily day="6" type="1" />
+    <daily day="4" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1156">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+    <lesson day="5" hour="6" type="1" />
+    <lesson day="5" hour="7" type="1" />
+  </teachers>
+  <teachers num="1062">
+    <daily day="4" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1194">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1183">
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1170">
+    <daily day="4" type="1" />
+  </teachers>
+  <teachers num="1149">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1195">
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1226">
+    <daily day="4" type="1" />
+  </teachers>
+  <teachers num="1185">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1132">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1105">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1208">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1068">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1191">
+    <daily day="5" type="1" />
+    <lesson day="2" hour="1" type="1" />
+    <lesson day="2" hour="2" type="1" />
+  </teachers>
+  <teachers num="1027">
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1026">
+    <daily day="6" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1095">
+    <daily day="5" type="1" />
+    <daily day="4" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1162">
+    <daily day="3" type="1" />
+    <daily day="2" type="1" />
+    <lesson day="4" hour="6" type="1" />
+    <lesson day="4" hour="7" type="1" />
+    <lesson day="4" hour="8" type="1" />
+    <lesson day="1" hour="7" type="1" />
+    <lesson day="1" hour="8" type="1" />
+  </teachers>
+  <teachers num="1032">
+    <hourly hour="7" type="1" />
+    <lesson day="5" hour="5" type="1" />
+    <lesson day="4" hour="5" type="1" />
+    <lesson day="3" hour="5" type="1" />
+    <lesson day="3" hour="8" type="1" />
+    <lesson day="3" hour="9" type="1" />
+    <lesson day="3" hour="10" type="1" />
+    <lesson day="3" hour="11" type="1" />
+    <lesson day="3" hour="12" type="1" />
+    <lesson day="3" hour="13" type="1" />
+    <lesson day="3" hour="14" type="1" />
+    <lesson day="3" hour="15" type="1" />
+    <lesson day="2" hour="5" type="1" />
+    <lesson day="1" hour="5" type="1" />
+  </teachers>
+  <teachers num="1130">
+    <daily day="6" type="1" />
+  </teachers>
+  <teachers num="1020">
+    <daily day="3" type="1" />
+    <daily day="2" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1021">
+    <daily day="6" type="1" />
+    <lesson day="5" hour="1" type="1" />
+    <lesson day="5" hour="2" type="1" />
+    <lesson day="3" hour="1" type="1" />
+    <lesson day="1" hour="1" type="1" />
+  </teachers>
+  <teachers num="1031">
+    <daily day="3" type="1" />
+    <lesson day="1" hour="1" type="1" />
+    <lesson day="1" hour="2" type="1" />
+    <lesson day="1" hour="3" type="1" />
+  </teachers>
+  <teachers num="1215">
+    <daily day="6" type="1" />
+    <daily day="4" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1083">
+    <daily day="6" type="1" />
+  </teachers>
+  <teachers num="1082">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1212">
+    <daily day="5" type="1" />
+    <daily day="4" type="1" />
+    <daily day="3" type="1" />
+    <lesson day="1" hour="7" type="1" />
+    <lesson day="1" hour="8" type="1" />
+  </teachers>
+  <teachers num="1103">
+    <daily day="4" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1145">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1071">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1161">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+    <lesson day="6" hour="3" type="1" />
+    <lesson day="6" hour="4" type="1" />
+  </teachers>
+  <teachers num="1070">
+    <daily day="4" type="1" />
+    <daily day="2" type="1" />
+    <lesson day="5" hour="7" type="1" />
+  </teachers>
+  <teachers num="1131">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1140">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1004">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+    <lesson day="4" hour="4" type="1" />
+    <lesson day="4" hour="5" type="1" />
+    <lesson day="4" hour="6" type="1" />
+    <lesson day="2" hour="0" type="1" />
+    <lesson day="2" hour="2" type="1" />
+    <lesson day="2" hour="3" type="1" />
+    <lesson day="2" hour="4" type="1" />
+    <lesson day="2" hour="5" type="1" />
+    <lesson day="2" hour="6" type="1" />
+    <lesson day="2" hour="7" type="1" />
+    <lesson day="2" hour="8" type="1" />
+    <lesson day="2" hour="9" type="1" />
+    <lesson day="2" hour="10" type="1" />
+    <lesson day="2" hour="11" type="1" />
+    <lesson day="2" hour="12" type="1" />
+    <lesson day="2" hour="13" type="1" />
+    <lesson day="2" hour="14" type="1" />
+    <lesson day="2" hour="15" type="1" />
+  </teachers>
+  <teachers num="1153">
+    <daily day="4" type="1" />
+    <daily day="1" type="1" />
+    <lesson day="7" hour="2" type="1" />
+    <lesson day="6" hour="2" type="1" />
+  </teachers>
+  <teachers num="1142">
+    <daily day="5" type="1" />
+  </teachers>
+  <teachers num="1044">
+    <daily day="6" type="1" />
+  </teachers>
+  <teachers num="1211">
+    <daily day="5" type="1" />
+  </teachers>
+  <teachers num="1217">
+    <daily day="4" type="1" />
+    <daily day="1" type="1" />
+    <lesson day="2" hour="5" type="1" />
+    <lesson day="2" hour="6" type="1" />
+    <lesson day="2" hour="7" type="1" />
+    <lesson day="2" hour="8" type="1" />
+  </teachers>
+  <teachers num="1063">
+    <daily day="4" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1079">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1078">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1146">
+    <daily day="3" type="1" />
+    <lesson day="5" hour="0" type="1" />
+    <lesson day="5" hour="3" type="1" />
+    <lesson day="5" hour="4" type="1" />
+    <lesson day="5" hour="5" type="1" />
+    <lesson day="5" hour="6" type="1" />
+    <lesson day="5" hour="7" type="1" />
+    <lesson day="5" hour="8" type="1" />
+    <lesson day="5" hour="9" type="1" />
+    <lesson day="5" hour="10" type="1" />
+    <lesson day="5" hour="11" type="1" />
+    <lesson day="5" hour="12" type="1" />
+    <lesson day="5" hour="13" type="1" />
+    <lesson day="5" hour="14" type="1" />
+    <lesson day="5" hour="15" type="1" />
+  </teachers>
+  <teachers num="1218">
+    <daily day="3" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1120">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1256">
+    <daily day="5" type="1" />
+    <lesson day="4" hour="0" type="1" />
+    <lesson day="4" hour="1" type="1" />
+    <lesson day="4" hour="2" type="1" />
+    <lesson day="4" hour="3" type="1" />
+    <lesson day="4" hour="4" type="1" />
+    <lesson day="4" hour="5" type="1" />
+    <lesson day="4" hour="9" type="1" />
+    <lesson day="4" hour="10" type="1" />
+    <lesson day="4" hour="11" type="1" />
+    <lesson day="4" hour="12" type="1" />
+    <lesson day="4" hour="13" type="1" />
+    <lesson day="4" hour="14" type="1" />
+    <lesson day="4" hour="15" type="1" />
+    <lesson day="3" hour="1" type="1" />
+    <lesson day="3" hour="2" type="1" />
+    <lesson day="3" hour="3" type="1" />
+    <lesson day="2" hour="4" type="1" />
+    <lesson day="2" hour="5" type="1" />
+    <lesson day="2" hour="6" type="1" />
+    <lesson day="2" hour="7" type="1" />
+    <lesson day="1" hour="1" type="1" />
+    <lesson day="1" hour="2" type="1" />
+    <lesson day="1" hour="3" type="1" />
+    <lesson day="1" hour="4" type="1" />
+  </teachers>
+  <teachers num="1121">
+    <daily day="3" type="1" />
+    <daily day="1" type="1" />
+    <lesson day="5" hour="0" type="1" />
+    <lesson day="5" hour="1" type="1" />
+    <lesson day="5" hour="2" type="1" />
+    <lesson day="5" hour="3" type="1" />
+    <lesson day="5" hour="4" type="1" />
+    <lesson day="5" hour="5" type="1" />
+    <lesson day="5" hour="6" type="1" />
+    <lesson day="5" hour="7" type="1" />
+    <lesson day="5" hour="9" type="1" />
+    <lesson day="5" hour="10" type="1" />
+    <lesson day="5" hour="11" type="1" />
+    <lesson day="5" hour="12" type="1" />
+    <lesson day="5" hour="13" type="1" />
+    <lesson day="5" hour="14" type="1" />
+    <lesson day="5" hour="15" type="1" />
+  </teachers>
+  <teachers num="1186">
+    <hourly hour="6" type="1" />
+    <lesson day="5" hour="3" type="1" />
+    <lesson day="5" hour="4" type="1" />
+    <lesson day="5" hour="7" type="1" />
+    <lesson day="5" hour="8" type="1" />
+    <lesson day="5" hour="9" type="1" />
+    <lesson day="5" hour="10" type="1" />
+    <lesson day="5" hour="11" type="1" />
+    <lesson day="5" hour="12" type="1" />
+    <lesson day="5" hour="13" type="1" />
+    <lesson day="5" hour="14" type="1" />
+    <lesson day="5" hour="15" type="1" />
+    <lesson day="4" hour="0" type="1" />
+    <lesson day="4" hour="1" type="1" />
+    <lesson day="4" hour="2" type="1" />
+    <lesson day="4" hour="3" type="1" />
+    <lesson day="4" hour="4" type="1" />
+    <lesson day="4" hour="7" type="1" />
+    <lesson day="4" hour="8" type="1" />
+    <lesson day="4" hour="9" type="1" />
+    <lesson day="4" hour="10" type="1" />
+    <lesson day="4" hour="11" type="1" />
+    <lesson day="4" hour="12" type="1" />
+    <lesson day="4" hour="13" type="1" />
+    <lesson day="4" hour="14" type="1" />
+    <lesson day="4" hour="15" type="1" />
+    <lesson day="2" hour="0" type="1" />
+    <lesson day="2" hour="1" type="1" />
+    <lesson day="2" hour="2" type="1" />
+    <lesson day="2" hour="3" type="1" />
+    <lesson day="2" hour="4" type="1" />
+    <lesson day="2" hour="7" type="1" />
+    <lesson day="2" hour="8" type="1" />
+    <lesson day="2" hour="9" type="1" />
+    <lesson day="2" hour="10" type="1" />
+    <lesson day="2" hour="11" type="1" />
+    <lesson day="2" hour="12" type="1" />
+    <lesson day="2" hour="13" type="1" />
+    <lesson day="2" hour="14" type="1" />
+    <lesson day="2" hour="15" type="1" />
+  </teachers>
+  <teachers num="1058">
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1051">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1047">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1168">
+    <daily day="5" type="1" />
+    <daily day="4" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1155">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1037">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1175">
+    <daily day="4" type="1" />
+    <daily day="2" type="1" />
+    <lesson day="1" hour="6" type="1" />
+    <lesson day="1" hour="7" type="1" />
+  </teachers>
+  <teachers num="1141">
+    <daily day="6" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1219">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+    <lesson day="1" hour="1" type="1" />
+    <lesson day="1" hour="2" type="1" />
+  </teachers>
+  <teachers num="1242">
+    <daily day="6" type="1" />
+    <daily day="2" type="1" />
+    <lesson day="5" hour="1" type="1" />
+    <lesson day="5" hour="2" type="1" />
+    <lesson day="3" hour="0" type="1" />
+    <lesson day="3" hour="3" type="1" />
+    <lesson day="3" hour="4" type="1" />
+    <lesson day="3" hour="5" type="1" />
+    <lesson day="3" hour="6" type="1" />
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+    <lesson day="3" hour="9" type="1" />
+    <lesson day="3" hour="10" type="1" />
+    <lesson day="3" hour="11" type="1" />
+    <lesson day="3" hour="12" type="1" />
+    <lesson day="3" hour="13" type="1" />
+    <lesson day="3" hour="14" type="1" />
+    <lesson day="3" hour="15" type="1" />
+    <lesson day="1" hour="2" type="1" />
+    <lesson day="1" hour="6" type="1" />
+    <lesson day="1" hour="7" type="1" />
+  </teachers>
+  <teachers num="1150">
+    <daily day="6" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1220">
+    <daily day="5" type="1" />
+  </teachers>
+  <teachers num="1134">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+    <lesson day="7" hour="7" type="1" />
+    <lesson day="6" hour="7" type="1" />
+  </teachers>
+  <teachers num="1243">
+    <daily day="5" type="1" />
+    <lesson day="4" hour="6" type="1" />
+    <lesson day="4" hour="7" type="1" />
+    <lesson day="3" hour="3" type="1" />
+    <lesson day="3" hour="5" type="1" />
+    <lesson day="2" hour="1" type="1" />
+    <lesson day="2" hour="2" type="1" />
+    <lesson day="2" hour="3" type="1" />
+    <lesson day="1" hour="1" type="1" />
+    <lesson day="1" hour="2" type="1" />
+  </teachers>
+  <teachers num="1239">
+    <lesson day="6" hour="0" type="1" />
+    <lesson day="6" hour="1" type="1" />
+    <lesson day="6" hour="2" type="1" />
+    <lesson day="6" hour="3" type="1" />
+    <lesson day="6" hour="4" type="1" />
+    <lesson day="6" hour="5" type="1" />
+    <lesson day="6" hour="6" type="1" />
+    <lesson day="6" hour="7" type="1" />
+    <lesson day="6" hour="8" type="1" />
+    <lesson day="6" hour="9" type="1" />
+    <lesson day="6" hour="10" type="1" />
+    <lesson day="6" hour="11" type="1" />
+    <lesson day="6" hour="13" type="1" />
+    <lesson day="6" hour="14" type="1" />
+    <lesson day="6" hour="15" type="1" />
+    <lesson day="5" hour="0" type="1" />
+    <lesson day="5" hour="1" type="1" />
+    <lesson day="5" hour="2" type="1" />
+    <lesson day="5" hour="3" type="1" />
+    <lesson day="5" hour="4" type="1" />
+    <lesson day="5" hour="5" type="1" />
+    <lesson day="5" hour="6" type="1" />
+    <lesson day="5" hour="7" type="1" />
+    <lesson day="5" hour="8" type="1" />
+    <lesson day="5" hour="9" type="1" />
+    <lesson day="5" hour="10" type="1" />
+    <lesson day="5" hour="11" type="1" />
+    <lesson day="5" hour="13" type="1" />
+    <lesson day="5" hour="14" type="1" />
+    <lesson day="5" hour="15" type="1" />
+    <lesson day="3" hour="0" type="1" />
+    <lesson day="3" hour="1" type="1" />
+    <lesson day="3" hour="2" type="1" />
+    <lesson day="3" hour="3" type="1" />
+    <lesson day="3" hour="4" type="1" />
+    <lesson day="3" hour="5" type="1" />
+    <lesson day="3" hour="6" type="1" />
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+    <lesson day="3" hour="9" type="1" />
+    <lesson day="3" hour="10" type="1" />
+    <lesson day="3" hour="11" type="1" />
+    <lesson day="3" hour="13" type="1" />
+    <lesson day="3" hour="14" type="1" />
+    <lesson day="3" hour="15" type="1" />
+    <lesson day="1" hour="4" type="1" />
+    <lesson day="1" hour="5" type="1" />
+    <lesson day="1" hour="6" type="1" />
+    <lesson day="1" hour="7" type="1" />
+    <lesson day="1" hour="8" type="1" />
+    <lesson day="1" hour="9" type="1" />
+    <lesson day="1" hour="10" type="1" />
+    <lesson day="1" hour="11" type="1" />
+    <lesson day="1" hour="13" type="1" />
+    <lesson day="1" hour="14" type="1" />
+    <lesson day="1" hour="15" type="1" />
+  </teachers>
+  <teachers num="1148">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1093">
+    <daily day="6" type="1" />
+  </teachers>
+  <teachers num="1163">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1190">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+    <lesson day="1" hour="2" type="1" />
+  </teachers>
+  <teachers num="1107">
+    <daily day="5" type="1" />
+  </teachers>
+  <teachers num="1133">
+    <daily day="3" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1223">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1207">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1187">
+    <daily day="6" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1126">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1128">
+    <daily day="5" type="1" />
+    <lesson day="4" hour="1" type="1" />
+    <lesson day="4" hour="2" type="1" />
+    <lesson day="4" hour="3" type="1" />
+    <lesson day="3" hour="2" type="1" />
+    <lesson day="3" hour="3" type="1" />
+    <lesson day="3" hour="4" type="1" />
+    <lesson day="3" hour="5" type="1" />
+    <lesson day="3" hour="6" type="1" />
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+    <lesson day="3" hour="9" type="1" />
+    <lesson day="3" hour="10" type="1" />
+    <lesson day="3" hour="11" type="1" />
+    <lesson day="3" hour="12" type="1" />
+    <lesson day="3" hour="13" type="1" />
+    <lesson day="3" hour="14" type="1" />
+    <lesson day="3" hour="15" type="1" />
+    <lesson day="1" hour="6" type="1" />
+    <lesson day="1" hour="7" type="1" />
+    <lesson day="1" hour="8" type="1" />
+  </teachers>
+  <teachers num="1030">
+    <daily day="5" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1013">
+    <daily day="5" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1067">
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1166">
+    <daily day="3" type="1" />
+    <daily day="2" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1011">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1022">
+    <daily day="4" type="1" />
+  </teachers>
+  <teachers num="1176">
+    <daily day="4" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1241">
+    <daily day="6" type="1" />
+    <lesson day="3" hour="0" type="1" />
+    <lesson day="3" hour="1" type="1" />
+    <lesson day="3" hour="8" type="1" />
+    <lesson day="3" hour="9" type="1" />
+    <lesson day="3" hour="10" type="1" />
+    <lesson day="3" hour="11" type="1" />
+    <lesson day="3" hour="12" type="1" />
+    <lesson day="3" hour="13" type="1" />
+    <lesson day="3" hour="14" type="1" />
+    <lesson day="3" hour="15" type="1" />
+  </teachers>
+  <teachers num="1230">
+    <lesson day="1" hour="1" type="1" />
+    <lesson day="1" hour="2" type="1" />
+    <lesson day="1" hour="4" type="1" />
+    <lesson day="1" hour="5" type="1" />
+  </teachers>
+  <teachers num="1010">
+    <daily day="6" type="1" />
+    <lesson day="5" hour="1" type="1" />
+    <lesson day="5" hour="3" type="1" />
+    <lesson day="5" hour="4" type="1" />
+    <lesson day="5" hour="5" type="1" />
+    <lesson day="5" hour="6" type="1" />
+    <lesson day="5" hour="7" type="1" />
+    <lesson day="5" hour="8" type="1" />
+    <lesson day="5" hour="9" type="1" />
+    <lesson day="5" hour="10" type="1" />
+    <lesson day="5" hour="11" type="1" />
+    <lesson day="5" hour="12" type="1" />
+    <lesson day="5" hour="13" type="1" />
+    <lesson day="5" hour="14" type="1" />
+    <lesson day="5" hour="15" type="1" />
+    <lesson day="2" hour="1" type="1" />
+  </teachers>
+  <teachers num="1101">
+    <daily day="6" type="1" />
+  </teachers>
+  <teachers num="1169">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1088">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1029">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1135">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1005">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1232">
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1002">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+    <lesson day="2" hour="4" type="1" />
+  </teachers>
+  <teachers num="1173">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1041">
+    <daily day="5" type="1" />
+    <daily day="4" type="1" />
+    <daily day="3" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1174">
+    <daily day="6" type="1" />
+    <daily day="3" type="1" />
+  </teachers>
+  <teachers num="1192">
+    <daily day="6" type="1" />
+    <daily day="4" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1224">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1188">
+    <daily day="5" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1086">
+    <daily day="6" type="1" />
+  </teachers>
+  <teachers num="1257">
+    <lesson day="2" hour="1" type="1" />
+    <lesson day="2" hour="2" type="1" />
+    <lesson day="2" hour="3" type="1" />
+  </teachers>
+  <teachers num="1085">
+    <daily day="4" type="1" />
+    <lesson day="7" hour="7" type="1" />
+    <lesson day="6" hour="6" type="1" />
+    <lesson day="6" hour="7" type="1" />
+    <lesson day="5" hour="7" type="1" />
+    <lesson day="3" hour="6" type="1" />
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="2" hour="7" type="1" />
+  </teachers>
+  <teachers num="1136">
+    <daily day="5" type="1" />
+  </teachers>
+  <teachers num="1072">
+    <lesson day="5" hour="3" type="1" />
+    <lesson day="5" hour="4" type="1" />
+    <lesson day="5" hour="5" type="1" />
+    <lesson day="5" hour="6" type="1" />
+    <lesson day="5" hour="7" type="1" />
+    <lesson day="5" hour="8" type="1" />
+    <lesson day="5" hour="9" type="1" />
+    <lesson day="5" hour="10" type="1" />
+    <lesson day="5" hour="11" type="1" />
+    <lesson day="5" hour="12" type="1" />
+    <lesson day="5" hour="13" type="1" />
+    <lesson day="5" hour="14" type="1" />
+    <lesson day="5" hour="15" type="1" />
+  </teachers>
+  <teachers num="1019">
+    <daily day="5" type="1" />
+    <daily day="1" type="1" />
+  </teachers>
+  <teachers num="1129">
+    <daily day="6" type="1" />
+    <daily day="5" type="1" />
+    <daily day="3" type="1" />
+    <daily day="2" type="1" />
+  </teachers>
+  <teachers num="1007">
+    <lesson day="6" hour="1" type="1" />
+    <lesson day="5" hour="1" type="1" />
+    <lesson day="4" hour="1" type="1" />
+    <lesson day="2" hour="1" type="1" />
+  </teachers>
+  <teachers num="1158">
+    <daily day="4" type="1" />
+    <daily day="2" type="1" />
+    <lesson day="3" hour="0" type="1" />
+    <lesson day="3" hour="5" type="1" />
+    <lesson day="3" hour="6" type="1" />
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="3" hour="8" type="1" />
+    <lesson day="3" hour="9" type="1" />
+    <lesson day="3" hour="10" type="1" />
+    <lesson day="3" hour="11" type="1" />
+    <lesson day="3" hour="12" type="1" />
+    <lesson day="3" hour="13" type="1" />
+    <lesson day="3" hour="14" type="1" />
+    <lesson day="3" hour="15" type="1" />
+  </teachers>
+  <rooms num="3002">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="2" hour="7" type="1" />
+  </rooms>
+  <rooms num="3003">
+    <lesson day="3" hour="7" type="1" />
+    <lesson day="2" hour="7" type="1" />
+  </rooms>
+  <rooms num="3017">
+    <lesson day="5" hour="6" type="1" />
+    <lesson day="5" hour="7" type="1" />
+    <lesson day="5" hour="8" type="1" />
+  </rooms>
+</root>

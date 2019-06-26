@@ -1,0 +1,12 @@
+﻿https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api
+https://stackoverflow.com/questions/52726032/angular-5-http-post-request-turns-to-options-and-returns-404
+https://angular.io/guide/http
+https://github.com/angular/angular/issues/19535
+https://stackoverflow.com/questions/28426872/read-webconfigurationmanager-appsettings-from-asp-net
+https://docs.microsoft.com/en-us/dotnet/api/system.configuration.appsettingssection?view=netframework-4.8
+https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+https://scotch.io/courses/build-your-first-angular-website/adding-an-imagelogo-in-angular
+https://codepen.io/aoguzhan/pen/WJzGmN?&page=1
+https://codepen.io/avivbuen/pen/PbBjXq?&page=1
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/action-results
+https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
