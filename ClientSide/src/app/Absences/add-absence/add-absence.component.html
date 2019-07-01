@@ -14,19 +14,22 @@
 
     <div class="form-group">
    <label for="fromDate">מתאריך</label>
-    <input type="datetime" #fromDate name="fromDate">
+    <input type="datetime" [(ngModel)]="fromDate" name="fromDate">
     </div> 
     <div class="form-group">
-    <label for="toDate">עד תאריך</label>
-    <input type="datetime" #toDate name="toDate">
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd"
+               name="toDate" [(ngModel)]="toDate" ngbDatepicker #d="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+        </div>
+      </div>
     </div>
-
     <div class="checkbox">
-      <input type="checkbox" name="wholeDay" #wholeDay  ><label>טיפול יומי גורף</label>
+      <input type="checkbox" name="wholeDay" [(ngModel)]="wholeDay"   ><label>טיפול יומי גורף</label>
     </div>
 
-    
-    <div *ngIf="wholeDay.checked" class="form-group">
+    <div *ngIf="wholeDay" class="form-group">
         <label for="standInTeacher">ממלאת מקום</label>
         <select #standInTeacher name="standInTeacher" class="select">
             <option>aaaaa</option>

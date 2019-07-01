@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { basename } from 'path';
 
 @Component({
   selector: 'app-root',

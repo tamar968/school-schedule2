@@ -33,7 +33,8 @@ namespace BL
             {
                 return e.Message + "\n" + GetInnerExceptionMessage(e.InnerException);
             }
-            return e.Message + "\n*****************************************\n\n";
+            return e.Message + "\n" + e.StackTrace + "\n*****************************************\n\n";
         }
     }
 }
+

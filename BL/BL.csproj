@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Absence.cs" />
+    <Compile Include="AbsenceForTeacher.cs" />
     <Compile Include="Lesson.cs" />
     <Compile Include="LogManager.cs" />
     <Compile Include="Occasion.cs" />

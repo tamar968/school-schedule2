@@ -66,7 +66,7 @@ namespace API.Controllers
         {
             try
             {
-                return Ok(Lesson.Get(lesson.Id));
+                return Ok(Lesson.Get(id));
             }
             catch (Exception e)
             {

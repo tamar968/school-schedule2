@@ -1,5 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
-import {Bootstrap} from 'bootstrap';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { TeacherService } from 'src/app/services/teacher.service';
+import { Router } from '@angular/router';
+import { Absence } from './../../models/absence.model';
+
 @Component({
   selector: 'app-add-absence',
   templateUrl: './add-absence.component.html',
@@ -7,9 +10,25 @@ import {Bootstrap} from 'bootstrap';
 })
 export class AddAbsenceComponent implements OnInit {
 
-  constructor() { }
+  teacherId: number;
+  fromDate: Date;
+  toDate: Date;
+  wholeDay: boolean;
+
+  teachers: any;
+  constructor(private teacherService:TeacherService, private router: Router) { }
  @Input() isChecked:boolean;
   ngOnInit() {
+    this.teacherService.getTeachers()
+    .subscribe(teachers=>
+      this.teachers = teachers
+    );
   }
-
+  get(){//TODO
+    var absence = {
+      TeacherId: this.teacherId,
+      FromDate: this.fromDate,
+      ToDate: this.toDate,
+    } as Absence;
+  }
 }

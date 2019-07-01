@@ -3,12 +3,12 @@ import { NgModule } from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {RouterModule,Routes} from '@angular/router'
 import { HttpClientModule } from '@angular/common/http';
+import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { StudyTimeComponent } from './study-time/study-time.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AddAbsenceComponent } from './Absences/add-absence/add-absence.component';
-import { AbsenceService } from './absence.service';
 
 const ROUTES:Routes=[
   {path:"i",component:StudyTimeComponent},//only for sample
@@ -31,7 +31,8 @@ const ROUTES:Routes=[
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES),
+    NgbModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

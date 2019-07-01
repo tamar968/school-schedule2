@@ -105,6 +105,7 @@
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AbsenceController.cs" />
+    <Compile Include="Controllers\AbsenceForTeacherController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OccationController.cs" />
     <Compile Include="Controllers\StudyTimeController.cs" />
@@ -138,6 +139,10 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{BBF06EFE-CFD4-4E53-94EE-73E20D3DA622}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
       <Project>{A95D51D2-FBC9-4589-8F8C-90FD65AC5156}</Project>
       <Name>DTO</Name>
