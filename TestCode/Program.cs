@@ -10,10 +10,16 @@ namespace TestCode
     class Program
     {
         static void Main(string[] args)
-        { 
-            var xmlManager = new XmlManager();
-           
-            xmlManager.LoadDirectory(@"Y:\group 2 תשעט\הכהן עדני תמר\קבצים לפרויקט\תלמש\Talmash\חשון עט\");
+        {
+            //var xmlManager = new XmlManager();
+
+            //xmlManager.LoadDirectory(@"Y:\group 2 תשעט\הכהן עדני תמר\קבצים לפרויקט\תלמש\Talmash\חשון עט\");
+
+            var l=Teacher.Get();
+            foreach (var item in l)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }

@@ -7,9 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'clientSide';
-  baseUrl='http://localhost:54198/api'; 
+  static baseUrl='http://localhost:54198/api'; 
   
-  public getBaseUrl() {
-    return this.baseUrl;
+  public static getBaseUrl() {
+    return AppComponent.baseUrl;
   }
 }

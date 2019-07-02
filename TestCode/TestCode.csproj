@@ -162,6 +162,10 @@
       <Project>{65AA10E2-DB7C-4AD0-8653-C0A4ABB5B63E}</Project>
       <Name>BL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{A95D51D2-FBC9-4589-8F8C-90FD65AC5156}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <Content Include="XML_files\blocks.xml" />

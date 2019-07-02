@@ -5,10 +5,7 @@
      <div class="form-group">
       <label for="abscentTeacher">מורה חסרה</label>
       <select #abscentTeacher name="abscentTeacher" class="select">
-        <option>aaaaa</option>
-        <option>bbbb</option>
-        <option>ccccc</option>
-        <option>ddddd</option>
+        <option *ngFor="let teacher of teachers">{{teacher.Name}}</option>
       </select>
     </div>
 
@@ -32,10 +29,7 @@
     <div *ngIf="wholeDay" class="form-group">
         <label for="standInTeacher">ממלאת מקום</label>
         <select #standInTeacher name="standInTeacher" class="select">
-            <option>aaaaa</option>
-            <option>bbbb</option>
-            <option>ccccc</option>
-            <option>ddddd</option>
+          <option *ngFor="let teacher of teachers">{{teacher.Name}}</option>
           </select>
     </div>
 

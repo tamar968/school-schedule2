@@ -9,8 +9,8 @@ import {AppComponent} from 'src/app/app.component'
 export class AbsenceService {
 
   constructor(private http:HttpClient) { }
-  private baseUrl = AppComponent.prototype.getBaseUrl()+"/Absence"; 
-
+  private baseUrl=AppComponent.getBaseUrl()+"/Absence";  
+  
   public addAbsence(absence:any):Observable<any> {
     return this.http.post<any>(this.baseUrl+'/Add', absence);
   }

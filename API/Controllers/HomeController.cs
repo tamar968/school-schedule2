@@ -14,7 +14,7 @@ namespace API.Controllers
     public class HomeController : ApiController
     {
         [HttpPost]//define the data transfer method
-        [Route("Login")]//define the url
+        [Route("login")]//define the url
         public IHttpActionResult Login([FromBody]LoginRequest loginRequest)
         {
             if (loginRequest.password.Equals(WebConfigurationManager.AppSettings["password"])) {

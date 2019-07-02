@@ -10,3 +10,9 @@ https://codepen.io/aoguzhan/pen/WJzGmN?&page=1
 https://codepen.io/avivbuen/pen/PbBjXq?&page=1
 https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/action-results
 https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+https://confluence.atlassian.com/bitbucketserverkb/ssl-certificate-problem-unable-to-get-local-issuer-certificate-816521128.html
+https://nodejs.org/en/
+https://stackoverflow.com/questions/8191459/how-do-i-update-node-js
+https://update.angular.io/#6.1:8.0
+https://getbootstrap.com/docs/4.3/getting-started/download/
+https://ng-bootstrap.github.io/#/components/datepicker/examples

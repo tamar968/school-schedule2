@@ -2,7 +2,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 import { TeacherService } from 'src/app/services/teacher.service';
 import { Router } from '@angular/router';
 import { Absence } from './../../models/absence.model';
-
+import { Teacher } from './../../models/teacher.model';
 @Component({
   selector: 'app-add-absence',
   templateUrl: './add-absence.component.html',
@@ -15,13 +15,14 @@ export class AddAbsenceComponent implements OnInit {
   toDate: Date;
   wholeDay: boolean;
 
-  teachers: any;
+  teachers:Teacher[];
   constructor(private teacherService:TeacherService, private router: Router) { }
  @Input() isChecked:boolean;
   ngOnInit() {
     this.teacherService.getTeachers()
     .subscribe(teachers=>
-      this.teachers = teachers
+      this.teachers = teachers,
+          err=>alert(err)
     );
   }
   get(){//TODO
