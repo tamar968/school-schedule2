@@ -24,6 +24,7 @@ namespace BL
             fileNameToAction["subjects.xml"] = LoadSubjects;
             fileNameToAction["teachers.xml"] = LoadTeachers;
         }
+
         public void LoadDirectory(string path)
         {
             ClearDB();
@@ -40,12 +41,16 @@ namespace BL
         }
         public void ClearDB()
         {
-            //TODO
-
+           
             var conn = new SqlConnection("data source=SQL-SERVER; initial catalog=!ESTY&TAMAR; integrated security=True");
+            SqlCommand cmd;
             conn.Open();
-            SqlCommand cmd = new SqlCommand("TRUNCATE TABLE Class", conn);
+
+           
+            cmd = new SqlCommand("sp_MSforeachtable 'DELETE FROM ?'", conn);
             cmd.ExecuteNonQuery();
+
+            
             conn.Close();
         }
         public void LoadClasses(string path)
@@ -190,7 +195,6 @@ namespace BL
             catch (Exception e)
             {
                 LogManager.LogException(e);
-
             }
         }
         public void LoadTeachers(string path)

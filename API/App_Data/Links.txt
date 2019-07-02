@@ -16,3 +16,5 @@ https://stackoverflow.com/questions/8191459/how-do-i-update-node-js
 https://update.angular.io/#6.1:8.0
 https://getbootstrap.com/docs/4.3/getting-started/download/
 https://ng-bootstrap.github.io/#/components/datepicker/examples
+https://docs.microsoft.com/en-us/azure/devops/repos/git/gitquickstart?view=azure-devops&tabs=visual-studio/
+git config --global http.sslVerify false
