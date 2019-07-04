@@ -80,7 +80,6 @@ namespace BL
                 LogManager.LogException(e);
             }
         }
-
         public void LoadGroups(string path)
         {
             XmlGroups.root root = GetXmlData<XmlGroups.root>(path);
@@ -114,7 +113,6 @@ namespace BL
                 LogManager.LogException(e);
             }
         }
-
         public void LoadRooms(string path)
         {
             XmlRooms.root root = GetXmlData<XmlRooms.root>(path);

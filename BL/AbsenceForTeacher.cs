@@ -39,6 +39,10 @@ namespace BL
                 db.SaveChanges();
             }
         }
+        /// <summary>
+        /// find all the 
+        /// </summary>
+        /// <returns>absences for all the teachers</returns>
         public static List<AbsencesForTeacherDTO> Get()
         {
             using (Entities db = new Entities())
@@ -46,11 +50,28 @@ namespace BL
                 return _CastDTO.AbsencesForTeacherToDTO(db.AbsencesForTeachers.ToList());
             }
         }
+        /// <summary>
+        /// find the absence 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>1 absence for tacher</returns>
         public static AbsencesForTeacherDTO Get(int id)
         {
             using (Entities db = new Entities())
             {
                 return _CastDTO.AbsencesForTeacherToDTO(db.AbsencesForTeachers.FirstOrDefault(l => l.Id == id));
+            }
+        }
+        /// <summary>
+        /// find all the absences for the teacher (by her id)
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>absences for this teacher</returns>
+        public static AbsencesForTeacherDTO GetByTeacher(int id)
+        {
+            using (Entities db = new Entities())
+            {
+                return _CastDTO.AbsencesForTeacherToDTO(db.AbsencesForTeachers.FirstOrDefault(l => l.TeacherId == id));
             }
         }
     }

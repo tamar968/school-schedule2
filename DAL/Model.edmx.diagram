@@ -5,8 +5,6 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="bd462c8e3cc0424ca253133038672458" Name="Diagram1">
-        <EntityTypeShape EntityType="ESTYTAMARModel.Absence" Width="1.5" PointX="5.25" PointY="1.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.AbsencesForTeacher" Width="1.5" PointX="7.5" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="ESTYTAMARModel.Class" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
         <EntityTypeShape EntityType="ESTYTAMARModel.Dairy" Width="1.5" PointX="5.25" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="ESTYTAMARModel.Occasion" Width="1.5" PointX="3" PointY="7.625" IsExpanded="true" />
@@ -17,9 +15,6 @@
         <EntityTypeShape EntityType="ESTYTAMARModel.Subject" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
         <EntityTypeShape EntityType="ESTYTAMARModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="ESTYTAMARModel.Teacher" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_Absence" ManuallyRouted="false" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_Teacher" ManuallyRouted="false" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_TeacherStandIn" ManuallyRouted="false" />
         <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Class" ManuallyRouted="false" />
         <AssociationConnector Association="ESTYTAMARModel.FK_Room_Class" ManuallyRouted="false" />
         <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Ocation" ManuallyRouted="false" />
@@ -47,6 +42,11 @@
         <AssociationConnector Association="ESTYTAMARModel.FK_Group_Subject" />
         <AssociationConnector Association="ESTYTAMARModel.FK_Group_Teacher" />
         <AssociationConnector Association="ESTYTAMARModel.ClassesForGroup" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.Absence" Width="1.5" PointX="5.25" PointY="1.25" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.AbsencesForTeacher" Width="1.5" PointX="7.5" PointY="3.625" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_Absence1" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_Teacher" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_TeacherStandIn" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

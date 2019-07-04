@@ -11,10 +11,8 @@ export class TeacherService {
   constructor(private http:HttpClient) { } 
   
   private baseUrl = AppComponent.getBaseUrl()+'/teacher'; 
- //'http://localhost:54198/api/teacher'
  
   public getTeachers():Observable<Teacher[]>{
-    alert(this.baseUrl);//<--just for testing
     return this.http.get<Teacher[]>(this.baseUrl+'/get/all');
   }
 }

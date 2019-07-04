@@ -12,10 +12,10 @@ namespace API.Controllers
 {
     [RoutePrefix("api")]//define the url
     [EnableCors(origins: "*", headers: "*", methods: "*")]//access allow for all clients and methods
-    public class OccationController : ApiController
+    public class OccasionController : ApiController
     {
         [HttpPost]//define the data transfer method
-        [Route("Occation")]//define the url
+        [Route("occasion")]//define the url
         public IHttpActionResult Add([FromBody]OccasionDTO occasion)
         {
             try

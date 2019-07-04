@@ -75,7 +75,7 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        [Route("getall")]
+        [Route("get/all")]
         public IHttpActionResult Get()
         {
             try
@@ -88,5 +88,20 @@ namespace API.Controllers
                 return InternalServerError(e);
             }
         }
+        [HttpGet]
+        [Route("getbyteacher/{id}")]
+        public IHttpActionResult GetByTeacher([FromUri]int tid)
+        {
+            try
+            {
+                return Ok(AbsenceForTeacher.GetByTeacher(tid));
+            }
+            catch (Exception e)
+            {
+                LogManager.LogException(e);
+                return InternalServerError(e);
+            }
+        }
     }
 }
+

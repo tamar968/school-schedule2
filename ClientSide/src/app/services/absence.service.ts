@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import {AppComponent} from 'src/app/app.component'
+import { Absence } from '../models/absence.model';
 
 @Injectable({
   providedIn: 'root'
@@ -9,21 +10,24 @@ import {AppComponent} from 'src/app/app.component'
 export class AbsenceService {
 
   constructor(private http:HttpClient) { }
-  private baseUrl=AppComponent.getBaseUrl()+"/Absence";  
+  private baseUrl=AppComponent.getBaseUrl()+"/absence";  
   
-  public addAbsence(absence:any):Observable<any> {
-    return this.http.post<any>(this.baseUrl+'/Add', absence);
+  public addAbsence(absence:Absence):Observable<Absence> {
+    return this.http.post<Absence>(this.baseUrl+'/add', absence);
   }
   
-  public updateAbsence(absence:any):Observable<any> {
-    return this.http.post<any>(this.baseUrl+'/Update', absence);
+  public updateAbsence(absence:Absence):Observable<Absence> {
+    return this.http.post<Absence>(this.baseUrl+'/update', absence);
   }
 
-  public deleteAbsence(absence:any):Observable<any> {
-    return this.http.post<any>(this.baseUrl+'/Delete', absence);
+  public deleteAbsence(absence:Absence):Observable<Absence> {
+    return this.http.post<Absence>(this.baseUrl+'/delete', absence);
   }
 
-  public getAbsence(absence:any):Observable<any> {
-    return this.http.post<any>(this.baseUrl+'/Get', absence);
+  /* getAbsence(absence:Absence):Observable<Absence> {
+    return this.http.get<Absence>(this.baseUrl+'/get/all', absence);
+  }*///TOFIX
+  public getAbsences():Observable<Absence[]> {
+    return this.http.get<Absence[]>(this.baseUrl+'/get/all' );
   }
 }

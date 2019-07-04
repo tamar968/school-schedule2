@@ -11,7 +11,7 @@ using DTO;
 
 namespace API.Controllers
 {
-    [RoutePrefix("api/StudyTime")]//define the url
+    [RoutePrefix("api/studytime")]//define the url
     [EnableCors(origins: "*", headers: "*", methods: "*")]//access allow for all clients and methods
     public class StudyTimeController : ApiController
     {

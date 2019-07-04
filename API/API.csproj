@@ -107,7 +107,7 @@
     <Compile Include="Controllers\AbsenceController.cs" />
     <Compile Include="Controllers\AbsenceForTeacherController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\OccationController.cs" />
+    <Compile Include="Controllers\OccasionController.cs" />
     <Compile Include="Controllers\StudyTimeController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
     <Compile Include="Global.asax.cs">

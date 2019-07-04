@@ -25,8 +25,6 @@ namespace DAL
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Absence> Absences { get; set; }
-        public virtual DbSet<AbsencesForTeacher> AbsencesForTeachers { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<Dairy> Dairies { get; set; }
         public virtual DbSet<Occasion> Occasions { get; set; }
@@ -41,5 +39,7 @@ namespace DAL
         public virtual DbSet<HourType> HourTypes { get; set; }
         public virtual DbSet<Reforma> Reformas { get; set; }
         public virtual DbSet<SchoolType> SchoolTypes { get; set; }
+        public virtual DbSet<Absence> Absences { get; set; }
+        public virtual DbSet<AbsencesForTeacher> AbsencesForTeachers { get; set; }
     }
 }

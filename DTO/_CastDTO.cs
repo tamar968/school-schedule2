@@ -31,7 +31,7 @@ namespace DTO
         #region AbsenceForTeacher
         public static AbsencesForTeacherDTO AbsencesForTeacherToDTO(AbsencesForTeacher absForTea)
         {
-            return new AbsencesForTeacherDTO() { Id = absForTea.Id, TeacherId = absForTea.TeacherId, TeacherStandIn = absForTea.TeacherStandIn, FromDate = absForTea.FromDate, ToDate = absForTea.ToDate };
+            return new AbsencesForTeacherDTO() {  TeacherId = absForTea.TeacherId, TeacherStandIn = absForTea.TeacherStandIn, FromDate = absForTea.FromDate, ToDate = absForTea.ToDate ,Type=absForTea.Type};
         }
         public static List<AbsencesForTeacherDTO> AbsencesForTeacherToDTO(List<AbsencesForTeacher> absForTeaList)
         {
@@ -39,7 +39,7 @@ namespace DTO
         }
         public static AbsencesForTeacher DTOToAbsencesForTeacher(AbsencesForTeacherDTO absForTea)
         {
-            return new AbsencesForTeacher() { Id = absForTea.Id, TeacherId = absForTea.TeacherId, TeacherStandIn = absForTea.TeacherStandIn, FromDate = absForTea.FromDate, ToDate = absForTea.ToDate };
+            return new AbsencesForTeacher() { TeacherId = absForTea.TeacherId, TeacherStandIn = absForTea.TeacherStandIn, FromDate = absForTea.FromDate, ToDate = absForTea.ToDate ,Type = absForTea.Type };
         }
         public static List<AbsencesForTeacher> DTOToAbsencesForTeacher(List<AbsencesForTeacherDTO> absForTeaList)
         {

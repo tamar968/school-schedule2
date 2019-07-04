@@ -15,6 +15,7 @@ namespace DAL
     public partial class AbsencesForTeacher
     {
         public int Id { get; set; }
+        public int Type { get; set; }
         public int TeacherId { get; set; }
         public System.DateTime FromDate { get; set; }
         public System.DateTime ToDate { get; set; }

@@ -10,7 +10,7 @@ using DTO;
 
 namespace API.Controllers
 {
-    [RoutePrefix("api/Absence")]//define the url
+    [RoutePrefix("api/absence")]//define the url
     [EnableCors(origins: "*", headers: "*", methods: "*")]//access allow for all clients and methods
     public class AbsenceController : ApiController
     {
@@ -75,7 +75,7 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        [Route("getall")]
+        [Route("get/all")]
         public IHttpActionResult Get()
         {
             try

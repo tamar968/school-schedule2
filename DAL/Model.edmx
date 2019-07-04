@@ -9,14 +9,15 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
         </EntityType>
         <EntityType Name="AbsencesForTeacher">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Type" Type="int" Nullable="false" />
           <Property Name="TeacherId" Type="int" Nullable="false" />
           <Property Name="FromDate" Type="datetime" Nullable="false" />
           <Property Name="ToDate" Type="datetime" Nullable="false" />
@@ -217,15 +218,15 @@
           <Property Name="OccasionId" Type="int" Nullable="false" />
           <Property Name="TeacherId" Type="int" Nullable="false" />
         </EntityType>
-        <Association Name="FK_AbsencesForTeacher_Absence">
+        <Association Name="FK_AbsencesForTeacher_Absence1">
           <End Role="Absence" Type="Self.Absence" Multiplicity="1" />
-          <End Role="AbsencesForTeacher" Type="Self.AbsencesForTeacher" Multiplicity="0..1" />
+          <End Role="AbsencesForTeacher" Type="Self.AbsencesForTeacher" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Absence">
               <PropertyRef Name="Id" />
             </Principal>
             <Dependent Role="AbsencesForTeacher">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="Type" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -418,6 +419,18 @@
             </Principal>
             <Dependent Role="Group">
               <PropertyRef Name="SubHourType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Reforma">
+          <End Role="Reforma" Type="Self.Reforma" Multiplicity="0..1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reforma">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="Reforma" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -625,7 +638,7 @@
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Teacher" EntityType="Self.Teacher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="TeachersForOccasion" EntityType="Self.TeachersForOccasion" Schema="dbo" store:Type="Tables" />
-          <AssociationSet Name="FK_AbsencesForTeacher_Absence" Association="Self.FK_AbsencesForTeacher_Absence">
+          <AssociationSet Name="FK_AbsencesForTeacher_Absence1" Association="Self.FK_AbsencesForTeacher_Absence1">
             <End Role="Absence" EntitySet="Absence" />
             <End Role="AbsencesForTeacher" EntitySet="AbsencesForTeacher" />
           </AssociationSet>
@@ -693,6 +706,10 @@
             <End Role="HourType" EntitySet="HourType" />
             <End Role="Group" EntitySet="Group" />
           </AssociationSet>
+          <AssociationSet Name="FK_Group_Reforma" Association="Self.FK_Group_Reforma">
+            <End Role="Reforma" EntitySet="Reforma" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
           <AssociationSet Name="FK_Group_Room" Association="Self.FK_Group_Room">
             <End Role="Room" EntitySet="Room" />
             <End Role="Group" EntitySet="Group" />
@@ -758,27 +775,6 @@
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ESTYTAMARModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
-        <EntityType Name="Absence">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AbsencesForTeacher" Relationship="Self.FK_AbsencesForTeacher_Absence" FromRole="Absence" ToRole="AbsencesForTeacher" />
-        </EntityType>
-        <EntityType Name="AbsencesForTeacher">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="TeacherId" Type="Int32" Nullable="false" />
-          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="3" />
-          <Property Name="TeacherStandIn" Type="Int32" />
-          <NavigationProperty Name="Absence" Relationship="Self.FK_AbsencesForTeacher_Absence" FromRole="AbsencesForTeacher" ToRole="Absence" />
-          <NavigationProperty Name="Teacher" Relationship="Self.FK_AbsencesForTeacher_Teacher" FromRole="AbsencesForTeacher" ToRole="Teacher" />
-          <NavigationProperty Name="Teacher1" Relationship="Self.FK_AbsencesForTeacher_TeacherStandIn" FromRole="AbsencesForTeacher" ToRole="Teacher" />
-        </EntityType>
         <EntityType Name="Class">
           <Key>
             <PropertyRef Name="Id" />
@@ -908,49 +904,13 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Num" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="AbsencesForTeachers" Relationship="Self.FK_AbsencesForTeacher_Teacher" FromRole="Teacher" ToRole="AbsencesForTeacher" />
-          <NavigationProperty Name="AbsencesForTeachers1" Relationship="Self.FK_AbsencesForTeacher_TeacherStandIn" FromRole="Teacher" ToRole="AbsencesForTeacher" />
           <NavigationProperty Name="Dairies" Relationship="Self.FK_Dairy_Teacher" FromRole="Teacher" ToRole="Dairy" />
           <NavigationProperty Name="PayAbsences" Relationship="Self.PayAbsencesForTeacher" FromRole="Teacher" ToRole="PayAbsence" />
           <NavigationProperty Name="Occasions" Relationship="Self.TeachersForOccasion" FromRole="Teacher" ToRole="Occasion" />
           <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_Teacher" FromRole="Teacher" ToRole="Group" />
+          <NavigationProperty Name="AbsencesForTeachers" Relationship="ESTYTAMARModel.FK_AbsencesForTeacher_Teacher" FromRole="Teacher" ToRole="AbsencesForTeacher" />
+          <NavigationProperty Name="AbsencesForTeachers1" Relationship="ESTYTAMARModel.FK_AbsencesForTeacher_TeacherStandIn" FromRole="Teacher" ToRole="AbsencesForTeacher" />
         </EntityType>
-        <Association Name="FK_AbsencesForTeacher_Absence">
-          <End Role="Absence" Type="Self.Absence" Multiplicity="1" />
-          <End Role="AbsencesForTeacher" Type="Self.AbsencesForTeacher" Multiplicity="0..1" />
-          <ReferentialConstraint>
-            <Principal Role="Absence">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AbsencesForTeacher">
-              <PropertyRef Name="Id" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AbsencesForTeacher_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
-          <End Role="AbsencesForTeacher" Type="Self.AbsencesForTeacher" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AbsencesForTeacher">
-              <PropertyRef Name="TeacherStandIn" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_AbsencesForTeacher_TeacherStandIn">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
-          <End Role="AbsencesForTeacher" Type="Self.AbsencesForTeacher" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="AbsencesForTeacher">
-              <PropertyRef Name="TeacherStandIn" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Dairy_Class">
           <End Role="Class" Type="Self.Class" Multiplicity="0..1" />
           <End Role="Dairy" Type="Self.Dairy" Multiplicity="*" />
@@ -1084,8 +1044,6 @@
           <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
         </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
-          <EntitySet Name="Absences" EntityType="Self.Absence" />
-          <EntitySet Name="AbsencesForTeachers" EntityType="Self.AbsencesForTeacher" />
           <EntitySet Name="Classes" EntityType="Self.Class" />
           <EntitySet Name="Dairies" EntityType="Self.Dairy" />
           <EntitySet Name="Occasions" EntityType="Self.Occasion" />
@@ -1096,18 +1054,6 @@
           <EntitySet Name="Subjects" EntityType="Self.Subject" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
           <EntitySet Name="Teachers" EntityType="Self.Teacher" />
-          <AssociationSet Name="FK_AbsencesForTeacher_Absence" Association="Self.FK_AbsencesForTeacher_Absence">
-            <End Role="Absence" EntitySet="Absences" />
-            <End Role="AbsencesForTeacher" EntitySet="AbsencesForTeachers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AbsencesForTeacher_Teacher" Association="Self.FK_AbsencesForTeacher_Teacher">
-            <End Role="Teacher" EntitySet="Teachers" />
-            <End Role="AbsencesForTeacher" EntitySet="AbsencesForTeachers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_AbsencesForTeacher_TeacherStandIn" Association="Self.FK_AbsencesForTeacher_TeacherStandIn">
-            <End Role="Teacher" EntitySet="Teachers" />
-            <End Role="AbsencesForTeacher" EntitySet="AbsencesForTeachers" />
-          </AssociationSet>
           <AssociationSet Name="FK_Dairy_Class" Association="Self.FK_Dairy_Class">
             <End Role="Class" EntitySet="Classes" />
             <End Role="Dairy" EntitySet="Dairies" />
@@ -1203,6 +1149,20 @@
           <AssociationSet Name="ClassesForGroup" Association="ESTYTAMARModel.ClassesForGroup">
             <End Role="Class" EntitySet="Classes" />
             <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <EntitySet Name="Absences" EntityType="ESTYTAMARModel.Absence" />
+          <EntitySet Name="AbsencesForTeachers" EntityType="ESTYTAMARModel.AbsencesForTeacher" />
+          <AssociationSet Name="FK_AbsencesForTeacher_Absence1" Association="ESTYTAMARModel.FK_AbsencesForTeacher_Absence1">
+            <End Role="Absence" EntitySet="Absences" />
+            <End Role="AbsencesForTeacher" EntitySet="AbsencesForTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AbsencesForTeacher_Teacher" Association="ESTYTAMARModel.FK_AbsencesForTeacher_Teacher">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="AbsencesForTeacher" EntitySet="AbsencesForTeachers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_AbsencesForTeacher_TeacherStandIn" Association="ESTYTAMARModel.FK_AbsencesForTeacher_TeacherStandIn">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="AbsencesForTeacher" EntitySet="AbsencesForTeachers" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="Group">
@@ -1344,31 +1304,70 @@
           <End Type="ESTYTAMARModel.Class" Role="Class" Multiplicity="*" />
           <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
         </Association>
+        <EntityType Name="Absence">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AbsencesForTeachers" Relationship="ESTYTAMARModel.FK_AbsencesForTeacher_Absence1" FromRole="Absence" ToRole="AbsencesForTeacher" />
+        </EntityType>
+        <EntityType Name="AbsencesForTeacher">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="TeacherId" Type="Int32" Nullable="false" />
+          <Property Name="FromDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ToDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="TeacherStandIn" Type="Int32" />
+          <NavigationProperty Name="Absence" Relationship="ESTYTAMARModel.FK_AbsencesForTeacher_Absence1" FromRole="AbsencesForTeacher" ToRole="Absence" />
+          <NavigationProperty Name="Teacher" Relationship="ESTYTAMARModel.FK_AbsencesForTeacher_Teacher" FromRole="AbsencesForTeacher" ToRole="Teacher" />
+          <NavigationProperty Name="Teacher1" Relationship="ESTYTAMARModel.FK_AbsencesForTeacher_TeacherStandIn" FromRole="AbsencesForTeacher" ToRole="Teacher" />
+        </EntityType>
+        <Association Name="FK_AbsencesForTeacher_Absence1">
+          <End Type="ESTYTAMARModel.Absence" Role="Absence" Multiplicity="1" />
+          <End Type="ESTYTAMARModel.AbsencesForTeacher" Role="AbsencesForTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Absence">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AbsencesForTeacher">
+              <PropertyRef Name="Type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AbsencesForTeacher_Teacher">
+          <End Type="ESTYTAMARModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.AbsencesForTeacher" Role="AbsencesForTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AbsencesForTeacher">
+              <PropertyRef Name="TeacherStandIn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_AbsencesForTeacher_TeacherStandIn">
+          <End Type="ESTYTAMARModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.AbsencesForTeacher" Role="AbsencesForTeacher" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AbsencesForTeacher">
+              <PropertyRef Name="TeacherStandIn" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ESTYTAMARModelStoreContainer" CdmEntityContainer="Entities">
-          <EntitySetMapping Name="Absences">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Absence">
-              <MappingFragment StoreEntitySet="Absence">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="AbsencesForTeachers">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.AbsencesForTeacher">
-              <MappingFragment StoreEntitySet="AbsencesForTeacher">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
-                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
-                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
-                <ScalarProperty Name="TeacherStandIn" ColumnName="TeacherStandIn" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Classes">
             <EntityTypeMapping TypeName="ESTYTAMARModel.Class">
               <MappingFragment StoreEntitySet="Class">
@@ -1578,6 +1577,26 @@
               <ScalarProperty Name="Id" ColumnName="ClassId" />
             </EndProperty>
           </AssociationSetMapping>
+          <EntitySetMapping Name="Absences">
+            <EntityTypeMapping TypeName="ESTYTAMARModel.Absence">
+              <MappingFragment StoreEntitySet="Absence">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AbsencesForTeachers">
+            <EntityTypeMapping TypeName="ESTYTAMARModel.AbsencesForTeacher">
+              <MappingFragment StoreEntitySet="AbsencesForTeacher">
+                <ScalarProperty Name="TeacherStandIn" ColumnName="TeacherStandIn" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="TeacherId" ColumnName="TeacherId" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

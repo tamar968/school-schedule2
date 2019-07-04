@@ -9,12 +9,14 @@ import { StudyTimeComponent } from './study-time/study-time.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AddAbsenceComponent } from './Absences/add-absence/add-absence.component';
+import { AddOccasionComponent } from './occation/add-occasion/add-occasion.component';
 
 const ROUTES:Routes=[
   {path:"i",component:StudyTimeComponent},//only for sample
   {path:"studyTime/:any",component:StudyTimeComponent},//any should be  אוביקט שעת לימוד or id of אוביקט שעת לימוד
   {path:"login",component:LoginComponent},
-  {path:"absence/addAbsence",component:AddAbsenceComponent},
+  {path:"absence-for-tacher/add",component:AddAbsenceComponent},
+  {path:"occasion/add",component:AddOccasionComponent},
   {path:"",component:HomeComponent},
   {path:"**",redirectTo:""}
 ]
@@ -25,7 +27,8 @@ const ROUTES:Routes=[
     StudyTimeComponent,
     HomeComponent,
     LoginComponent,
-    AddAbsenceComponent
+    AddAbsenceComponent,
+    AddOccasionComponent
   ],
   imports: [
     BrowserModule,

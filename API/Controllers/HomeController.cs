@@ -22,7 +22,6 @@ namespace API.Controllers
             }
             return Unauthorized();
         }
-
         public class LoginRequest
         {
             public string password { get; set; }

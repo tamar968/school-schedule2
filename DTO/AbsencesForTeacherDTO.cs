@@ -13,5 +13,7 @@ namespace DTO
         public DateTime FromDate { get; set; }
         public DateTime ToDate { get; set; }
         public int? TeacherStandIn { get; set; }
+        public int Type { get; set; }
+
     }
 }
