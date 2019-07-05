@@ -16,9 +16,11 @@ export class AddAbsenceComponent implements OnInit {
   teacherId: number;
   fromDate: Date;
   toDate: Date;
+  teacherStandIn:number;
   wholeDay: boolean;
   teachers:Teacher[];
   absenceTypes:Absence[];
+  absenceTypeId:number;
 
   constructor(private absenceService:AbsenceService, private teacherService:TeacherService,private absenceForTeacherService:AbsenceForTeacherService,private router: Router) { }
 
@@ -50,6 +52,8 @@ export class AddAbsenceComponent implements OnInit {
       TeacherId: this.teacherId,
       FromDate: this.fromDate,
       ToDate: this.toDate,
+      TeacherStandIn:this.wholeDay? this.teacherStandIn:null,
+      Type:this.absenceTypeId
     } as AbsenceForTeacher;
    
     console.log(absence);

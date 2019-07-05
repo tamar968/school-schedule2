@@ -26,7 +26,7 @@ namespace TestCode
                 ToDate = DateTime.Now,
                 TeacherId = 779,
                 Type = 1,
-                TeacherStandIn=null
+                TeacherStandIn=780
             });
                
           

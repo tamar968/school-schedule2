@@ -36,14 +36,14 @@
 
     <div *ngIf="wholeDay" class="form-group">
         <label for="standInTeacher">ממלאת מקום</label>
-        <select #standInTeacher name="standInTeacher" class="select">
+        <select #standInTeacher name="standInTeacher" class="select" [(ngModel)]="teacherStandIn">
           <option [value]="teacher.Id" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
           </select>
     </div>
 
     <div class="form-group">
-      <label for="abscentType">סוג חסור</label>
-      <select #abscentTeacher name="abscentType" class="select" >
+      <label for="absenceType">סוג חסור</label>
+      <select #abscentTeacher name="absenceType" class="select" [(ngModel)]="absenceTypeId">
         <option [value]="abs.Id" *ngFor="let abs of absenceTypes">{{abs.Name}}</option>
       </select>
     </div>
