@@ -47,7 +47,7 @@ export class AddAbsenceComponent implements OnInit {
   
   }
   
-  get(){//TODO
+  get(){
     var absence = {
       TeacherId: this.teacherId,
       FromDate: this.fromDate,

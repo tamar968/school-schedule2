@@ -1,1 +1,10 @@
-<p>add-occasion works!</p>
+<div  class="container"></div>
+    <h2>הוספת ארוע</h2>
+    <form role="form" >
+        <div class="form-group">
+                <label for="typeOccasion">סוג ארוע</label>
+                <select #typeOccasion name="typeOccasion" class="select" [(ngModel)]="TypeId">
+                  <option [value]="o.Id" *ngFor="let o of occasionTypes">{{o.Name}}</option>
+                </select>
+        </div>
+    <form>

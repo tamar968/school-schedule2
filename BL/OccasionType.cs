@@ -10,7 +10,7 @@ namespace BL
 {
     public class OccasionType
     {
-        public static void Create(OccasionTypeDTO occasionType)
+        public static void Add(OccasionTypeDTO occasionType)
         {
             using (Entities db = new Entities())
             {

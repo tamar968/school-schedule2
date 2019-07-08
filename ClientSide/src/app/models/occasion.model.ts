@@ -3,5 +3,4 @@ export interface Occasion {
     FromDate ?: Date ,
     ToDate ?: Date,  
     OccasionType :number
-        
 }

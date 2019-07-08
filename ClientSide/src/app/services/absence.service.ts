@@ -24,9 +24,9 @@ export class AbsenceService {
     return this.http.post<Absence>(this.baseUrl+'/delete', absence);
   }
 
-  /* getAbsence(absence:Absence):Observable<Absence> {
-    return this.http.get<Absence>(this.baseUrl+'/get/all', absence);
-  }*///TOFIX
+   getAbsence(absence:number):Observable<Absence> {
+    return this.http.get<Absence>(this.baseUrl+'/get/{absence}');
+  }/**///TOFIX
   public getAbsences():Observable<Absence[]> {
     return this.http.get<Absence[]>(this.baseUrl+'/get/all' );
   }

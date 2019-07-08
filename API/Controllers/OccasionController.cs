@@ -74,7 +74,7 @@ namespace API.Controllers
             }
         }
         [HttpGet]
-        [Route("get")]
+        [Route("get/all")]
         public IHttpActionResult Get()
         {
             try

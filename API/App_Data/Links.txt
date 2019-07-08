@@ -21,3 +21,4 @@ git config --global http.sslVerify false
 https://stackoverflow.com/questions/29957878/convert-c-sharp-datetime-to-angular-date
 https://stackoverflow.com/questions/38271273/experimental-decorators-warning-in-typescript-compilation
 https://stackoverflow.com/questions/6384659/a-dependent-property-in-a-referentialconstraint-is-mapped-to-a-store-generated-c
+https://stackoverflow.com/questions/5995317/how-to-convert-c-sharp-nullable-int-to-int
