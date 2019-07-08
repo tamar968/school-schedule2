@@ -40,7 +40,7 @@ export class AddAbsenceComponent implements OnInit {
   
   this.absenceForTeacherService.add(this.get()).subscribe(
         res=>{this.router.navigateByUrl('');
-        alert("onAddAbsence")}
+        console.log("החסור למורה נוסף בהצלחה")}
          ,
          err=>console.error(err)
         );

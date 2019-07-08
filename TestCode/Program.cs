@@ -22,8 +22,8 @@ namespace TestCode
             }
             LogManager.LogException(new Exception("be carefull"));*/
             BL.AbsenceForTeacher.Add(new AbsencesForTeacherDTO() {
-                FromDate = DateTime.Now,
-                ToDate = DateTime.Now,
+                FromDate = _CastDTO.DateToDTO(DateTime.Now),
+                ToDate = _CastDTO.DateToDTO(DateTime.Now),
                 TeacherId = 779,
                 Type = 1,
                 TeacherStandIn=780

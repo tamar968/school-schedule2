@@ -10,8 +10,8 @@ namespace DTO
     {
         public int Id { get; set; }
         public int TeacherId { get; set; }
-        public DateTime FromDate { get; set; }
-        public DateTime ToDate { get; set; }
+        public DateDTO FromDate { get; set; }
+        public DateDTO ToDate { get; set; }
         public int? TeacherStandIn { get; set; }
         public int Type { get; set; }
 

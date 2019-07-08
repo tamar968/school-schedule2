@@ -25,8 +25,8 @@ namespace BL
                 var absForTea = db.AbsencesForTeachers.FirstOrDefault(a => a.Id == absenceForTeacher.Id);
                 absForTea.TeacherId = absenceForTeacher.TeacherId;
                 absForTea.TeacherStandIn = absenceForTeacher.TeacherStandIn;
-                absForTea.FromDate = absenceForTeacher.FromDate;
-                absForTea.ToDate = absenceForTeacher.ToDate;
+                absForTea.FromDate = _CastDTO.DTOToDate(absenceForTeacher.FromDate);
+                absForTea.ToDate = _CastDTO.DTOToDate(absenceForTeacher.ToDate);
                 db.SaveChanges();
             }
         }

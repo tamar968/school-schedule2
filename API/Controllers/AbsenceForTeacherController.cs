@@ -21,10 +21,6 @@ namespace API.Controllers
         {
             try
             {
-
-                absenceForTeacher.ToDate = DateTime.Now;
-                absenceForTeacher.FromDate = DateTime.Now;
-                
                 AbsenceForTeacher.Add(absenceForTeacher);
                 return Ok();
             }
