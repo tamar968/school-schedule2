@@ -31,7 +31,7 @@ namespace DTO
         #region AbsenceForTeacher
         public static AbsencesForTeacherDTO AbsencesForTeacherToDTO(AbsencesForTeacher absForTea)
         {
-            return new AbsencesForTeacherDTO() {  TeacherId = absForTea.TeacherId, TeacherStandIn = absForTea.TeacherStandIn, FromDate = absForTea.FromDate, ToDate = absForTea.ToDate ,Type=absForTea.Type};
+            return new AbsencesForTeacherDTO() { TeacherId = absForTea.TeacherId, TeacherStandIn = absForTea.TeacherStandIn, FromDate = absForTea.FromDate, ToDate = absForTea.ToDate, Type = absForTea.Type };
         }
         public static List<AbsencesForTeacherDTO> AbsencesForTeacherToDTO(List<AbsencesForTeacher> absForTeaList)
         {
@@ -39,7 +39,7 @@ namespace DTO
         }
         public static AbsencesForTeacher DTOToAbsencesForTeacher(AbsencesForTeacherDTO absForTea)
         {
-            return new AbsencesForTeacher() { TeacherId = absForTea.TeacherId, TeacherStandIn = absForTea.TeacherStandIn, FromDate = absForTea.FromDate, ToDate = absForTea.ToDate ,Type = absForTea.Type };
+            return new AbsencesForTeacher() { TeacherId = absForTea.TeacherId, TeacherStandIn = absForTea.TeacherStandIn, FromDate = absForTea.FromDate, ToDate = absForTea.ToDate, Type = absForTea.Type };
         }
         public static List<AbsencesForTeacher> DTOToAbsencesForTeacher(List<AbsencesForTeacherDTO> absForTeaList)
         {
@@ -74,7 +74,7 @@ namespace DTO
                 Num = dairy.Num,
                 CalculateHours = dairy.CalculateHours,
                 Cause = dairy.Cause,
-                FromDate = dairy.FromDate,
+                FromDate = DateToDTO(dairy.FromDate),
                 Hour = dairy.Hour,
                 IsGrouped = dairy.IsGrouped,
                 OccasionId = dairy.OccasionId,
@@ -82,7 +82,7 @@ namespace DTO
                 RoomId = dairy.RoomId,
                 SubjectId = dairy.SubjectId,
                 TeacherId = dairy.TeacherId,
-                ToDate = dairy.ToDate,
+                ToDate = DateToDTO(dairy.ToDate),
                 TypeId = dairy.TypeId
             };
         }
@@ -99,7 +99,7 @@ namespace DTO
                 Num = dairy.Num,
                 CalculateHours = dairy.CalculateHours,
                 Cause = dairy.Cause,
-                FromDate = dairy.FromDate,
+                FromDate = DTOToDate(dairy.FromDate),
                 Hour = dairy.Hour,
                 IsGrouped = dairy.IsGrouped,
                 OccasionId = dairy.OccasionId,
@@ -107,7 +107,7 @@ namespace DTO
                 RoomId = dairy.RoomId,
                 SubjectId = dairy.SubjectId,
                 TeacherId = dairy.TeacherId,
-                ToDate = dairy.ToDate,
+                ToDate = DTOToDate(dairy.ToDate),
                 TypeId = dairy.TypeId
             };
         }
@@ -182,11 +182,12 @@ namespace DTO
             return new OccasionDTO()
             {
                 Id = occ.Id,
-                FromDate = occ.FromDate,
-                ToDate = occ.ToDate,
+                FromDate = DateToDTO(occ.FromDate),
+                ToDate = DateToDTO(occ.ToDate),
                 OccasionType = occ.OccasionType
             };
         }
+
         public static List<OccasionDTO> OccasionToDTO(List<Occasion> occList)
         {
             return occList.Select(a => OccasionToDTO(a)).ToList();
@@ -196,8 +197,8 @@ namespace DTO
             return new Occasion()
             {
                 Id = occ.Id,
-                FromDate = occ.FromDate,
-                ToDate = occ.ToDate,
+                FromDate = DTOToDate(occ.FromDate),
+                ToDate = DTOToDate(occ.ToDate),
                 OccasionType = occ.OccasionType
             };
         }
@@ -246,20 +247,22 @@ namespace DTO
         #region Reforma
         public static ReformaDTO ReformaToDTO(Reforma refo)
         {
-            return new ReformaDTO() {
+            return new ReformaDTO()
+            {
                 Id = refo.Id,
                 Name = refo.Name
             };
         }
         public static List<ReformaDTO> ReformaToDTO(List<Reforma> refoList)
         {
-            return refoList.Select(a =>ReformaToDTO(a)).ToList();
+            return refoList.Select(a => ReformaToDTO(a)).ToList();
         }
         public static Reforma DTOToReforma(ReformaDTO refo)
         {
-            return new Reforma() {
-                Id=refo.Id,
-                Name=refo.Name
+            return new Reforma()
+            {
+                Id = refo.Id,
+                Name = refo.Name
             };
         }
         public static List<Reforma> DTOToReforma(List<ReformaDTO> refoList)
@@ -391,6 +394,51 @@ namespace DTO
         public static List<Teacher> DTOToTeacher(List<TeacherDTO> teacherList)
         {
             return teacherList.Select(t => DTOToTeacher(t)).ToList();
+        }
+        #endregion
+        #region Date
+        public static DateDTO DateToDTO(DateTime date)
+        {
+            return new DateDTO()
+            {
+                Day = date.Day,
+                Hour = date.Hour,
+                Millisecond = date.Millisecond,
+                Minute = date.Minute,
+                Month = date.Month,
+                Second = date.Second,
+                Year = date.Year
+            };
+        }
+        public static DateDTO DateToDTO(DateTime? date)
+        {
+            DateTime thisDate = new DateTime();
+            return new DateDTO()
+            {
+                thisDate = date.GetValueOrDefault(),
+                Hour = thisDate.Hour,
+                Millisecond = thisDate.Millisecond,
+                Minute = thisDate.Minute,
+                Month = thisDate.Month,
+                Second = thisDate.Second,
+                Year = thisDate.Year
+            };
+        }
+        public static List<DateDTO> DateToDTO(List<DateTime> dateList)
+        {
+            return dateList.Select(d => DateToDTO(d)).ToList();
+        }
+        public static List<DateDTO> DateToDTO(List<DateTime?> dateList)
+        {
+            return dateList.Select(d => DateToDTO(d)).ToList();
+        }
+        public static DateTime DTOToDate(DateDTO date)
+        {
+            return new DateTime(date.Year, date.Month, date.Day, date.Hour, date.Minute, date.Second, date.Millisecond);
+        }
+        public static List<DateTime> DTOToDate(List<DateDTO> dateList)
+        {
+            return dateList.Select(d => DTOToDate(d)).ToList();
         }
         #endregion
     }

@@ -1,4 +1,7 @@
 export interface Absence {
     Id ?:number; 
-   Name:string;
+    TeacherId :number;
+    FromDate: Date ;
+    ToDate: Date ;
+    TeacherStandIn ?:number;
 }

@@ -10,6 +10,6 @@ namespace DTO
     {
         public int Id { get; set; }
         public string Name { get; set; }
-        public Nullable<bool> IsStandart { get; set; }
+        public bool? IsStandart { get; set; }
     }
 }

@@ -26,8 +26,8 @@ namespace BL
                 dairy.CalculateHours = lesson.CalculateHours;
                 dairy.Cause = lesson.Cause;
                 dairy.ClassId = lesson.ClassId;
-                dairy.FromDate = lesson.FromDate;
-                dairy.ToDate = lesson.ToDate;
+                dairy.FromDate = _CastDTO.DTOToDate(lesson.FromDate);
+                dairy.ToDate = _CastDTO.DTOToDate(lesson.ToDate);
                 dairy.Hour = lesson.Hour;
                 dairy.IsGrouped = lesson.IsGrouped;
                 dairy.Num = lesson.Num;

@@ -25,8 +25,8 @@ namespace BL
                 var occ = db.Occasions.FirstOrDefault(o => o.Id == occasion.Id);
                 occ.Id = occasion.Id;
                 occ.OccasionType = occasion.OccasionType;
-                occ.FromDate = occasion.FromDate;
-                occ.ToDate = occasion.ToDate;
+                occ.FromDate = _CastDTO.DTOToDate(occasion.FromDate);
+                occ.ToDate = _CastDTO.DTOToDate(occasion.ToDate);
                 db.SaveChanges();
             }
         }

@@ -9,8 +9,8 @@ namespace DTO
     public class OccasionDTO
     {
         public int Id { get; set; }
-        public DateTime? FromDate { get; set; }
-        public DateTime? ToDate { get; set; }
+        public DateDTO FromDate { get; set; }
+        public DateDTO ToDate { get; set; }
         public int? OccasionType { get; set; }
     }
 }

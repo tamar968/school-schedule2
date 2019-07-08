@@ -10,7 +10,7 @@ export class UserService {
 
   constructor(private http:HttpClient) { } 
   
-  private baseUrl = AppComponent.getBaseUrl(); 
+  private baseUrl = AppComponent.prototype.getBaseUrl(); 
 
   public login(password:string):Observable<any>{
     return this.http.post<any>(this.baseUrl+'/login', {password});
