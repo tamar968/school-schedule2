@@ -16,8 +16,9 @@ password:string;
   onLogin(){
     this.userService.login(this.password)
       .subscribe(
-        res=>this.router.navigateByUrl(''),
-        err=>alert(err)
+        res=>this.router.navigateByUrl('')
+        // ,
+        // err=>alert(err)
         );
   }
 }
