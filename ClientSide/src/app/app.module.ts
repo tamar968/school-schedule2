@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AddAbsenceComponent } from './Absences/add-absence/add-absence.component';
 import { AddOccasionComponent } from './occation/add-occasion/add-occasion.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 const ROUTES:Routes=[
   //{path:"i",redirectTo:""},//only for sample
@@ -36,6 +37,7 @@ const ROUTES:Routes=[
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
     NgbModule,
+    NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -27,7 +27,6 @@ namespace DAL
     
         public virtual DbSet<Class> Classes { get; set; }
         public virtual DbSet<Dairy> Dairies { get; set; }
-        public virtual DbSet<Occasion> Occasions { get; set; }
         public virtual DbSet<OccasionType> OccasionTypes { get; set; }
         public virtual DbSet<PayAbsence> PayAbsences { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
@@ -41,5 +40,6 @@ namespace DAL
         public virtual DbSet<SchoolType> SchoolTypes { get; set; }
         public virtual DbSet<Absence> Absences { get; set; }
         public virtual DbSet<AbsencesForTeacher> AbsencesForTeachers { get; set; }
+        public virtual DbSet<Occasion> Occasions { get; set; }
     }
 }

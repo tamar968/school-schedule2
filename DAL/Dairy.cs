@@ -37,12 +37,12 @@ namespace DAL
         public Nullable<int> Cause { get; set; }
     
         public virtual Class Class { get; set; }
-        public virtual Occasion Occasion { get; set; }
         public virtual OccasionType OccasionType { get; set; }
         public virtual Room Room { get; set; }
         public virtual Subject Subject { get; set; }
         public virtual Teacher Teacher { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Class> Classes { get; set; }
+        public virtual Occasion Occasion { get; set; }
     }
 }

@@ -11,7 +11,7 @@ using System.Web.Http.Cors;
 
 namespace API.Controllers
 {
-    [RoutePrefix("api/AbsenceForTeacher")]
+    [RoutePrefix("api/absence-for-teacher")]
     [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class AbsenceForTeacherController : ApiController
     {

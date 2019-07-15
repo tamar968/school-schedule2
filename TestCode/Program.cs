@@ -28,8 +28,8 @@ namespace TestCode
                 Type = 1,
                 TeacherStandIn=780
             });
-               
-          
+            var z = BL.Class.ClassByLayer.Keys;
+            var x = BL.Class.ClassByLayer;
 
         }
     }

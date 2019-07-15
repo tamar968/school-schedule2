@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {AppComponent} from '../app.component'
-import { from, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { AbsenceForTeacher } from '../models/absence-for-teacher.model';
 
@@ -10,7 +10,7 @@ import { AbsenceForTeacher } from '../models/absence-for-teacher.model';
 export class AbsenceForTeacherService {
 
   constructor(private http:HttpClient) { }
-   private baseUrl=AppComponent.getBaseUrl()+"/AbsenceForTeacher"; 
+   private baseUrl=AppComponent.getBaseUrl()+"/absence-for-teacher"; 
 
    public add(absence:AbsenceForTeacher):Observable<any>{
      return this.http.post(this.baseUrl+'/add',absence);

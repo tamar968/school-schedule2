@@ -12,12 +12,12 @@ namespace API.Controllers
 {
     public class OccasionTypeTypeController : ApiController
     {
-        [RoutePrefix("api")]//define the url
+        [RoutePrefix("api/occasion-type")]//define the url
         [EnableCors(origins: "*", headers: "*", methods: "*")]//access allow for all clients and methods
         public class OccasionTypeController : ApiController
         {
             [HttpPost]//define the data transfer method
-            [Route("occasion-type")]//define the url
+            [Route("add")]//define the url
             public IHttpActionResult Add([FromBody]OccasionTypeDTO occasionType)
             {
                 try
@@ -75,6 +75,7 @@ namespace API.Controllers
                     return InternalServerError(e);
                 }
             }
+
             [HttpGet]
             [Route("get/all")]
             public IHttpActionResult Get()

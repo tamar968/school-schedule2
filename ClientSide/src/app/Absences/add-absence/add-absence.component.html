@@ -14,7 +14,7 @@
         <input class="form-control" placeholder="yyyy-mm-dd"
                name="fromDate" [(ngModel)]="fromDate" ngbDatepicker #d1="ngbDatepicker">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"></button>
+          <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"><img class="i" src="assets/img/calendar.png"></button>
         </div>
       </div>
     </div>
@@ -25,10 +25,16 @@
         <input class="form-control" placeholder="yyyy-mm-dd"
                name="toDate" [(ngModel)]="toDate" ngbDatepicker #d2="ngbDatepicker">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"></button>
+          <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"><img class="i" src="assets/img/calendar.png"></button>
         </div>
       </div>
     </div>
+  </div>
+  <div class="form-group">
+    <label for="absenceType">סוג חסור</label>
+    <select #abscentTeacher name="absenceType" class="select" [(ngModel)]="absenceTypeId">
+      <option [value]="abs.Id" *ngFor="let abs of absenceTypes">{{abs.Name}}</option>
+    </select>
   </div>
     <div class="checkbox">
       <input type="checkbox" name="wholeDay" [(ngModel)]="wholeDay"   ><label>טיפול יומי גורף</label>
@@ -41,13 +47,6 @@
           </select>
     </div>
 
-    <div class="form-group">
-      <label for="absenceType">סוג חסור</label>
-      <select #abscentTeacher name="absenceType" class="select" [(ngModel)]="absenceTypeId">
-        <option [value]="abs.Id" *ngFor="let abs of absenceTypes">{{abs.Name}}</option>
-      </select>
-    </div>
-
-    <button type="submit" class="btn btn-default" (click)="onAddAbsence()">אישור</button>
+    <button type="submit" class="btn btn-default button" (click)="onAddAbsence()">אישור</button>
   </form>
 </div>

@@ -1,26 +1,26 @@
-﻿using System;
+﻿using BL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Cors;
-using BL;
-using DTO;
 
 namespace API.Controllers
 {
-    [RoutePrefix("api/occasion")]//define the url
-    [EnableCors(origins: "*", headers: "*", methods: "*")]//access allow for all clients and methods
-    public class OccasionController : ApiController
+    [RoutePrefix("api/class")]
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
+    public class ClassController : ApiController
     {
         [HttpPost]//define the data transfer method
         [Route("add")]//define the url
-        public IHttpActionResult Add([FromBody]OccasionDTO occasion)
+        public IHttpActionResult Add([FromBody]ClassDTO _class)
         {
             try
             {
-                Occasion.Add(occasion);
+                Class.Add(_class);
                 return Ok();
             }
             catch (Exception e)
@@ -31,11 +31,11 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("update")]
-        public IHttpActionResult Update([FromBody]OccasionDTO occasion)
+        public IHttpActionResult Update([FromBody]ClassDTO _class)
         {
             try
             {
-                Occasion.Update(occasion);
+                Class.Update(_class);
                 return Ok();
             }
             catch (Exception e)
@@ -46,11 +46,11 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("delete")]
-        public IHttpActionResult Delete([FromBody]OccasionDTO occasion)
+        public IHttpActionResult Delete([FromBody]ClassDTO _class)
         {
             try
             {
-                Occasion.Delete(occasion);
+                Class.Delete(_class);
                 return Ok();
             }
             catch (Exception e)
@@ -65,7 +65,7 @@ namespace API.Controllers
         {
             try
             {
-                return Ok(Occasion.Get(id));
+                return Ok(content: Class.Get(id));
             }
             catch (Exception e)
             {
@@ -79,7 +79,7 @@ namespace API.Controllers
         {
             try
             {
-                return Ok(Occasion.Get());
+                return Ok(content: Class.Get());
             }
             catch (Exception e)
             {
@@ -87,6 +87,19 @@ namespace API.Controllers
                 return InternalServerError(e);
             }
         }
-
+        [HttpGet]
+        [Route("getbylayer/{layer}")]
+        public IHttpActionResult GetByLayer([FromUri]int layer)
+        {
+            try
+            {
+                return Ok(content: Class.GetByLayer(layer));
+            }
+            catch (Exception e)
+            {
+                LogManager.LogException(e);
+                return InternalServerError(e);
+            }
+        }
     }
 }

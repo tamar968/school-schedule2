@@ -10,11 +10,11 @@ namespace BL
 {
     public class Occasion
     {
-        public static void Add(OccasionDTO occation)
+        public static void Add(OccasionDTO occasion)
         {
             using (Entities db = new Entities())
             {
-                db.Occasions.Add(_CastDTO.DTOToOccasion(occation));
+                db.Occasions.Add(_CastDTO.DTOToOccasion(occasion));
                 db.SaveChanges();
             }
         }

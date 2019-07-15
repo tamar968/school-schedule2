@@ -12,7 +12,7 @@ export class OccasionTypeService {
   constructor(private http:HttpClient) { }
   private baseUrl=AppComponent.getBaseUrl()+"/occasion-type";  
 
-  public getTypesOccasions():Observable<OccasionType[]> {
+  public getOccasionTypes():Observable<OccasionType[]> {
     return this.http.get<OccasionType[]>(this.baseUrl+'/get/all');
   }
 }

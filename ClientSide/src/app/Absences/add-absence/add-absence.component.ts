@@ -4,7 +4,7 @@ import { AbsenceService } from '../../services/absence.service';
 import { Router } from '@angular/router';
 import { Absence } from './../../models/absence.model';
 import { Teacher } from './../../models/teacher.model';
-import { AbsenceForTeacher} from './../../models/absence-for-teacher.model';
+import { AbsenceForTeacher } from './../../models/absence-for-teacher.model';
 import { AbsenceForTeacherService } from '../../services/absence-for-teacher.service';
 @Component({
   selector: 'app-add-absence',
@@ -13,50 +13,54 @@ import { AbsenceForTeacherService } from '../../services/absence-for-teacher.ser
 })
 export class AddAbsenceComponent implements OnInit {
 
-  teacherId: number;
   fromDate: Date;
   toDate: Date;
-  teacherStandIn:number;
+  teacherId: number;
+  teacherStandIn: number;
   wholeDay: boolean;
-  teachers:Teacher[];
-  absenceTypes:Absence[];
-  absenceTypeId:number;
+  teachers: Teacher[];
+  absenceTypes: Absence[];
+  absenceTypeId: number;
 
-  constructor(private absenceService:AbsenceService, private teacherService:TeacherService,private absenceForTeacherService:AbsenceForTeacherService,private router: Router) { }
+  constructor(private absenceService: AbsenceService, private teacherService: TeacherService, private absenceForTeacherService: AbsenceForTeacherService, private router: Router) { }
 
   ngOnInit() {
     this.teacherService.getTeachers()
-    .subscribe(teachers=>
-      this.teachers = teachers,
-      err=>console.error(err)
-    );
-    this.absenceService.getAbsences().
-    subscribe(absenceTypes=>
-      this.absenceTypes=absenceTypes,
-      err=>console.error(err)
+      .subscribe(teachers =>
+        this.teachers = teachers,
+        err => console.error(err)
       );
-       }
-  onAddAbsence(){
-  
-  this.absenceForTeacherService.add(this.get()).subscribe(
-        res=>{this.router.navigateByUrl('');
-        console.log("החסור למורה נוסף בהצלחה")}
-         ,
-         err=>console.error(err)
-        );
-  
+    this.absenceService.getAbsences().
+      subscribe(absenceTypes => {
+        this.absenceTypes = absenceTypes;
+        //console.log(absenceTypes);
+      },
+        err => console.error(err)
+      );
   }
-  
-  get(){
+  onAddAbsence() {
+
+    this.absenceForTeacherService.add(this.get()).subscribe(
+      res => {
+        this.router.navigateByUrl('');
+        console.log("החסור למורה נוסף בהצלחה")
+      }
+      ,
+      err => console.error(err)
+    );
+
+  }
+
+  get() {
     var absence = {
       TeacherId: this.teacherId,
       FromDate: this.fromDate,
       ToDate: this.toDate,
-      TeacherStandIn:this.wholeDay? this.teacherStandIn:null,
-      Type:this.absenceTypeId
+      TeacherStandIn: this.wholeDay ? this.teacherStandIn : null,
+      Type: this.absenceTypeId
     } as AbsenceForTeacher;
-   
+
     console.log(absence);
-    return absence;  
+    return absence;
   }
 }

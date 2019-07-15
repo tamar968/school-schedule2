@@ -26,7 +26,7 @@ export class AbsenceService {
 
    getAbsence(absence:number):Observable<Absence> {
     return this.http.get<Absence>(this.baseUrl+'/get/{absence}');
-  }/**///TOFIX
+  }
   public getAbsences():Observable<Absence[]> {
     return this.http.get<Absence[]>(this.baseUrl+'/get/all' );
   }
