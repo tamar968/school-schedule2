@@ -28,7 +28,7 @@ export class AddOccasionComponent implements OnInit {
   layers:Layer[];
   grades: Class[];
   teachers: Teacher[];
-
+layersId:number[];
   constructor(
     private occationService: OccasionService,
     private occationTypeService: OccasionTypeService,
@@ -73,8 +73,13 @@ export class AddOccasionComponent implements OnInit {
   onSelectAll(items: Teacher) {
     console.log(items);
   }
+  checkValue(state:number,l:number){
+    if(state==1)
+    this.layersId.push(l);
+    else this.layersId=this.arrayRemove(this.layersId,l);
+  }
   onChooseLayer(){
-this.classService.getClassesByLayers([10,12])
+this.classService.getClassesByLayers(this.layersId)
       .subscribe(grades => {
         this.grades = grades;
         //console.log(this.grades);
@@ -102,7 +107,13 @@ this.classService.getClassesByLayers([10,12])
     console.log(occasion);
     return occasion;
   }
+   arrayRemove(arr, value) {
 
+    return arr.filter(function(ele){
+        return ele != value;
+    });
+ 
+ }
 }
 
 

@@ -27,24 +27,25 @@
         </div>
       </div>
     </div>
-  </div>
-  <b>מלוות</b>
-  <ng-multiselect-dropdown [placeholder]="'בחירת מלווה'" [data]="dropdownList" [(ngModel)]="selectedItems" [settings]="dropdownSettings"
-    [ngModelOptions]="{standalone: true}" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
-  </ng-multiselect-dropdown>
-  <div>
-    <b>בחירת מחזור</b>
-    <div *ngFor="let layer of layers">
-      <input type="checkbox" value="{{layer.Id}}" id="layer{{layer.Id}}" checked>
-      <label for="layer{{layer.Id}}">{{layer.Name}}</label>
-    </div>
-  </div>
-  <div>
-    <b (click)=onChooseLayer()>בחירת כיתות</b>
-    <div *ngFor="let grade of grades">
-      <input type="checkbox" value="{{grade.Id}}" id="grade{{grade.Id}}" checked>
-      <label for="grade{{grade.Id}}">{{grade.Name}}</label>
-    </div>
-  </div>
-  <button type="submit" class="btn btn-default button" (click)="onAddOccasion()">אישור</button>
-  <form>
+    <div>
+        <b>בחירת מחזור</b>
+        <div *ngFor="let layer of layers;let i=index">
+          <input type="checkbox" 
+          value="{{layer.Id}}" 
+          id="layer{{layer.Id}}"
+           checked 
+           [(ngModel)]="isChecked+$index" 
+           [ngModelOptions]="{standalone: true}"
+            (change)="checkValue(isChecked+$index?1:0,layer.Id)"  >
+          <label for="layer{{layer.Id}}">{{layer.Name}}</label>
+        </div>
+      </div>
+      <div>
+        <b (click)=onChooseLayer()>בחירת כיתות</b>
+        <div *ngFor="let grade of grades">
+          <input type="checkbox" value="{{grade.Id}}" id="grade{{grade.Id}}" checked>
+          <label for="grade{{grade.Id}}">{{grade.Name}}</label>
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default button" (click)="onAddOccasion()">אישור</button>
+      <form>
