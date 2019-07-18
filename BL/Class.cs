@@ -12,12 +12,13 @@ namespace BL
     {
 
         enum eLayers
-        {   ט=9,
-            י=10,
-            יא=11,
-            יב=12
-            ,יג=13
-            ,יד=14
+        {
+            ט = 9,
+            י = 10,
+            יא = 11,
+            יב = 12
+            , יג = 13
+            , יד = 14
         }
 
 
@@ -51,11 +52,11 @@ namespace BL
                 db.SaveChanges();
             }
         }
-        public static void Delete(ClassDTO _class)
+        public static void Delete(int _classId)
         {
             using (Entities db = new Entities())
             {
-                var cls = db.Classes.FirstOrDefault(c => c.Id == _class.Id);
+                var cls = db.Classes.FirstOrDefault(c => c.Id == _classId);
                 db.Classes.Remove(cls);
                 db.SaveChanges();
             }
@@ -82,9 +83,22 @@ namespace BL
                 return _CastDTO.ClassToDTO(db.Classes.Where(c => c.Layer == layer).ToList());
             }
         }
-        public static  List<ClassDTO> GetByLayer(int layer)
+        public static List<ClassDTO> GetByLayers(List<int> layers)
         {
-            return ClassByLayer[layer];
+            List<ClassDTO> classes = new List<ClassDTO>();
+            if (layers.Contains(0))
+            {
+                for (int i = 9; i < 15; i++)
+                {
+                    classes.AddRange(ClassByLayer[i]);
+                }
+                return classes;
+            }
+            foreach (int i in layers)
+            {
+                classes.AddRange(ClassByLayer[i]);
+            }
+            return classes;
         }
     }
 }

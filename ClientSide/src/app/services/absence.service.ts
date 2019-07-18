@@ -13,21 +13,21 @@ export class AbsenceService {
   private baseUrl=AppComponent.getBaseUrl()+"/absence";  
   
   public addAbsence(absence:Absence):Observable<Absence> {
-    return this.http.post<Absence>(this.baseUrl+'/add', absence);
+    return this.http.post<Absence>(`${this.baseUrl}/add`, absence);
   }
   
   public updateAbsence(absence:Absence):Observable<Absence> {
-    return this.http.post<Absence>(this.baseUrl+'/update', absence);
+    return this.http.post<Absence>(`${this.baseUrl}/update`, absence);
   }
 
-  public deleteAbsence(absence:Absence):Observable<Absence> {
-    return this.http.post<Absence>(this.baseUrl+'/delete', absence);
+  public deleteAbsence(Id:number):Observable<Absence> {
+    return this.http.post<Absence>(`${this.baseUrl}/delete`, Id);
   }
 
    getAbsence(absence:number):Observable<Absence> {
-    return this.http.get<Absence>(this.baseUrl+'/get/{absence}');
+    return this.http.get<Absence>(`${this.baseUrl}/get/${absence}`);
   }
   public getAbsences():Observable<Absence[]> {
-    return this.http.get<Absence[]>(this.baseUrl+'/get/all' );
+    return this.http.get<Absence[]>(`${this.baseUrl}/get/all` );
   }
 }

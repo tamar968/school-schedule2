@@ -47,7 +47,7 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("delete")]
-        public IHttpActionResult Delete([FromBody]AbsenceDTO absence)
+        public IHttpActionResult Delete([FromBody]int absence)
         {
             try
             {

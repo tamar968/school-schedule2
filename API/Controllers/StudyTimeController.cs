@@ -47,7 +47,7 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("delete")]
-        public IHttpActionResult Delete([FromBody]DairyDTO lesson)
+        public IHttpActionResult Delete([FromBody]int lesson)
         {
             try
             {

@@ -13,7 +13,7 @@ export class OccasionService {
   private baseUrl=AppComponent.getBaseUrl()+"/occasion";  
 
   public add(occasion:Occasion):Observable<Occasion> {
-    return this.http.post<Occasion>(this.baseUrl+'/add', occasion);
+    return this.http.post<Occasion>(`${this.baseUrl}/add`, occasion);
   }
   
 }

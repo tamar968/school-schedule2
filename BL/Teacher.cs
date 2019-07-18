@@ -26,11 +26,11 @@ namespace BL
                 db.SaveChanges();
             }
         }
-        public static void Delete(TeacherDTO teacher)
+        public static void Delete(int teacherId)
         {
             using (Entities db = new Entities())
             {
-                var abs = db.Teachers.FirstOrDefault(t => t.Id == teacher.Id);
+                var abs = db.Teachers.FirstOrDefault(t => t.Id == teacherId);
                 db.Teachers.Remove(abs);
                 db.SaveChanges();
             }

@@ -1,45 +1,50 @@
-<div > </div>
+<div> </div>
 
 <form role="form" class="container">
-    <h2 class="container">הוספת ארוע</h2>
-    <div class="form-group">
-        <label for="typeOccasion">סוג ארוע</label>
-        <select #typeOccasion name="typeOccasion" class="select" [(ngModel)]="typeId">
-            <option [value]="o.Id" *ngFor="let o of occasionTypes">{{o.Name}}</option>
-        </select>
-    </div>
-<div dir="ltr">
+  <h2 class="container">הוספת ארוע</h2>
+  <div class="form-group">
+    <label for="typeOccasion">סוג ארוע</label>
+    <select #typeOccasion name="typeOccasion" class="select" [(ngModel)]="typeId">
+      <option [value]="o.Id" *ngFor="let o of occasionTypes">{{o.Name}}</option>
+    </select>
+  </div>
+  <div dir="ltr">
     <div class="form-group">
       <div class="input-group">
-        <input class="form-control" placeholder="yyyy-mm-dd"
-               name="fromDate" [(ngModel)]="fromDate" ngbDatepicker #d1="ngbDatepicker">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="fromDate" [(ngModel)]="fromDate" ngbDatepicker #d1="ngbDatepicker">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"><img class="i" src="assets/img/calendar.png"></button>
         </div>
       </div>
     </div>
   </div>
-    <div dir="ltr">
-        <div class="form-group">
-          <div class="input-group">
-            <input class="form-control" placeholder="yyyy-mm-dd"
-                   name="toDate" [(ngModel)]="toDate" ngbDatepicker #d2="ngbDatepicker">
-            <div class="input-group-append">
-              <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"><img class="i" src="assets/img/calendar.png"></button>
-            </div>
-          </div>
+  <div dir="ltr">
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="toDate" [(ngModel)]="toDate" ngbDatepicker #d2="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"><img class="i" src="assets/img/calendar.png"></button>
         </div>
       </div>
-    <b>מלוות</b>
-    <ng-multiselect-dropdown [placeholder]="'בחירת מלווה'" [data]="dropdownList" [(ngModel)]="selectedItems" [settings]="dropdownSettings" [ngModelOptions]="{standalone: true}"
-        (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
-    </ng-multiselect-dropdown>
-    <b>לכיתות</b>
-    <div *ngFor="let grade of grades">
-        <input type="checkbox" value="{{grade.Id}}" id="Checked" checked>
-        <label for="Checked">{{grade.Name}}</label>
     </div>
-    <button type="submit" class="btn btn-default button" (click)="onAddOccasion()">אישור</button>
-    <form>
-
-   
+  </div>
+  <b>מלוות</b>
+  <ng-multiselect-dropdown [placeholder]="'בחירת מלווה'" [data]="dropdownList" [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+    [ngModelOptions]="{standalone: true}" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+  </ng-multiselect-dropdown>
+  <div>
+    <b>בחירת מחזור</b>
+    <div *ngFor="let layer of layers">
+      <input type="checkbox" value="{{layer.Id}}" id="layer{{layer.Id}}" checked>
+      <label for="layer{{layer.Id}}">{{layer.Name}}</label>
+    </div>
+  </div>
+  <div>
+    <b (click)=onChooseLayer()>בחירת כיתות</b>
+    <div *ngFor="let grade of grades">
+      <input type="checkbox" value="{{grade.Id}}" id="grade{{grade.Id}}" checked>
+      <label for="grade{{grade.Id}}">{{grade.Name}}</label>
+    </div>
+  </div>
+  <button type="submit" class="btn btn-default button" (click)="onAddOccasion()">אישור</button>
+  <form>

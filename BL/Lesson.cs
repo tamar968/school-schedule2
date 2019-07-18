@@ -40,11 +40,11 @@ namespace BL
                 db.SaveChanges();
             }
         }
-        public static void Delete(DairyDTO lesson)
+        public static void Delete(int lessonId)
         {
             using (Entities db = new Entities())
             {
-                var dairy = db.Dairies.FirstOrDefault(l => l.Id == lesson.Id);
+                var dairy = db.Dairies.FirstOrDefault(l => l.Id == lessonId);
                 db.Dairies.Remove(dairy);
                 db.SaveChanges();
             }

@@ -8,6 +8,7 @@ import { Class } from 'src/app/models/class.model';
 import { ClassService } from 'src/app/services/class.service';
 import { Teacher } from 'src/app/models/teacher.model';
 import { TeacherService } from 'src/app/services/teacher.service';
+import { Layer } from 'src/app/models/layer.model';
 
 @Component({
   selector: 'app-add-occasion',
@@ -24,6 +25,7 @@ export class AddOccasionComponent implements OnInit {
   typeId: number;
 
   occasionTypes: OccasionType[];
+  layers:Layer[];
   grades: Class[];
   teachers: Teacher[];
 
@@ -43,17 +45,12 @@ export class AddOccasionComponent implements OnInit {
       },
         err => console.error(err)
       );
-    this.classService.getClasss()
-      .subscribe(grades => {
-        this.grades = grades;
-        //console.log(this.grades);
-      },
-        err => console.error(err)
-      );
+    this.layers=[{Id:0,Name:'כל המחזורים'},{Id:9,Name:'ט'},{Id:10,Name:'י'},{Id:11,Name:'י"א'},{Id:12,Name:'י"ב'},{Id:13,Name:'י"ג'},{Id:14,Name:'י"ד'}];  
+    
     this.teacherService.getTeachers()
       .subscribe(teachers => {
         this.teachers = teachers;
-        console.log(this.teachers);
+        //console.log(this.teachers);
         this.dropdownList = this.teachers;
         this.dropdownSettings = {
           singleSelection: false,
@@ -76,7 +73,15 @@ export class AddOccasionComponent implements OnInit {
   onSelectAll(items: Teacher) {
     console.log(items);
   }
-
+  onChooseLayer(){
+this.classService.getClassesByLayers([10,12])
+      .subscribe(grades => {
+        this.grades = grades;
+        //console.log(this.grades);
+      },
+        err => console.error(err)
+      );
+  }
 
   onAddOccasion() {
     this.occationService.add(this.get()).subscribe(

@@ -30,11 +30,11 @@ namespace BL
                 db.SaveChanges();
             }
         }
-        public static void Delete(AbsencesForTeacherDTO absenceForTeacher)
+        public static void Delete(int absenceForTeacherId)
         {
             using (Entities db = new Entities())
             {
-                var absForTea = db.AbsencesForTeachers.FirstOrDefault(a => a.Id == absenceForTeacher.Id);
+                var absForTea = db.AbsencesForTeachers.FirstOrDefault(a => a.Id == absenceForTeacherId);
                 db.AbsencesForTeachers.Remove(absForTea);
                 db.SaveChanges();
             }

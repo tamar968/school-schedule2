@@ -13,6 +13,6 @@ export class OccasionTypeService {
   private baseUrl=AppComponent.getBaseUrl()+"/occasion-type";  
 
   public getOccasionTypes():Observable<OccasionType[]> {
-    return this.http.get<OccasionType[]>(this.baseUrl+'/get/all');
+    return this.http.get<OccasionType[]>(`${this.baseUrl}/get/all`);
   }
 }

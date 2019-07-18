@@ -12,7 +12,7 @@ export class UserService {
   
   private baseUrl = AppComponent.getBaseUrl(); 
 
-  public login(password:string):Observable<any>{
-    return this.http.post<any>(this.baseUrl+'/login', {password});
+  public login(password:string):Observable<{string}>{
+    return this.http.post<{string}>(`${this.baseUrl}/login`, {password});
   }
 }

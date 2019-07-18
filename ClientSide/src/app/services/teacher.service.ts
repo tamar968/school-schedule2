@@ -13,6 +13,6 @@ export class TeacherService {
   private baseUrl = AppComponent.getBaseUrl()+'/teacher'; 
  
   public getTeachers():Observable<Teacher[]>{
-    return this.http.get<Teacher[]>(this.baseUrl+'/get/all');
+    return this.http.get<Teacher[]>(`${this.baseUrl}/get/all`);
   }
 }

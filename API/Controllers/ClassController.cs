@@ -46,7 +46,7 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("delete")]
-        public IHttpActionResult Delete([FromBody]ClassDTO _class)
+        public IHttpActionResult Delete([FromBody]int _class)
         {
             try
             {
@@ -87,13 +87,13 @@ namespace API.Controllers
                 return InternalServerError(e);
             }
         }
-        [HttpGet]
-        [Route("getbylayer/{layer}")]
-        public IHttpActionResult GetByLayer([FromUri]int layer)
+        [HttpPost]
+        [Route("getbylayer")]
+        public IHttpActionResult GetByLayers([FromBody]List<int> layers)
         {
             try
             {
-                return Ok(content: Class.GetByLayer(layer));
+                return Ok(content: Class.GetByLayers(layers));
             }
             catch (Exception e)
             {

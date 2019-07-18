@@ -48,7 +48,7 @@ namespace API.Controllers
             }
             [HttpPost]
             [Route("delete")]
-            public IHttpActionResult Delete([FromBody]OccasionTypeDTO occasionType)
+            public IHttpActionResult Delete([FromBody]int occasionType)
             {
                 try
                 {

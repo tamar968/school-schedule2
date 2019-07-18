@@ -28,11 +28,11 @@ namespace BL
                 db.SaveChanges();
             }
         }
-        public static void Delete(OccasionTypeDTO occasionType)
+        public static void Delete(int occasionTypeId)
         {
             using (Entities db = new Entities())
             {
-                var occTp = db.OccasionTypes.FirstOrDefault(ot => ot.Id == occasionType.Id);
+                var occTp = db.OccasionTypes.FirstOrDefault(ot => ot.Id == occasionTypeId);
                 db.OccasionTypes.Remove(occTp);
                 db.SaveChanges();
             }

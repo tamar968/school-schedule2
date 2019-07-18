@@ -13,21 +13,24 @@ export class ClassService {
   private baseUrl = AppComponent.getBaseUrl() + "/class";
 
   public addClass(_class: Class): Observable<Class> {
-    return this.http.post<Class>(this.baseUrl + '/update', _class);
+    return this.http.post<Class>(`${this.baseUrl}/add`, _class);
   }
 
   public updateClass(_class: Class): Observable<Class> {
-    return this.http.post<Class>(this.baseUrl + '/update', _class);
+    return this.http.post<Class>(`${this.baseUrl}/update`, _class);
   }
 
-  public deleteClass(_class: Class): Observable<Class> {
-    return this.http.post<Class>(this.baseUrl + '/delete', _class);
+  public deleteClass(Id: number): Observable<Class> {
+    return this.http.post<Class>(`${this.baseUrl}/delete`, Id);
   }
 
   getClass(_class: number): Observable<Class> {
-    return this.http.get<Class>(this.baseUrl + '/get/{_class}');
+    return this.http.get<Class>(`${this.baseUrl}/get/${_class}`);
   }
-  public getClasss(): Observable<Class[]> {
-    return this.http.get<Class[]>(this.baseUrl + '/get/all');
+  public getClassesByLayers(layers:number[]): Observable<Class[]> {
+    return this.http.post<Class[]>(`${this.baseUrl}/getbylayer`,layers);
+  }
+  public getClasses(): Observable<Class[]> {
+    return this.http.get<Class[]>(`${this.baseUrl}/get/all`);
   }
 }
