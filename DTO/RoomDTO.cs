@@ -13,5 +13,9 @@ namespace DTO
         public int Number { get; set; }
         public int? ClassId { get; set; }
         public string UseFor { get; set; }
+        public ICollection<int> Dairies { get; set; }
+        public ICollection<int> Schedules { get; set; }
+        public ICollection<int> Groups { get; set; }
+        public ICollection<int> Occasions { get; set; }
     }
 }

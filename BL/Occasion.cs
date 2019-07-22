@@ -14,7 +14,20 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                db.Occasions.Add(_CastDTO.DTOToOccasion(occasion));
+                DAL.Occasion occasionDb = _CastDTO.DTOToOccasion(occasion);
+                db.Occasions.Add(occasionDb);
+                occasion.Teachers = new HashSet<int>();
+                var teachers = db.Teachers.Where(t => occasion.Teachers.Contains(t.Id));
+                foreach (DAL.Teacher teacher in teachers)
+                {
+                    occasionDb.Teachers.Add(teacher);
+                }
+                occasion.Classes = new HashSet<int>();
+                var classes = db.Classes.Where(c => occasion.Classes.Contains(c.Id));
+                foreach (DAL.Class cls in classes)
+                {
+                    occasionDb.Classes.Add(cls);
+                }
                 db.SaveChanges();
             }
         }

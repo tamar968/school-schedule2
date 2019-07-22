@@ -12,5 +12,9 @@ namespace DTO
         public DateDTO FromDate { get; set; }
         public DateDTO ToDate { get; set; }
         public int? OccasionType { get; set; }
+        public ICollection<int> Dairies { get; set; }
+        public ICollection<int> Classes { get; set; }
+        public ICollection<int> Rooms { get; set; }
+        public ICollection<int> Teachers { get; set; }
     }
 }

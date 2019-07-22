@@ -20,5 +20,7 @@ namespace DTO
         public int? PayAbsence { get; set; }
         public int? HourType { get; set; }
         public int? SubHourType { get; set; }
+        public ICollection<int> Classes { get; set; }
+
     }
 }

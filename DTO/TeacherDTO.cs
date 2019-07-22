@@ -11,5 +11,10 @@ namespace DTO
         public int Id { get; set; }
         public int Num { get; set; }
         public string Name { get; set; }
+        public virtual ICollection<int> Dairies { get; set; }
+        public virtual ICollection<int> PayAbsences { get; set; }
+        public virtual ICollection<int> Groups { get; set; }
+        public virtual ICollection<int> AbsencesForTeachers { get; set; }
+        public virtual ICollection<int> Occasions { get; set; }
     }
 }

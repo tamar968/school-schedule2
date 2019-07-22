@@ -23,12 +23,15 @@ export class AddOccasionComponent implements OnInit {
   fromDate: Date;
   toDate: Date;
   typeId: number;
+  dairyIDs:number[];
+  classIDs:number[];
+  teacherIDs:number[];
 
   occasionTypes: OccasionType[];
-  layers:Layer[];
-  grades: Class[];
+  layers: Layer[];
+  classes: Class[];
   teachers: Teacher[];
-layersId:number[];
+  isChecked: boolean[];
   constructor(
     private occationService: OccasionService,
     private occationTypeService: OccasionTypeService,
@@ -45,8 +48,8 @@ layersId:number[];
       },
         err => console.error(err)
       );
-    this.layers=[{Id:0,Name:'כל המחזורים'},{Id:9,Name:'ט'},{Id:10,Name:'י'},{Id:11,Name:'י"א'},{Id:12,Name:'י"ב'},{Id:13,Name:'י"ג'},{Id:14,Name:'י"ד'}];  
-    
+    this.layers = [{ Id: 0, Name: 'כל המחזורים' }, { Id: 9, Name: 'ט' }, { Id: 10, Name: 'י' }, { Id: 11, Name: 'י"א' }, { Id: 12, Name: 'י"ב' }, { Id: 13, Name: 'י"ג' }, { Id: 14, Name: 'י"ד' }];
+
     this.teacherService.getTeachers()
       .subscribe(teachers => {
         this.teachers = teachers;
@@ -60,12 +63,12 @@ layersId:number[];
           unSelectAllText: 'אף מורה',
           itemsShowLimit: this.teachers.length,
           allowSearchFilter: true,
-          searchPlaceholderText	:'חפוש'
+          searchPlaceholderText: 'חפוש'
         };
       },
         err => console.error(err)
       );
-
+    this.isChecked = [];
   }
   onItemSelect(item: Teacher) {
     console.log(item);
@@ -73,22 +76,28 @@ layersId:number[];
   onSelectAll(items: Teacher) {
     console.log(items);
   }
-  checkValue(state:number,l:number){
-    if(state==1)
-    this.layersId.push(l);
-    else this.layersId=this.arrayRemove(this.layersId,l);
-  }
-  onChooseLayer(){
-this.classService.getClassesByLayers(this.layersId)
-      .subscribe(grades => {
-        this.grades = grades;
-        //console.log(this.grades);
+
+  onChooseLayer() {
+    var layersId = [];
+    for (const key in this.isChecked) {
+      if (this.isChecked.hasOwnProperty(key)) {
+        if (this.isChecked[key]) {
+          layersId.push(key);
+        }
+      }
+    }
+    this.classService.getClassesByLayers(layersId)
+      .subscribe(classes => {
+        this.classes = classes;
+        //console.log(this.classes);
       },
         err => console.error(err)
       );
   }
 
   onAddOccasion() {
+    this.classIDs=this.classes.map(c=>c.Id);
+    this.teacherIDs=this.teachers.map(t=>t.Id);
     this.occationService.add(this.get()).subscribe(
       res => {
         this.router.navigateByUrl('');
@@ -102,18 +111,22 @@ this.classService.getClassesByLayers(this.layersId)
     var occasion = {
       FromDate: this.fromDate,
       ToDate: this.toDate,
-      OccasionType: this.typeId
+      OccasionType: this.typeId,
+      Dairies: this.dairyIDs,
+    Classes: this.classIDs,
+    Rooms: this.classIDs,
+    Teachers: this.teacherIDs
     } as Occasion;
     console.log(occasion);
     return occasion;
   }
-   arrayRemove(arr, value) {
+  arrayRemove(arr, value) {
 
-    return arr.filter(function(ele){
-        return ele != value;
+    return arr.filter(function (ele) {
+      return ele != value;
     });
- 
- }
+
+  }
 }
 
 
