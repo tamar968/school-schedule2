@@ -30,3 +30,6 @@ body{
     background-color: #4CAF50;
     padding: 20px;
   }
+  .grab {cursor: -webkit-grab; cursor: grab;}
+.grabbing {cursor: -webkit-grabbing; cursor: grabbing;}
+.pointer {cursor: -webkit-pointer; cursor: pointer;}
