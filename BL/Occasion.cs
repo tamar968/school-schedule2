@@ -16,17 +16,20 @@ namespace BL
             {
                 DAL.Occasion occasionDb = _CastDTO.DTOToOccasion(occasion);
                 db.Occasions.Add(occasionDb);
-                occasion.Teachers = new HashSet<int>();
                 var teachers = db.Teachers.Where(t => occasion.Teachers.Contains(t.Id));
                 foreach (DAL.Teacher teacher in teachers)
                 {
                     occasionDb.Teachers.Add(teacher);
                 }
-                occasion.Classes = new HashSet<int>();
                 var classes = db.Classes.Where(c => occasion.Classes.Contains(c.Id));
                 foreach (DAL.Class cls in classes)
                 {
                     occasionDb.Classes.Add(cls);
+                }
+                var rooms = db.Rooms.Where(r => occasion.Rooms.Contains(r.Id));
+                foreach (DAL.Room room in rooms)
+                {
+                    occasionDb.Rooms.Add(room);
                 }
                 db.SaveChanges();
             }
