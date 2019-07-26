@@ -68,7 +68,7 @@ namespace BL
         /// <param name="id"></param>
         /// <returns>absences for this teacher</returns>
         public static AbsencesForTeacherDTO GetByTeacher(int id)
-        {
+        {//try to add it for github
             using (Entities db = new Entities())
             {
                 return _CastDTO.AbsencesForTeacherToDTO(db.AbsencesForTeachers.FirstOrDefault(l => l.TeacherId == id));
