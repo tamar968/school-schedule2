@@ -29,3 +29,6 @@ https://angular.io/tutorial/toh-pt6  get all and by id http angular
 https://stackoverflow.com/questions/47068222/angular-4-checkbox-change-value/47068667
 https://love2dev.com/blog/javascript-remove-from-array/
 https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor
+https://stackoverflow.com/questions/2155930/how-do-i-remedy-the-the-breakpoint-will-not-currently-be-hit-no-symbols-have-b
+https://www.w3schools.com/tags/att_input_pattern.asp
+https://www.regextester.com/

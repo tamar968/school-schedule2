@@ -9,6 +9,7 @@ import { ClassService } from 'src/app/services/class.service';
 import { Teacher } from 'src/app/models/teacher.model';
 import { TeacherService } from 'src/app/services/teacher.service';
 import { Layer } from 'src/app/models/layer.model';
+import { FormGroup, FormBuilder,Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-add-occasion',
@@ -16,32 +17,43 @@ import { Layer } from 'src/app/models/layer.model';
   styleUrls: ['./add-occasion.component.css']
 })
 export class AddOccasionComponent implements OnInit {
+  //the form for validation
+  addOccasion: FormGroup;
+//the settings for multiselect teachers
   dropdownList: Teacher[];
   selectedItems: Teacher[];
   dropdownSettings = {};
-
+//the values for the server
   fromDate: Date;
   toDate: Date;
   typeId: number;
-  dairyIDs:number[];
-  classIDs:number[];
-  teacherIDs:number[];
-
+  dairyIDs: number[];
+  classIDs: number[];
+  teacherIDs: number[];
+  roomIDs: number[];
+//the values for the client
   occasionTypes: OccasionType[];
   layers: Layer[];
   classes: Class[];
   teachers: Teacher[];
-  isChecked: boolean[];
+  isCheckedLayers: boolean[];
+  isCheckedClasses: boolean[];
   constructor(
     private occationService: OccasionService,
     private occationTypeService: OccasionTypeService,
     private classService: ClassService,
     private teacherService: TeacherService,
-    private router: Router
+    private router: Router,
+    private formBuilder: FormBuilder 
   ) { }
 
   ngOnInit() {
-    this.occationTypeService.getOccasionTypes()
+    this.addOccasion  =  this.formBuilder.group({
+      type: ['', Validators.required],
+      password: ['', Validators.required]
+  });
+
+    this.occationTypeService.getOccasionTypes()//get all the types occasion; for example:test,speach and etc.
       .subscribe(occasionType => {
         this.occasionTypes = occasionType;
         //console.log(this.occasionTypes);
@@ -68,25 +80,33 @@ export class AddOccasionComponent implements OnInit {
       },
         err => console.error(err)
       );
-    this.isChecked = [];
+    this.isCheckedLayers = [];
+    this.isCheckedClasses = [];
+
+    this.dairyIDs = [];
+    this.teacherIDs = [];
+    this.roomIDs = [];
   }
+  get formControls() { return this.addOccasion.controls; }
+
   onItemSelect(item: Teacher) {
+    this.teacherIDs.push(item.Id);
     console.log(item);
   }
-  onSelectAll(items: Teacher) {
+  onSelectAll(items: Teacher[]) {
     console.log(items);
   }
 
   onChooseLayer() {
-    var layersId = [];
-    for (const key in this.isChecked) {
-      if (this.isChecked.hasOwnProperty(key)) {
-        if (this.isChecked[key]) {
-          layersId.push(key);
+    var layerIDs = [];
+    for (const key in this.isCheckedLayers) {
+      if (this.isCheckedLayers.hasOwnProperty(key)) {
+        if (this.isCheckedLayers[key]) {
+          layerIDs.push(key);
         }
       }
     }
-    this.classService.getClassesByLayers(layersId)
+    this.classService.getClassesByLayers(layerIDs)//get all the classes by the layers that had been chosen.
       .subscribe(classes => {
         this.classes = classes;
         //console.log(this.classes);
@@ -95,9 +115,19 @@ export class AddOccasionComponent implements OnInit {
       );
   }
 
+  /*onClass(cls:number){
+    this.classIDs.push(cls);
+  }*/
+
   onAddOccasion() {
-    this.classIDs=this.classes.map(c=>c.Id);
-    this.teacherIDs=this.teachers.map(t=>t.Id);
+    this.classIDs = [];
+    for (const key in this.isCheckedClasses) {//add the classes TOFIX! add the classes again
+      if (this.isCheckedClasses.hasOwnProperty(key)) {
+        if (this.isCheckedClasses[key]) {
+          this.classIDs.push(Number(key));
+        }
+      }
+    }
     this.occationService.add(this.get()).subscribe(
       res => {
         this.router.navigateByUrl('');
@@ -113,17 +143,17 @@ export class AddOccasionComponent implements OnInit {
       ToDate: this.toDate,
       OccasionType: this.typeId,
       Dairies: this.dairyIDs,
-    Classes: this.classIDs,
-    Rooms: this.classIDs,
-    Teachers: this.teacherIDs
+      Classes: this.classIDs,
+      Rooms: this.roomIDs,
+      Teachers: this.teacherIDs
     } as Occasion;
     console.log(occasion);
     return occasion;
   }
   arrayRemove(arr, value) {
 
-    return arr.filter(function (ele) {
-      return ele != value;
+    return arr.filter(function (elem) {
+      return elem != value;
     });
 
   }
