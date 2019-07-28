@@ -36,8 +36,16 @@
       <option [value]="abs.Id" *ngFor="let abs of absenceTypes">{{abs.Name}}</option>
     </select>
   </div>
+  <div>
+    <span *ngFor="let lsn of lessons">
+      <input type="checkbox" id="lsn{{lsn.Id}}" name="lsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]"/>
+      <label>{{lsn.Name}}</label>
+        <!-- <input type="checkbox" id="{{lsn.Id}}" name="lsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]"> -->
+    </span>      
+  </div>
+
     <div class="checkbox">
-      <input type="checkbox" name="wholeDay" [(ngModel)]="wholeDay"   ><label>טיפול יומי גורף</label>
+      <input type="checkbox" name="wholeDay" [(ngModel)]="wholeDay"><label>טיפול יומי גורף</label>
     </div>
 
     <div *ngIf="wholeDay" class="form-group">

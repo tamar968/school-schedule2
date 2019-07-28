@@ -6,6 +6,8 @@ import { Absence } from './../../models/absence.model';
 import { Teacher } from './../../models/teacher.model';
 import { AbsenceForTeacher } from './../../models/absence-for-teacher.model';
 import { AbsenceForTeacherService } from '../../services/absence-for-teacher.service';
+import { Lesson } from 'src/app/models/lesson.model';
+import { ClassService } from 'src/app/services/class.service';
 @Component({
   selector: 'app-add-absence',
   templateUrl: './add-absence.component.html',
@@ -21,8 +23,15 @@ export class AddAbsenceComponent implements OnInit {
   teachers: Teacher[];
   absenceTypes: Absence[];
   absenceTypeId: number;
-
-  constructor(private absenceService: AbsenceService, private teacherService: TeacherService, private absenceForTeacherService: AbsenceForTeacherService, private router: Router) { }
+  lessons: Lesson[];
+  isCheckedLessons: boolean[];
+  constructor(
+    private absenceService: AbsenceService,
+    private teacherService: TeacherService,
+    private absenceForTeacherService: AbsenceForTeacherService,
+    private router: Router,
+    private classService: ClassService,
+    ) { }
 
   ngOnInit() {
     this.teacherService.getTeachers()
@@ -33,11 +42,25 @@ export class AddAbsenceComponent implements OnInit {
     this.absenceService.getAbsences().
       subscribe(absenceTypes => {
         this.absenceTypes = absenceTypes;
-        //console.log(absenceTypes);
+        // console.log(absenceTypes);
       },
         err => console.error(err)
       );
+   this.isCheckedLessons = [];
+      this.lessons = [ //TODO get this list fro the server
+      { Id: 0 , Name: "כל היום"},
+      {Id: 1,  Name:"ראשון"},
+      {Id: 2, Name: "שני"},
+      {Id: 3, Name: "שלישי"},
+      {Id: 4, Name: "רביעי"},
+      {Id: 5, Name: "חמישי"},
+      {Id: 6, Name: "שישי"},
+      {Id: 7, Name: "שביעי"},
+      {Id: 8, Name: "שמיני"},
+    ];
   }
+
+
   onAddAbsence() {
 
     this.absenceForTeacherService.add(this.get()).subscribe(

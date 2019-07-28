@@ -10,16 +10,16 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AddAbsenceComponent } from './Absences/add-absence/add-absence.component';
 import { AddOccasionComponent } from './occation/add-occasion/add-occasion.component';
-//import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
      
 const ROUTES:Routes=[
   //{path:"i",redirectTo:""},//only for sample
-  {path:"studyTime/:number",component:StudyTimeComponent},//any should be  אוביקט שעת לימוד or id of אוביקט שעת לימוד
-  {path:"login",component:LoginComponent},
-  {path:"absence-for-tacher/add",component:AddAbsenceComponent},
-  {path:"occasion/add",component:AddOccasionComponent},
-  {path:"",component:HomeComponent},
-  {path:"**",redirectTo:""}
+  {path: "studyTime/:number", component:StudyTimeComponent},//any should be  אוביקט שעת לימוד or id of אוביקט שעת לימוד
+  {path: "login", component:LoginComponent},
+  {path: "absence-for-tacher/add", component:AddAbsenceComponent},
+  {path: "occasion/add", component:AddOccasionComponent},
+  {path: "", component: HomeComponent},
+  {path: "**", redirectTo:""}
 ]
 
 @NgModule({
@@ -37,7 +37,7 @@ const ROUTES:Routes=[
     HttpClientModule,
     RouterModule.forRoot(ROUTES),
     NgbModule,
-    NgMultiSelectDropDownModule.forRoot()
+   // NgMultiSelectDropDownModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
