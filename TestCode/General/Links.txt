@@ -1,4 +1,7 @@
-﻿https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api
+﻿git config --global http.sslVerify false
+eq4606
+548524606eq
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api
 https://stackoverflow.com/questions/52726032/angular-5-http-post-request-turns-to-options-and-returns-404
 https://angular.io/guide/http
 https://github.com/angular/angular/issues/19535
@@ -17,9 +20,6 @@ https://update.angular.io/#6.1:8.0
 https://getbootstrap.com/docs/4.3/getting-started/download/
 https://ng-bootstrap.github.io/#/components/datepicker/examples
 https://docs.microsoft.com/en-us/azure/devops/repos/git/gitquickstart?view=azure-devops&tabs=visual-studio/
-git config --global http.sslVerify false
-//eq4606
-//548524606eq
 https://stackoverflow.com/questions/29957878/convert-c-sharp-datetime-to-angular-date
 https://stackoverflow.com/questions/38271273/experimental-decorators-warning-in-typescript-compilation
 https://stackoverflow.com/questions/6384659/a-dependent-property-in-a-referentialconstraint-is-mapped-to-a-store-generated-c
@@ -34,3 +34,4 @@ https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor
 https://stackoverflow.com/questions/2155930/how-do-i-remedy-the-the-breakpoint-will-not-currently-be-hit-no-symbols-have-b
 https://www.w3schools.com/tags/att_input_pattern.asp
 https://www.regextester.com/
+https://stackoverflow.com/questions/36647308/visual-studio-2015-git-error-message-cannot-pull-switch-because-there-are-uncom

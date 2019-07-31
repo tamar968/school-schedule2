@@ -9,7 +9,7 @@ import { ClassService } from 'src/app/services/class.service';
 import { Teacher } from 'src/app/models/teacher.model';
 import { TeacherService } from 'src/app/services/teacher.service';
 import { Layer } from 'src/app/models/layer.model';
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { FormControl, Validators, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-add-occasion',
@@ -17,8 +17,8 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
   styleUrls: ['./add-occasion.component.css']
 })
 export class AddOccasionComponent implements OnInit {
-  //the form for validation
-  addOccasion: FormGroup;
+ 
+  /*addOcassion:FormGroup;*/
 //the settings for multiselect teachers
   dropdownList: Teacher[];
   selectedItems: Teacher[];
@@ -44,14 +44,15 @@ export class AddOccasionComponent implements OnInit {
     private classService: ClassService,
     private teacherService: TeacherService,
     private router: Router,
-    private formBuilder: FormBuilder 
   ) { }
 
   ngOnInit() {
-    this.addOccasion  =  this.formBuilder.group({
-      type: ['', Validators.required],
-      password: ['', Validators.required]
-  });
+    
+    /*this.addOcassion = new FormGroup({
+      type: new FormControl(this.typeId,Validators.required),
+      from: new FormControl(this.fromDate, Validators.required),
+      to: new FormControl(this.toDate, [Validators.required,Validators.pattern('20[0-9]{2}-[0-1][0-9]-[0-3][0-9]')])
+    });*/
 
     this.occationTypeService.getOccasionTypes()//get all the types occasion; for example:test,speach and etc.
       .subscribe(occasionType => {
@@ -87,7 +88,9 @@ export class AddOccasionComponent implements OnInit {
     this.teacherIDs = [];
     this.roomIDs = [];
   }
-  get formControls() { return this.addOccasion.controls; }
+  /*get type() { return this.addOcassion.get('type'); }
+  get from() { return this.addOcassion.get('from'); }
+  get to() { return this.addOcassion.get('to'); }*/
 
   onItemSelect(item: Teacher) {
     this.teacherIDs.push(item.Id);
@@ -118,7 +121,7 @@ export class AddOccasionComponent implements OnInit {
   /*onClass(cls:number){
     this.classIDs.push(cls);
   }*/
-
+  
   onAddOccasion() {
     this.classIDs = [];
     for (const key in this.isCheckedClasses) {//add the classes TOFIX! add the classes again
