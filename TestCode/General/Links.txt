@@ -35,3 +35,6 @@ https://stackoverflow.com/questions/2155930/how-do-i-remedy-the-the-breakpoint-w
 https://www.w3schools.com/tags/att_input_pattern.asp
 https://www.regextester.com/
 https://stackoverflow.com/questions/36647308/visual-studio-2015-git-error-message-cannot-pull-switch-because-there-are-uncom
+https://angular.io/api/common/Time
+https://github.com/scotch-io/angular-2-form-validation/blob/master/src/app/app.formvalidation.ts
+https://regex101.com/

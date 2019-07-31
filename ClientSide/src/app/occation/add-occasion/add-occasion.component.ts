@@ -9,7 +9,7 @@ import { ClassService } from 'src/app/services/class.service';
 import { Teacher } from 'src/app/models/teacher.model';
 import { TeacherService } from 'src/app/services/teacher.service';
 import { Layer } from 'src/app/models/layer.model';
-import { FormControl, Validators, FormGroup } from '@angular/forms';
+import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-occasion',
@@ -17,13 +17,13 @@ import { FormControl, Validators, FormGroup } from '@angular/forms';
   styleUrls: ['./add-occasion.component.css']
 })
 export class AddOccasionComponent implements OnInit {
- 
-  /*addOcassion:FormGroup;*/
-//the settings for multiselect teachers
+  //the form
+  addOccasion: FormGroup;
+  //the settings for multiselect teachers
   dropdownList: Teacher[];
   selectedItems: Teacher[];
   dropdownSettings = {};
-//the values for the server
+  //the values for the server
   fromDate: Date;
   toDate: Date;
   typeId: number;
@@ -31,7 +31,7 @@ export class AddOccasionComponent implements OnInit {
   classIDs: number[];
   teacherIDs: number[];
   roomIDs: number[];
-//the values for the client
+  //the values for the client
   occasionTypes: OccasionType[];
   layers: Layer[];
   classes: Class[];
@@ -44,15 +44,26 @@ export class AddOccasionComponent implements OnInit {
     private classService: ClassService,
     private teacherService: TeacherService,
     private router: Router,
-  ) { }
+    fb: FormBuilder
+  ) {
+    this.addOccasion = fb.group({
+      'fromCtrl': [null, Validators.compose([Validators.required, Validators.pattern('20[0-9]{2}-[0-1][0-9]-[0-3][0-9]*')])],
+      'toCtrl': [null, Validators.compose([Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')])],
+      'typeCtrl': [null, Validators.required],
+      'layersCtrl': [false]/*,
+      'classCtrl': [false],
+      'teacherCtrl': [false]*/
+    })
+    console.log(this.addOccasion);
+    /*this.addOccasion.valueChanges.subscribe( (form: any) => {
+      console.log('form changed to:', form);
+    }
+    );*/
+  }
 
   ngOnInit() {
-    
-    /*this.addOcassion = new FormGroup({
-      type: new FormControl(this.typeId,Validators.required),
-      from: new FormControl(this.fromDate, Validators.required),
-      to: new FormControl(this.toDate, [Validators.required,Validators.pattern('20[0-9]{2}-[0-1][0-9]-[0-3][0-9]')])
-    });*/
+
+
 
     this.occationTypeService.getOccasionTypes()//get all the types occasion; for example:test,speach and etc.
       .subscribe(occasionType => {
@@ -88,9 +99,6 @@ export class AddOccasionComponent implements OnInit {
     this.teacherIDs = [];
     this.roomIDs = [];
   }
-  /*get type() { return this.addOcassion.get('type'); }
-  get from() { return this.addOcassion.get('from'); }
-  get to() { return this.addOcassion.get('to'); }*/
 
   onItemSelect(item: Teacher) {
     this.teacherIDs.push(item.Id);
@@ -121,7 +129,7 @@ export class AddOccasionComponent implements OnInit {
   /*onClass(cls:number){
     this.classIDs.push(cls);
   }*/
-  
+
   onAddOccasion() {
     this.classIDs = [];
     for (const key in this.isCheckedClasses) {//add the classes TOFIX! add the classes again
