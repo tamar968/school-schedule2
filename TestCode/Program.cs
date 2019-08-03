@@ -12,25 +12,27 @@ namespace TestCode
     {
         static void Main(string[] args)
         {
-            /*var xmlManager = new XmlManager();
+            var xmlManager = new XmlManager();
 
-            xmlManager.LoadDirectory(@"Y:\group 2 תשעט\הכהן עדני תמר\קבצים לפרויקט\תלמש\Talmash\חשון עט\");
-            var l=Teacher.Get();
-            foreach (var item in l)
+            //xmlManager.LoadDirectory(@"Y:\group 2 תשעט\הכהן עדני תמר\קבצים לפרויקט\תלמש\Talmash\חשון עט\");
+            //xmlManager.LoadDirectory("../../XML_files");
+            //var l = Teacher.Get();
+            //foreach (var item in l)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            // LogManager.LogException(new Exception("be carefull"));
+            BL.AbsenceForTeacher.Add(new AbsencesForTeacherDTO()
             {
-                Console.WriteLine(item);
-            }
-            LogManager.LogException(new Exception("be carefull"));*/
-            BL.AbsenceForTeacher.Add(new AbsencesForTeacherDTO() {
                 FromDate = _CastDTO.DateToDTO(DateTime.Now),
                 ToDate = _CastDTO.DateToDTO(DateTime.Now),
-                TeacherId = 779,
-                Type = 1,
-                TeacherStandIn=780
+                TeacherId = 179,
+                Type = 4,
+                TeacherStandIn = 180
             });
             var z = BL.Class.ClassByLayer.Keys;
             var x = BL.Class.ClassByLayer;
-
+            Console.ReadLine();
         }
     }
 }
