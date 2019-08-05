@@ -12,6 +12,9 @@ namespace DTO
         public int TeacherId { get; set; }
         public DateDTO FromDate { get; set; }
         public DateDTO ToDate { get; set; }
+        public int? FromLesson { get; set; }
+        public int? ToLesson { get; set; }
+
         public int? TeacherStandIn { get; set; }
         public int Type { get; set; }
 
