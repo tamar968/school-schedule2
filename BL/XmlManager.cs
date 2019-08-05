@@ -36,13 +36,15 @@ namespace BL
                 if (fileNameToAction.TryGetValue(file.Name, out action))
                 {
                     action?.Invoke(file.FullName);
+                    Console.WriteLine("{0} Loading....",file.FullName);
                 }
             }
         }
         public void ClearDB()
         {
            
-            var conn = new SqlConnection("data source=SQL-SERVER; initial catalog=!ESTY&TAMAR; integrated security=True");
+           // var conn = new SqlConnection("data source=SQL-SERVER; initial catalog=!ESTY&TAMAR; integrated security=True");
+            var conn = new SqlConnection("data source=DESKTOP-7A0S24C; initial catalog=!ESTY&TAMAR; integrated security=True");
             SqlCommand cmd;
             conn.Open();
 

@@ -1,7 +1,7 @@
-
+<form role="form" >
 <div  class="container">
   <h2>העדרות למורה</h2>
-  <form role="form" >
+  
      <div class="form-group">
       <label for="abscentTeacher">מורה חסרה</label>
       <select #abscentTeacher name="abscentTeacher" class="select" [(ngModel)]="teacherId">
@@ -37,6 +37,7 @@
     </select>
   </div>
   <div>
+    <p>שעורים:</p>
     <span *ngFor="let lsn of lessons">
       <input type="checkbox" id="lsn{{lsn.Id}}" name="lsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]"/>
       <label>{{lsn.Name}}</label>
@@ -56,5 +57,6 @@
     </div>
 
     <button type="submit" class="btn btn-default button" (click)="onAddAbsence()">אישור</button>
-  </form>
+ 
 </div>
+ </form>
