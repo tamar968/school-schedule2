@@ -27,6 +27,9 @@ namespace BL
                 absForTea.TeacherStandIn = absenceForTeacher.TeacherStandIn;
                 absForTea.FromDate = _CastDTO.DTOToDate(absenceForTeacher.FromDate);
                 absForTea.ToDate = _CastDTO.DTOToDate(absenceForTeacher.ToDate);
+                absForTea.FromLesson = absenceForTeacher.FromLesson;
+                absForTea.ToLesson = absenceForTeacher.ToLesson;
+                absenceForTeacher.
                 db.SaveChanges();
             }
         }

@@ -172,6 +172,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="General\TODO.html" />
     <Content Include="SQL_files\scriptDB.sql" />
     <Content Include="XML_files\blocks.xml" />
     <Content Include="XML_files\classes.xml" />
@@ -193,8 +194,6 @@
     <Content Include="XML_files\tosaftiyot.xml" />
     <Content Include="XML_files\yaadim.xml" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="General\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

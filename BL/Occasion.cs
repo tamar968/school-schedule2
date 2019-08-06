@@ -43,6 +43,8 @@ namespace BL
                 occ.OccasionType = occasion.OccasionType;
                 occ.FromDate = _CastDTO.DTOToDate(occasion.FromDate);
                 occ.ToDate = _CastDTO.DTOToDate(occasion.ToDate);
+                occ.FromLesson = occasion.FromLesson;
+                occ.ToLesson = occasion.ToLesson;
                 db.SaveChanges();
             }
         }

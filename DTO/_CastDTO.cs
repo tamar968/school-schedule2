@@ -37,6 +37,8 @@ namespace DTO
                 TeacherStandIn = absForTea.TeacherStandIn,
                 FromDate =DateToDTO(absForTea.FromDate),
                 ToDate = DateToDTO(absForTea.ToDate),
+                FromLesson=absForTea.FromLesson,
+                ToLesson = absForTea.ToLesson,
                 Type = absForTea.Type
             };
         }
@@ -52,6 +54,8 @@ namespace DTO
                 TeacherStandIn = absForTea.TeacherStandIn,
                 FromDate = DTOToDate(absForTea.FromDate),
                 ToDate = DTOToDate(absForTea.ToDate),
+                FromLesson = absForTea.FromLesson,
+                ToLesson = absForTea.ToLesson,
                 Type = absForTea.Type
             };
         }
@@ -198,6 +202,8 @@ namespace DTO
                 Id = occ.Id,
                 FromDate = DateToDTO(occ.FromDate),
                 ToDate = DateToDTO(occ.ToDate),
+                FromLesson = occ.FromLesson,
+                ToLesson = occ.ToLesson,
                 OccasionType = occ.OccasionType
             };
         }
@@ -213,6 +219,8 @@ namespace DTO
                 Id = occ.Id,
                 FromDate = DTOToDate(occ.FromDate),
                 ToDate = DTOToDate(occ.ToDate),
+                FromLesson = occ.FromLesson,
+                ToLesson = occ.ToLesson,
                 OccasionType = occ.OccasionType
             };
         }
