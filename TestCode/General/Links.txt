@@ -38,3 +38,4 @@ https://stackoverflow.com/questions/36647308/visual-studio-2015-git-error-messag
 https://angular.io/api/common/Time
 https://github.com/scotch-io/angular-2-form-validation/blob/master/src/app/app.formvalidation.ts
 https://regex101.com/
+https://www.techiediaries.com/angular-course-router-guards/

@@ -11,14 +11,13 @@ import { LoginComponent } from './login/login.component';
 import { AddAbsenceComponent } from './Absences/add-absence/add-absence.component';
 import { AddOccasionComponent } from './occation/add-occasion/add-occasion.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
-import { from } from 'rxjs';
-
+import { AdminGuard } from './guard/admin.guard'
 const ROUTES: Routes = [
   //{path:"i",redirectTo:""},//only for sample
   { path: "studyTime/:number", component: StudyTimeComponent },//any should be  אוביקט שעת לימוד or id of אוביקט שעת לימוד
   { path: "login", component: LoginComponent },
-  { path: "absence-for-tacher/add", component: AddAbsenceComponent },
-  { path: "occasion/add", component: AddOccasionComponent },
+  { path: "absence-for-tacher/add", component: AddAbsenceComponent ,canActivate:[AdminGuard]},
+  { path: "occasion/add", component: AddOccasionComponent ,canActivate:[AdminGuard]},
   { path: "", component: HomeComponent },
   { path: "**", redirectTo: "" }
 ]

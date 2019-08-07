@@ -9,7 +9,7 @@ import { ClassService } from 'src/app/services/class.service';
 import { Teacher } from 'src/app/models/teacher.model';
 import { TeacherService } from 'src/app/services/teacher.service';
 import { Layer } from 'src/app/models/layer.model';
-import { FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-add-occasion',
@@ -26,11 +26,14 @@ export class AddOccasionComponent implements OnInit {
   //the values for the server
   fromDate: Date;
   toDate: Date;
+  fromLesson: number;
+  toLesson: number;
   typeId: number;
   dairyIDs: number[];
   classIDs: number[];
   teacherIDs: number[];
   roomIDs: number[];
+  lessons=[1,2,3,4,5,6,7,8];
   //the values for the client
   occasionTypes: OccasionType[];
   layers: Layer[];
@@ -47,9 +50,11 @@ export class AddOccasionComponent implements OnInit {
     fb: FormBuilder
   ) {
     this.addOccasion = fb.group({
-      'fromCtrl': [null, Validators.compose([Validators.required, Validators.pattern('20[0-9]{2}-[0-1][0-9]-[0-3][0-9]*')])],
-      'toCtrl': [null, Validators.compose([Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')])],
+      'fromCtrl': [null, Validators.required/*Validators.compose([Validators.required, Validators.pattern('20[0-9]{2}-[0-1][0-9]-[0-3][0-9]*')])*/],
+      'toCtrl': [false/*null, Validators.compose([Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')])*/],
       'typeCtrl': [null, Validators.required],
+      'fromLsnCtrl': [null,Validators.required /*Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
+      'toLsnCtrl': [ false/*null,Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
       'layersCtrl': [false]/*,
       'classCtrl': [false],
       'teacherCtrl': [false]*/
@@ -149,9 +154,17 @@ export class AddOccasionComponent implements OnInit {
     );
   }
   get() {
+    if(this.toDate==null){
+      this.toDate=this.fromDate;
+    }
+    if(this.toLesson==null){
+      this.toLesson=this.fromLesson;
+    }
     var occasion = {
       FromDate: this.fromDate,
       ToDate: this.toDate,
+      FromLesson: this.fromLesson,
+      ToLesson: this.toLesson,
       OccasionType: this.typeId,
       Dairies: this.dairyIDs,
       Classes: this.classIDs,
