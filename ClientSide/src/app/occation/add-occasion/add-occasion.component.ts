@@ -10,6 +10,8 @@ import { Teacher } from 'src/app/models/teacher.model';
 import { TeacherService } from 'src/app/services/teacher.service';
 import { Layer } from 'src/app/models/layer.model';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Subject } from 'src/app/models/subject.model';
+import { SubjectService } from 'src/app/services/subject.service';
 
 @Component({
   selector: 'app-add-occasion',
@@ -29,13 +31,15 @@ export class AddOccasionComponent implements OnInit {
   fromLesson: number;
   toLesson: number;
   typeId: number;
+  subject: number;
   dairyIDs: number[];
   classIDs: number[];
   teacherIDs: number[];
   roomIDs: number[];
-  lessons=[1,2,3,4,5,6,7,8];
+  lessons = [1, 2, 3, 4, 5, 6, 7, 8];
   //the values for the client
   occasionTypes: OccasionType[];
+  subjects: Subject[];
   layers: Layer[];
   classes: Class[];
   teachers: Teacher[];
@@ -43,6 +47,7 @@ export class AddOccasionComponent implements OnInit {
   isCheckedClasses: boolean[];
   constructor(
     private occationService: OccasionService,
+    private subjectService: SubjectService,
     private occationTypeService: OccasionTypeService,
     private classService: ClassService,
     private teacherService: TeacherService,
@@ -53,8 +58,9 @@ export class AddOccasionComponent implements OnInit {
       'fromCtrl': [null, Validators.required/*Validators.compose([Validators.required, Validators.pattern('20[0-9]{2}-[0-1][0-9]-[0-3][0-9]*')])*/],
       'toCtrl': [false/*null, Validators.compose([Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')])*/],
       'typeCtrl': [null, Validators.required],
-      'fromLsnCtrl': [null,Validators.required /*Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
-      'toLsnCtrl': [ false/*null,Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
+      'fromLsnCtrl': [null, Validators.required /*Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
+      'toLsnCtrl': [false/*null,Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
+      'subjCtrl': [false],
       'layersCtrl': [false]/*,
       'classCtrl': [false],
       'teacherCtrl': [false]*/
@@ -77,6 +83,14 @@ export class AddOccasionComponent implements OnInit {
       },
         err => console.error(err)
       );
+
+    this.subjectService.getSubjects()
+      .subscribe(data => {
+        this.subjects = data;
+      },
+        err => console.error(err)
+      );
+
     this.layers = [{ Id: 0, Name: 'כל המחזורים' }, { Id: 9, Name: 'ט' }, { Id: 10, Name: 'י' }, { Id: 11, Name: 'י"א' }, { Id: 12, Name: 'י"ב' }, { Id: 13, Name: 'י"ג' }, { Id: 14, Name: 'י"ד' }];
 
     this.teacherService.getTeachers()
@@ -131,11 +145,7 @@ export class AddOccasionComponent implements OnInit {
       );
   }
 
-  /*onClass(cls:number){
-    this.classIDs.push(cls);
-  }*/
-
-  onAddOccasion() {
+   onAddOccasion() {
     this.classIDs = [];
     for (const key in this.isCheckedClasses) {//add the classes TOFIX! add the classes again
       if (this.isCheckedClasses.hasOwnProperty(key)) {
@@ -154,11 +164,18 @@ export class AddOccasionComponent implements OnInit {
     );
   }
   get() {
-    if(this.toDate==null){
-      this.toDate=this.fromDate;
+    if (this.toDate == null) {
+      this.toDate = this.fromDate;
     }
-    if(this.toLesson==null){
-      this.toLesson=this.fromLesson;
+    if (this.toLesson == null) {
+      this.toLesson = this.fromLesson;
+    }
+    if (this.classIDs.length == 0) {
+      for (var i = 0; i < this.layers.length; i++) {
+        if (this.isCheckedLayers[this.layers[i].Id]) {
+          this.classIDs.push(this.layers[i].Id);
+        }
+      }
     }
     var occasion = {
       FromDate: this.fromDate,
@@ -166,6 +183,7 @@ export class AddOccasionComponent implements OnInit {
       FromLesson: this.fromLesson,
       ToLesson: this.toLesson,
       OccasionType: this.typeId,
+      Subject:this.subject,
       Dairies: this.dairyIDs,
       Classes: this.classIDs,
       Rooms: this.roomIDs,
@@ -174,6 +192,7 @@ export class AddOccasionComponent implements OnInit {
     console.log(occasion);
     return occasion;
   }
+
   arrayRemove(arr, value) {
 
     return arr.filter(function (elem) {

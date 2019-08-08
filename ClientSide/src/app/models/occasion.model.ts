@@ -5,6 +5,7 @@ export interface Occasion {
     FromLesson: number,
     ToLesson: number,
     OccasionType: number,
+    Subject:number,
     Dairies: number[],
     Classes: number[],
     Rooms: number[],

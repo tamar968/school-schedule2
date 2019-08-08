@@ -21,11 +21,23 @@ namespace BL
                 {
                     occasionDb.Teachers.Add(teacher);
                 }
-                var classes = db.Classes.Where(c => occasion.Classes.Contains(c.Id));
-                foreach (DAL.Class cls in classes)
+                if (occasion.Classes.Count != 0)
                 {
-                    occasionDb.Classes.Add(cls);
+                    List<DAL.Class> classes;
+                    if (occasion.Classes.First() > 20)
+                    {
+                        classes = db.Classes.Where(c => occasion.Classes.Contains(c.Id)).ToList();//מיפוי כיתות //Id=>Class
+                    }
+                    else// אם לא בחרו כיתות נשלחו מחזור/ים במשתנה כיתות 
+                    {
+                        classes = _CastDTO.DTOToClass(Class.GetByLayers(occasion.Classes.ToList()));
+                    }
+                    foreach (DAL.Class cls in classes)
+                    {
+                        occasionDb.Classes.Add(cls);
+                    }
                 }
+
                 var rooms = db.Rooms.Where(r => occasion.Rooms.Contains(r.Id));
                 foreach (DAL.Room room in rooms)
                 {

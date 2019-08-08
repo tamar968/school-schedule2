@@ -17,8 +17,8 @@ password:string;
     this.userService.login(this.password)
       .subscribe(
         res=>this.router.navigateByUrl('')
-        // ,
-        // err=>alert(err)
+         ,
+         err=>console.error(err)
         );
   }
 }

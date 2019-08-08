@@ -59,6 +59,7 @@
     <Compile Include="OccasionType.cs" />
     <Compile Include="PayAbsence.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Subject.cs" />
     <Compile Include="Teacher.cs" />
     <Compile Include="XmlClassesFiles\Classes.cs" />
     <Compile Include="XmlClassesFiles\Groups.cs" />

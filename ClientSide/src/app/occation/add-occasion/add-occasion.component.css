@@ -36,15 +36,24 @@ button:hover {
   width: 20px;
   height: 20px;
 }
+b{
+   border: none;
+padding: 9px;
+margin: 10px 0px; 
+  line-height: 2.5;
+}
 .pointer {
     cursor: -webkit-pointer; cursor: pointer;
   background-color: #4CAF50;
-  border: none;
-padding: 9px;
-margin: 10px 0px;
 border-radius: .25rem;
 }
 label{
   margin: 8px;
 }
-
+.float-left{
+float: left
+}
+.dis-in{
+  display: inline;
+  margin-left: 0.7rem;
+}
