@@ -6,7 +6,8 @@ export interface AbsenceForTeacher {
     ToDate :Date;
     TeacherStandIn ?:number;
     Type:number;
-
+    FromLesson:number;
+    ToLesson:number;
 
 
 }

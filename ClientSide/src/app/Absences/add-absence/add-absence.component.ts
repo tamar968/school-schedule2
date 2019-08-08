@@ -25,6 +25,8 @@ export class AddAbsenceComponent implements OnInit {
   absenceTypeId: number;
   lessons: Lesson[];
   isCheckedLessons: boolean[];
+  fromLesson: number;
+  toLesson: number;
   constructor(
     private absenceService: AbsenceService,
     private teacherService: TeacherService,
@@ -47,8 +49,7 @@ export class AddAbsenceComponent implements OnInit {
         err => console.error(err)
       );
    this.isCheckedLessons = [];
-      this.lessons = [ //TODO get this list fro the server
-      { Id: 0 , Name: "כל היום"},
+      this.lessons = [ //TODO get this list from the server
       {Id: 1,  Name:"ראשון"},
       {Id: 2, Name: "שני"},
       {Id: 3, Name: "שלישי"},
@@ -75,12 +76,15 @@ export class AddAbsenceComponent implements OnInit {
   }
 
   get() {
+    console.log(this.fromLesson,this.toLesson);
     var absence = {
       TeacherId: this.teacherId,
       FromDate: this.fromDate,
       ToDate: this.toDate,
       TeacherStandIn: this.wholeDay ? this.teacherStandIn : null,
-      Type: this.absenceTypeId
+      Type: this.absenceTypeId,
+      FromLesson:this.fromLesson,
+      ToLesson:this.toLesson
     } as AbsenceForTeacher;
 
     console.log(absence);
