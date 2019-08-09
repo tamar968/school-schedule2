@@ -55,14 +55,12 @@ ToLesson:number; -->
       <select #fromLessonIn class="select"  name="fromLesson" [(ngModel)]="fromLesson">
       <option *ngFor="let lsn of lessons" [value]="lsn.Id" >{{lsn.Name}}</option>
       </select>
-        <!-- <input type="checkbox" id="{{lsn.Id}}" name="lsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]"> -->
     </div>  
     <div >
         <label>עד שיעור:</label> 
         <select #toLessonIn name="toLesson" [(ngModel)] = "toLesson">
          <option *ngFor="let lsn of lessons" [value]="lsn.Id" >{{lsn.Name}}</option>
          </select>
-           <!-- <input type="checkbox" id="{{lsn.Id}}" name="lsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]"> -->
        </div>      
   </div>
 
