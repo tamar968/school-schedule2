@@ -27,6 +27,7 @@ export class ViewAbsenceComponent implements OnInit {
   isCheckedLessons: boolean[];
   fromLesson: number;
   toLesson: number;
+  id:number;
   absenceTypes: Absence[];
   constructor(
     private absenceService: AbsenceService,
@@ -59,7 +60,7 @@ export class ViewAbsenceComponent implements OnInit {
     this.absenceTypeId = this.absence.Type;
     this.fromLesson = this.absence.FromLesson;
     this.toLesson = this.absence.ToLesson;
-    
+    this.id = this.absence.Id;    
     this.wholeDay = this.teacherStandIn!=null;
 
     this.lessons = [ //TODO get this list from the server
