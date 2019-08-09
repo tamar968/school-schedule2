@@ -12,12 +12,13 @@ import { AddAbsenceComponent } from './Absences/add-absence/add-absence.componen
 import { AddOccasionComponent } from './occation/add-occasion/add-occasion.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AdminGuard } from './guard/admin.guard';
-import { ViewAbsenceComponent } from './view-absence/view-absence.component'
+import { ViewAbsenceComponent } from './Absences/view-absence/view-absence.component'
 const ROUTES: Routes = [
   //{path:"i",redirectTo:""},//only for sample
   { path: "studyTime/:number", component: StudyTimeComponent },//any should be  אוביקט שעת לימוד or id of אוביקט שעת לימוד
   { path: "login", component: LoginComponent },
   { path: "absence-for-tacher/add", component: AddAbsenceComponent ,canActivate:[AdminGuard]},
+  { path: "absence-for-tacher/view/:id", component: ViewAbsenceComponent ,canActivate:[AdminGuard]},
   { path: "absence-for-tacher/view", component: ViewAbsenceComponent ,canActivate:[AdminGuard]},
   { path: "occasion/add", component: AddOccasionComponent ,canActivate:[AdminGuard]},
   { path: "", component: HomeComponent },

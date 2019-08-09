@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import { Teacher } from '../models/teacher.model';
-import { Absence } from '../models/absence.model';
-import { Lesson } from '../models/lesson.model';
-import { AbsenceForTeacher } from '../models/absence-for-teacher.model';
-import { AbsenceService } from '../services/absence.service';
-import { TeacherService } from '../services/teacher.service';
-import { AbsenceForTeacherService } from '../services/absence-for-teacher.service';
-import { Router } from '@angular/router';
-import { ClassService } from '../services/class.service';
+import { Teacher } from '../../models/teacher.model';
+import { Absence } from '../../models/absence.model';
+import { Lesson } from '../../models/lesson.model';
+import { AbsenceForTeacher } from '../../models/absence-for-teacher.model';
+import { AbsenceService } from '../../services/absence.service';
+import { TeacherService } from '../../services/teacher.service';
+import { AbsenceForTeacherService } from '../../services/absence-for-teacher.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ClassService } from '../../services/class.service';
 
 @Component({
   selector: 'app-view-absence',
@@ -34,11 +34,14 @@ export class ViewAbsenceComponent implements OnInit {
     private teacherService: TeacherService,
     private absenceForTeacherService: AbsenceForTeacherService,
     private router: Router,
+    private activeRoute:ActivatedRoute,
     private classService: ClassService,
   ) {}
 
   ngOnInit() {  
-
+    //console.log(this.activeRoute.params["id"]);
+    //console.log(this.activeRoute.snapshot.params['username']);
+    //this.activeRoute.params.subscribe(params => {console.log(params['username'])})
     this.teacherService.getTeachers()
     .subscribe(teachers =>
       this.teachers = teachers,
