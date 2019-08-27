@@ -21,9 +21,9 @@
           <Property Name="TeacherId" Type="int" Nullable="false" />
           <Property Name="FromDate" Type="datetime" Nullable="false" />
           <Property Name="ToDate" Type="datetime" Nullable="false" />
+          <Property Name="TeacherStandIn" Type="int" />
           <Property Name="FromLesson" Type="int" />
           <Property Name="ToLesson" Type="int" />
-          <Property Name="TeacherStandIn" Type="int" />
         </EntityType>
         <EntityType Name="Class">
           <Key>
@@ -112,9 +112,9 @@
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="FromDate" Type="date" />
           <Property Name="ToDate" Type="date" />
-          <Property Name="FromLesson" Type="int" />
-          <Property Name="ToLesson" Type="int" />
           <Property Name="OccasionType" Type="int" />
+          <Property Name="FromLesson" Type="int" StoreGeneratedPattern="None" />
+          <Property Name="ToLesson" Type="int" />
         </EntityType>
         <EntityType Name="OccasionType">
           <Key>
@@ -414,6 +414,18 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="FK_Group_HourType1">
+          <End Role="HourType" Type="Self.HourType" Multiplicity="0..1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HourType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="SubHourType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="FK_Group_Reforma">
           <End Role="Reforma" Type="Self.Reforma" Multiplicity="0..1" />
           <End Role="Group" Type="Self.Group" Multiplicity="*" />
@@ -691,6 +703,10 @@
             <End Role="DairyForClasses" EntitySet="DairyForClasses" />
           </AssociationSet>
           <AssociationSet Name="FK_Group_HourType" Association="Self.FK_Group_HourType">
+            <End Role="HourType" EntitySet="HourType" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_HourType1" Association="Self.FK_Group_HourType1">
             <End Role="HourType" EntitySet="HourType" />
             <End Role="Group" EntitySet="Group" />
           </AssociationSet>
@@ -1098,6 +1114,10 @@
             <End Role="Occasion" EntitySet="Occasions" />
             <End Role="Teacher" EntitySet="Teachers" />
           </AssociationSet>
+          <AssociationSet Name="FK_Group_HourType1" Association="ESTYTAMARModel.FK_Group_HourType1">
+            <End Role="HourType" EntitySet="HourTypes" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Group">
           <Key>
@@ -1122,6 +1142,7 @@
           <NavigationProperty Name="Teacher1" Relationship="ESTYTAMARModel.FK_Group_Teacher" FromRole="Group" ToRole="Teacher" />
           <NavigationProperty Name="Classes" Relationship="ESTYTAMARModel.ClassesForGroup" FromRole="Group" ToRole="Class" />
           <NavigationProperty Name="HourType1" Relationship="ESTYTAMARModel.FK_Group_HourType" FromRole="Group" ToRole="HourType" />
+          <NavigationProperty Name="HourType2" Relationship="ESTYTAMARModel.FK_Group_HourType1" FromRole="Group" ToRole="HourType" />
         </EntityType>
         <EntityType Name="Reforma">
           <Key>
@@ -1219,6 +1240,7 @@
           <Property Name="ParentId" Type="Int32" />
           <Property Name="Name" Type="String" Nullable="false" MaxLength="70" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_HourType" FromRole="HourType" ToRole="Group" />
+          <NavigationProperty Name="Groups1" Relationship="ESTYTAMARModel.FK_Group_HourType1" FromRole="HourType" ToRole="Group" />
         </EntityType>
         <Association Name="FK_Group_HourType">
           <End Type="ESTYTAMARModel.HourType" Role="HourType" Multiplicity="0..1" />
@@ -1335,6 +1357,18 @@
         <Association Name="TeachersForOccasion">
           <End Type="ESTYTAMARModel.Occasion" Role="Occasion" Multiplicity="*" />
           <End Type="ESTYTAMARModel.Teacher" Role="Teacher" Multiplicity="*" />
+        </Association>
+        <Association Name="FK_Group_HourType1">
+          <End Type="ESTYTAMARModel.HourType" Role="HourType" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HourType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="SubHourType" />
+            </Dependent>
+          </ReferentialConstraint>
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1542,9 +1576,9 @@
           <EntitySetMapping Name="Occasions">
             <EntityTypeMapping TypeName="ESTYTAMARModel.Occasion">
               <MappingFragment StoreEntitySet="Occasion">
-                <ScalarProperty Name="OccasionType" ColumnName="OccasionType" />
                 <ScalarProperty Name="ToLesson" ColumnName="ToLesson" />
                 <ScalarProperty Name="FromLesson" ColumnName="FromLesson" />
+                <ScalarProperty Name="OccasionType" ColumnName="OccasionType" />
                 <ScalarProperty Name="ToDate" ColumnName="ToDate" />
                 <ScalarProperty Name="FromDate" ColumnName="FromDate" />
                 <ScalarProperty Name="Id" ColumnName="Id" />

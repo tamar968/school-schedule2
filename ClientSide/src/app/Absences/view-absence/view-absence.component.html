@@ -1,10 +1,11 @@
 
 
 <form>
-    <div>
-        <label>קוד חיסור</label><input type="number" readonly [value]="id">
+    <!-- <div>
+        <label>קוד חיסור</label>
+        <input type="number"  [value]="id">
     </div>
-    
+     -->
      <div class="form-group">
       <label for="abscentTeacher">מורה חסרה</label>
       <select #abscentTeacher name="abscentTeacher" class="select" [(ngModel)]="teacherId">
@@ -66,6 +67,6 @@
           </select>
     </div>
 
-    <button type="submit" class="btn btn-default button" (click)="onAddAbsence()">אישור</button>
+    <button type="submit" class="btn btn-default button" (click)="onUpdateAbsence()">עדכון</button>
  
 </form>

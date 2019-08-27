@@ -22,6 +22,7 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
+                absenceForTeacher.Id = 11;
                 var absForTea = db.AbsencesForTeachers.FirstOrDefault(a => a.Id == absenceForTeacher.Id);
                 absForTea.TeacherId = absenceForTeacher.TeacherId;
                 absForTea.TeacherStandIn = absenceForTeacher.TeacherStandIn;

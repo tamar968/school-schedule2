@@ -17,9 +17,9 @@ const ROUTES: Routes = [
   //{path:"i",redirectTo:""},//only for sample
   { path: "studyTime/:number", component: StudyTimeComponent },//any should be  אוביקט שעת לימוד or id of אוביקט שעת לימוד
   { path: "login", component: LoginComponent },
-  { path: "absence-for-tacher/add", component: AddAbsenceComponent ,canActivate:[AdminGuard]},
-  { path: "absence-for-tacher/view/:id", component: ViewAbsenceComponent ,canActivate:[AdminGuard]},
-  { path: "absence-for-tacher/view", component: ViewAbsenceComponent ,canActivate:[AdminGuard]},
+  { path: "absence-for-teacher/add", component: AddAbsenceComponent ,canActivate:[AdminGuard]},
+  { path: "absence-for-teacher/view/:number", component: ViewAbsenceComponent ,canActivate:[AdminGuard]},
+  { path: "absence-for-teacher/view", component: ViewAbsenceComponent ,canActivate:[AdminGuard]},
   { path: "occasion/add", component: AddOccasionComponent ,canActivate:[AdminGuard]},
   { path: "", component: HomeComponent },
   { path: "**", redirectTo: "" }

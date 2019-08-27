@@ -54,9 +54,10 @@ export class ViewAbsenceComponent implements OnInit {
     },
       err => console.error(err)
     );
-     this.absenceForTeacherService.get(9).subscribe(absence=> {
+     this.absenceForTeacherService.get(11).subscribe(absence=> {
      this.absence=absence;
      this.fromDate = this.absence.FromDate;
+     console.log("this.fromDate:"+this.fromDate.getDate +" "+this.absence.FromDate.getDate)
     this.toDate = this.absence.ToDate;
     this.teacherId =this.absence.TeacherId;
     this.teacherStandIn = this.absence.TeacherStandIn;
@@ -80,28 +81,32 @@ export class ViewAbsenceComponent implements OnInit {
     },
     err=> console.error(err)
     );
-    // //this.absence = {Id: 3,TeacherId:5,TeacherStandIn:4,FromLesson:1,ToLesson:8,Type:4} as AbsenceForTeacher;
-    // this.fromDate = this.absence.FromDate;
-    // this.toDate = this.absence.ToDate;
-    // this.teacherId =this.absence.TeacherId;
-    // this.teacherStandIn = this.absence.TeacherStandIn;
-    // this.absenceTypeId = this.absence.Type;
-    // this.fromLesson = this.absence.FromLesson;
-    // this.toLesson = this.absence.ToLesson;
-    // this.id = this.absence.Id;    
-    // this.wholeDay = this.teacherStandIn!=null;
 
-    // this.lessons = [ //TODO get this list from the server
-    //   {Id: 1,  Name:"ראשון"},
-    //   {Id: 2, Name: "שני"},
-    //   {Id: 3, Name: "שלישי"},
-    //   {Id: 4, Name: "רביעי"},
-    //   {Id: 5, Name: "חמישי"},
-    //   {Id: 6, Name: "שישי"},
-    //   {Id: 7, Name: "שביעי"},
-    //   {Id: 8, Name: "שמיני"},
-    // ];
   }
+  get() {
+    var absence = {
+      TeacherId: this.teacherId,
+      FromDate: this.fromDate,
+      ToDate: this.toDate,
+      TeacherStandIn: this.wholeDay ? this.teacherStandIn : null,
+      Type: this.absenceTypeId,
+      FromLesson:this.fromLesson,
+      ToLesson:this.toLesson
+    } as AbsenceForTeacher;
 
+    console.log(absence);
+    return absence;
+  }
+  onUpdateAbsence() {
 
+    this.absenceForTeacherService.update(this.get()).subscribe(
+      res => {
+        this.router.navigateByUrl('');
+        console.log("החסור למורה עודכן בהצלחה")
+      }
+      ,
+      err => console.error(err)
+    );
+
+  }
 }

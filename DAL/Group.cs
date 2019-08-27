@@ -41,5 +41,6 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Class> Classes { get; set; }
         public virtual HourType HourType1 { get; set; }
+        public virtual HourType HourType2 { get; set; }
     }
 }
