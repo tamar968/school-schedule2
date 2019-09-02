@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DTO", "DTO\DTO.csproj", "{A
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "API", "API\API.csproj", "{7C33427B-A16C-47FB-B7C7-4F98CE506C96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestCode", "TestCode\TestCode.csproj", "{48F1F108-AE6C-4FF1-8955-A617719D4C77}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XmlFilesLoadingImplemention", "TestCode\XmlFilesLoadingImplemention.csproj", "{48F1F108-AE6C-4FF1-8955-A617719D4C77}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

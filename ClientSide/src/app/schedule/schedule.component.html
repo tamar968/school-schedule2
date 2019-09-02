@@ -1,0 +1,22 @@
+<p>schedule works!</p>
+
+<div style="width: 1000px; height: 1000px">
+    <div style="display: flex;">
+        <div>&nbsp;</div>
+        <div *ngFor="let column of data.ColumnTitles">
+            {{column}}
+        </div>
+    </div>
+    <div style="display: flex;">
+        <div style="display: flex; flex-direction: column;">
+            <div *ngFor="let row of data.RowTitles">
+                {{row}}
+            </div>
+        </div>
+        <div style="display: flex; flex-direction: column;" *ngFor="let columnData of data.Cells">
+            <div *ngFor="let cellData of columnData" [ngStyle]="{'flex': cellData.RowSpan}">
+                {{cellData|json}}
+            </div>
+        </div>
+    </div>
+</div>

@@ -12,7 +12,8 @@ import { AddAbsenceComponent } from './Absences/add-absence/add-absence.componen
 import { AddOccasionComponent } from './occation/add-occasion/add-occasion.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 import { AdminGuard } from './guard/admin.guard';
-import { ViewAbsenceComponent } from './Absences/view-absence/view-absence.component'
+import { ViewAbsenceComponent } from './Absences/view-absence/view-absence.component';
+import { ScheduleComponent } from './schedule/schedule.component'
 const ROUTES: Routes = [
   //{path:"i",redirectTo:""},//only for sample
   { path: "studyTime/:number", component: StudyTimeComponent },//any should be  אוביקט שעת לימוד or id of אוביקט שעת לימוד
@@ -33,7 +34,8 @@ const ROUTES: Routes = [
     LoginComponent,
     AddAbsenceComponent,
     AddOccasionComponent,
-    ViewAbsenceComponent
+    ViewAbsenceComponent,
+    ScheduleComponent
   ],
   imports: [
     BrowserModule,
