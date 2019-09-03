@@ -1,19 +1,20 @@
+<!--The content below is only a placeholder and can be replaced.-->
 <p>schedule works!</p>
 
-<div style="width: 1000px; height: 1000px">
-    <div style="display: flex;">
+<div class="schedule-container">
+    <div class="d-flex full-width">
         <div>&nbsp;</div>
         <div *ngFor="let column of data.ColumnTitles">
             {{column}}
         </div>
     </div>
-    <div style="display: flex;">
-        <div style="display: flex; flex-direction: column;">
+    <div class="d-flex full-height">
+        <div class="d-flex-column">
             <div *ngFor="let row of data.RowTitles">
                 {{row}}
             </div>
         </div>
-        <div style="display: flex; flex-direction: column;" *ngFor="let columnData of data.Cells">
+        <div class="d-flex-column" *ngFor="let columnData of data.Cells">
             <div *ngFor="let cellData of columnData" [ngStyle]="{'flex': cellData.RowSpan}">
                 {{cellData|json}}
             </div>
