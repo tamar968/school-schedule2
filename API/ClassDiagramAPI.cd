@@ -1,84 +1,87 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="API.WebApiConfig" Collapsed="true">
-    <Position X="5.75" Y="2.5" Width="1.5" />
+  <Class Name="API.WebApiConfig">
+    <Position X="6" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
       <FileName>App_Start\WebApiConfig.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="API.WebApiApplication" Collapsed="true">
-    <Position X="4" Y="2.5" Width="1.5" />
+  <Class Name="API.WebApiApplication">
+    <Position X="4" Y="5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAA=</HashCode>
       <FileName>Global.asax.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="API.Controllers.AbsenceController" Collapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+  <Class Name="API.Controllers.AbsenceController">
+    <Position X="0.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\AbsenceController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="API.Controllers.AbsenceForTeacherController" Collapsed="true">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+  <Class Name="API.Controllers.AbsenceForTeacherController">
+    <Position X="2.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>BAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\AbsenceForTeacherController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="API.Controllers.ClassController" Collapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+  <Class Name="API.Controllers.ClassController">
+    <Position X="5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAAAAAAABAAAAAAAAABAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\ClassController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="API.Controllers.HomeController" Collapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+  <Class Name="API.Controllers.HomeController">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Class Name="API.Controllers.HomeController.LoginRequest">
+        <TypeIdentifier>
+          <NewMemberFileName>Controllers\HomeController.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAA=</HashCode>
       <FileName>Controllers\HomeController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="API.Controllers.OccasionController" Collapsed="true">
-    <Position X="0.5" Y="1.5" Width="1.5" />
+  <Class Name="API.Controllers.OccasionController">
+    <Position X="0.5" Y="2.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\OccasionController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="API.Controllers.OccasionTypeTypeController" Collapsed="true">
-    <Position X="2.25" Y="1.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>Controllers\OccasionTypeController.cs</FileName>
-    </TypeIdentifier>
-  </Class>
-  <Class Name="API.Controllers.StudyTimeController" Collapsed="true">
-    <Position X="5.75" Y="1.5" Width="1.5" />
+  <Class Name="API.Controllers.StudyTimeController">
+    <Position X="8.5" Y="0.5" Width="1.75" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\StudyTimeController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="API.Controllers.SubjectController" Collapsed="true">
-    <Position X="0.5" Y="2.5" Width="1.5" />
+  <Class Name="API.Controllers.SubjectController">
+    <Position X="0.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\SubjectController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="API.Controllers.TeacherController" Collapsed="true">
-    <Position X="2.25" Y="2.5" Width="1.5" />
+  <Class Name="API.Controllers.TeacherController">
+    <Position X="2.25" Y="5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAYAAAAAAAAAAABAAAAAAAAAAAEAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Controllers\TeacherController.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="API.Properties.Settings" Collapsed="true">
-    <Position X="4" Y="1.5" Width="1.5" />
+  <Class Name="API.Properties.Settings">
+    <Position X="5" Y="2.75" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAIAAAAAABAAACAAAAAAAAAAA=</HashCode>
     </TypeIdentifier>
