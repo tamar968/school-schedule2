@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DAL.Entities" Collapsed="true">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAQAEAAAAIAAAAAAACEMAAAgJAIAgAEgAAAAQ=</HashCode>
+      <FileName>Model.Context.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Absence" Collapsed="true">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Absence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.AbsencesForTeacher" Collapsed="true">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEECIAAAAAAAgAAAAIAACAAAAAAAAAAAAQAABCABAAA=</HashCode>
+      <FileName>AbsencesForTeacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Class" Collapsed="true">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBACAEAAAAAAAAABAEAAAAQCAIAAAAAEAAgAAAAAAAA=</HashCode>
+      <FileName>Class.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Dairy" Collapsed="true">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAEKAMAiEAEAAAAAQJIACAAAAAgAAAIgAAgABAABAAA=</HashCode>
+      <FileName>Dairy.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Group" Collapsed="true">
+    <Position X="0.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgEKIAAAQAEQAAABEJAAAAAAAAgAAAAAACEAEAAAAEA=</HashCode>
+      <FileName>Group.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.HourType" Collapsed="true">
+    <Position X="2.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAAAACAAAQAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>HourType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Occasion" Collapsed="true">
+    <Position X="4" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACIAAAEAEAAAAAAAAAAAACAIAAAAAAAAAABiABAAA=</HashCode>
+      <FileName>Occasion.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.OccasionType" Collapsed="true">
+    <Position X="5.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAIAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>OccasionType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.PayAbsence" Collapsed="true">
+    <Position X="7.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>PayAbsence.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Reforma" Collapsed="true">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Reforma.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Room" Collapsed="true">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAEAgAAAAAAgAAEIAAAAAAMAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>Room.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Schedule" Collapsed="true">
+    <Position X="4" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IgAQAAAAIAAAAAAAABAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>Schedule.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.SchoolType" Collapsed="true">
+    <Position X="5.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SchoolType.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Subject" Collapsed="true">
+    <Position X="7.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAEAAAAAAAAAAAQAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Subject.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.sysdiagram" Collapsed="true">
+    <Position X="0.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAIAAAAAAAAAAAAAAAQAAAFAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>sysdiagram.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DAL.Teacher" Collapsed="true">
+    <Position X="2.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAEAAAAAAAAAAAAAAAEQAAIAAAAIAIAgAAAAAAAA=</HashCode>
+      <FileName>Teacher.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
