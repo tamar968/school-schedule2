@@ -14,33 +14,51 @@ export class ScheduleComponent implements OnInit {
   ngOnInit() {
     this.data = {
       ColumnTitles: [
-        'Sunday',
-        'Monday',
-        'Tuesday'
+        'ראשון',
+        'שני',
+        'שלישי',
+        'רביעי',
+        'חמישי',
+        'ששי'
       ],
       RowTitles: [
-        'Lesson 1',
-        'Lesson 2',
-        'Lesson 3'
+        'שעור 1',
+        'שעור 2',
+        'שעור 3',
+        'שעור 4',
+        'שעור 5',
+        'שעור 6'
       ],
       Cells: [
         [
           {
             SubTitle: 'Sara',
             EventTitle: 'Math',
-            Color: '002057',
+            Color: 'ccffcc',
             RowSpan: 2,
             EditUrl: 'login'
           }, {
             SubTitle: 'Sara',
             EventTitle: 'Math',
-            Color: '002057',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
-          }, {
+          },{
             SubTitle: 'Sara',
             EventTitle: 'Math',
-            Color: '002057',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
           },
@@ -49,19 +67,31 @@ export class ScheduleComponent implements OnInit {
           {
             SubTitle: 'Sara',
             EventTitle: 'Math',
-            Color: '002057',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
           }, {
             SubTitle: 'Sara',
             EventTitle: 'Math',
-            Color: '002057',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
           }, {
             SubTitle: 'Sara',
             EventTitle: 'Math',
-            Color: '002057',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 2,
+            EditUrl: 'login'
+          }, {
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
           },
@@ -70,23 +100,144 @@ export class ScheduleComponent implements OnInit {
           {
             SubTitle: 'Sara',
             EventTitle: 'Math',
-            Color: '002057',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
           }, {
             SubTitle: 'Sara',
             EventTitle: 'Math',
-            Color: '002057',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
           }, {
             SubTitle: 'Sara',
             EventTitle: 'Math',
-            Color: '002057',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
           },
-        ]
+          {SubTitle: 'Sara',
+          EventTitle: 'Math',
+          Color: 'ccffcc',
+          RowSpan: 1,
+          EditUrl: 'login'
+        }, {
+          SubTitle: 'Sara',
+          EventTitle: 'Math',
+          Color: 'ccffcc',
+          RowSpan: 1,
+          EditUrl: 'login'
+        }, {
+          SubTitle: 'Sara',
+          EventTitle: 'Math',
+          Color: 'ccffcc',
+          RowSpan: 1,
+          EditUrl: 'login'
+        },
+        ],
+        [
+          {
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }, {
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 3,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },
+        ],[
+          {
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }, {
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }
+        ],[
+          {
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }, {
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'Sara',
+            EventTitle: 'Math',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }
+        ],
       ]
     };
   }

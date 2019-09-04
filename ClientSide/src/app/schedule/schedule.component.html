@@ -1,22 +1,23 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<p>schedule works!</p>
+<h3>המערכת</h3>
 
 <div class="schedule-container">
     <div class="d-flex full-width">
         <div>&nbsp;</div>
-        <div *ngFor="let column of data.ColumnTitles">
+        <div class="colmn" *ngFor="let column of data.ColumnTitles">
             {{column}}
         </div>
     </div>
     <div class="d-flex full-height">
         <div class="d-flex-column">
-            <div *ngFor="let row of data.RowTitles">
+            <div  class="rows" *ngFor="let row of data.RowTitles">
                 {{row}}
             </div>
         </div>
         <div class="d-flex-column" *ngFor="let columnData of data.Cells">
-            <div *ngFor="let cellData of columnData" [ngStyle]="{'flex': cellData.RowSpan}">
-                {{cellData|json}}
+            <div class="cell"  *ngFor="let cellData of columnData" [ngStyle]="{'flex': cellData.RowSpan,'background-color': '#'+cellData.Color}">
+                <p><span>מורה </span>{{cellData.SubTitle}}</p>
+                <p><span>מקצוע </span>{{cellData.EventTitle}}</p>
             </div>
         </div>
     </div>
