@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="DTO._CastDTO">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ILAQkABAAAQBEAAAAAiwBACAYABIAAAIAQgFBAABEcA=</HashCode>
+      <FileName>_CastDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.AbsenceDTO">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>AbsenceDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.AbsencesForTeacherDTO">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAAAAAAAAgAAAAAAACAAAAAAAAAAAAQAABCABAAA=</HashCode>
+      <FileName>AbsencesForTeacherDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.ClassDTO">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IBACAEAAAAAAAAABAEAAAAQCAIAAAAAEAAgAAAAAAAA=</HashCode>
+      <FileName>ClassDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.DairyDTO">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAKAMAiEAAAAAAAQAAACAAAAAgAAAIgAAAABAABAAA=</HashCode>
+      <FileName>DairyDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.DateDTO">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAJACAAAAAAAAAAAIAAAAAACIEAAAAAABAAAA=</HashCode>
+      <FileName>DateDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.GroupDTO">
+    <Position X="4" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAEKAAAAQAEQAAABAJAAAAAAAAgAAAAAAAAAEAAAAEA=</HashCode>
+      <FileName>GroupDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.HourTypeDTO">
+    <Position X="5.75" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAgAAAAAAAAA=</HashCode>
+      <FileName>HourTypeDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.OccasionDTO">
+    <Position X="7.5" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEACAAAAEAEAAAAAAAAAAAACAIAAAAAAAAAABiABAAA=</HashCode>
+      <FileName>OccasionDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.OccasionTypeDTO">
+    <Position X="9.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>OccasionTypeDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.PayAbsenceDTO">
+    <Position X="2.25" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAEAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>PayAbsenceDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.ReformaDTO">
+    <Position X="4" Y="5.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ReformaDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.RoomDTO">
+    <Position X="5.75" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAEAgAAAAAAgAAEAAAAAAAMAAAAAAAAgAAAAAAAA=</HashCode>
+      <FileName>RoomDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.ScheduleDTO">
+    <Position X="7.5" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAQAAAAIAAAAAAAABAAAAAAAAAAAAIAAAAAAAAAAAA=</HashCode>
+      <FileName>ScheduleDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.SchoolTypeDTO">
+    <Position X="9.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SchoolTypeDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.SubjectDTO">
+    <Position X="2.25" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAEAAAAEAAAAAAAAAAAQAAIAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>SubjectDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="DTO.TeacherDTO">
+    <Position X="4" Y="6.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAACAEAAAAAAAAAAAAAAAAQAAIAAAAIAIAgAAAAAAAA=</HashCode>
+      <FileName>TeacherDTO.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

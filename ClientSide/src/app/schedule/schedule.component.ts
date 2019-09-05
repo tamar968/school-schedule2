@@ -14,79 +14,230 @@ export class ScheduleComponent implements OnInit {
   ngOnInit() {
     this.data = {
       ColumnTitles: [
-        'Sunday',
-        'Monday',
-        'Tuesday'
+        'ראשון',
+        'שני',
+        'שלישי',
+        'רביעי',
+        'חמישי',
+        'ששי'
       ],
       RowTitles: [
-        'Lesson 1',
-        'Lesson 2',
-        'Lesson 3'
+        'שעור 1',
+        'שעור 2',
+        'שעור 3',
+        'שעור 4',
+        'שעור 5',
+        'שעור 6'
       ],
       Cells: [
         [
           {
-            SubTitle: 'Sara',
-            EventTitle: 'Math',
-            Color: '002057',
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
             RowSpan: 2,
             EditUrl: 'login'
           }, {
-            SubTitle: 'Sara',
-            EventTitle: 'Math',
-            Color: '002057',
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
-          }, {
-            SubTitle: 'Sara',
-            EventTitle: 'Math',
-            Color: '002057',
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
-          },
-        ],
-        [
-          {
-            SubTitle: 'Sara',
-            EventTitle: 'Math',
-            Color: '002057',
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
-          }, {
-            SubTitle: 'Sara',
-            EventTitle: 'Math',
-            Color: '002057',
-            RowSpan: 1,
-            EditUrl: 'login'
-          }, {
-            SubTitle: 'Sara',
-            EventTitle: 'Math',
-            Color: '002057',
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
           },
         ],
         [
           {
-            SubTitle: 'Sara',
-            EventTitle: 'Math',
-            Color: '002057',
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
           }, {
-            SubTitle: 'Sara',
-            EventTitle: 'Math',
-            Color: '002057',
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
           }, {
-            SubTitle: 'Sara',
-            EventTitle: 'Math',
-            Color: '002057',
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 2,
+            EditUrl: 'login'
+          }, {
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
             RowSpan: 1,
             EditUrl: 'login'
           },
-        ]
+        ],
+        [
+          {
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }, {
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }, {
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },
+          {SubTitle: 'שרה',
+          EventTitle: 'מתמטיקה',
+          Color: 'ccffcc',
+          RowSpan: 1,
+          EditUrl: 'login'
+        }, {
+          SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+          Color: 'ccffcc',
+          RowSpan: 1,
+          EditUrl: 'login'
+        }, {
+          SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+          Color: 'ccffcc',
+          RowSpan: 1,
+          EditUrl: 'login'
+        },
+        ],
+        [
+          {
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }, {
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 3,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },
+        ],[
+          {
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }, {
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }
+        ],[
+          {
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }, {
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          },{
+            SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 1,
+            EditUrl: 'login'
+          }
+        ],
       ]
     };
   }
