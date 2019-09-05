@@ -14,7 +14,6 @@ namespace API.Controllers
     [EnableCors(origins: "*", headers: "*", methods: "*")]//access allow for all clients and methods
     public class AbsenceController : ApiController
     {
-        //-
         [HttpPost]//define the data transfer method
         [Route("add")]//define the url
         public IHttpActionResult Add([FromBody]AbsenceDTO absence)

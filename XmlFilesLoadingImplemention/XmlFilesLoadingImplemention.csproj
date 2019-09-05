@@ -58,6 +58,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassDiagramXML.cd" />
     <None Include="packages.config" />
     <None Include="SQL_files\Diagram_DB.docx" />
     <None Include="XML_files\AUTOBACKUP\TalData1.zip" />
