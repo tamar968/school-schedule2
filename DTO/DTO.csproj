@@ -59,13 +59,13 @@
     <Compile Include="SchoolTypeDTO.cs" />
     <Compile Include="_CastDTO.cs" />
     <Compile Include="ClassDTO.cs" />
-    <Compile Include="DairyDTO.cs" />
+    <Compile Include="ScheduleDTO.cs" />
     <Compile Include="OccasionDTO.cs" />
     <Compile Include="OccasionTypeDTO.cs" />
     <Compile Include="PayAbsenceDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RoomDTO.cs" />
-    <Compile Include="ScheduleDTO.cs" />
+    <Compile Include="StudyTimeDTO.cs" />
     <Compile Include="SubjectDTO.cs" />
     <Compile Include="TeacherDTO.cs" />
   </ItemGroup>

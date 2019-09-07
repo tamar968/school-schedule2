@@ -14,12 +14,35 @@ namespace DAL
     
     public partial class Schedule
     {
-        public int Num { get; set; }
-        public int WeekDay { get; set; }
-        public int Day { get; set; }
-        public int Hour { get; set; }
-        public Nullable<int> Room { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Schedule()
+        {
+            this.Classes = new HashSet<Class>();
+        }
     
-        public virtual Room Room1 { get; set; }
+        public int Id { get; set; }
+        public Nullable<int> Num { get; set; }
+        public Nullable<int> TeacherId { get; set; }
+        public Nullable<int> SubjectId { get; set; }
+        public Nullable<int> TypeId { get; set; }
+        public Nullable<int> ClassId { get; set; }
+        public Nullable<int> RoomId { get; set; }
+        public bool IsGrouped { get; set; }
+        public Nullable<int> OccasionId { get; set; }
+        public Nullable<int> Reforma { get; set; }
+        public System.DateTime FromDate { get; set; }
+        public System.DateTime ToDate { get; set; }
+        public int Hour { get; set; }
+        public Nullable<decimal> CalculateHours { get; set; }
+        public Nullable<int> Cause { get; set; }
+    
+        public virtual Class Class { get; set; }
+        public virtual Occasion Occasion { get; set; }
+        public virtual OccasionType OccasionType { get; set; }
+        public virtual Room Room { get; set; }
+        public virtual Subject Subject { get; set; }
+        public virtual Teacher Teacher { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Class> Classes { get; set; }
     }
 }

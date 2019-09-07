@@ -26,11 +26,9 @@ namespace DAL
         }
     
         public virtual DbSet<Class> Classes { get; set; }
-        public virtual DbSet<Dairy> Dairies { get; set; }
         public virtual DbSet<OccasionType> OccasionTypes { get; set; }
         public virtual DbSet<PayAbsence> PayAbsences { get; set; }
         public virtual DbSet<Room> Rooms { get; set; }
-        public virtual DbSet<Schedule> Schedules { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
@@ -41,5 +39,7 @@ namespace DAL
         public virtual DbSet<HourType> HourTypes { get; set; }
         public virtual DbSet<AbsencesForTeacher> AbsencesForTeachers { get; set; }
         public virtual DbSet<Occasion> Occasions { get; set; }
+        public virtual DbSet<Schedule> Schedules { get; set; }
+        public virtual DbSet<StudyTime> StudyTimes { get; set; }
     }
 }

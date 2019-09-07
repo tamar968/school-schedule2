@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /// <summary>
+    /// this class take care of exceptions
+    /// </summary>
     public class LogManager
     {
         /// <summary>

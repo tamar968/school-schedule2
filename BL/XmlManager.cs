@@ -1,19 +1,23 @@
-﻿using System;
+﻿using DAL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
-using DAL;
-using DTO;
 namespace BL
 {
+    /// <summary>
+    /// this class take care of all the loadings of the XML files
+    /// </summary>
     public class XmlManager
     {
         private Dictionary<string, Action<string>> fileNameToAction;
+        /// <summary>
+        /// each XML file has is his loading function.
+        /// </summary>
         public XmlManager()
         {
             fileNameToAction = new Dictionary<string, Action<string>>();
@@ -24,9 +28,13 @@ namespace BL
             fileNameToAction["subjects.xml"] = LoadSubjects;
             fileNameToAction["teachers.xml"] = LoadTeachers;
         }
-
+        /// <summary>
+        /// this function load the directory of the xml files and for each file,invoke his loading function.
+        /// </summary>
+        /// <param name="path">the location of the XML files</param>
         public void LoadDirectory(string path)
         {
+            //reset the DB
             ClearDB();
             var directoryInfo = new DirectoryInfo(path);
             var files = directoryInfo.GetFiles();
@@ -36,25 +44,33 @@ namespace BL
                 if (fileNameToAction.TryGetValue(file.Name, out action))
                 {
                     action?.Invoke(file.FullName);
-                    Console.WriteLine("{0} Loading....",file.FullName);
+                    Console.WriteLine("{0} Loading....", file.FullName);
                 }
             }
         }
+        /// <summary>
+        /// this function reset the DB
+        /// </summary>
         public void ClearDB()
         {
-           
-           // var conn = new SqlConnection("data source=SQL-SERVER; initial catalog=!ESTY&TAMAR; integrated security=True");
+
+            // var conn = new SqlConnection("data source=SQL-SERVER; initial catalog=!ESTY&TAMAR; integrated security=True");
             var conn = new SqlConnection("data source=DESKTOP-7A0S24C; initial catalog=!ESTY&TAMAR; integrated security=True");
             SqlCommand cmd;
             conn.Open();
 
-           
+
             cmd = new SqlCommand("sp_MSforeachtable 'DELETE FROM ?'", conn);
             cmd.ExecuteNonQuery();
+            cmd = new SqlCommand("sp_MSforeachtable 'truncate table ?'", conn);
+            cmd.ExecuteNonQuery();
 
-            
             conn.Close();
         }
+        /// <summary>
+        /// classes loading
+        /// </summary>
+        /// <param name="path">xml file location</param>
         public void LoadClasses(string path)
         {
             XmlClasses.root root = GetXmlData<XmlClasses.root>(path);
@@ -82,6 +98,10 @@ namespace BL
                 LogManager.LogException(e);
             }
         }
+        /// <summary>
+        ///groups loading
+        /// </summary>
+        /// <param name="path">xml file location</param>
         public void LoadGroups(string path)
         {
             XmlGroups.root root = GetXmlData<XmlGroups.root>(path);
@@ -115,6 +135,10 @@ namespace BL
                 LogManager.LogException(e);
             }
         }
+        /// <summary>
+        /// rooms loading
+        /// </summary>
+        /// <param name="path">xml file location</param>
         public void LoadRooms(string path)
         {
             XmlRooms.root root = GetXmlData<XmlRooms.root>(path);
@@ -142,6 +166,10 @@ namespace BL
                 LogManager.LogException(e);
             }
         }
+        /// <summary>
+        ///schedule loading
+        /// </summary>
+        /// <param name="path">xml file location</param>
         public void LoadSchedule(string path)
         {
             XmlSchedule.root root = GetXmlData<XmlSchedule.root>(path);
@@ -155,7 +183,7 @@ namespace BL
                         //TODO
                         foreach (XmlSchedule.rootGroupSchedule rootGroupSchedule in rootData.schedule)
                         {
-                            db.Schedules.Add(_CastDTO.DTOToSchedule(new ScheduleDTO()
+                            db.StudyTimes.Add(_CastDTO.DTOToStudyTime(new StudyTimeDTO()
                             {
                                 Day = rootGroupSchedule.day,
                                 Hour = rootGroupSchedule.hour,
@@ -173,6 +201,10 @@ namespace BL
             }
 
         }
+        /// <summary>
+        ///subjects loading
+        /// </summary>
+        /// <param name="path">xml file location</param>
         public void LoadSubjects(string path)
         {
             XmlSubjects.root root = GetXmlData<XmlSubjects.root>(path);
@@ -197,6 +229,10 @@ namespace BL
                 LogManager.LogException(e);
             }
         }
+        /// <summary>
+        ///teacher loading
+        /// </summary>
+        /// <param name="path">xml file location</param>
         public void LoadTeachers(string path)
         {
             XmlTeachers.root root = GetXmlData<XmlTeachers.root>(path);
@@ -237,6 +273,6 @@ namespace BL
             T root = (T)serializer.Deserialize(stringReader);
             return root;
         }
-        
+
     }
 }

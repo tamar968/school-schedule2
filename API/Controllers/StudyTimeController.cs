@@ -17,7 +17,7 @@ namespace API.Controllers
     {
         [HttpPost]//define the data transfer method
         [Route("add")]//define the url
-        public IHttpActionResult Add([FromBody]DairyDTO lesson)
+        public IHttpActionResult Add([FromBody]ScheduleDTO lesson)
         {
             try
             {
@@ -32,7 +32,7 @@ namespace API.Controllers
         }
         [HttpPost]
         [Route("update")]
-        public IHttpActionResult Update([FromBody]DairyDTO lesson)
+        public IHttpActionResult Update([FromBody]ScheduleDTO lesson)
         {
             try
             {

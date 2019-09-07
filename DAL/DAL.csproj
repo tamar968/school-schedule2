@@ -61,9 +61,6 @@
     <Compile Include="Class.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
-    <Compile Include="Dairy.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
     <Compile Include="Group.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
@@ -105,6 +102,9 @@
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="SchoolType.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="StudyTime.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
     <Compile Include="Subject.cs">
