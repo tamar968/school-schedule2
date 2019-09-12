@@ -62,7 +62,7 @@ namespace BL
 
             cmd = new SqlCommand("sp_MSforeachtable 'DELETE FROM ?'", conn);
             cmd.ExecuteNonQuery();
-            cmd = new SqlCommand("sp_MSforeachtable 'truncate table ?'", conn);
+            cmd = new SqlCommand("sp_MSforeachtable 'TRUNCATE TABLE ?'", conn);
             cmd.ExecuteNonQuery();
 
             conn.Close();
