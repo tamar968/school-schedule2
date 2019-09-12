@@ -26,7 +26,7 @@ namespace API.Controllers
             catch(Exception e)
             {             
                 LogManager.LogException(e);
-                return InternalServerError();
+                return InternalServerError(e);
             }
         }
         public class LoadRequest

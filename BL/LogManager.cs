@@ -23,10 +23,10 @@ namespace BL
             using (EventLog eventLog = new EventLog())
             {
                 eventLog.Source = "SchoolSchedule";
-               string msg = GetInnerExceptionMessage(e);
-                Console.WriteLine(msg);
-                //eventLog.WriteEntry(msg, EventLogEntryType.Error);
-            } /**/
+                string msg = GetInnerExceptionMessage(e);
+                //Console.WriteLine(msg);
+                eventLog.WriteEntry(msg, EventLogEntryType.Error);
+            } 
         }
         /// <summary>
         /// find all the inner exception messages

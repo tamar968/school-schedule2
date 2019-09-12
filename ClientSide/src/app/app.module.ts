@@ -16,17 +16,19 @@ import { ViewAbsenceComponent } from './Absences/view-absence/view-absence.compo
 import { ScheduleComponent } from './schedule/schedule.component';
 import { ViewOccasionComponent } from './occasion/view-occasion/view-occasion.component';
 import { EditOccasionComponent } from './occasion/edit-occasion/edit-occasion.component';
-import { OccasionComponent } from './occasion/occasion/occasion.component'
+import { OccasionComponent } from './occasion/occasion/occasion.component';
+import { LoadFilesComponent } from './load-files/load-files.component'
 const ROUTES: Routes = [
-    { path: "login", component: LoginComponent },
+  { path: "login", component: LoginComponent },
+  { path: "load", component: LoadFilesComponent },
   { path: "schedule", component: ScheduleComponent },
-{ path: "studyTime/:number", component: StudyTimeComponent },// id of אוביקט שעת לימוד
+  { path: "studyTime/:number", component: StudyTimeComponent },// id of אוביקט שעת לימוד
   { path: "absence-for-teacher/add", component: AddAbsenceComponent, canActivate: [AdminGuard] },
   { path: "absence-for-teacher/view/:number", component: ViewAbsenceComponent, canActivate: [AdminGuard] },
   { path: "absence-for-teacher/view", component: ViewAbsenceComponent, canActivate: [AdminGuard] },
-  { path: "occasion/occasion", component: OccasionComponent, canActivate: [AdminGuard] },
+  { path: "occasion/occasion", component: OccasionComponent },
   { path: "occasion/add", component: AddOccasionComponent, canActivate: [AdminGuard] },
-  { path: "occasion/view", component: ViewOccasionComponent },  
+  { path: "occasion/view", component: ViewOccasionComponent },
   { path: "occasion/edit", component: EditOccasionComponent, canActivate: [AdminGuard] },
   { path: "", component: HomeComponent },
   { path: "**", redirectTo: "" }
@@ -44,7 +46,8 @@ const ROUTES: Routes = [
     ScheduleComponent,
     ViewOccasionComponent,
     EditOccasionComponent,
-    OccasionComponent
+    OccasionComponent,
+    LoadFilesComponent
   ],
   imports: [
     BrowserModule,

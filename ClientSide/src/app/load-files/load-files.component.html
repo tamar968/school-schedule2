@@ -1,0 +1,13 @@
+<input [(ngModel)]="currentInputFile"
+type="file" id="ctrl" webkitdirectory directory multiple />
+<div *ngIf="success && clicked" class="alert alert-success" role="alert">
+    !טעינת הקבצים הסתימה בהצלחה
+</div>
+<div *ngIf="!success && clicked" class="alert alert-danger" role="alert">
+    !טעינת הקבצים נכשלה
+</div>
+<button [disabled]="!currentInputFile" class="btn btn-outline-success" (click)="onLoad('')">טעינה</button>
+
+<!-- It allows you to select directories.
+     The multiple attribute is a good fallback for browsers that support multiple file selection
+      but not directory selection. -->
