@@ -25,7 +25,7 @@ namespace BL
                 var dairy = db.Schedules.FirstOrDefault(l => l.Id == lesson.Id);
                 dairy.CalculateHours = lesson.CalculateHours;
                 dairy.Cause = lesson.Cause;
-                dairy.ClassId = lesson.ClassId;
+                dairy.GroupId = lesson.GroupId;
                 dairy.FromDate = _CastDTO.DTOToDate(lesson.FromDate);
                 dairy.ToDate = _CastDTO.DTOToDate(lesson.ToDate);
                 dairy.Hour = lesson.Hour;

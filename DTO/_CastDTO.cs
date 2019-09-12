@@ -87,21 +87,21 @@ namespace DTO
         {
             return new ScheduleDTO()
             {
-                Id = schedule.Id,
-                ClassId = schedule.ClassId,
-                Num = schedule.Num,
-                CalculateHours = schedule.CalculateHours,
-                Cause = schedule.Cause,
-                FromDate = DateToDTO(schedule.FromDate),
-                Hour = schedule.Hour,
-                IsGrouped = schedule.IsGrouped,
-                OccasionId = schedule.OccasionId,
-                Reforma = schedule.Reforma,
-                RoomId = schedule.RoomId,
-                SubjectId = schedule.SubjectId,
-                TeacherId = schedule.TeacherId,
-                ToDate = DateToDTO(schedule.ToDate),
-                TypeId = schedule.TypeId
+                Id = dairy.Id,
+                ClassId = dairy.ClassId,
+                Num = dairy.Num,
+                CalculateHours = dairy.CalculateHours,
+                Cause = dairy.Cause,
+                FromDate = DateToDTO(dairy.FromDate),
+                Hour = dairy.Hour,
+                IsGrouped = dairy.IsGrouped,
+                OccasionId = dairy.OccasionId,
+                Reforma = dairy.Reforma,
+                RoomId = dairy.RoomId,
+                SubjectId = dairy.SubjectId,
+                TeacherId = dairy.TeacherId,
+                ToDate = DateToDTO(dairy.ToDate),
+                TypeId = dairy.TypeId
             };
         }
         public static List<ScheduleDTO> ScheduleToDTO(List<Schedule> dairyList)
@@ -113,7 +113,7 @@ namespace DTO
             return new Schedule()
             {
                 Id = dairy.Id,
-                ClassId = dairy.ClassId,
+                GroupId = dairy.GroupId,
                 Num = dairy.Num,
                 CalculateHours = dairy.CalculateHours,
                 Cause = dairy.Cause,
@@ -355,11 +355,11 @@ namespace DTO
         {
             return new StudyTimeDTO()
             {
-                Day = studyTime.Day,
-                Hour = studyTime.Hour,
-                Num = studyTime.Num,
-                Room = studyTime.Room,
-                WeekDay = studyTime.WeekDay
+                Day = schedule.Day,
+                Hour = schedule.Hour,
+                Num = schedule.Num,
+                Room = schedule.Room,
+                WeekDay = schedule.WeekDay
             };
         }
         public static List<StudyTimeDTO> StudyTimeToDTO(List<StudyTime> studyTimesList)

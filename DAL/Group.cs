@@ -18,6 +18,8 @@ namespace DAL
         public Group()
         {
             this.Classes = new HashSet<Class>();
+            this.Schedules = new HashSet<Schedule>();
+            this.Dairies = new HashSet<Dairy>();
         }
     
         public int Id { get; set; }
@@ -42,5 +44,9 @@ namespace DAL
         public virtual ICollection<Class> Classes { get; set; }
         public virtual HourType HourType1 { get; set; }
         public virtual HourType HourType2 { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Schedule> Schedules { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dairy> Dairies { get; set; }
     }
 }

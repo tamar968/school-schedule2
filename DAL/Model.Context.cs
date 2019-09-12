@@ -40,6 +40,6 @@ namespace DAL
         public virtual DbSet<AbsencesForTeacher> AbsencesForTeachers { get; set; }
         public virtual DbSet<Occasion> Occasions { get; set; }
         public virtual DbSet<Schedule> Schedules { get; set; }
-        public virtual DbSet<StudyTime> StudyTimes { get; set; }
+        public virtual DbSet<Dairy> Dairies { get; set; }
     }
 }
