@@ -181,16 +181,17 @@ namespace BL
                     foreach (XmlSchedule.rootGroup rootData in root.group)
                     {
                         //TODO
-                        foreach (XmlSchedule.rootGroupSchedule rootGroupSchedule in rootData.schedule)
-                        {
-                            db.StudyTimes.Add(_CastDTO.DTOToStudyTime(new StudyTimeDTO()
+                        if (rootData.schedule != null)
+                            foreach (XmlSchedule.rootGroupSchedule rootGroupSchedule in rootData.schedule)
                             {
-                                Day = rootGroupSchedule.day,
-                                Hour = rootGroupSchedule.hour,
-                                WeekDay = rootGroupSchedule.weekDay,
-                                Room = rootGroupSchedule.weekDay
-                            }));
-                        }
+                                db.StudyTimes.Add(_CastDTO.DTOToStudyTime(new StudyTimeDTO()
+                                {
+                                    Day = rootGroupSchedule.day,
+                                    Hour = rootGroupSchedule.hour,
+                                    WeekDay = rootGroupSchedule.weekDay,
+                                    Room = rootGroupSchedule.weekDay
+                                }));
+                            }
                     }
                     db.SaveChanges();
                 }

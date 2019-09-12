@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-occasion',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OccasionComponent implements OnInit {
 
-  constructor() { }
+  constructor(public router: Router) { }
 
   ngOnInit() {
   }
-
+  navigateToAdd() {
+    this.router.navigate(['/occasion/add']);
+  }
 }

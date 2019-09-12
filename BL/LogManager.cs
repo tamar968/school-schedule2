@@ -19,11 +19,13 @@ namespace BL
         /// <param name="e"></param>
         public static void LogException(Exception e)
         {
-           // File.AppendAllText("C:\\workspace\\logs.txt", GetInnerExceptionMessage(e));//our file in bin/debug folder
-           using (EventLog eventLog = new EventLog())
+            // File.AppendAllText("C:\\workspace\\logs.txt", GetInnerExceptionMessage(e));//our file in bin/debug folder
+            using (EventLog eventLog = new EventLog())
             {
                 eventLog.Source = "SchoolSchedule";
-                eventLog.WriteEntry(GetInnerExceptionMessage(e), EventLogEntryType.Error);
+               string msg = GetInnerExceptionMessage(e);
+                Console.WriteLine(msg);
+                //eventLog.WriteEntry(msg, EventLogEntryType.Error);
             } /**/
         }
         /// <summary>

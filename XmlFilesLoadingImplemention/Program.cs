@@ -14,7 +14,8 @@ namespace TestCode
         {
             var xmlManager = new XmlManager();
 
-            xmlManager.LoadDirectory(@"Y:\group 2 תשעט\הכהן עדני תמר\קבצים לפרויקט\תלמש\Talmash\חשון עט\");
+            xmlManager.LoadSchedule("../../XML_files/schedule.xml");
+            //xmlManager.LoadDirectory(@"Y:\group 2 תשעט\הכהן עדני תמר\קבצים לפרויקט\תלמש\Talmash\חשון עט\");
             xmlManager.LoadDirectory("../../XML_files");
             var l = Teacher.Get();
             foreach (var item in l)
