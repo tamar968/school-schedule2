@@ -184,12 +184,12 @@ namespace BL
                         if (rootData.schedule != null)
                             foreach (XmlSchedule.rootGroupSchedule rootGroupSchedule in rootData.schedule)
                             {
-                                db.StudyTimes.Add(_CastDTO.DTOToStudyTime(new StudyTimeDTO()
+                                db.Schedules.Add(_CastDTO.DTOToSchedule(new ScheduleDTO()
                                 {
                                     Day = rootGroupSchedule.day,
                                     Hour = rootGroupSchedule.hour,
                                     WeekDay = rootGroupSchedule.weekDay,
-                                    Room = rootGroupSchedule.weekDay
+                                    //Room = rootGroupSchedule.weekDay
                                 }));
                             }
                     }

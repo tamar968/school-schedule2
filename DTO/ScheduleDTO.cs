@@ -15,5 +15,6 @@ namespace DTO
         public int Hour { get; set; }
         public decimal? CalculateHours { get; set; }
         public int? Cause { get; set; }
+        public int? Room { get; set; }
     }
 }

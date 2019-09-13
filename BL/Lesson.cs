@@ -10,19 +10,19 @@ namespace BL
 {
     public class Lesson
     {
-        public static void Add(ScheduleDTO lesson)
+        public static void Add(DairyDTO lesson)
         {
             using (Entities db = new Entities())
             {
-                db.Schedules.Add(_CastDTO.DTOToSchedule(lesson));
+                db.Dairies .Add(_CastDTO.DTOToDairy(lesson));
                 db.SaveChanges();
             }
         }
-        public static void Update(ScheduleDTO lesson)
+        public static void Update(DairyDTO lesson)
         {
             using (Entities db = new Entities())
             {
-                var dairy = db.Schedules.FirstOrDefault(l => l.Id == lesson.Id);
+                var dairy = db.Dairies .FirstOrDefault(l => l.Num == lesson.Num);
                 dairy.CalculateHours = lesson.CalculateHours;
                 dairy.Cause = lesson.Cause;
                 dairy.GroupId = lesson.GroupId;
@@ -44,23 +44,23 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                var dairy = db.Schedules.FirstOrDefault(l => l.Id == lessonId);
-                db.Schedules.Remove(dairy);
+                var dairy = db.Dairies .FirstOrDefault(l => l.Id == lessonId);
+                db.Dairies .Remove(dairy);
                 db.SaveChanges();
             }
         }
-        public static ScheduleDTO Get(int id)
+        public static DairyDTO Get(int id)
         {
             using (Entities db = new Entities())
             {
-                return _CastDTO.ScheduleToDTO(db.Schedules.FirstOrDefault(l => l.Id == id));
+                return _CastDTO.DairyToDTO(db.Dairies .FirstOrDefault(l => l.Id == id));
             }
         }
-        public static List<ScheduleDTO> Get()
+        public static List<DairyDTO> Get()
         {
             using (Entities db = new Entities())
             {
-                return _CastDTO.ScheduleToDTO(db.Schedules.ToList());
+                return _CastDTO.DairyToDTO(db.Dairies .ToList());
             }
         }
     }

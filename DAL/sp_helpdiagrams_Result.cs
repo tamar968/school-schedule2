@@ -10,18 +10,13 @@
 namespace DAL
 {
     using System;
-    using System.Collections.Generic;
     
-    public partial class Schedule
+    public partial class sp_helpdiagrams_Result
     {
-        public int Num { get; set; }
-        public int GroupId { get; set; }
-        public int WeekDay { get; set; }
-        public int Day { get; set; }
-        public int Hour { get; set; }
-        public Nullable<int> Room { get; set; }
-    
-        public virtual Group Group { get; set; }
-        public virtual Room Room1 { get; set; }
+        public string Database { get; set; }
+        public string Name { get; set; }
+        public int ID { get; set; }
+        public string Owner { get; set; }
+        public int OwnerID { get; set; }
     }
 }

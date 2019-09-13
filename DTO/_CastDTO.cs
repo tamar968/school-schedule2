@@ -359,7 +359,7 @@ namespace DTO
                GroupId=schedule.GroupId,
                 Hour = schedule.Hour,
                 Num = schedule.Num,
-                //Room = schedule.Room,
+                Room = schedule.Room,
                 WeekDay = schedule.WeekDay
             };
         }
@@ -374,7 +374,7 @@ namespace DTO
                 Day = schedule.Day,
                 Hour = schedule.Hour,
                 Num = schedule.Num,
-                //Room = schedule.Room,
+                Room = schedule.Room,
                 WeekDay = schedule.WeekDay
             };
         }

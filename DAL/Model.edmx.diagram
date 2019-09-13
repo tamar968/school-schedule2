@@ -4,50 +4,50 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="bd462c8e3cc0424ca253133038672458" Name="Diagram1" ZoomLevel="100">
-        <EntityTypeShape EntityType="ESTYTAMARModel.Class" Width="1.5" PointX="0.75" PointY="7.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.OccasionType" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.PayAbsence" Width="1.5" PointX="3" PointY="4.125" IsExpanded="true" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.Room" Width="1.5" PointX="5.25" PointY="7.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.Subject" Width="1.5" PointX="3" PointY="21" IsExpanded="true" />
+      <Diagram DiagramId="b46fd6c21986430499895dce05dd5f61" Name="Diagram1">
+        <EntityTypeShape EntityType="ESTYTAMARModel.Absence" Width="1.5" PointX="8.25" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.AbsencesForTeacher" Width="1.5" PointX="10.5" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.Class" Width="1.5" PointX="0.75" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.Dairy" Width="1.5" PointX="7.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.Group" Width="1.5" PointX="10.5" PointY="11.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.HourType" Width="1.5" PointX="8.25" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.Occasion" Width="1.5" PointX="3" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.OccasionType" Width="1.5" PointX="0.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.PayAbsence" Width="1.5" PointX="6" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.Reforma" Width="1.5" PointX="8.25" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.Room" Width="1.5" PointX="5.25" PointY="9.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.Schedule" Width="1.5" PointX="12.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.SchoolType" Width="1.5" PointX="8.25" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.Subject" Width="1.5" PointX="3" PointY="17.25" IsExpanded="true" />
         <EntityTypeShape EntityType="ESTYTAMARModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.Teacher" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ESTYTAMARModel.Teacher" Width="1.5" PointX="8.25" PointY="7.25" IsExpanded="true" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_Absence1" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_TeacherStandIn" ManuallyRouted="false" />
         <AssociationConnector Association="ESTYTAMARModel.FK_Room_Class" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Ocation" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_OcationType" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Group_HourType" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Group_HourType1" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Group_Reforma" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Group_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Group_SchoolType" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Group_Subject" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Group_Teacher" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Schedule_Group" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Ocation_OcationType" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.FK_Schedule_Room" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.ClassesForGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.ClassesForOccasion" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.DairyForClasses" ManuallyRouted="false" />
         <AssociationConnector Association="ESTYTAMARModel.PayAbsencesForTeacher" ManuallyRouted="false" />
+        <AssociationConnector Association="ESTYTAMARModel.RoomsForOccasion" ManuallyRouted="false" />
         <AssociationConnector Association="ESTYTAMARModel.SubjectsForClass" ManuallyRouted="false" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.Group" Width="1.5" PointX="7.5" PointY="10.875" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.Reforma" Width="1.5" PointX="5.25" PointY="21.375" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.SchoolType" Width="1.5" PointX="5.25" PointY="19" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Group_Reforma" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Group_Room" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Group_SchoolType" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Group_Subject" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Group_Teacher" />
-        <AssociationConnector Association="ESTYTAMARModel.ClassesForGroup" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.Absence" Width="1.5" PointX="5.25" PointY="1.25" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.HourType" Width="1.5" PointX="7.375" PointY="0.875" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Group_HourType" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.AbsencesForTeacher" Width="1.5" PointX="10.5" PointY="2.25" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.Occasion" Width="1.5" PointX="3" PointY="6.875" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_Absence1" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_Teacher" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_TeacherStandIn" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Ocation_OcationType" />
-        <AssociationConnector Association="ESTYTAMARModel.ClassesForOccasion" />
-        <AssociationConnector Association="ESTYTAMARModel.RoomsForOccasion" />
-        <AssociationConnector Association="ESTYTAMARModel.TeachersForOccasion" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Group_HourType1" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.Schedule" Width="1.5" PointX="9.75" PointY="10.625" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Schedule_Group" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Schedule_Room" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.Dairy" Width="1.5" PointX="12.75" PointY="8.625" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Group" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Ocation" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_OcationType" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Room" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Subject" />
-        <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Teacher" />
-        <AssociationConnector Association="ESTYTAMARModel.DairyForClasses" />
+        <AssociationConnector Association="ESTYTAMARModel.TeachersForOccasion" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

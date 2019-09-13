@@ -17,9 +17,9 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public Group()
         {
-            this.Classes = new HashSet<Class>();
-            this.Schedules = new HashSet<Schedule>();
             this.Dairies = new HashSet<Dairy>();
+            this.Schedules = new HashSet<Schedule>();
+            this.Classes = new HashSet<Class>();
         }
     
         public int Id { get; set; }
@@ -35,18 +35,18 @@ namespace DAL
         public Nullable<int> HourType { get; set; }
         public Nullable<int> SubHourType { get; set; }
     
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Dairy> Dairies { get; set; }
+        public virtual HourType HourType1 { get; set; }
+        public virtual HourType HourType2 { get; set; }
         public virtual Reforma Reforma1 { get; set; }
         public virtual Room Room1 { get; set; }
         public virtual SchoolType SchoolType1 { get; set; }
         public virtual Subject Subject1 { get; set; }
         public virtual Teacher Teacher1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Class> Classes { get; set; }
-        public virtual HourType HourType1 { get; set; }
-        public virtual HourType HourType2 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Schedule> Schedules { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Dairy> Dairies { get; set; }
+        public virtual ICollection<Class> Classes { get; set; }
     }
 }

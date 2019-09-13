@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ESTYTAMARModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="ESTYTAMARModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Absence">
           <Key>
             <PropertyRef Name="Id" />
@@ -631,38 +631,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
-        <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="version" Type="int" Mode="In" />
-          <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
-        </Function>
-        <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-        </Function>
-        <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
-          <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
-          <Parameter Name="owner_id" Type="int" Mode="In" />
-          <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
-        </Function>
-        <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
-        <EntityContainer Name="ESTYTAMARModelStoreContainer">
+        <EntityContainer Name="ESTYTAMARModel1StoreContainer">
           <EntitySet Name="Absence" EntityType="Self.Absence" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="AbsencesForTeacher" EntityType="Self.AbsencesForTeacher" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Class" EntityType="Self.Class" Schema="dbo" store:Type="Tables" />
@@ -827,7 +796,7 @@
     </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="ESTYTAMARModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="ESTYTAMARModel1" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Absence">
           <Key>
             <PropertyRef Name="Id" />
@@ -1312,7 +1281,7 @@
           <End Role="Occasion" Type="Self.Occasion" Multiplicity="*" />
           <End Role="Teacher" Type="Self.Teacher" Multiplicity="*" />
         </Association>
-        <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="Entities1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Absences" EntityType="Self.Absence" />
           <EntitySet Name="AbsencesForTeachers" EntityType="Self.AbsencesForTeacher" />
           <EntitySet Name="Classes" EntityType="Self.Class" />
@@ -1437,56 +1406,15 @@
             <End Role="Occasion" EntitySet="Occasions" />
             <End Role="Teacher" EntitySet="Teachers" />
           </AssociationSet>
-          <FunctionImport Name="sp_alterdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_creatediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="version" Mode="In" Type="Int32" />
-            <Parameter Name="definition" Mode="In" Type="Binary" />
-          </FunctionImport>
-          <FunctionImport Name="sp_dropdiagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(ESTYTAMARModel.sp_helpdiagramdefinition_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(ESTYTAMARModel.sp_helpdiagrams_Result)">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-          </FunctionImport>
-          <FunctionImport Name="sp_renamediagram">
-            <Parameter Name="diagramname" Mode="In" Type="String" />
-            <Parameter Name="owner_id" Mode="In" Type="Int32" />
-            <Parameter Name="new_diagramname" Mode="In" Type="String" />
-          </FunctionImport>
-          <FunctionImport Name="sp_upgraddiagrams" />
         </EntityContainer>
-        <ComplexType Name="sp_helpdiagramdefinition_Result">
-          <Property Type="Int32" Name="version" Nullable="true" />
-          <Property Type="Binary" Name="definition" Nullable="true" />
-        </ComplexType>
-        <ComplexType Name="sp_helpdiagrams_Result">
-          <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
-          <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
-          <Property Type="Int32" Name="ID" Nullable="false" />
-          <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
-          <Property Type="Int32" Name="OwnerID" Nullable="false" />
-        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="ESTYTAMARModelStoreContainer" CdmEntityContainer="Entities">
+        <EntityContainerMapping StorageEntityContainer="ESTYTAMARModel1StoreContainer" CdmEntityContainer="Entities1">
           <EntitySetMapping Name="Absences">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Absence">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.Absence">
               <MappingFragment StoreEntitySet="Absence">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1494,7 +1422,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="AbsencesForTeachers">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.AbsencesForTeacher">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.AbsencesForTeacher">
               <MappingFragment StoreEntitySet="AbsencesForTeacher">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Type" ColumnName="Type" />
@@ -1508,7 +1436,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Classes">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Class">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.Class">
               <MappingFragment StoreEntitySet="Class">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Num" ColumnName="Num" />
@@ -1520,7 +1448,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Dairies">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Dairy">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.Dairy">
               <MappingFragment StoreEntitySet="Dairy">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Num" ColumnName="Num" />
@@ -1541,7 +1469,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Groups">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Group">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.Group">
               <MappingFragment StoreEntitySet="Group">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Num" ColumnName="Num" />
@@ -1559,7 +1487,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="HourTypes">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.HourType">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.HourType">
               <MappingFragment StoreEntitySet="HourType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ParentId" ColumnName="ParentId" />
@@ -1568,7 +1496,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Occasions">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Occasion">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.Occasion">
               <MappingFragment StoreEntitySet="Occasion">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="FromDate" ColumnName="FromDate" />
@@ -1580,7 +1508,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OccasionTypes">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.OccasionType">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.OccasionType">
               <MappingFragment StoreEntitySet="OccasionType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1588,7 +1516,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="PayAbsences">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.PayAbsence">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.PayAbsence">
               <MappingFragment StoreEntitySet="PayAbsence">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1597,7 +1525,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Reformas">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Reforma">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.Reforma">
               <MappingFragment StoreEntitySet="Reforma">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1605,7 +1533,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rooms">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Room">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.Room">
               <MappingFragment StoreEntitySet="Room">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Floor" ColumnName="Floor" />
@@ -1616,7 +1544,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Schedules">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Schedule">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.Schedule">
               <MappingFragment StoreEntitySet="Schedule">
                 <ScalarProperty Name="Num" ColumnName="Num" />
                 <ScalarProperty Name="GroupId" ColumnName="GroupId" />
@@ -1628,7 +1556,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="SchoolTypes">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.SchoolType">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.SchoolType">
               <MappingFragment StoreEntitySet="SchoolType">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1636,7 +1564,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Subjects">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Subject">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.Subject">
               <MappingFragment StoreEntitySet="Subject">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
@@ -1644,7 +1572,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="sysdiagrams">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.sysdiagram">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.sysdiagram">
               <MappingFragment StoreEntitySet="sysdiagrams">
                 <ScalarProperty Name="name" ColumnName="name" />
                 <ScalarProperty Name="principal_id" ColumnName="principal_id" />
@@ -1655,7 +1583,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Teachers">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Teacher">
+            <EntityTypeMapping TypeName="ESTYTAMARModel1.Teacher">
               <MappingFragment StoreEntitySet="Teacher">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Num" ColumnName="Num" />
@@ -1663,7 +1591,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="ClassesForGroup" TypeName="ESTYTAMARModel.ClassesForGroup" StoreEntitySet="ClassesForGroup">
+          <AssociationSetMapping Name="ClassesForGroup" TypeName="ESTYTAMARModel1.ClassesForGroup" StoreEntitySet="ClassesForGroup">
             <EndProperty Name="Class">
               <ScalarProperty Name="Id" ColumnName="ClassId" />
             </EndProperty>
@@ -1671,7 +1599,7 @@
               <ScalarProperty Name="Id" ColumnName="GroupId" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="ClassesForOccasion" TypeName="ESTYTAMARModel.ClassesForOccasion" StoreEntitySet="ClassesForOccasion">
+          <AssociationSetMapping Name="ClassesForOccasion" TypeName="ESTYTAMARModel1.ClassesForOccasion" StoreEntitySet="ClassesForOccasion">
             <EndProperty Name="Class">
               <ScalarProperty Name="Id" ColumnName="ClassId" />
             </EndProperty>
@@ -1679,7 +1607,7 @@
               <ScalarProperty Name="Id" ColumnName="OccasionId" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="DairyForClasses" TypeName="ESTYTAMARModel.DairyForClasses" StoreEntitySet="DairyForClasses">
+          <AssociationSetMapping Name="DairyForClasses" TypeName="ESTYTAMARModel1.DairyForClasses" StoreEntitySet="DairyForClasses">
             <EndProperty Name="Class">
               <ScalarProperty Name="Id" ColumnName="ClassId" />
             </EndProperty>
@@ -1687,7 +1615,7 @@
               <ScalarProperty Name="Id" ColumnName="DairyId" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="PayAbsencesForTeacher" TypeName="ESTYTAMARModel.PayAbsencesForTeacher" StoreEntitySet="PayAbsencesForTeacher">
+          <AssociationSetMapping Name="PayAbsencesForTeacher" TypeName="ESTYTAMARModel1.PayAbsencesForTeacher" StoreEntitySet="PayAbsencesForTeacher">
             <EndProperty Name="PayAbsence">
               <ScalarProperty Name="Id" ColumnName="IdPayAbsence" />
             </EndProperty>
@@ -1695,7 +1623,7 @@
               <ScalarProperty Name="Id" ColumnName="IdTeacher" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="RoomsForOccasion" TypeName="ESTYTAMARModel.RoomsForOccasion" StoreEntitySet="RoomsForOccasion">
+          <AssociationSetMapping Name="RoomsForOccasion" TypeName="ESTYTAMARModel1.RoomsForOccasion" StoreEntitySet="RoomsForOccasion">
             <EndProperty Name="Occasion">
               <ScalarProperty Name="Id" ColumnName="OccasionId" />
             </EndProperty>
@@ -1703,7 +1631,7 @@
               <ScalarProperty Name="Id" ColumnName="RoomId" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="SubjectsForClass" TypeName="ESTYTAMARModel.SubjectsForClass" StoreEntitySet="SubjectsForClass">
+          <AssociationSetMapping Name="SubjectsForClass" TypeName="ESTYTAMARModel1.SubjectsForClass" StoreEntitySet="SubjectsForClass">
             <EndProperty Name="Class">
               <ScalarProperty Name="Id" ColumnName="ClassId" />
             </EndProperty>
@@ -1711,7 +1639,7 @@
               <ScalarProperty Name="Id" ColumnName="SubjectId" />
             </EndProperty>
           </AssociationSetMapping>
-          <AssociationSetMapping Name="TeachersForOccasion" TypeName="ESTYTAMARModel.TeachersForOccasion" StoreEntitySet="TeachersForOccasion">
+          <AssociationSetMapping Name="TeachersForOccasion" TypeName="ESTYTAMARModel1.TeachersForOccasion" StoreEntitySet="TeachersForOccasion">
             <EndProperty Name="Occasion">
               <ScalarProperty Name="Id" ColumnName="OccasionId" />
             </EndProperty>
@@ -1719,30 +1647,6 @@
               <ScalarProperty Name="Id" ColumnName="TeacherId" />
             </EndProperty>
           </AssociationSetMapping>
-          <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="ESTYTAMARModel.Store.sp_alterdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="ESTYTAMARModel.Store.sp_creatediagram" />
-          <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="ESTYTAMARModel.Store.sp_dropdiagram" />
-          <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="ESTYTAMARModel.Store.sp_helpdiagramdefinition">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ESTYTAMARModel.sp_helpdiagramdefinition_Result">
-                <ScalarProperty Name="version" ColumnName="version" />
-                <ScalarProperty Name="definition" ColumnName="definition" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="ESTYTAMARModel.Store.sp_helpdiagrams">
-            <ResultMapping>
-              <ComplexTypeMapping TypeName="ESTYTAMARModel.sp_helpdiagrams_Result">
-                <ScalarProperty Name="Database" ColumnName="Database" />
-                <ScalarProperty Name="Name" ColumnName="Name" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Owner" ColumnName="Owner" />
-                <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
-              </ComplexTypeMapping>
-            </ResultMapping>
-          </FunctionImportMapping>
-          <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="ESTYTAMARModel.Store.sp_renamediagram" />
-          <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="ESTYTAMARModel.Store.sp_upgraddiagrams" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
