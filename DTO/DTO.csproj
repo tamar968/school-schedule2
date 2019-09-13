@@ -52,6 +52,7 @@
   <ItemGroup>
     <Compile Include="AbsenceDTO.cs" />
     <Compile Include="AbsencesForTeacherDTO.cs" />
+    <Compile Include="DairyDTO.cs" />
     <Compile Include="DateDTO.cs" />
     <Compile Include="GroupDTO.cs" />
     <Compile Include="HourTypeDTO.cs" />

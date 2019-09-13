@@ -20,7 +20,7 @@ namespace DAL
             this.Classes = new HashSet<Class>();
             this.Rooms = new HashSet<Room>();
             this.Teachers = new HashSet<Teacher>();
-            this.Dairies = new HashSet<Dairy>();
+            //this.Dairies = new HashSet<Dairy>();
         }
     
         public int Id { get; set; }

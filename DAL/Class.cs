@@ -21,10 +21,10 @@ namespace DAL
             this.Subjects = new HashSet<Subject>();
             this.Groups = new HashSet<Group>();
             this.Occasions = new HashSet<Occasion>();
-            this.Schedules = new HashSet<Schedule>();
-            this.Schedules1 = new HashSet<Schedule>();
+            // this.Dairies = new HashSet<Dairy>();
+
         }
-    
+
         public int Id { get; set; }
         public int Num { get; set; }
         public string Name { get; set; }

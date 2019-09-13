@@ -35,9 +35,9 @@ namespace DTO
             {
                 TeacherId = absForTea.TeacherId,
                 TeacherStandIn = absForTea.TeacherStandIn,
-                FromDate =DateToDTO(absForTea.FromDate),
+                FromDate = DateToDTO(absForTea.FromDate),
                 ToDate = DateToDTO(absForTea.ToDate),
-                FromLesson=absForTea.FromLesson,
+                FromLesson = absForTea.FromLesson,
                 ToLesson = absForTea.ToLesson,
                 Type = absForTea.Type
             };
@@ -82,13 +82,13 @@ namespace DTO
             return clsList.Select(a => DTOToClass(a)).ToList();
         }
         #endregion
-        #region Schedule
-        public static ScheduleDTO ScheduleToDTO(Schedule schedule)
+        #region Dairy
+        public static DairyDTO DairyToDTO(Dairy dairy)
         {
-            return new ScheduleDTO()
+            return new DairyDTO()
             {
                 Id = dairy.Id,
-                ClassId = dairy.ClassId,
+                GroupId = dairy.GroupId,
                 Num = dairy.Num,
                 CalculateHours = dairy.CalculateHours,
                 Cause = dairy.Cause,
@@ -104,13 +104,13 @@ namespace DTO
                 TypeId = dairy.TypeId
             };
         }
-        public static List<ScheduleDTO> ScheduleToDTO(List<Schedule> dairyList)
+        public static List<DairyDTO> DairyToDTO(List<Dairy> dairyList)
         {
-            return dairyList.Select(a => ScheduleToDTO(a)).ToList();
+            return dairyList.Select(a => DairyToDTO(a)).ToList();
         }
-        public static Schedule DTOToSchedule(ScheduleDTO dairy)
+        public static Dairy DTOToDairy(DairyDTO dairy)
         {
-            return new Schedule()
+            return new Dairy()
             {
                 Id = dairy.Id,
                 GroupId = dairy.GroupId,
@@ -129,9 +129,9 @@ namespace DTO
                 TypeId = dairy.TypeId
             };
         }
-        public static List<Schedule> DTOToSchedule(List<ScheduleDTO> dairyList)
+        public static List<Dairy> DTOToDairy(List<DairyDTO> dairyList)
         {
-            return dairyList.Select(a => DTOToSchedule(a)).ToList();
+            return dairyList.Select(a => DTOToDairy(a)).ToList();
         }
         #endregion
         #region Group
@@ -351,35 +351,36 @@ namespace DTO
         }
         #endregion
         #region Schedule
-        public static StudyTimeDTO StudyTimeToDTO(StudyTime studyTime)
+        public static ScheduleDTO ScheduleToDTO(Schedule schedule)
         {
-            return new StudyTimeDTO()
+            return new ScheduleDTO()
+            {
+                Day = schedule.Day,
+               GroupId=schedule.GroupId,
+                Hour = schedule.Hour,
+                Num = schedule.Num,
+                //Room = schedule.Room,
+                WeekDay = schedule.WeekDay
+            };
+        }
+        public static List<ScheduleDTO> ScheduleToDTO(List<Schedule> schList)
+        {
+            return schList.Select(s => ScheduleToDTO(s)).ToList();
+        }
+        public static Schedule DTOToSchedule(ScheduleDTO schedule)
+        {
+            return new Schedule()
             {
                 Day = schedule.Day,
                 Hour = schedule.Hour,
                 Num = schedule.Num,
-                Room = schedule.Room,
+                //Room = schedule.Room,
                 WeekDay = schedule.WeekDay
             };
         }
-        public static List<StudyTimeDTO> StudyTimeToDTO(List<StudyTime> studyTimesList)
+        public static List<Schedule> DTOToSchedule(List<ScheduleDTO> schList)
         {
-            return studyTimesList.Select(s => StudyTimeToDTO(s)).ToList();
-        }
-        public static StudyTime DTOToStudyTime(StudyTimeDTO studyTime)
-        {
-            return new StudyTime()
-            {
-                Day = studyTime.Day,
-                Hour = studyTime.Hour,
-                Num = studyTime.Num,
-                Room = studyTime.Room,
-                WeekDay = studyTime.WeekDay
-            };
-        }
-        public static List<StudyTime> DTOToStudyTime(List<StudyTimeDTO> studyTimesList)
-        {
-            return studyTimesList.Select(a => DTOToStudyTime(a)).ToList();
+            return schList.Select(a => DTOToSchedule(a)).ToList();
         }
         #endregion
         #region Subject

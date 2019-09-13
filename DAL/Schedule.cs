@@ -11,7 +11,7 @@ namespace DAL
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class Schedule
     {
         public int Num { get; set; }
@@ -19,9 +19,9 @@ namespace DAL
         public int WeekDay { get; set; }
         public int Day { get; set; }
         public int Hour { get; set; }
-        public Nullable<decimal> CalculateHours { get; set; }
-        public Nullable<int> Cause { get; set; }
-    
+        public Nullable<int> Room { get; set; }
+
+        public virtual Group Group { get; set; }
         public virtual Room Room1 { get; set; }
     }
 }
