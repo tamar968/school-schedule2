@@ -189,7 +189,7 @@ namespace BL
                                     Day = rootGroupSchedule.day,
                                     Hour = rootGroupSchedule.hour,
                                     WeekDay = rootGroupSchedule.weekDay,
-                                    //Room = rootGroupSchedule.weekDay
+                                    Room = rootGroupSchedule.room
                                 }));
                             }
                     }
