@@ -21,12 +21,15 @@ export class OccasionComponent implements OnInit {
     this.occTypesService.getOccasionTypes()
     .subscribe(occTypes => {
       this.occTypes = occTypes;
+      console.log(occTypes);
     },err=>console.error(err))
     this.occService.getall()
       .subscribe(occasions => {
         this.occasions = occasions;
+        this.occasions.map(o=>o.OccasionTypeName=this.occTypes.filter(ot=>ot.Id===o.OccasionType)[0].Name);
       },err=>console.error(err))
   }
+  
   navigateToAdd() {
     this.router.navigate([`/occasion/add`]);
   }

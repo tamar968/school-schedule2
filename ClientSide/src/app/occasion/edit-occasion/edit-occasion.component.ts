@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Occasion } from 'src/app/models/occasion.model';
 import { OccasionService } from 'src/app/services/occasion.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-edit-occasion',
@@ -10,7 +10,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class EditOccasionComponent implements OnInit {
 
-  constructor(private activatedRoute:ActivatedRoute, private occService:OccasionService) { }
+  constructor(private activatedRoute:ActivatedRoute,private router:Router, private occService:OccasionService) { }
 
 occ:Occasion;
   ngOnInit() {
@@ -20,5 +20,14 @@ occ:Occasion;
       console.log(occ);
     },err=>console.error(err))
   }
-  
+  delete(id:number){
+    this.occService.delete(id)
+    .subscribe(res => {
+     console.log(`נמחק בהצלחה ${res}`);
+     this.router.navigateByUrl('');
+    },err=>console.error(err))
+  }
+  navigateToList() {
+    this.router.navigate([`/occasion/occasion`]);
+  }
 }

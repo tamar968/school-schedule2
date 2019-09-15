@@ -205,7 +205,7 @@ namespace DTO
                 FromLesson = occ.FromLesson,
                 ToLesson = occ.ToLesson,
                 OccasionType = occ.OccasionType,
-                Dairies = occ.Dairies.Select(d => d.Id).ToList(),
+                //Dairies = occ.Dairies.Select(d => d.Id).ToList(),
                 Classes = occ.Classes.Select(c => c.Id).ToList(),
                 Rooms = occ.Rooms.Select(r => r.Id).ToList(),
                 Teachers = occ.Teachers.Select(t => t.Id).ToList()

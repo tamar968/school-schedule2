@@ -14,7 +14,7 @@
     <tbody>
       <tr *ngFor="let occ of occasions">
         <th scope="row">{{occ.Id}}</th>
-        <td>{{occ.OccasionType}}</td>
+        <td>{{occ.OccasionTypeName}}</td>
         <td>{{occ.FromDate.thisDate}}</td>
         <td>{{occ.Classes}}</td>
         <td class="table-success center" (click)="navigateToEdit(occ.Id)">עריכה</td>
