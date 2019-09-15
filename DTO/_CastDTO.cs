@@ -204,7 +204,11 @@ namespace DTO
                 ToDate = DateToDTO(occ.ToDate),
                 FromLesson = occ.FromLesson,
                 ToLesson = occ.ToLesson,
-                OccasionType = occ.OccasionType
+                OccasionType = occ.OccasionType,
+                Dairies = occ.Dairies.Select(d => d.Id).ToList(),
+                Classes = occ.Classes.Select(c => c.Id).ToList(),
+                Rooms = occ.Rooms.Select(r => r.Id).ToList(),
+                Teachers = occ.Teachers.Select(t => t.Id).ToList()
             };
         }
 
@@ -356,7 +360,7 @@ namespace DTO
             return new ScheduleDTO()
             {
                 Day = schedule.Day,
-               GroupId=schedule.GroupId,
+                GroupId = schedule.GroupId,
                 Hour = schedule.Hour,
                 Num = schedule.Num,
                 Room = schedule.Room,
