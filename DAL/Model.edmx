@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ESTYTAMARModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ESTYTAMARModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Absence">
           <Key>
             <PropertyRef Name="Id" />
@@ -84,7 +84,7 @@
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Num" Type="int" Nullable="false" />
           <Property Name="Teacher" Type="int" />
           <Property Name="Subject" Type="int" />
@@ -168,7 +168,7 @@
           <Key>
             <PropertyRef Name="Num" />
           </Key>
-          <Property Name="Num" Type="int" Nullable="false" />
+          <Property Name="Num" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="GroupId" Type="int" Nullable="false" />
           <Property Name="WeekDay" Type="int" Nullable="false" />
           <Property Name="Day" Type="int" Nullable="false" />
@@ -475,18 +475,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Group_Teacher">
-          <End Role="Teacher" Type="Self.Teacher" Multiplicity="0..1" />
-          <End Role="Group" Type="Self.Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Group">
-              <PropertyRef Name="Teacher" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Ocation_OcationType">
           <End Role="OccasionType" Type="Self.OccasionType" Multiplicity="0..1" />
           <End Role="Occasion" Type="Self.Occasion" Multiplicity="*" />
@@ -770,10 +758,6 @@
             <End Role="Subject" EntitySet="Subject" />
             <End Role="Group" EntitySet="Group" />
           </AssociationSet>
-          <AssociationSet Name="FK_Group_Teacher" Association="Self.FK_Group_Teacher">
-            <End Role="Teacher" EntitySet="Teacher" />
-            <End Role="Group" EntitySet="Group" />
-          </AssociationSet>
           <AssociationSet Name="FK_Ocation_OcationType" Association="Self.FK_Ocation_OcationType">
             <End Role="OccasionType" EntitySet="OccasionType" />
             <End Role="Occasion" EntitySet="Occasion" />
@@ -823,8 +807,7 @@
             <End Role="TeachersForOccasion" EntitySet="TeachersForOccasion" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ESTYTAMARModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">

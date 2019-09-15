@@ -24,7 +24,7 @@ namespace BL
             {
                 eventLog.Source = "SchoolSchedule";
                 string msg = GetInnerExceptionMessage(e);
-                //Console.WriteLine(msg);
+                Console.WriteLine(msg);
                 eventLog.WriteEntry(msg, EventLogEntryType.Error);
             } 
         }

@@ -14,15 +14,15 @@ namespace TestCode
         {
             var xmlManager = new XmlManager();
 
-            xmlManager.LoadSchedule("../../XML_files/schedule.xml");
+            //xmlManager.LoadSchedule("../../XML_files/schedule.xml");
             //xmlManager.LoadDirectory(@"Y:\group 2 תשעט\הכהן עדני תמר\קבצים לפרויקט\תלמש\Talmash\חשון עט\");
             xmlManager.LoadDirectory("../../XML_files");
-            var l = Teacher.Get();
-            foreach (var item in l)
-            {
-                Console.WriteLine(item);
-            }
-            LogManager.LogException(new Exception("be carefull"));
+            //var l = Teacher.Get();
+            //foreach (var item in l)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            //LogManager.LogException(new Exception("be carefull"));
             //BL.AbsenceForTeacher.Add(new AbsencesForTeacherDTO()
             //{
             //    FromDate = _CastDTO.DateToDTO(DateTime.Now),

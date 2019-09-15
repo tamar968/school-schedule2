@@ -2562,7 +2562,7 @@
   <group num="567" map="572" tea="1211" subj="2118" subjlevel="" sroom="-1" edgh_flag="0" no_of_hours="1" grouped="0" blockid="-1" groupName="" sug="2" sub_sug="0" goremMeshalem="0" tkufa="0" from_date="1/9/2018" to_date="30/6/2019" reforma="4" mispar_sheelon="" mispar_rashi="" calculate_hours="1.00" siba="-1">
     <classes />
   </group>
-  <group num="479" map="573" tea="1185" subj="2000" subjlevel="" sroom="-1" edgh_flag="0" no_of_hours="2" grouped="0" blockid="-1" groupName="" sug="1" sub_sug="0" goremMeshalem="0" schooltype="3" reforma="4" mispar_sheelon="" mispar_rashi="" calculate_hours="100.00" siba="0">
+  <group num="479" map="573" tea="1185" subj="2000" subjlevel="" sroom="-1" edgh_flag="0" no_of_hours="2" grouped="0" blockid="-1" groupName="" sug="1" sub_sug="0" goremMeshalem="0" schooltype="3" reforma="4" mispar_sheelon="" mispar_rashi="" calculate_hours="1.00" siba="0">
     <classes>
       <cls num="27" />
     </classes>
