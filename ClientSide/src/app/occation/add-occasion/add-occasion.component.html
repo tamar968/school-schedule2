@@ -1,0 +1,77 @@
+<div> </div>
+<form role="form" [formGroup]="addOccasion" (ngSubmit)="onAddOccasion()" class="container">
+  <h2 class="container">הוספת ארוע</h2>
+  <div class="form-group">
+    <label for="typeOccasion">סוג ארוע</label>
+    <select #typeOccasion name="typeOccasion" [formControl]="addOccasion.controls['typeCtrl']" class="select"
+      [(ngModel)]="typeId">
+      <option [value]="o.Id" *ngFor="let o of occasionTypes">{{o.Name}}</option>
+    </select>
+    <div *ngIf="addOccasion.controls['typeCtrl'].hasError('required') && addOccasion.controls['typeCtrl'].touched"
+      class="alert alert-danger">
+      'סוג ארוע' הינו שדה חובה
+    </div>
+  </div>
+  <div dir="ltr">
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control" type="text" placeholder="yyyy-mm-dd" name="fromDate" [formControl]="addOccasion.controls['fromCtrl']" [(ngModel)]="fromDate" ngbDatepicker
+          #d1="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button">
+            <img class="i" src="assets/img/calendar.png">
+          </button>
+        </div>
+      </div>
+      <div *ngIf="addOccasion.controls['fromCtrl'].hasError('required') && addOccasion.controls['fromCtrl'].touched"
+      class="alert alert-danger">
+      מתאריך' הינו שדה חובה' 
+    </div>
+    <div *ngIf="addOccasion.controls['fromCtrl'].hasError('pattern') && addOccasion.controls['fromCtrl'].touched"
+      class="alert alert-danger">
+      מתאריך' אינו כתוב לפי התבנית המתאימה'
+    </div>
+    </div>
+
+    <div class="form-group">
+      <div class="input-group">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="toDate" [formControl]="addOccasion.controls['toCtrl']" [(ngModel)]="toDate" ngbDatepicker
+          #d2="ngbDatepicker">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button">
+            <img class="i" src="assets/img/calendar.png">
+          </button>
+        </div>
+      </div>
+      <div *ngIf="addOccasion.controls['toCtrl'].hasError('required') && addOccasion.controls['toCtrl'].touched"
+      class="alert alert-danger">
+      'עד תאריך' הינו שדה חובה 
+    </div>
+    <div *ngIf="addOccasion.controls['toCtrl'].hasError('pattern') && addOccasion.controls['toCtrl'].touched"
+      class="alert alert-danger">
+      עד תאריך' אינו כתוב לפי התבנית המתאימה'
+    </div>
+    </div>
+    <div>
+       <b>מלוות</b>
+      <ng-multiselect-dropdown placeholder="בחירת מלווה" [data]="dropdownList" [(ngModel)]="selectedItems" [settings]="dropdownSettings"
+        name="chooseTeacher" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+      </ng-multiselect-dropdown>
+    </div> 
+      <div>
+        <b>בחירת מחזור</b>
+        <div *ngFor="let layer of layers">
+          <label for="layer{{layer.Id}}">{{layer.Name}}</label>
+          <input type="checkbox" value="{{layer.Id}}" id="layer{{layer.Id}}" name="layer{{layer.Id}}" [formControl]="addOccasion.controls['layersCtrl']"
+            [(ngModel)]="isCheckedLayers[layer.Id]">
+        </div>
+      </div>
+      <div>
+        <b (click)="onChooseLayer()" class="pointer">בחירת כיתות</b>
+        <div *ngFor="let cls of classes">
+          <label for="cls{{cls.Id}}">{{cls.Name}}</label>
+          <input type="checkbox" value="{{cls.Id}}" id="cls{{cls.Id}}" name="cls{{cls.Id}}"
+            [(ngModel)]="isCheckedClasses[cls.Id]">
+        </div>
+      </div>
+      <button type="submit" class="btn btn-default button" [disabled]="!addOccasion.valid">אישור</button>

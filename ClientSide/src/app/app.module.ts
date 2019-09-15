@@ -28,8 +28,8 @@ const ROUTES: Routes = [
   { path: "absence-for-teacher/view", component: ViewAbsenceComponent, canActivate: [AdminGuard] },
   { path: "occasion/occasion", component: OccasionComponent },
   { path: "occasion/add", component: AddOccasionComponent, canActivate: [AdminGuard] },
-  { path: "occasion/view", component: ViewOccasionComponent },
-  { path: "occasion/edit", component: EditOccasionComponent, canActivate: [AdminGuard] },
+  { path: "occasion/view/:number", component: ViewOccasionComponent },
+  { path: "occasion/edit/:number", component: EditOccasionComponent, canActivate: [AdminGuard] },
   { path: "", component: HomeComponent },
   { path: "**", redirectTo: "" }
 ]

@@ -1,0 +1,59 @@
+form {
+    border: 3px solid #f1f1f1;
+    width:50%;
+    direction:rtl;
+    margin:auto;
+    margin-bottom: 20vh;
+  }
+ 
+  /* Add a hover effect for inputs */
+  input:hover {
+    opacity: 0.8;
+  }
+ 
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+  }
+ 
+ /* Set a style for all buttons */
+ button {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+.button{
+  padding: 14px 20px;
+  margin: 8px 0;
+}
+/* Add a hover effect for buttons */
+button:hover {
+  opacity: 0.8;
+}
+.i{
+  width: 20px;
+  height: 20px;
+}
+b{
+   border: none;
+padding: 9px;
+margin: 10px 0px; 
+  line-height: 2.5;
+}
+.pointer {
+    cursor: -webkit-pointer; cursor: pointer;
+  background-color: #4CAF50;
+border-radius: .25rem;
+}
+label{
+  margin: 8px;
+}
+.float-left{
+float: left
+}
+.dis-in{
+  display: inline;
+  margin-left: 0.7rem;
+}
