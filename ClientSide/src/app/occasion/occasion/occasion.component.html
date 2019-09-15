@@ -1,5 +1,10 @@
-<button class="btn btn-success" (click)="navigateToAdd()">הוספת ארוע</button>
-
+<div *ngIf="!loaded"  class="text-center">
+  <div class="spinner-border text-success" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div *ngIf="loaded">
+  <button class="btn btn-success btn-lg" (click)="navigateToAdd()">הוספת ארוע</button>
 <table class="table">
     <thead>
       <tr>
@@ -22,3 +27,4 @@
       </tr>
     </tbody>
   </table>
+</div>

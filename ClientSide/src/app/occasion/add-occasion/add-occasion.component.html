@@ -1,5 +1,9 @@
-<div> </div>
-<form role="form" [formGroup]="addOccasion" (ngSubmit)="onAddOccasion()" class="container">
+<div *ngIf="!loaded"  class="text-center">
+    <div class="spinner-border text-success" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+<form *ngIf="loaded" role="form" [formGroup]="addOccasion" (ngSubmit)="onAddOccasion()" class="container">
   <h2 class="container">הוספת ארוע</h2>
   <div class="form-group">
     <label for="typeOccasion">סוג ארוע</label>

@@ -19,6 +19,8 @@ import { SubjectService } from 'src/app/services/subject.service';
   styleUrls: ['./add-occasion.component.css']
 })
 export class AddOccasionComponent implements OnInit {
+  
+  loaded=false;
   //the form
   addOccasion: FormGroup;
   //the settings for multiselect teachers
@@ -108,6 +110,7 @@ export class AddOccasionComponent implements OnInit {
           allowSearchFilter: true,
           searchPlaceholderText: 'חפוש'
         };
+        this.loaded=true;
       },
         err => console.error(err)
       );

@@ -1,60 +1,62 @@
-<p>עריכת ארוע</p>
-<h2>{{occ.Id}}</h2>
-<form>
+<div *ngIf="!loaded" class="text-center">
+    <div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<form *ngIf="loaded">
+    <h2><span>עריכת ארוע</span> {{occ.Id}} </h2>
     <div class="form-group row">
         <label for="" class="col-sm-2 col-form-label">סוג אירוע</label>
         <div class="col-sm-10">
-            <select name="typeOccasion" [(ngModel)]="typeId" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option value="occ.OccasionType" selected >{{occ.OccasionTypeName}}</option>
-                <option value="ot.Id" *ngFor="let ot of occTypes" >{{ot.Name}}</option>
-            </select> 
+            <select name="typeOccasion" [(ngModel)]="occ.OccasionType" class="custom-select mr-sm-2" value="occ.OccasionType"
+                id="inlineFormCustomSelect" required>
+                <option value="ot.Id" *ngFor="let ot of occTypes">{{ot.Name}}</option>
+            </select>
         </div>
     </div>
-    <div *ngIf="false" class="form-group row">
+    <div *ngIf="occ?.OccasionType==4" class="form-group row">
         <label for="" class="col-sm-2 col-form-label">מקצוע</label>
         <div class="col-sm-10">
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect" value="occ.Subject" required>
+                <option value="s.Id" *ngFor="let s of subjects">{{s.Name}}</option>
             </select> </div>
     </div>
     <div class="form-group row">
         <label for="" class="col-sm-2 col-form-label">מתאריך</label>
         <div class="">
-                <input class="form-control" type="text" placeholder="yyyy-mm-dd" value="" name="fromDate" 
-                [(ngModel)]="fromDate" ngbDatepicker #d1="ngbDatepicker">{{occ.FromDate.thisDate}}
-              <div class="input-group-append">
+            <input class="form-control" type="text" placeholder="yyyy-mm-dd" value="" name="fromDate" [(ngModel)]="FromDate"
+                ngbDatepicker #d1="ngbDatepicker" required>{{occ.FromDate?.thisDate}}
+            <div class="input-group-append">
                 <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button">
-                  <img class="i" src="assets/img/calendar.png">
+                    <img class="i" src="assets/img/calendar.png">
                 </button>
-              </div>        </div>
+            </div>
+        </div>
     </div>
     <div class="form-group row">
         <label for="" class="col-sm-2 col-form-label">עד תאריך</label>
-        <div class="col-sm-10">
-            <input type="" class="form-control" id="" placeholder="Password">
+        <div class="">
+            <input class="form-control" type="text" placeholder="yyyy-mm-dd" value="" name="toDate" [(ngModel)]="ToDate"
+                ngbDatepicker #d1="ngbDatepicker">{{occ.ToDate?.thisDate}}
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button">
+                    <img class="i" src="assets/img/calendar.png">
+                </button>
+            </div>
         </div>
     </div>
     <div class="form-group row">
         <label for="" class="col-sm-2 col-form-label">משעור</label>
         <div class="col-sm-10">
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select class="custom-select mr-sm-2" value="fromLsn" id="inlineFormCustomSelect" required>
+                <option value="h" *ngFor="let h of hours">{{h}}</option>
             </select> </div>
     </div>
     <div class="form-group row">
         <label for="" class="col-sm-2 col-form-label">עד שעור</label>
         <div class="col-sm-10">
-            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
-                <option selected>Choose...</option>
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
+            <select class="custom-select mr-sm-2" value="toLsn" id="inlineFormCustomSelect">
+                <option value="h" *ngFor="let h of hours">{{h}}</option>
             </select> </div>
     </div>
     <div class="form-group row">
@@ -62,6 +64,6 @@
             <button type="submit" class="btn btn-success">עדכן</button>
         </div>
     </div>
-    <a (click)="delete(occ.Id)" class="card-link btn btn-outline-danger">מחיקה</a>
+    <a (click)="delete(occ.Id)" title="הנך בטוחה ברצונך למחוק?" class="card-link btn btn-outline-danger">מחיקה</a>
     <a (click)="navigateToList()" class="card-link btn btn-secondary">חזרה לרשימה</a>
 </form>

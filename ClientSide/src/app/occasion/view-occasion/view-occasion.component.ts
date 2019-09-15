@@ -3,6 +3,12 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { OccasionService } from 'src/app/services/occasion.service';
 import { Occasion } from 'src/app/models/occasion.model';
 import { OccasionTypeService } from 'src/app/services/occasion-type.service';
+import { SubjectService } from 'src/app/services/subject.service';
+import { Subject } from 'src/app/models/subject.model';
+import { Class } from 'src/app/models/class.model';
+import { Teacher } from 'src/app/models/teacher.model';
+import { TeacherService } from 'src/app/services/teacher.service';
+import { ClassService } from 'src/app/services/class.service';
 
 
 @Component({
@@ -12,20 +18,46 @@ import { OccasionTypeService } from 'src/app/services/occasion-type.service';
 })
 export class ViewOccasionComponent implements OnInit {
 
-  constructor(private activatedRoute:ActivatedRoute,private router:Router,private occTypesService:OccasionTypeService, private occService:OccasionService ) { }
+  constructor(
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private occTypesService: OccasionTypeService,
+    private occService: OccasionService,
+    private subService: SubjectService,
+    private clsService: ClassService,
+    private teaService: TeacherService
 
-occ:Occasion;
+  ) { }
+loaded=false;
+  private occ: Occasion;
+  private subject: Subject=null;
+  //dairies: 
+  private classes: Class[]=[];
+  //rooms: 
+  private teachers: Teacher[]=[];
+
   ngOnInit() {
-    
+
     this.occService.get(Number(this.activatedRoute.snapshot.params['number']))
-    .subscribe(occ => {
-      this.occ = occ;
-      this.occTypesService.get(occ.OccasionType)
-    .subscribe(occType => {
-      this.occ.OccasionTypeName = occType.Name;
-    },err=>console.error(err))
-      console.log(occ);
-    },err=>console.error(err))
+      .subscribe(occ => {
+        this.occ = occ;
+        this.occTypesService.get(occ.OccasionType)
+          .subscribe(occType => {
+            this.occ.OccasionTypeName = occType.Name;
+          }, err => console.error(err))
+        this.subService.getSubjects().subscribe(s=>{
+          this.subject=s.filter(s1=> s1.Id === this.occ.Subject)[0];
+        }, e => console.error(e))  
+        this.clsService.getClasses().subscribe(clss => {
+          this.occ.Classes.forEach(c => this.classes.push(clss.filter(cl => cl.Id === c)[0]));
+        }, e => console.error(e));
+        this.teaService.getTeachers().subscribe(teachers => {
+          this.occ.Teachers.forEach(t => this.teachers.push(teachers.filter(t1 => t1.Id === t)[0]));
+        }, e => console.error(e));
+        console.log(occ);
+        this.loaded=true;
+      }, err => console.error(err))
+
   }
   navigateToList() {
     this.router.navigate([`/occasion/occasion`]);

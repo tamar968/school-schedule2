@@ -13,7 +13,7 @@ import { OccasionType } from 'src/app/models/occasion-type.model';
 export class OccasionComponent implements OnInit {
 
   constructor(public router: Router,private occService:OccasionService,private occTypesService:OccasionTypeService) { }
-  
+  loaded=false;
   occTypes:OccasionType[];
   occasions:Occasion[];
 
@@ -27,6 +27,7 @@ export class OccasionComponent implements OnInit {
       .subscribe(occasions => {
         this.occasions = occasions;
         this.occasions.map(o=>o.OccasionTypeName=this.occTypes.filter(ot=>ot.Id===o.OccasionType)[0].Name);
+        this.loaded=true;
       },err=>console.error(err))
   }
   
