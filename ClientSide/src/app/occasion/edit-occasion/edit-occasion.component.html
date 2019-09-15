@@ -2,61 +2,66 @@
 <h2>{{occ.Id}}</h2>
 <form>
     <div class="form-group row">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">Email</label>
-      <div class="col-sm-10">
-        <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-      </div>
-    </div>
-    <div class="form-group row">
-      <label for="inputPassword3" class="col-sm-2 col-form-label">Password</label>
-      <div class="col-sm-10">
-        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-      </div>
-    </div>
-    <fieldset class="form-group">
-      <div class="row">
-        <legend class="col-form-label col-sm-2 pt-0">Radios</legend>
+        <label for="" class="col-sm-2 col-form-label">סוג אירוע</label>
         <div class="col-sm-10">
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios1" value="option1" checked>
-            <label class="form-check-label" for="gridRadios1">
-              First radio
-            </label>
-          </div>
-          <div class="form-check">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios2" value="option2">
-            <label class="form-check-label" for="gridRadios2">
-              Second radio
-            </label>
-          </div>
-          <div class="form-check disabled">
-            <input class="form-check-input" type="radio" name="gridRadios" id="gridRadios3" value="option3" disabled>
-            <label class="form-check-label" for="gridRadios3">
-              Third disabled radio
-            </label>
-          </div>
+            <select name="typeOccasion" [(ngModel)]="typeId" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option value="occ.OccasionType" selected >{{occ.OccasionTypeName}}</option>
+                <option value="ot.Id" *ngFor="let ot of occTypes" >{{ot.Name}}</option>
+            </select> 
         </div>
-      </div>
-    </fieldset>
-    <div class="form-group row">
-      <div class="col-sm-2">Checkbox</div>
-      <div class="col-sm-10">
-        <div class="form-check">
-          <input class="form-check-input" type="checkbox" id="gridCheck1">
-          <label class="form-check-label" for="gridCheck1">
-            Example checkbox
-          </label>
-        </div>
-      </div>
+    </div>
+    <div *ngIf="false" class="form-group row">
+        <label for="" class="col-sm-2 col-form-label">מקצוע</label>
+        <div class="col-sm-10">
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select> </div>
     </div>
     <div class="form-group row">
-      <div class="col-sm-10">
-        <button type="submit" class="btn btn-primary">עדכן</button>
-      </div>
+        <label for="" class="col-sm-2 col-form-label">מתאריך</label>
+        <div class="">
+                <input class="form-control" type="text" placeholder="yyyy-mm-dd" value="" name="fromDate" 
+                [(ngModel)]="fromDate" ngbDatepicker #d1="ngbDatepicker">{{occ.FromDate.thisDate}}
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button">
+                  <img class="i" src="assets/img/calendar.png">
+                </button>
+              </div>        </div>
     </div>
-    <a (click)="delete(occ.Id)" class="card-link btn btn-outline-danger">מחיקה</a>      
-<a (click)="navigateToList()" class="card-link btn btn-secondary">חזרה לרשימה</a>
-  </form>
-
-
-
+    <div class="form-group row">
+        <label for="" class="col-sm-2 col-form-label">עד תאריך</label>
+        <div class="col-sm-10">
+            <input type="" class="form-control" id="" placeholder="Password">
+        </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-sm-2 col-form-label">משעור</label>
+        <div class="col-sm-10">
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select> </div>
+    </div>
+    <div class="form-group row">
+        <label for="" class="col-sm-2 col-form-label">עד שעור</label>
+        <div class="col-sm-10">
+            <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+                <option selected>Choose...</option>
+                <option value="1">One</option>
+                <option value="2">Two</option>
+                <option value="3">Three</option>
+            </select> </div>
+    </div>
+    <div class="form-group row">
+        <div class="col-sm-10">
+            <button type="submit" class="btn btn-success">עדכן</button>
+        </div>
+    </div>
+    <a (click)="delete(occ.Id)" class="card-link btn btn-outline-danger">מחיקה</a>
+    <a (click)="navigateToList()" class="card-link btn btn-secondary">חזרה לרשימה</a>
+</form>
