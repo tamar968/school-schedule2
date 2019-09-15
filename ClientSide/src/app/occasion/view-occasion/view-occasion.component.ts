@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
+
 @Component({
   selector: 'app-view-occasion',
   templateUrl: './view-occasion.component.html',
@@ -7,9 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ViewOccasionComponent implements OnInit {
 
-  constructor() { }
-
+  constructor( ) { }
   ngOnInit() {
+    
   }
 
 }
