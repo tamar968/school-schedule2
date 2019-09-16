@@ -77,7 +77,7 @@
       <div>
         <b>מלוות</b>
         <ng-multiselect-dropdown placeholder="בחירת מלווה" [data]="dropdownList" [(ngModel)]="selectedItems" [settings]="dropdownSettings"
-          name="chooseTeacher" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+        [formControl]="addOccasion.controls['teacherCrtl']" name="chooseTeacher" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
         </ng-multiselect-dropdown>
       </div>
       <div>
@@ -92,7 +92,7 @@
         <b (click)="onChooseLayer()" class="pointer">בחירת כיתות</b>
         <div *ngFor="let cls of classes">
           <label for="cls{{cls.Id}}">{{cls.Name}}</label>
-          <input type="checkbox" value="{{cls.Id}}" id="cls{{cls.Id}}" name="cls{{cls.Id}}" [(ngModel)]="isCheckedClasses[cls.Id]">
+          <input type="checkbox" value="{{cls.Id}}" id="cls{{cls.Id}}" name="cls{{cls.Id}}" [formControl]="addOccasion.controls['classCtrl']"  [(ngModel)]="isCheckedClasses[cls.Id]">
         </div>
       </div>
       <div *ngIf="!addOccasion.valid" class="alert alert-danger"> הטופס אינו מושלם, יש לודא כי כל שדות החובה מלאים</div>

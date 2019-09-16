@@ -21,7 +21,7 @@ import { LoadFilesComponent } from './load-files/load-files.component';
 import { AbsencesComponent } from './Absences/absences/absences.component'
 const ROUTES: Routes = [
   { path: "login", component: LoginComponent },
-  { path: "load", component: LoadFilesComponent , canActivate: [AdminGuard]},
+  { path: "load", component: LoadFilesComponent },//, canActivate: [AdminGuard]
   { path: "schedule", component: ScheduleComponent },
   { path: "studyTime/:number", component: StudyTimeComponent },// id of אוביקט שעת לימוד
   { path: "absence-for-teacher/absences", component: AbsencesComponent },

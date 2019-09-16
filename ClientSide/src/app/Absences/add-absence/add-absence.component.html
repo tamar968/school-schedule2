@@ -41,14 +41,14 @@
     <div >
      <label>משיעור</label>
       <select class="select"  name="fromLesson" [(ngModel)]="fromLesson">
-      <option *ngFor="let lsn of lessons" id="lsn{{lsn.Id}}" name="lsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]">{{lsn.Name}}</option>
+      <option *ngFor="let lsn of lessons" id="flsn{{lsn.Id}}" name="flsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]">{{lsn.Name}}</option>
       </select>
         <!-- <input type="checkbox" id="{{lsn.Id}}" name="lsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]"> -->
     </div>  
     <div >
         <label>עד שיעור:</label> 
         <select name="toLesson" [(ngModel)] = "toLesson">
-         <option *ngFor="let lsn of lessons" id="lsn{{lsn.Id}}" name="lsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]">{{lsn.Name}}</option>
+         <option *ngFor="let lsn of lessons" id="tlsn{{lsn.Id}}" name="tlsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]">{{lsn.Name}}</option>
          </select>
            <!-- <input type="checkbox" id="{{lsn.Id}}" name="lsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]"> -->
        </div>      

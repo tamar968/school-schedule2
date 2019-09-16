@@ -1,5 +1,4 @@
-<input [(ngModel)]="currentInputFile"
-type="file" id="ctrl" webkitdirectory directory multiple />
+<input type="file" accept=".xml" (change)="fileEvent($event)" multiple />
 <div *ngIf="success && clicked" class="alert alert-success" role="alert">
     !טעינת הקבצים הסתימה בהצלחה
 </div>
