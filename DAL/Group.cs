@@ -43,7 +43,6 @@ namespace DAL
         public virtual Room Room1 { get; set; }
         public virtual SchoolType SchoolType1 { get; set; }
         public virtual Subject Subject1 { get; set; }
-        public virtual Teacher Teacher1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Schedule> Schedules { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
