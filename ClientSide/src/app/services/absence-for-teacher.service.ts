@@ -28,4 +28,7 @@ export class AbsenceForTeacherService {
   public get(absenceId:number):Observable<AbsenceForTeacher> {
     return this.http.get<AbsenceForTeacher>(`${this.baseUrl}/get/${absenceId}`);
   }
+  public getAll():Observable<AbsenceForTeacher[]> {
+    return this.http.get<AbsenceForTeacher[]>(`${this.baseUrl}/get/all`);
+  }
 }

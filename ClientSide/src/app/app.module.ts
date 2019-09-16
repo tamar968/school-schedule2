@@ -17,15 +17,17 @@ import { ScheduleComponent } from './schedule/schedule.component';
 import { ViewOccasionComponent } from './occasion/view-occasion/view-occasion.component';
 import { EditOccasionComponent } from './occasion/edit-occasion/edit-occasion.component';
 import { OccasionComponent } from './occasion/occasion/occasion.component';
-import { LoadFilesComponent } from './load-files/load-files.component'
+import { LoadFilesComponent } from './load-files/load-files.component';
+import { AbsencesComponent } from './Absences/absences/absences.component'
 const ROUTES: Routes = [
   { path: "login", component: LoginComponent },
-  { path: "load", component: LoadFilesComponent },
+  { path: "load", component: LoadFilesComponent , canActivate: [AdminGuard]},
   { path: "schedule", component: ScheduleComponent },
   { path: "studyTime/:number", component: StudyTimeComponent },// id of אוביקט שעת לימוד
+  { path: "absence-for-teacher/absences", component: AbsencesComponent },
   { path: "absence-for-teacher/add", component: AddAbsenceComponent, canActivate: [AdminGuard] },
-  { path: "absence-for-teacher/view/:number", component: ViewAbsenceComponent, canActivate: [AdminGuard] },
-  { path: "absence-for-teacher/view", component: ViewAbsenceComponent, canActivate: [AdminGuard] },
+  { path: "absence-for-teacher/view/:number", component: ViewAbsenceComponent },  
+  { path: "absence-for-teacher/edit/:number", component: ViewAbsenceComponent, canActivate: [AdminGuard] },
   { path: "occasion/occasion", component: OccasionComponent },
   { path: "occasion/add", component: AddOccasionComponent, canActivate: [AdminGuard] },
   { path: "occasion/view/:number", component: ViewOccasionComponent },
@@ -47,7 +49,8 @@ const ROUTES: Routes = [
     ViewOccasionComponent,
     EditOccasionComponent,
     OccasionComponent,
-    LoadFilesComponent
+    LoadFilesComponent,
+    AbsencesComponent
   ],
   imports: [
     BrowserModule,
