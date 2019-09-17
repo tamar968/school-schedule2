@@ -358,6 +358,7 @@ namespace BL
         }
         public void LoadGroups(string path)
         {
+            Group t;
             XmlGroups.root root = GetXmlData<XmlGroups.root>(path);
             try
             {
@@ -365,20 +366,22 @@ namespace BL
                 {
                     foreach (XmlGroups.rootGroup rootData in root.group)
                     {
-                        db.Groups.Add(_CastDTO.DTOToGroup(new GroupDTO()
+                        t = _CastDTO.DTOToGroup(new GroupDTO()
                         {
                             Num = rootData.num,
                             Teacher = rootData.tea == -1 ? null : (int?)rootData.tea,
                             Subject = rootData.subj == -1 ? null : (int?)rootData.subj,
-                            Room = rootData.sroom == -1 ||rootData.sroom>200? null : (int?)rootData.sroom,
+                            Room = rootData.sroom == -1 || rootData.sroom > 200 ? null : (int?)rootData.sroom,
                             Hours = rootData.no_of_hours,
                             CalculateHours = rootData.calculate_hours,
                             SchoolType = rootData.schooltype == 0 ? null : (int?)rootData.schooltype,
                             Reforma = rootData.reforma,
                             PayAbsence = rootData.goremMeshalem == 0 ? null : (int?)rootData.goremMeshalem,
                             HourType = null, //TODO rootData.sug == 0 ? null : (int?)rootData.sug,
-                            SubHourType = null// rootData.sub_sug == 0 ? null : (int?)rootData.sub_sug,
-                        }));
+                            SubHourType = null, // rootData.sub_sug == 0 ? null : (int?)rootData.sub_sug,
+                            Classes = rootData.classes.Select(c => (int)c.num).ToList()
+                        });
+                        db.Groups.Add(t);
                     }
                     db.SaveChanges();
                 }

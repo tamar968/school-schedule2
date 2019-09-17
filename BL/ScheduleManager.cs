@@ -6,7 +6,7 @@ using System.Linq;
 
 namespace BL
 {
-    class ScheduleManager
+    public class ScheduleManager
     {
         public List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)
         {
@@ -23,7 +23,9 @@ namespace BL
             int numOfClasses = 10;//TODO change to the web config
             for (int cls = 0; cls < numOfClasses; cls++)
             {
-                orderSchedule.Add(_CastDTO.DairyToDTO(sch.Where(s => s.Group.Classes.Any(c => c.Number == cls)).ToList()));
+                var tmp = _CastDTO.DairyToDTO(sch.Where(s => s.Group.Classes.Any(c => c.Number == cls)).ToList());
+                tmp.Sort();
+                orderSchedule.Add(tmp);
             }
             return orderSchedule;
         }
@@ -35,19 +37,30 @@ namespace BL
             int numOfDays = 6;//TODO change to the web config
             for (int day = 0; day < numOfDays; day++)
             {
-                orderSchedule.Add(_CastDTO.ScheduleToDTO(sch.Where(lsn => lsn.Day == day).ToList()));
+                var s = _CastDTO.ScheduleToDTO(sch.Where(lsn => lsn.Day == day).ToList());
+                s.Sort();
+                orderSchedule.Add(s);
             }
             return orderSchedule;
         }
 
         public List<List<ScheduleDTO>> GetScheduleByClass(int layer, int number)
         {
-
+            Console.WriteLine("in GetScheduleByClass");
             using (Entities db = new Entities())
             {
-                return OrderByDays(_CastDTO.ScheduleToDTO(db.Schedules.Where
-                    (s => s.Group.Classes.First().Layer == layer
-                    && s.Group.Classes.First().Number == number).ToList()));
+                return OrderByDays(_CastDTO.ScheduleToDTO(db.Schedules.Where(s=>
+                s.Group.Classes.Any(c=> c.Layer == layer && c.Number == number)).ToList()));
+            }
+        }
+
+        public List<List<ScheduleDTO>> GetScheduleByTeacher(int teacherId)
+        {
+            Console.WriteLine("in GetScheduleByTeacher");
+            using (Entities db = new Entities())
+            {
+                return OrderByDays(_CastDTO.ScheduleToDTO(db.Schedules.Where(s =>
+                s.Group.Teacher == teacherId).ToList()));
             }
         }
     }

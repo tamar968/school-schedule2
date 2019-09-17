@@ -12,10 +12,10 @@ namespace TestCode
     {
         static void Main(string[] args)
         {
-            var xmlManager = new XmlManager();
+           var xmlManager = new XmlManager();
 
             //xmlManager.LoadSchedule("../../XML_files/schedule.xml");
-            //xmlManager.LoadDirectory(@"Y:\group 2 תשעט\הכהן עדני תמר\קבצים לפרויקט\תלמש\Talmash\חשון עט\");
+           //xmlManager.LoadDirectory(@"Y:\group 2 תשעט\הכהן עדני תמר\קבצים לפרויקט\תלמש\Talmash\חשון עט\");
             xmlManager.LoadDirectory("../../XML_files");
             //var l = Teacher.Get();
             //foreach (var item in l)
@@ -33,6 +33,10 @@ namespace TestCode
             //});
             //var z = BL.Class.ClassByLayer.Keys;
             //var x = BL.Class.ClassByLayer;
+          var s = new ScheduleManager();
+
+           var l = s.GetScheduleByClass(9, 2);
+            Console.WriteLine(l);
             //Console.ReadLine();
         }
     }

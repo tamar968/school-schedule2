@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class DairyDTO
+    public class DairyDTO:IComparable
     {
         public int Id { get; set; }
         public int? Num { get; set; }
@@ -23,5 +23,10 @@ namespace DTO
         public int Hour { get; set; }
         public decimal? CalculateHours { get; set; }
         public int? Cause { get; set; }
+
+        public int CompareTo(object obj)
+        {
+            return Hour - (obj as DairyDTO).Hour;
+        }
     }
 }
