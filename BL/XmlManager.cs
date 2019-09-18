@@ -29,7 +29,7 @@ namespace BL
 
         public void LoadDirectory(string path)
         {
-            //ClearDB();
+            ResetDB();
             var directoryInfo = new DirectoryInfo(path);
             var files = directoryInfo.GetFiles();
             foreach (var fileActionPair in fileNameToAction)
@@ -39,7 +39,7 @@ namespace BL
                 fileActionPair.Value?.Invoke(file.FullName);
             }
         }
-        public void ClearDB()
+        public void ResetDB()
         {
 
             int secWait = 5;
@@ -53,9 +53,24 @@ namespace BL
             Console.WriteLine("delete....");
             using (Entities db = new Entities())
             {
-                db.FILL_CONST_TABLES();
-                db.TRUNCATE_MONTHLY_TABLES();
-            } 
+                try
+                {
+                    //db.FILL_CONST_TABLES();
+                }
+                catch (Exception e)
+                {
+                    LogManager.LogException(e);
+                }
+                try
+                {
+                    //db.TRUNCATE_MONTHLY_TABLES();
+                }
+                catch (Exception e)
+                {
+                    LogManager.LogException(e);
+                }
+
+            }
             //SqlCommand cmd;
             //cmd = new SqlCommand("sp_MSforeachtable 'DELETE FROM ?'", conn);
             //cmd.ExecuteNonQuery();
@@ -114,8 +129,17 @@ namespace BL
                             HourType = null, //TODO rootData.sug == 0 ? null : (int?)rootData.sug,
                             SubHourType = null, // rootData.sub_sug == 0 ? null : (int?)rootData.sub_sug,
                             Classes = rootData.classes.Select(c => (int)c.num).ToList(),
-                                                    });
-                        db.Groups.Add(t);
+                        });
+                        try
+                        {
+                            db.Groups.Add(t);
+                            db.SaveChanges();
+                        }
+                        catch (Exception e)
+                        {
+                            LogManager.LogException(e);
+                        }
+
                     }
                     db.SaveChanges();
                 }
@@ -138,7 +162,7 @@ namespace BL
                         var roomDataNum = rootData.num.ToString();
                         db.Rooms.Add(_CastDTO.DTOToRoom(new RoomDTO()
                         {
-                            ClassId = db.Classes.Where(c => c.Name == rootData.name).FirstOrDefault()?.Id,
+                            ClassId = db.Classes.Where(c => c.Name == rootData.name).FirstOrDefault()?.Num,
                             Floor = int.Parse(roomDataNum[2].ToString()),
                             Number = int.Parse(roomDataNum[2].ToString()) * 100 + int.Parse(roomDataNum[3].ToString()),
                             UseFor = rootData.name

@@ -25,6 +25,5 @@ namespace DAL
     
         public virtual Absence Absence { get; set; }
         public virtual Teacher Teacher { get; set; }
-        public virtual Teacher Teacher1 { get; set; }
     }
 }

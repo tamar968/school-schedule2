@@ -29,7 +29,6 @@ namespace DAL
         public Nullable<int> ClassId { get; set; }
         public string UseFor { get; set; }
     
-        public virtual Class Class { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dairy> Dairies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
@@ -38,5 +37,6 @@ namespace DAL
         public virtual ICollection<Schedule> Schedules { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Occasion> Occasions { get; set; }
+        public virtual Class Class { get; set; }
     }
 }

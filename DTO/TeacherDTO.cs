@@ -8,7 +8,6 @@ namespace DTO
 {
     public class TeacherDTO
     {
-        public int Id { get; set; }
         public int Num { get; set; }
         public string Name { get; set; }
         public virtual ICollection<int> Dairies { get; set; }

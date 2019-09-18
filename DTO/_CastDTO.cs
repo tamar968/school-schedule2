@@ -66,7 +66,7 @@ namespace DTO
         #region Class
         public static ClassDTO ClassToDTO(Class cls)
         {
-            return new ClassDTO() { Id = cls.Id, Name = cls.Name, Layer = cls.Layer, Num = cls.Num, Number = cls.Number, SchoolType = cls.SchoolType };
+            return new ClassDTO() { Num = cls.Num, Name = cls.Name, Layer = cls.Layer, Number = cls.Number, SchoolType = cls.SchoolType };
         }
         public static List<ClassDTO> ClassToDTO(List<Class> clsList)
         {
@@ -74,7 +74,7 @@ namespace DTO
         }
         public static Class DTOToClass(ClassDTO cls)
         {
-            return new Class() { Id = cls.Id, Name = cls.Name, Layer = cls.Layer, Num = cls.Num, Number = cls.Number, SchoolType = cls.SchoolType };
+            return new Class() { Num = cls.Num, Name = cls.Name, Layer = cls.Layer, Number = cls.Number, SchoolType = cls.SchoolType };
         }
         public static List<Class> DTOToClass(List<ClassDTO> clsList)
         {
@@ -217,9 +217,9 @@ namespace DTO
                 ToLesson = occ.ToLesson,
                 OccasionType = occ.OccasionType,
                 Dairies = occ.Dairies.Select(d => d.Id).ToList(),
-                Classes = occ.Classes.Select(c => c.Id).ToList(),
+                Classes = occ.Classes.Select(c => c.Num).ToList(),
                 Rooms = occ.Rooms.Select(r => r.Id).ToList(),
-                Teachers = occ.Teachers.Select(t => t.Id).ToList()
+                Teachers = occ.Teachers.Select(t => t.Num).ToList()
             };
         }
 
@@ -239,7 +239,8 @@ namespace DTO
                     FromLesson = occ.FromLesson,
                     ToLesson = occ.ToLesson,
                     OccasionType = occ.OccasionType,
-                    Classes = occ.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Id == c)).ToList(),
+                    Classes = occ.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Num == c)).ToList(),
+                    Teachers = occ.Teachers.Select(t => db.Teachers.FirstOrDefault(tea => tea.Num == t)).ToList(),
                     Dairies = occ.Dairies.Select(d => db.Dairies.FirstOrDefault(da => da.Id == d)).ToList(),
                     Rooms = occ.Rooms.Select(r => db.Rooms.FirstOrDefault(ro => ro.Id == r)).ToList()
                 };
@@ -426,7 +427,7 @@ namespace DTO
         #region Teacher
         public static TeacherDTO TeacherToDTO(Teacher teacher)
         {
-            return new TeacherDTO() { Id = teacher.Id, Name = teacher.Name, Num = teacher.Num };
+            return new TeacherDTO() { Num = teacher.Num, Name = teacher.Name  };
         }
         public static List<TeacherDTO> TeacherToDTO(List<Teacher> teacherList)
         {
@@ -434,7 +435,7 @@ namespace DTO
         }
         public static Teacher DTOToTeacher(TeacherDTO teacher)
         {
-            return new Teacher() { Id = teacher.Id, Name = teacher.Name, Num = teacher.Num };
+            return new Teacher() { Num = teacher.Num, Name = teacher.Name  };
         }
         public static List<Teacher> DTOToTeacher(List<TeacherDTO> teacherList)
         {

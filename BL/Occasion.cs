@@ -16,7 +16,7 @@ namespace BL
             {
                 DAL.Occasion occasionDb = _CastDTO.DTOToOccasion(occasion);
                 db.Occasions.Add(occasionDb);
-                var teachers = db.Teachers.Where(t => occasion.Teachers.Contains(t.Id));
+                var teachers = db.Teachers.Where(t => occasion.Teachers.Contains(t.Num));
                 foreach (DAL.Teacher teacher in teachers)
                 {
                     occasionDb.Teachers.Add(teacher);
@@ -26,7 +26,7 @@ namespace BL
                     List<DAL.Class> classes;
                     if (occasion.Classes.First() > 20)
                     {
-                        classes = db.Classes.Where(c => occasion.Classes.Contains(c.Id)).ToList();//מיפוי כיתות //Id=>Class
+                        classes = db.Classes.Where(c => occasion.Classes.Contains(c.Num)).ToList();//מיפוי כיתות //Id=>Class
                     }
                     else// אם לא בחרו כיתות נשלחו מחזור/ים במשתנה כיתות 
                     {

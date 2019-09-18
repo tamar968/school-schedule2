@@ -1,10 +1,6 @@
 ﻿using BL;
-using DTO;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace TestCode
 {
@@ -12,10 +8,11 @@ namespace TestCode
     {
         static void Main(string[] args)
         {
-           var xmlManager = new XmlManager();
+            var xmlManager = new XmlManager();
+            xmlManager.LoadGroups("../../XML_files/groups.xml");
+            xmlManager.LoadSchedule("../../XML_files/schedule.xml");
 
-            //xmlManager.LoadSchedule("../../XML_files/schedule.xml");
-            xmlManager.LoadDirectory("../../XML_files");
+            //xmlManager.LoadDirectory("../../XML_files");
             //var l = Teacher.Get();
             //foreach (var item in l)
             //{
@@ -32,9 +29,9 @@ namespace TestCode
             //});
             //var z = BL.Class.ClassByLayer.Keys;
             //var x = BL.Class.ClassByLayer;
-          var s = new ScheduleManager();
+            var s = new ScheduleManager();
 
-           var l = s.GetScheduleByClass(9, 2);
+            var l = s.GetScheduleByClass(9, 2);
             Console.WriteLine(l.Count());
             //Console.ReadLine();
         }
