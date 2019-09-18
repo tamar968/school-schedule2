@@ -33,6 +33,7 @@ namespace DTO
         {
             return new AbsencesForTeacherDTO()
             {
+                Id=absForTea.Id,
                 TeacherId = absForTea.TeacherId,
                 TeacherStandIn = absForTea.TeacherStandIn,
                 FromDate = DateToDTO(absForTea.FromDate),
@@ -50,13 +51,14 @@ namespace DTO
         {
             return new AbsencesForTeacher()
             {
+                Id=absForTea.Id,
                 TeacherId = absForTea.TeacherId,
                 TeacherStandIn = absForTea.TeacherStandIn,
                 FromDate = DTOToDate(absForTea.FromDate),
                 ToDate = DTOToDate(absForTea.ToDate),
                 FromLesson = absForTea.FromLesson,
                 ToLesson = absForTea.ToLesson,
-                Type = absForTea.Type
+                Type = absForTea.Type,
             };
         }
         public static List<AbsencesForTeacher> DTOToAbsencesForTeacher(List<AbsencesForTeacherDTO> absForTeaList)
@@ -110,24 +112,28 @@ namespace DTO
         }
         public static Dairy DTOToDairy(DairyDTO dairy)
         {
-            return new Dairy()
+            using (Entities db = new Entities())
             {
-                Id = dairy.Id,
-                GroupId = dairy.GroupId,
-                Num = dairy.Num,
-                CalculateHours = dairy.CalculateHours,
-                Cause = dairy.Cause,
-                FromDate = DTOToDate(dairy.FromDate),
-                Hour = dairy.Hour,
-                IsGrouped = dairy.IsGrouped,
-                OccasionId = dairy.OccasionId,
-                Reforma = dairy.Reforma,
-                RoomId = dairy.RoomId,
-                SubjectId = dairy.SubjectId,
-                TeacherId = dairy.TeacherId,
-                ToDate = DTOToDate(dairy.ToDate),
-                TypeId = dairy.TypeId
-            };
+                return new Dairy()
+                {
+                    Id = dairy.Id,
+                    GroupId = dairy.GroupId,
+                    Num = dairy.Num,
+                    CalculateHours = dairy.CalculateHours,
+                    Cause = dairy.Cause,
+                    FromDate = DTOToDate(dairy.FromDate),
+                    Hour = dairy.Hour,
+                    IsGrouped = dairy.IsGrouped,
+                    OccasionId = dairy.OccasionId,
+                    Reforma = dairy.Reforma,
+                    RoomId = dairy.RoomId,
+                    SubjectId = dairy.SubjectId,
+                    TeacherId = dairy.TeacherId,
+                    ToDate = DTOToDate(dairy.ToDate),
+                    TypeId = dairy.TypeId,
+                    Classes = dairy.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Id == c)).ToList()
+                };
+            }
         }
         public static List<Dairy> DTOToDairy(List<DairyDTO> dairyList)
         {
@@ -150,7 +156,9 @@ namespace DTO
                 Room = grp.Room,
                 SchoolType = grp.SchoolType,
                 Subject = grp.Subject,
-                Teacher = grp.Teacher
+                Teacher = grp.Teacher,
+                Classes = grp.Classes.Select(c => c.Id).ToList(),
+                Dairies = grp.Dairies.Select(d => d.Id).ToList()
             };
         }
         public static List<GroupDTO> GroupToDTO(List<Group> grpList)
@@ -159,21 +167,26 @@ namespace DTO
         }
         public static Group DTOToGroup(GroupDTO grp)
         {
-            return new Group()
+            using (Entities db = new Entities())
             {
-                Id = grp.Id,
-                CalculateHours = grp.CalculateHours,
-                Hours = grp.Hours,
-                HourType = grp.HourType,
-                SubHourType = grp.SubHourType,
-                Num = grp.Num,
-                PayAbsence = grp.PayAbsence,
-                Reforma = grp.Reforma,
-                Room = grp.Room,
-                SchoolType = grp.SchoolType,
-                Subject = grp.Subject,
-                Teacher = grp.Teacher
-            };
+                return new Group()
+                {
+                    Id = grp.Id,
+                    CalculateHours = grp.CalculateHours,
+                    Hours = grp.Hours,
+                    HourType = grp.HourType,
+                    SubHourType = grp.SubHourType,
+                    Num = grp.Num,
+                    PayAbsence = grp.PayAbsence,
+                    Reforma = grp.Reforma,
+                    Room = grp.Room,
+                    SchoolType = grp.SchoolType,
+                    Subject = grp.Subject,
+                    Teacher = grp.Teacher,
+                    Classes = grp.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Id == c)).ToList(),
+                    Dairies = grp.Dairies.Select(d => db.Dairies.FirstOrDefault(da => da.Id == d)).ToList()
+                };
+            }
         }
         public static List<Group> DTOToGroup(List<GroupDTO> grpList)
         {
@@ -205,7 +218,7 @@ namespace DTO
                 FromLesson = occ.FromLesson,
                 ToLesson = occ.ToLesson,
                 OccasionType = occ.OccasionType,
-                //Dairies = occ.Dairies.Select(d => d.Id).ToList(),
+                Dairies = occ.Dairies.Select(d => d.Id).ToList(),
                 Classes = occ.Classes.Select(c => c.Id).ToList(),
                 Rooms = occ.Rooms.Select(r => r.Id).ToList(),
                 Teachers = occ.Teachers.Select(t => t.Id).ToList()
@@ -218,15 +231,21 @@ namespace DTO
         }
         public static Occasion DTOToOccasion(OccasionDTO occ)
         {
-            return new Occasion()
+            using (Entities db = new Entities())
             {
-                Id = occ.Id,
-                FromDate = DTOToDate(occ.FromDate),
-                ToDate = DTOToDate(occ.ToDate),
-                FromLesson = occ.FromLesson,
-                ToLesson = occ.ToLesson,
-                OccasionType = occ.OccasionType
-            };
+                return new Occasion()
+                {
+                    Id = occ.Id,
+                    FromDate = DTOToDate(occ.FromDate),
+                    ToDate = DTOToDate(occ.ToDate),
+                    FromLesson = occ.FromLesson,
+                    ToLesson = occ.ToLesson,
+                    OccasionType = occ.OccasionType,
+                    Classes = occ.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Id == c)).ToList(),
+                    Dairies = occ.Dairies.Select(d => db.Dairies.FirstOrDefault(da => da.Id == d)).ToList(),
+                    Rooms = occ.Rooms.Select(r => db.Rooms.FirstOrDefault(ro => ro.Id == r)).ToList()
+                };
+            }
         }
         public static List<Occasion> DTOToOccasion(List<OccasionDTO> occList)
         {
@@ -379,7 +398,8 @@ namespace DTO
                 Hour = schedule.Hour,
                 Num = schedule.Num,
                 Room = schedule.Room,
-                WeekDay = schedule.WeekDay
+                WeekDay = schedule.WeekDay,
+                GroupId = schedule.GroupId
             };
         }
         public static List<Schedule> DTOToSchedule(List<ScheduleDTO> schList)
