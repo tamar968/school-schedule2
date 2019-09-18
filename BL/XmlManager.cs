@@ -316,22 +316,26 @@ namespace BL
             Console.WriteLine("delete db {0} second along", secWait);
             System.Threading.Thread.Sleep(secWait * 1000);
             Console.WriteLine("create connection...");
-            // var conn = new SqlConnection("data source=SQL-SERVER; initial catalog=!ESTY&TAMAR; integrated security=True");
+            // var conn = new SqlConnection("data source=SQLSRV; initial catalog=!ESTY&TAMAR; integrated security=True");
             var conn = new SqlConnection("data source=DESKTOP-7A0S24C; initial catalog=!ESTY&TAMAR; integrated security=True");
-            SqlCommand cmd;
             Console.WriteLine("connect success!");
             conn.Open();
 
             Console.WriteLine("delete....");
-            cmd = new SqlCommand("sp_MSforeachtable 'DELETE FROM ?'", conn);
-            cmd.ExecuteNonQuery();
+            using (Entities db = new Entities())
+            {
+                db.TRUNCATE_MONTHLY_TABLES();
+            } 
+            //SqlCommand cmd;
+            //cmd = new SqlCommand("sp_MSforeachtable 'DELETE FROM ?'", conn);
+            //cmd.ExecuteNonQuery();
             Console.WriteLine("delete successfuly");
 
             conn.Close();
         }
         public void LoadClasses(string path)
         {
-            XmlClasses.root root = GetXmlData<XmlClasses.root>(path);
+            /*XmlClasses.root root = GetXmlData<XmlClasses.root>(path);
             try
             {
                 using (Entities db = new Entities())
@@ -354,11 +358,11 @@ namespace BL
             catch (Exception e)
             {
                 LogManager.LogException(e);
-            }
+            }*/
         }
         public void LoadGroups(string path)
         {
-            Group t;
+            /*Group t;
             XmlGroups.root root = GetXmlData<XmlGroups.root>(path);
             try
             {
@@ -389,11 +393,11 @@ namespace BL
             catch (Exception e)
             {
                 LogManager.LogException(e);
-            }
+            }*/
         }
         public void LoadRooms(string path)
         {
-            XmlRooms.root root = GetXmlData<XmlRooms.root>(path);
+            /*XmlRooms.root root = GetXmlData<XmlRooms.root>(path);
 
             try
             {
@@ -416,7 +420,7 @@ namespace BL
             catch (Exception e)
             {
                 LogManager.LogException(e);
-            }
+            }*/
         }
         public void LoadSchedule(string path)
         {
@@ -452,7 +456,7 @@ namespace BL
         }
         public void LoadSubjects(string path)
         {
-            XmlSubjects.root root = GetXmlData<XmlSubjects.root>(path);
+            /*XmlSubjects.root root = GetXmlData<XmlSubjects.root>(path);
 
             try
             {
@@ -472,11 +476,11 @@ namespace BL
             catch (Exception e)
             {
                 LogManager.LogException(e);
-            }
+            }*/
         }
         public void LoadTeachers(string path)
         {
-            XmlTeachers.root root = GetXmlData<XmlTeachers.root>(path);
+            /*XmlTeachers.root root = GetXmlData<XmlTeachers.root>(path);
 
             try
             {
@@ -497,7 +501,7 @@ namespace BL
             {
                 LogManager.LogException(e);
 
-            }
+            }*/
 
         }
         /// <summary>

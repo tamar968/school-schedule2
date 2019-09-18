@@ -62,13 +62,7 @@
             </button>
           </div>
         </div>
-        <div *ngIf="addOccasion.controls['toCtrl'].hasError('required') && addOccasion.controls['toCtrl'].touched"
-          class="alert alert-danger">
-          'עד תאריך' הינו שדה חובה
-        </div>
-        <div *ngIf="addOccasion.controls['toCtrl'].hasError('pattern') && addOccasion.controls['toCtrl'].touched" class="alert alert-danger">
-          עד תאריך' אינו כתוב לפי התבנית המתאימה'
-        </div>
+        
       </div>
       <select name="toLesson" [formControl]="addOccasion.controls['toLsnCtrl']" class="select" [(ngModel)]="toLesson">
         <option [value]="l" *ngFor="let l of lessons">{{l}}</option>

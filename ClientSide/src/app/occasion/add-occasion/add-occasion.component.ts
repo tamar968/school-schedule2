@@ -54,9 +54,9 @@ export class AddOccasionComponent implements OnInit {
     private classService: ClassService,
     private teacherService: TeacherService,
     private router: Router,
-    fb: FormBuilder
+    private fb: FormBuilder
   ) {
-    this.addOccasion = fb.group({
+    this.addOccasion = this.fb.group({
       'fromCtrl': [null, Validators.required/*Validators.compose([Validators.required, Validators.pattern('20[0-9]{2}-[0-1][0-9]-[0-3][0-9]*')])*/],
       'toCtrl': [false/*null, Validators.compose([Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')])*/],
       'typeCtrl': [null, Validators.required],

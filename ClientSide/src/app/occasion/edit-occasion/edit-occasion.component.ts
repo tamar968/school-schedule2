@@ -7,6 +7,7 @@ import { OccasionType } from 'src/app/models/occasion-type.model';
 import { LessonHoursService } from 'src/app/services/lesson-hours.service';
 import { SubjectService } from 'src/app/services/subject.service';
 import { Subject } from 'src/app/models/subject.model';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-occasion',
@@ -15,13 +16,34 @@ import { Subject } from 'src/app/models/subject.model';
 })
 export class EditOccasionComponent implements OnInit {
 
-  constructor(private activatedRoute: ActivatedRoute,
+  constructor(
+    private activatedRoute: ActivatedRoute,
     private router: Router,
     private occService: OccasionService,
     private occTypeService: OccasionTypeService,
     private lessonsService: LessonHoursService,
-    private subjectService: SubjectService) { }
+    private subjectService: SubjectService,
+    private fb: FormBuilder
+  ) {
+    this.editOccasion = this.fb.group({
+      'fromCtrl': [null, Validators.required/*Validators.compose([Validators.required, Validators.pattern('20[0-9]{2}-[0-1][0-9]-[0-3][0-9]*')])*/],
+      'toCtrl': [false/*null, Validators.compose([Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')])*/],
+      'typeCtrl': [null, Validators.required],
+      'fromLsnCtrl': [null, Validators.required /*Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
+      'toLsnCtrl': [false/*null,Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
+      'subjCtrl': [false],
+    })
+    console.log(this.editOccasion);
+    /*this.addOccasion.valueChanges.subscribe( (form: any) => {
+      console.log('form changed to:', form);
+    }
+    );*/
+  }
+
   loaded = false;
+
+  editOccasion: FormGroup;
+
   public occ = {} as Occasion;
   occTypes: OccasionType[] = [];
   hours: number[] = [];
@@ -56,12 +78,29 @@ export class EditOccasionComponent implements OnInit {
       }, err => console.error(err))
 
   }
-  delete(id: number) {
-    this.occService.delete(id)
+  onChangeType(e){
+    console.log(e);
+    this.occ.OccasionType = e;
+  }
+
+  onEditOccasion() {
+    this.occService.update(this.occ)
       .subscribe(res => {
-        console.log(`נמחק בהצלחה ${res}`);
+        console.log(`עודכן בהצלחה ${res}`);
         this.router.navigateByUrl('');
       }, err => console.error(err))
+  }
+
+  delete(id: number) {
+    var res = confirm(`האם ארוע ${this.occ.OccasionType} זה בטוח למחיקה?`)
+    if (res === true) {
+      this.occService.delete(id)
+        .subscribe(res => {
+          console.log(`נמחק בהצלחה ${res}`);
+          this.router.navigateByUrl('');
+        }, err => console.error(err))
+    }
+    else alert(`מחיקת הארוע בוטלה`);
   }
   navigateToList() {
     this.router.navigate([`/occasion/occasion`]);
