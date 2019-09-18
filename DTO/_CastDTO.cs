@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTO
 {
@@ -33,7 +30,7 @@ namespace DTO
         {
             return new AbsencesForTeacherDTO()
             {
-                Id=absForTea.Id,
+                Id = absForTea.Id,
                 TeacherId = absForTea.TeacherId,
                 TeacherStandIn = absForTea.TeacherStandIn,
                 FromDate = DateToDTO(absForTea.FromDate),
@@ -51,7 +48,7 @@ namespace DTO
         {
             return new AbsencesForTeacher()
             {
-                Id=absForTea.Id,
+                Id = absForTea.Id,
                 TeacherId = absForTea.TeacherId,
                 TeacherStandIn = absForTea.TeacherStandIn,
                 FromDate = DTOToDate(absForTea.FromDate),
@@ -103,7 +100,8 @@ namespace DTO
                 SubjectId = dairy.SubjectId,
                 TeacherId = dairy.TeacherId,
                 ToDate = DateToDTO(dairy.ToDate),
-                TypeId = dairy.TypeId
+                TypeId = dairy.TypeId,
+                Classes = dairy.Classes.Select(c => c.Num).ToList()
             };
         }
         public static List<DairyDTO> DairyToDTO(List<Dairy> dairyList)
@@ -131,7 +129,7 @@ namespace DTO
                     TeacherId = dairy.TeacherId,
                     ToDate = DTOToDate(dairy.ToDate),
                     TypeId = dairy.TypeId,
-                    Classes = dairy.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Id == c)).ToList()
+                    Classes = dairy.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Num == c)).ToList()
                 };
             }
         }
@@ -157,8 +155,8 @@ namespace DTO
                 SchoolType = grp.SchoolType,
                 Subject = grp.Subject,
                 Teacher = grp.Teacher,
-                Classes = grp.Classes.Select(c => c.Id).ToList(),
-                Dairies = grp.Dairies.Select(d => d.Id).ToList()
+                Classes = grp.Classes.Select(c => c.Num).ToList(),
+                //Dairies = grp.Dairies.Select(d => d.Id).ToList()
             };
         }
         public static List<GroupDTO> GroupToDTO(List<Group> grpList)
@@ -183,8 +181,8 @@ namespace DTO
                     SchoolType = grp.SchoolType,
                     Subject = grp.Subject,
                     Teacher = grp.Teacher,
-                    Classes = grp.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Id == c)).ToList(),
-                    Dairies = grp.Dairies.Select(d => db.Dairies.FirstOrDefault(da => da.Id == d)).ToList()
+                    Classes = grp.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Num == c)).ToList(),
+                   // Dairies = grp.Dairies?.Select(d => db.Dairies.FirstOrDefault(da => da.Id == d)).ToList()
                 };
             }
         }

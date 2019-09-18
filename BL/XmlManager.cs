@@ -42,7 +42,7 @@ namespace BL
         public void ClearDB()
         {
 
-            int secWait = 2;
+            int secWait = 5;
             Console.WriteLine("delete db {0} second along", secWait);
             System.Threading.Thread.Sleep(secWait * 1000);
             Console.WriteLine("create connection...");
@@ -114,7 +114,7 @@ namespace BL
                             HourType = null, //TODO rootData.sug == 0 ? null : (int?)rootData.sug,
                             SubHourType = null, // rootData.sub_sug == 0 ? null : (int?)rootData.sub_sug,
                             Classes = rootData.classes.Select(c => (int)c.num).ToList(),
-                        });
+                                                    });
                         db.Groups.Add(t);
                     }
                     db.SaveChanges();

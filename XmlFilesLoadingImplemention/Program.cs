@@ -15,7 +15,7 @@ namespace TestCode
            var xmlManager = new XmlManager();
 
             //xmlManager.LoadSchedule("../../XML_files/schedule.xml");
-            //xmlManager.LoadDirectory("../../XML_files");
+            xmlManager.LoadDirectory("../../XML_files");
             //var l = Teacher.Get();
             //foreach (var item in l)
             //{
