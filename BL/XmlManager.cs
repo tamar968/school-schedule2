@@ -55,7 +55,7 @@ namespace BL
             {
                 try
                 {
-                    //db.FILL_CONST_TABLES();
+                    db.FILL_CONST_TABLES();
                 }
                 catch (Exception e)
                 {

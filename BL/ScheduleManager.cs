@@ -37,7 +37,7 @@ namespace BL
             int numOfDays = 6;//TODO change to the web config
             for (int day = 1; day <= numOfDays; day++)
             {
-                var s =  MergeLessons(groups.Where(lsn => lsn.WeekDay == day).ToList());
+                var s =  MergeLessonsByTeacher(groups.Where(lsn => lsn.WeekDay == day).ToList());
                 s.Sort();
                 orderSchedule.Add(s);
             }
@@ -54,20 +54,29 @@ namespace BL
             class:''
 
          */
-        public List<ScheduleRequest> MergeLessons(List<ScheduleRequest> schedule)
+        public List<ScheduleRequest> MergeLessonsByTeacher(List<ScheduleRequest> schedule)
         {
-            var n = new List<ScheduleRequest>();
-            for (int i = 0; i < n.Count; i++)
+            List<ScheduleRequest> n = null;
+            for (int i = 0; i < schedule.Count; i++)
             {
-                var t = n.FirstOrDefault(l => schedule[i].Cls == l.Cls &&
-                schedule[i].SubjectName == l.SubjectName &&
-                schedule[i].Hour == l.Hour);
-                if (t != null)
+                if (n == null)
                 {
-                    t.TeacherName += "" + schedule[i].TeacherName;
+                    n = new List<ScheduleRequest>();
+                    n.Add(schedule[i]);
+                    continue;
                 }
                 else
-                    n.Add(t);
+                {
+                    var t = n?.FirstOrDefault(l => schedule[i].Cls == l.Cls &&
+                  schedule[i].SubjectName == l.SubjectName &&
+                  schedule[i].Hour == l.Hour);
+                    if (t != null)
+                    {
+                        t.TeacherName += " , " + schedule[i].TeacherName;
+                    }
+                    else
+                        n.Add(schedule[i]);
+                }
             }
             return n;
         }
