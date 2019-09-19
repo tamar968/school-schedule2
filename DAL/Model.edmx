@@ -81,9 +81,8 @@
         </EntityType>
         <EntityType Name="Group">
           <Key>
-            <PropertyRef Name="Id" />
+            <PropertyRef Name="Num" />
           </Key>
-          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Num" Type="int" Nullable="false" />
           <Property Name="Teacher" Type="int" />
           <Property Name="Subject" Type="int" />
@@ -262,7 +261,7 @@
           <End Role="ClassesForGroup" Type="Self.ClassesForGroup" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Group">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="Num" />
             </Principal>
             <Dependent Role="ClassesForGroup">
               <PropertyRef Name="GroupId" />
@@ -298,7 +297,7 @@
           <End Role="Dairy" Type="Self.Dairy" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Group">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="Num" />
             </Principal>
             <Dependent Role="Dairy">
               <PropertyRef Name="GroupId" />
@@ -398,6 +397,18 @@
             </Principal>
             <Dependent Role="Group">
               <PropertyRef Name="HourType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_PayAbsence">
+          <End Role="PayAbsence" Type="Self.PayAbsence" Multiplicity="0..1" />
+          <End Role="Group" Type="Self.Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PayAbsence">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="PayAbsence" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -538,7 +549,7 @@
           <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="Group">
-              <PropertyRef Name="Id" />
+              <PropertyRef Name="Num" />
             </Principal>
             <Dependent Role="Schedule">
               <PropertyRef Name="GroupId" />
@@ -691,6 +702,10 @@
             <End Role="HourType" EntitySet="HourType" />
             <End Role="Group" EntitySet="Group" />
           </AssociationSet>
+          <AssociationSet Name="FK_Group_PayAbsence" Association="Self.FK_Group_PayAbsence">
+            <End Role="PayAbsence" EntitySet="PayAbsence" />
+            <End Role="Group" EntitySet="Group" />
+          </AssociationSet>
           <AssociationSet Name="FK_Group_Reforma" Association="Self.FK_Group_Reforma">
             <End Role="Reforma" EntitySet="Reforma" />
             <End Role="Group" EntitySet="Group" />
@@ -806,41 +821,14 @@
           <Property Name="Hour" Type="Int32" Nullable="false" />
           <Property Name="CalculateHours" Type="Decimal" Precision="4" Scale="2" />
           <Property Name="Cause" Type="Int32" />
-          <NavigationProperty Name="Group" Relationship="Self.FK_Dairy_Group" FromRole="Dairy" ToRole="Group" />
           <NavigationProperty Name="Occasion" Relationship="Self.FK_Dairy_Ocation" FromRole="Dairy" ToRole="Occasion" />
           <NavigationProperty Name="OccasionType" Relationship="Self.FK_Dairy_OcationType" FromRole="Dairy" ToRole="OccasionType" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Dairy_Room" FromRole="Dairy" ToRole="Room" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Dairy_Subject" FromRole="Dairy" ToRole="Subject" />
           <NavigationProperty Name="Teacher" Relationship="ESTYTAMARModel.FK_Dairy_Teacher" FromRole="Dairy" ToRole="Teacher" />
           <NavigationProperty Name="Classes" Relationship="ESTYTAMARModel.DairyForClasses" FromRole="Dairy" ToRole="Class" />
-        </EntityType>
-        <EntityType Name="Group">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Num" Type="Int32" Nullable="false" />
-          <Property Name="Teacher" Type="Int32" />
-          <Property Name="Subject" Type="Int32" />
-          <Property Name="Room" Type="Int32" />
-          <Property Name="Hours" Type="Int32" />
-          <Property Name="CalculateHours" Type="Decimal" Precision="4" Scale="2" />
-          <Property Name="SchoolType" Type="Int32" />
-          <Property Name="Reforma" Type="Int32" />
-          <Property Name="PayAbsence" Type="Int32" />
-          <Property Name="HourType" Type="Int32" />
-          <Property Name="SubHourType" Type="Int32" />
-          <NavigationProperty Name="Dairies" Relationship="Self.FK_Dairy_Group" FromRole="Group" ToRole="Dairy" />
-          <NavigationProperty Name="HourType1" Relationship="Self.FK_Group_HourType" FromRole="Group" ToRole="HourType" />
-          <NavigationProperty Name="HourType2" Relationship="Self.FK_Group_HourType1" FromRole="Group" ToRole="HourType" />
-          <NavigationProperty Name="Reforma1" Relationship="Self.FK_Group_Reforma" FromRole="Group" ToRole="Reforma" />
-          <NavigationProperty Name="Room1" Relationship="Self.FK_Group_Room" FromRole="Group" ToRole="Room" />
-          <NavigationProperty Name="SchoolType1" Relationship="Self.FK_Group_SchoolType" FromRole="Group" ToRole="SchoolType" />
-          <NavigationProperty Name="Subject1" Relationship="Self.FK_Group_Subject" FromRole="Group" ToRole="Subject" />
-          <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Group" FromRole="Group" ToRole="Schedule" />
-          <NavigationProperty Name="Teacher1" Relationship="ESTYTAMARModel.FK_Group_Teacher" FromRole="Group" ToRole="Teacher" />
-          <NavigationProperty Name="Classes" Relationship="ESTYTAMARModel.ClassesForGroup" FromRole="Group" ToRole="Class" />
-        </EntityType>
+          <NavigationProperty Name="Group" Relationship="ESTYTAMARModel.FK_Dairy_Group" FromRole="Dairy" ToRole="Group" />
+          </EntityType>
         <EntityType Name="HourType">
           <Key>
             <PropertyRef Name="Id" />
@@ -848,8 +836,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="ParentId" Type="Int32" />
           <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Groups" Relationship="Self.FK_Group_HourType" FromRole="HourType" ToRole="Group" />
-          <NavigationProperty Name="Groups1" Relationship="Self.FK_Group_HourType1" FromRole="HourType" ToRole="Group" />
+          <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_HourType" FromRole="HourType" ToRole="Group" />
         </EntityType>
         <EntityType Name="Occasion">
           <Key>
@@ -884,6 +871,7 @@
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="IsStandart" Type="Boolean" />
           <NavigationProperty Name="Teachers" Relationship="ESTYTAMARModel.PayAbsencesForTeacher" FromRole="PayAbsence" ToRole="Teacher" />
+          <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_PayAbsence" FromRole="PayAbsence" ToRole="Group" />
         </EntityType>
         <EntityType Name="Reforma">
           <Key>
@@ -891,7 +879,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Groups" Relationship="Self.FK_Group_Reforma" FromRole="Reforma" ToRole="Group" />
+          <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_Reforma" FromRole="Reforma" ToRole="Group" />
         </EntityType>
         <EntityType Name="Room">
           <Key>
@@ -903,23 +891,10 @@
           <Property Name="ClassId" Type="Int32" />
           <Property Name="UseFor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Dairies" Relationship="Self.FK_Dairy_Room" FromRole="Room" ToRole="Dairy" />
-          <NavigationProperty Name="Groups" Relationship="Self.FK_Group_Room" FromRole="Room" ToRole="Group" />
-          <NavigationProperty Name="Schedules" Relationship="Self.FK_Schedule_Room" FromRole="Room" ToRole="Schedule" />
           <NavigationProperty Name="Occasions" Relationship="Self.RoomsForOccasion" FromRole="Room" ToRole="Occasion" />
           <NavigationProperty Name="Class" Relationship="ESTYTAMARModel.FK_Room_Class" FromRole="Room" ToRole="Class" />
-        </EntityType>
-        <EntityType Name="Schedule">
-          <Key>
-            <PropertyRef Name="Num" />
-          </Key>
-          <Property Name="Num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="GroupId" Type="Int32" Nullable="false" />
-          <Property Name="WeekDay" Type="Int32" Nullable="false" />
-          <Property Name="Day" Type="Int32" Nullable="false" />
-          <Property Name="Hour" Type="Int32" Nullable="false" />
-          <Property Name="Room" Type="Int32" />
-          <NavigationProperty Name="Group" Relationship="Self.FK_Schedule_Group" FromRole="Schedule" ToRole="Group" />
-          <NavigationProperty Name="Room1" Relationship="Self.FK_Schedule_Room" FromRole="Schedule" ToRole="Room" />
+          <NavigationProperty Name="Schedules" Relationship="ESTYTAMARModel.FK_Schedule_Room" FromRole="Room" ToRole="Schedule" />
+          <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_Room" FromRole="Room" ToRole="Group" />
         </EntityType>
         <EntityType Name="SchoolType">
           <Key>
@@ -927,7 +902,7 @@
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
-          <NavigationProperty Name="Groups" Relationship="Self.FK_Group_SchoolType" FromRole="SchoolType" ToRole="Group" />
+          <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_SchoolType" FromRole="SchoolType" ToRole="Group" />
         </EntityType>
         <EntityType Name="Subject">
           <Key>
@@ -936,8 +911,8 @@
           <Property Name="Id" Type="Int32" Nullable="false" />
           <Property Name="Name" Type="String" MaxLength="30" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Dairies" Relationship="Self.FK_Dairy_Subject" FromRole="Subject" ToRole="Dairy" />
-          <NavigationProperty Name="Groups" Relationship="Self.FK_Group_Subject" FromRole="Subject" ToRole="Group" />
           <NavigationProperty Name="Classes" Relationship="ESTYTAMARModel.SubjectsForClass" FromRole="Subject" ToRole="Class" />
+          <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_Subject" FromRole="Subject" ToRole="Group" />
         </EntityType>
         <Association Name="FK_AbsencesForTeacher_Absence1">
           <End Role="Absence" Type="Self.Absence" Multiplicity="1" />
@@ -948,18 +923,6 @@
             </Principal>
             <Dependent Role="AbsencesForTeacher">
               <PropertyRef Name="Type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Dairy_Group">
-          <End Role="Group" Type="Self.Group" Multiplicity="0..1" />
-          <End Role="Dairy" Type="Self.Dairy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Group">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Dairy">
-              <PropertyRef Name="GroupId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1011,90 +974,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Group_HourType">
-          <End Role="HourType" Type="Self.HourType" Multiplicity="0..1" />
-          <End Role="Group" Type="Self.Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HourType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Group">
-              <PropertyRef Name="HourType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Group_HourType1">
-          <End Role="HourType" Type="Self.HourType" Multiplicity="0..1" />
-          <End Role="Group" Type="Self.Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="HourType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Group">
-              <PropertyRef Name="SubHourType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Group_Reforma">
-          <End Role="Reforma" Type="Self.Reforma" Multiplicity="0..1" />
-          <End Role="Group" Type="Self.Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Reforma">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Group">
-              <PropertyRef Name="Reforma" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Group_Room">
-          <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
-          <End Role="Group" Type="Self.Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Room">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Group">
-              <PropertyRef Name="Room" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Group_SchoolType">
-          <End Role="SchoolType" Type="Self.SchoolType" Multiplicity="0..1" />
-          <End Role="Group" Type="Self.Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="SchoolType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Group">
-              <PropertyRef Name="SchoolType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Group_Subject">
-          <End Role="Subject" Type="Self.Subject" Multiplicity="0..1" />
-          <End Role="Group" Type="Self.Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Subject">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Group">
-              <PropertyRef Name="Subject" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Schedule_Group">
-          <End Role="Group" Type="Self.Group" Multiplicity="1" />
-          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Group">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Schedule">
-              <PropertyRef Name="GroupId" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="FK_Ocation_OcationType">
           <End Role="OccasionType" Type="Self.OccasionType" Multiplicity="0..1" />
           <End Role="Occasion" Type="Self.Occasion" Multiplicity="*" />
@@ -1107,18 +986,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Schedule_Room">
-          <End Role="Room" Type="Self.Room" Multiplicity="0..1" />
-          <End Role="Schedule" Type="Self.Schedule" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Room">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Schedule">
-              <PropertyRef Name="Room" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="RoomsForOccasion">
           <End Role="Occasion" Type="Self.Occasion" Multiplicity="*" />
           <End Role="Room" Type="Self.Room" Multiplicity="*" />
@@ -1127,23 +994,17 @@
           <EntitySet Name="Absences" EntityType="Self.Absence" />
           <EntitySet Name="AbsencesForTeachers" EntityType="Self.AbsencesForTeacher" />
           <EntitySet Name="Dairies" EntityType="Self.Dairy" />
-          <EntitySet Name="Groups" EntityType="Self.Group" />
           <EntitySet Name="HourTypes" EntityType="Self.HourType" />
           <EntitySet Name="Occasions" EntityType="Self.Occasion" />
           <EntitySet Name="OccasionTypes" EntityType="Self.OccasionType" />
           <EntitySet Name="PayAbsences" EntityType="Self.PayAbsence" />
           <EntitySet Name="Reformas" EntityType="Self.Reforma" />
           <EntitySet Name="Rooms" EntityType="Self.Room" />
-          <EntitySet Name="Schedules" EntityType="Self.Schedule" />
           <EntitySet Name="SchoolTypes" EntityType="Self.SchoolType" />
           <EntitySet Name="Subjects" EntityType="Self.Subject" />
           <AssociationSet Name="FK_AbsencesForTeacher_Absence1" Association="Self.FK_AbsencesForTeacher_Absence1">
             <End Role="Absence" EntitySet="Absences" />
             <End Role="AbsencesForTeacher" EntitySet="AbsencesForTeachers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Dairy_Group" Association="Self.FK_Dairy_Group">
-            <End Role="Group" EntitySet="Groups" />
-            <End Role="Dairy" EntitySet="Dairies" />
           </AssociationSet>
           <AssociationSet Name="FK_Dairy_Ocation" Association="Self.FK_Dairy_Ocation">
             <End Role="Occasion" EntitySet="Occasions" />
@@ -1161,41 +1022,9 @@
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="Dairy" EntitySet="Dairies" />
           </AssociationSet>
-          <AssociationSet Name="FK_Group_HourType" Association="Self.FK_Group_HourType">
-            <End Role="HourType" EntitySet="HourTypes" />
-            <End Role="Group" EntitySet="Groups" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Group_HourType1" Association="Self.FK_Group_HourType1">
-            <End Role="HourType" EntitySet="HourTypes" />
-            <End Role="Group" EntitySet="Groups" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Group_Reforma" Association="Self.FK_Group_Reforma">
-            <End Role="Reforma" EntitySet="Reformas" />
-            <End Role="Group" EntitySet="Groups" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Group_Room" Association="Self.FK_Group_Room">
-            <End Role="Room" EntitySet="Rooms" />
-            <End Role="Group" EntitySet="Groups" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Group_SchoolType" Association="Self.FK_Group_SchoolType">
-            <End Role="SchoolType" EntitySet="SchoolTypes" />
-            <End Role="Group" EntitySet="Groups" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Group_Subject" Association="Self.FK_Group_Subject">
-            <End Role="Subject" EntitySet="Subjects" />
-            <End Role="Group" EntitySet="Groups" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_Group" Association="Self.FK_Schedule_Group">
-            <End Role="Group" EntitySet="Groups" />
-            <End Role="Schedule" EntitySet="Schedules" />
-          </AssociationSet>
           <AssociationSet Name="FK_Ocation_OcationType" Association="Self.FK_Ocation_OcationType">
             <End Role="OccasionType" EntitySet="OccasionTypes" />
             <End Role="Occasion" EntitySet="Occasions" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Schedule_Room" Association="Self.FK_Schedule_Room">
-            <End Role="Room" EntitySet="Rooms" />
-            <End Role="Schedule" EntitySet="Schedules" />
           </AssociationSet>
           <AssociationSet Name="RoomsForOccasion" Association="Self.RoomsForOccasion">
             <End Role="Occasion" EntitySet="Occasions" />
@@ -1218,14 +1047,6 @@
             <End Role="Teacher" EntitySet="Teachers" />
             <End Role="Dairy" EntitySet="Dairies" />
           </AssociationSet>
-          <AssociationSet Name="FK_Group_Teacher" Association="ESTYTAMARModel.FK_Group_Teacher">
-            <End Role="Teacher" EntitySet="Teachers" />
-            <End Role="Group" EntitySet="Groups" />
-          </AssociationSet>
-          <AssociationSet Name="ClassesForGroup" Association="ESTYTAMARModel.ClassesForGroup">
-            <End Role="Class" EntitySet="Classes" />
-            <End Role="Group" EntitySet="Groups" />
-          </AssociationSet>
           <AssociationSet Name="ClassesForOccasion" Association="ESTYTAMARModel.ClassesForOccasion">
             <End Role="Occasion" EntitySet="Occasions" />
             <End Role="Class" EntitySet="Classes" />
@@ -1246,6 +1067,52 @@
             <End Role="Occasion" EntitySet="Occasions" />
             <End Role="Teacher" EntitySet="Teachers" />
           </AssociationSet>
+          <EntitySet Name="Schedules" EntityType="ESTYTAMARModel.Schedule" />
+          <AssociationSet Name="FK_Schedule_Room" Association="ESTYTAMARModel.FK_Schedule_Room">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <EntitySet Name="Groups" EntityType="ESTYTAMARModel.Group" />
+          <AssociationSet Name="FK_Dairy_Group" Association="ESTYTAMARModel.FK_Dairy_Group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Dairy" EntitySet="Dairies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_HourType" Association="ESTYTAMARModel.FK_Group_HourType">
+            <End Role="HourType" EntitySet="HourTypes" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_PayAbsence" Association="ESTYTAMARModel.FK_Group_PayAbsence">
+            <End Role="PayAbsence" EntitySet="PayAbsences" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Reforma" Association="ESTYTAMARModel.FK_Group_Reforma">
+            <End Role="Reforma" EntitySet="Reformas" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Room" Association="ESTYTAMARModel.FK_Group_Room">
+            <End Role="Room" EntitySet="Rooms" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_SchoolType" Association="ESTYTAMARModel.FK_Group_SchoolType">
+            <End Role="SchoolType" EntitySet="SchoolTypes" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Subject" Association="ESTYTAMARModel.FK_Group_Subject">
+            <End Role="Subject" EntitySet="Subjects" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Group_Teacher" Association="ESTYTAMARModel.FK_Group_Teacher">
+            <End Role="Teacher" EntitySet="Teachers" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Schedule_Group" Association="ESTYTAMARModel.FK_Schedule_Group">
+            <End Role="Group" EntitySet="Groups" />
+            <End Role="Schedule" EntitySet="Schedules" />
+          </AssociationSet>
+          <AssociationSet Name="ClassesForGroup" Association="ESTYTAMARModel.ClassesForGroup">
+            <End Role="Class" EntitySet="Classes" />
+            <End Role="Group" EntitySet="Groups" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Class">
           <Key>
@@ -1257,10 +1124,10 @@
           <Property Name="Number" Type="Int32" Nullable="false" />
           <Property Name="SchoolType" Type="Int32" />
           <NavigationProperty Name="Rooms" Relationship="ESTYTAMARModel.FK_Room_Class" FromRole="Class" ToRole="Room" />
-          <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.ClassesForGroup" FromRole="Class" ToRole="Group" />
           <NavigationProperty Name="Occasions" Relationship="ESTYTAMARModel.ClassesForOccasion" FromRole="Class" ToRole="Occasion" />
           <NavigationProperty Name="Dairies" Relationship="ESTYTAMARModel.DairyForClasses" FromRole="Class" ToRole="Dairy" />
           <NavigationProperty Name="Subjects" Relationship="ESTYTAMARModel.SubjectsForClass" FromRole="Class" ToRole="Subject" />
+          <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.ClassesForGroup" FromRole="Class" ToRole="Group" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1280,9 +1147,9 @@
           <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AbsencesForTeachers" Relationship="ESTYTAMARModel.FK_AbsencesForTeacher_Teacher" FromRole="Teacher" ToRole="AbsencesForTeacher" />
           <NavigationProperty Name="Dairies" Relationship="ESTYTAMARModel.FK_Dairy_Teacher" FromRole="Teacher" ToRole="Dairy" />
-          <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_Teacher" FromRole="Teacher" ToRole="Group" />
           <NavigationProperty Name="PayAbsences" Relationship="ESTYTAMARModel.PayAbsencesForTeacher" FromRole="Teacher" ToRole="PayAbsence" />
           <NavigationProperty Name="Occasions" Relationship="ESTYTAMARModel.TeachersForOccasion" FromRole="Teacher" ToRole="Occasion" />
+          <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_Teacher" FromRole="Teacher" ToRole="Group" />
         </EntityType>
         <Association Name="FK_AbsencesForTeacher_Teacher">
           <End Type="ESTYTAMARModel.Teacher" Role="Teacher" Multiplicity="1" />
@@ -1320,22 +1187,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Group_Teacher">
-          <End Type="ESTYTAMARModel.Teacher" Role="Teacher" Multiplicity="0..1" />
-          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Teacher">
-              <PropertyRef Name="Num" />
-            </Principal>
-            <Dependent Role="Group">
-              <PropertyRef Name="Teacher" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="ClassesForGroup">
-          <End Type="ESTYTAMARModel.Class" Role="Class" Multiplicity="*" />
-          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
-        </Association>
         <Association Name="ClassesForOccasion">
           <End Type="ESTYTAMARModel.Occasion" Role="Occasion" Multiplicity="*" />
           <End Type="ESTYTAMARModel.Class" Role="Class" Multiplicity="*" />
@@ -1355,6 +1206,169 @@
         <Association Name="TeachersForOccasion">
           <End Type="ESTYTAMARModel.Occasion" Role="Occasion" Multiplicity="*" />
           <End Type="ESTYTAMARModel.Teacher" Role="Teacher" Multiplicity="*" />
+        </Association>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="Num" />
+          </Key>
+          <Property Name="Num" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <Property Name="WeekDay" Type="Int32" Nullable="false" />
+          <Property Name="Day" Type="Int32" Nullable="false" />
+          <Property Name="Hour" Type="Int32" Nullable="false" />
+          <Property Name="Room" Type="Int32" />
+          <NavigationProperty Name="Room1" Relationship="ESTYTAMARModel.FK_Schedule_Room" FromRole="Schedule" ToRole="Room" />
+          <NavigationProperty Name="Group" Relationship="ESTYTAMARModel.FK_Schedule_Group" FromRole="Schedule" ToRole="Group" />
+        </EntityType>
+        <Association Name="FK_Schedule_Room">
+          <End Type="ESTYTAMARModel.Room" Role="Room" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="Num" />
+          </Key>
+          <Property Name="Num" Type="Int32" Nullable="false" />
+          <Property Name="Teacher" Type="Int32" />
+          <Property Name="Subject" Type="Int32" />
+          <Property Name="Room" Type="Int32" />
+          <Property Name="Hours" Type="Int32" />
+          <Property Name="CalculateHours" Type="Decimal" Precision="4" Scale="2" />
+          <Property Name="SchoolType" Type="Int32" />
+          <Property Name="Reforma" Type="Int32" />
+          <Property Name="PayAbsence" Type="Int32" />
+          <Property Name="HourType" Type="Int32" />
+          <Property Name="SubHourType" Type="Int32" />
+          <NavigationProperty Name="Dairies" Relationship="ESTYTAMARModel.FK_Dairy_Group" FromRole="Group" ToRole="Dairy" />
+          <NavigationProperty Name="HourType1" Relationship="ESTYTAMARModel.FK_Group_HourType" FromRole="Group" ToRole="HourType" />
+          <NavigationProperty Name="PayAbsence1" Relationship="ESTYTAMARModel.FK_Group_PayAbsence" FromRole="Group" ToRole="PayAbsence" />
+          <NavigationProperty Name="Reforma1" Relationship="ESTYTAMARModel.FK_Group_Reforma" FromRole="Group" ToRole="Reforma" />
+          <NavigationProperty Name="Room1" Relationship="ESTYTAMARModel.FK_Group_Room" FromRole="Group" ToRole="Room" />
+          <NavigationProperty Name="SchoolType1" Relationship="ESTYTAMARModel.FK_Group_SchoolType" FromRole="Group" ToRole="SchoolType" />
+          <NavigationProperty Name="Subject1" Relationship="ESTYTAMARModel.FK_Group_Subject" FromRole="Group" ToRole="Subject" />
+          <NavigationProperty Name="Teacher1" Relationship="ESTYTAMARModel.FK_Group_Teacher" FromRole="Group" ToRole="Teacher" />
+          <NavigationProperty Name="Schedules" Relationship="ESTYTAMARModel.FK_Schedule_Group" FromRole="Group" ToRole="Schedule" />
+          <NavigationProperty Name="Classes" Relationship="ESTYTAMARModel.ClassesForGroup" FromRole="Group" ToRole="Class" />
+        </EntityType>
+        <Association Name="FK_Dairy_Group">
+          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Dairy" Role="Dairy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Num" />
+            </Principal>
+            <Dependent Role="Dairy">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_HourType">
+          <End Type="ESTYTAMARModel.HourType" Role="HourType" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="HourType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="HourType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_PayAbsence">
+          <End Type="ESTYTAMARModel.PayAbsence" Role="PayAbsence" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PayAbsence">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="PayAbsence" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Reforma">
+          <End Type="ESTYTAMARModel.Reforma" Role="Reforma" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Reforma">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="Reforma" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Room">
+          <End Type="ESTYTAMARModel.Room" Role="Room" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Room">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="Room" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_SchoolType">
+          <End Type="ESTYTAMARModel.SchoolType" Role="SchoolType" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SchoolType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="SchoolType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Subject">
+          <End Type="ESTYTAMARModel.Subject" Role="Subject" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Subject">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="Subject" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Group_Teacher">
+          <End Type="ESTYTAMARModel.Teacher" Role="Teacher" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Teacher">
+              <PropertyRef Name="Num" />
+            </Principal>
+            <Dependent Role="Group">
+              <PropertyRef Name="Teacher" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Schedule_Group">
+          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="1" />
+          <End Type="ESTYTAMARModel.Schedule" Role="Schedule" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Group">
+              <PropertyRef Name="Num" />
+            </Principal>
+            <Dependent Role="Schedule">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClassesForGroup">
+          <End Type="ESTYTAMARModel.Class" Role="Class" Multiplicity="*" />
+          <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
         </Association>
       </Schema>
     </edmx:ConceptualModels>
@@ -1402,24 +1416,6 @@
                 <ScalarProperty Name="Hour" ColumnName="Hour" />
                 <ScalarProperty Name="CalculateHours" ColumnName="CalculateHours" />
                 <ScalarProperty Name="Cause" ColumnName="Cause" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="Groups">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Group">
-              <MappingFragment StoreEntitySet="Group">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="Num" ColumnName="Num" />
-                <ScalarProperty Name="Teacher" ColumnName="Teacher" />
-                <ScalarProperty Name="Subject" ColumnName="Subject" />
-                <ScalarProperty Name="Room" ColumnName="Room" />
-                <ScalarProperty Name="Hours" ColumnName="Hours" />
-                <ScalarProperty Name="CalculateHours" ColumnName="CalculateHours" />
-                <ScalarProperty Name="SchoolType" ColumnName="SchoolType" />
-                <ScalarProperty Name="Reforma" ColumnName="Reforma" />
-                <ScalarProperty Name="PayAbsence" ColumnName="PayAbsence" />
-                <ScalarProperty Name="HourType" ColumnName="HourType" />
-                <ScalarProperty Name="SubHourType" ColumnName="SubHourType" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1480,18 +1476,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Schedules">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Schedule">
-              <MappingFragment StoreEntitySet="Schedule">
-                <ScalarProperty Name="Num" ColumnName="Num" />
-                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
-                <ScalarProperty Name="WeekDay" ColumnName="WeekDay" />
-                <ScalarProperty Name="Day" ColumnName="Day" />
-                <ScalarProperty Name="Hour" ColumnName="Hour" />
-                <ScalarProperty Name="Room" ColumnName="Room" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="SchoolTypes">
             <EntityTypeMapping TypeName="ESTYTAMARModel.SchoolType">
               <MappingFragment StoreEntitySet="SchoolType">
@@ -1548,14 +1532,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="ClassesForGroup" TypeName="ESTYTAMARModel.ClassesForGroup" StoreEntitySet="ClassesForGroup">
-            <EndProperty Name="Group">
-              <ScalarProperty Name="Id" ColumnName="GroupId" />
-            </EndProperty>
-            <EndProperty Name="Class">
-              <ScalarProperty Name="Num" ColumnName="ClassId" />
-            </EndProperty>
-          </AssociationSetMapping>
           <AssociationSetMapping Name="ClassesForOccasion" TypeName="ESTYTAMARModel.ClassesForOccasion" StoreEntitySet="ClassesForOccasion">
             <EndProperty Name="Class">
               <ScalarProperty Name="Num" ColumnName="ClassId" />
@@ -1594,6 +1570,43 @@
             </EndProperty>
             <EndProperty Name="Occasion">
               <ScalarProperty Name="Id" ColumnName="OccasionId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="ESTYTAMARModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="Room" ColumnName="Room" />
+                <ScalarProperty Name="Hour" ColumnName="Hour" />
+                <ScalarProperty Name="Day" ColumnName="Day" />
+                <ScalarProperty Name="WeekDay" ColumnName="WeekDay" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Groups">
+            <EntityTypeMapping TypeName="ESTYTAMARModel.Group">
+              <MappingFragment StoreEntitySet="Group">
+                <ScalarProperty Name="SubHourType" ColumnName="SubHourType" />
+                <ScalarProperty Name="HourType" ColumnName="HourType" />
+                <ScalarProperty Name="PayAbsence" ColumnName="PayAbsence" />
+                <ScalarProperty Name="Reforma" ColumnName="Reforma" />
+                <ScalarProperty Name="SchoolType" ColumnName="SchoolType" />
+                <ScalarProperty Name="CalculateHours" ColumnName="CalculateHours" />
+                <ScalarProperty Name="Hours" ColumnName="Hours" />
+                <ScalarProperty Name="Room" ColumnName="Room" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="Teacher" ColumnName="Teacher" />
+                <ScalarProperty Name="Num" ColumnName="Num" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ClassesForGroup" TypeName="ESTYTAMARModel.ClassesForGroup" StoreEntitySet="ClassesForGroup">
+            <EndProperty Name="Group">
+              <ScalarProperty Name="Num" ColumnName="GroupId" />
+            </EndProperty>
+            <EndProperty Name="Class">
+              <ScalarProperty Name="Num" ColumnName="ClassId" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

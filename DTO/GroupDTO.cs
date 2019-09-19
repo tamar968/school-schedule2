@@ -8,7 +8,6 @@ namespace DTO
 {
     public class GroupDTO
     {
-        public int Id { get; set; }
         public int Num { get; set; }
         public int? Teacher { get; set; }
         public int? Subject { get; set; }

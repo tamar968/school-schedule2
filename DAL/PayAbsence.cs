@@ -18,6 +18,7 @@ namespace DAL
         public PayAbsence()
         {
             this.Teachers = new HashSet<Teacher>();
+            this.Groups = new HashSet<Group>();
         }
     
         public int Id { get; set; }
@@ -26,5 +27,7 @@ namespace DAL
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Teacher> Teachers { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Group> Groups { get; set; }
     }
 }

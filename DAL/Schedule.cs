@@ -21,7 +21,7 @@ namespace DAL
         public int Hour { get; set; }
         public Nullable<int> Room { get; set; }
     
-        public virtual Group Group { get; set; }
         public virtual Room Room1 { get; set; }
+        public virtual Group Group { get; set; }
     }
 }

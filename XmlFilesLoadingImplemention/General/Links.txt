@@ -1,6 +1,9 @@
 ﻿git config --global http.sslVerify false
 eq4606
 548524606eq
+
+https://stackoverflow.com/questions/4253165/insert-update-many-to-many-entity-framework-how-do-i-do-it
+
 https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api
 https://stackoverflow.com/questions/52726032/angular-5-http-post-request-turns-to-options-and-returns-404
 https://angular.io/guide/http

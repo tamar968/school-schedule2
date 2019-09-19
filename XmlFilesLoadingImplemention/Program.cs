@@ -9,10 +9,10 @@ namespace TestCode
         static void Main(string[] args)
         {
             var xmlManager = new XmlManager();
-            xmlManager.LoadGroups("../../XML_files/groups.xml");
-            xmlManager.LoadSchedule("../../XML_files/schedule.xml");
+            //xmlManager.LoadGroups("../../XML_files/groups.xml");
+            //xmlManager.LoadSchedule("../../XML_files/schedule.xml");
 
-            //xmlManager.LoadDirectory("../../XML_files");
+            xmlManager.LoadDirectory("../../XML_files");
             //var l = Teacher.Get();
             //foreach (var item in l)
             //{

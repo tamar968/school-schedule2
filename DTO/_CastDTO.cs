@@ -143,19 +143,18 @@ namespace DTO
         {
             return new GroupDTO()
             {
-                Id = grp.Id,
+                Num = grp.Num,
                 CalculateHours = grp.CalculateHours,
                 Hours = grp.Hours,
                 HourType = grp.HourType,
                 SubHourType = grp.SubHourType,
-                Num = grp.Num,
                 PayAbsence = grp.PayAbsence,
                 Reforma = grp.Reforma,
                 Room = grp.Room,
                 SchoolType = grp.SchoolType,
                 Subject = grp.Subject,
                 Teacher = grp.Teacher,
-                Classes = grp.Classes.Select(c => c.Num).ToList(),
+                //Classes = grp.Classes.Select(c => c.Num).ToList(),
                 //Dairies = grp.Dairies.Select(d => d.Id).ToList()
             };
         }
@@ -167,23 +166,23 @@ namespace DTO
         {
             using (Entities db = new Entities())
             {
-                return new Group()
+                var s= new Group()
                 {
-                    Id = grp.Id,
+                    Num = grp.Num,
                     CalculateHours = grp.CalculateHours,
                     Hours = grp.Hours,
                     HourType = grp.HourType,
                     SubHourType = grp.SubHourType,
-                    Num = grp.Num,
                     PayAbsence = grp.PayAbsence,
                     Reforma = grp.Reforma,
                     Room = grp.Room,
                     SchoolType = grp.SchoolType,
                     Subject = grp.Subject,
                     Teacher = grp.Teacher,
-                    Classes = grp.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Num == c)).ToList(),
-                   // Dairies = grp.Dairies?.Select(d => db.Dairies.FirstOrDefault(da => da.Id == d)).ToList()
+                    //Classes = grp.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Num == c)).ToList(),
+                    // Dairies = grp.Dairies?.Select(d => db.Dairies.FirstOrDefault(da => da.Id == d)).ToList()
                 };
+                return s;
             }
         }
         public static List<Group> DTOToGroup(List<GroupDTO> grpList)
@@ -427,7 +426,7 @@ namespace DTO
         #region Teacher
         public static TeacherDTO TeacherToDTO(Teacher teacher)
         {
-            return new TeacherDTO() { Num = teacher.Num, Name = teacher.Name  };
+            return new TeacherDTO() { Num = teacher.Num, Name = teacher.Name };
         }
         public static List<TeacherDTO> TeacherToDTO(List<Teacher> teacherList)
         {
@@ -435,7 +434,7 @@ namespace DTO
         }
         public static Teacher DTOToTeacher(TeacherDTO teacher)
         {
-            return new Teacher() { Num = teacher.Num, Name = teacher.Name  };
+            return new Teacher() { Num = teacher.Num, Name = teacher.Name };
         }
         public static List<Teacher> DTOToTeacher(List<TeacherDTO> teacherList)
         {

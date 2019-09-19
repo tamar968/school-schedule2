@@ -19,9 +19,9 @@ namespace DAL
         {
             this.AbsencesForTeachers = new HashSet<AbsencesForTeacher>();
             this.Dairies = new HashSet<Dairy>();
-            this.Groups = new HashSet<Group>();
             this.PayAbsences = new HashSet<PayAbsence>();
             this.Occasions = new HashSet<Occasion>();
+            this.Groups = new HashSet<Group>();
         }
     
         public int Num { get; set; }
@@ -32,10 +32,10 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dairy> Dairies { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Group> Groups { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<PayAbsence> PayAbsences { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Occasion> Occasions { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Group> Groups { get; set; }
     }
 }

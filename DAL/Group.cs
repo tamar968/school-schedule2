@@ -22,7 +22,6 @@ namespace DAL
             this.Classes = new HashSet<Class>();
         }
     
-        public int Id { get; set; }
         public int Num { get; set; }
         public Nullable<int> Teacher { get; set; }
         public Nullable<int> Subject { get; set; }
@@ -38,14 +37,14 @@ namespace DAL
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dairy> Dairies { get; set; }
         public virtual HourType HourType1 { get; set; }
-        public virtual HourType HourType2 { get; set; }
+        public virtual PayAbsence PayAbsence1 { get; set; }
         public virtual Reforma Reforma1 { get; set; }
         public virtual Room Room1 { get; set; }
         public virtual SchoolType SchoolType1 { get; set; }
         public virtual Subject Subject1 { get; set; }
+        public virtual Teacher Teacher1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Schedule> Schedules { get; set; }
-        public virtual Teacher Teacher1 { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Class> Classes { get; set; }
     }
