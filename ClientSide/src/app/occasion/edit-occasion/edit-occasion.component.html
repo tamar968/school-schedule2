@@ -10,12 +10,11 @@
         <div class="col-sm-10">
             <select name="typeOccasion" [formControl]="editOccasion.controls['typeCtrl']" [ngModel]="occ.OccasionType"
             (ngModelChange)="onChangeType($event)" class="custom-select mr-sm-2" value="occ.OccasionType" id="inlineFormCustomSelect">
-                <option value="ot.Id" *ngFor="let ot of occTypes" [selected]="occ.OccasionType===ot.Id">{{ot.Name}}
+                <option value="{{ot.Id}}" *ngFor="let ot of occTypes" [selected]="occ.OccasionType===ot.Id">{{ot.Name}}
                 </option>
             </select>
         </div>
     </div>
-    <p title="סוג ארוע קודם">{{occ.OccasionTypeName}}</p>
     <div *ngIf="editOccasion.controls['typeCtrl'].hasError('required') && editOccasion.controls['typeCtrl'].touched"
         class="alert alert-danger">
         סוג ארוע' הינו שדה חובה'
@@ -24,11 +23,10 @@
         <label for="" class="col-sm-2 col-form-label">מקצוע</label>
         <div class="col-sm-10">
             <select class="custom-select mr-sm-2" [formControl]="editOccasion.controls['subjCtrl']"
-                [(ngModel)]="occ.Subject" id="inlineFormCustomSelect" value="occ.Subject">
-                <option value="s.Id" *ngFor="let s of subjects">{{s.Name}}</option>
+                [(ngModel)]="occ.Subject" id="inlineFormCustomSelect" value="{{occ.Subject}}">
+                <option value="{{s.Id}}" *ngFor="let s of subjects">{{s.Name}}</option>
             </select>
         </div>
-        <p title="מקצוע מבחן קודם">{{occ.Subject}}</p>
 
     </div>
     <div class="form-group row">
@@ -37,7 +35,6 @@
             <input class="form-control" type="text" placeholder="yyyy-mm-dd" value="" name="fromDate"
                 [formControl]="editOccasion.controls['fromCtrl']" [(ngModel)]="occ.FromDate" ngbDatepicker
                 #d1="ngbDatepicker" >
-            <p title="תאריך התחלה קודם">{{occ.FromDate?.thisDate}}</p>
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button">
                     <img class="i" src="assets/img/calendar.png">
@@ -59,7 +56,6 @@
             <input class="form-control" type="text" placeholder="yyyy-mm-dd" value="" name="toDate"
                 [formControl]="editOccasion.controls['toCtrl']" [(ngModel)]="occ.ToDate" ngbDatepicker
                 #d1="ngbDatepicker">
-            <p title="תאריך סיום קודם">{{occ.ToDate?.thisDate}}</p>
             <div class="input-group-append">
                 <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button">
                     <img class="i" src="assets/img/calendar.png">
@@ -71,10 +67,9 @@
         <label for="" class="col-sm-2 col-form-label">משעור</label>
         <div class="col-sm-10">
             <select class="custom-select mr-sm-2" [formControl]="editOccasion.controls['fromLsnCtrl']"
-                [(ngModel)]="occ.FromLesson" value="fromLsn" id="inlineFormCustomSelect">
-                <option value="h" *ngFor="let h of hours" [selected]="occ.FromLesson===h">{{h}}</option>
+                [(ngModel)]="occ.FromLesson" value="{{fromLsn}}" id="inlineFormCustomSelect">
+                <option value="{{h}}" *ngFor="let h of hours" [selected]="occ.FromLesson===h">{{h}}</option>
             </select> </div>
-        <p title="שעור התחלה קודם">{{occ.FromLesson}}</p>
 
     </div>
     <div *ngIf="editOccasion.controls['fromLsnCtrl'].hasError('required') && editOccasion.controls['fromLsnCtrl'].touched"
@@ -85,10 +80,9 @@
         <label for="" class="col-sm-2 col-form-label">עד שעור</label>
         <div class="col-sm-10">
             <select class="custom-select mr-sm-2" [formControl]="editOccasion.controls['toLsnCtrl']"
-                [(ngModel)]="occ.ToLesson" value="toLsn" id="inlineFormCustomSelect">
-                <option value="h" *ngFor="let h of hours" [selected]="occ.ToLesson===h">{{h}}</option>
+                [(ngModel)]="occ.ToLesson" value="{{toLsn}}" id="inlineFormCustomSelect">
+                <option value="{{h}}" *ngFor="let h of hours" [selected]="occ.ToLesson===h">{{h}}</option>
             </select> </div>
-        <span class="border border-success" title="שעור סיום קודם">{{occ.ToLesson}}</span>
     </div>
     <div *ngIf="!editOccasion.valid" class="alert alert-danger"> הטופס אינו מושלם, יש לודא כי כל שדות החובה מלאים
         <div>{{editOccasion.errors | json}}</div>

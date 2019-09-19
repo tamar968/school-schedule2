@@ -19,8 +19,8 @@ import { SubjectService } from 'src/app/services/subject.service';
   styleUrls: ['./add-occasion.component.css']
 })
 export class AddOccasionComponent implements OnInit {
-  
-  loaded=false;
+
+  loaded = false;
   //the form
   addOccasion: FormGroup;
   //the settings for multiselect teachers
@@ -62,10 +62,10 @@ export class AddOccasionComponent implements OnInit {
       'typeCtrl': [null, Validators.required],
       'fromLsnCtrl': [null, Validators.required /*Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
       'toLsnCtrl': [false/*null,Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
-      'subjCtrl': [false],
-      'layersCtrl': [false]/**/,
+      'subjCtrl': [false]/*,
+      'layersCtrl': [false],
       'classCtrl': [false],
-      'teacherCrtl': [false]
+      'teacherCrtl': [false]*/
     })
     console.log(this.addOccasion);
     /*this.addOccasion.valueChanges.subscribe( (form: any) => {
@@ -75,8 +75,6 @@ export class AddOccasionComponent implements OnInit {
   }
 
   ngOnInit() {
-
-
 
     this.occationTypeService.getOccasionTypes()//get all the types occasion; for example:test,speach and etc.
       .subscribe(occasionType => {
@@ -106,11 +104,11 @@ export class AddOccasionComponent implements OnInit {
           textField: 'Name',
           selectAllText: 'כל המורות',
           unSelectAllText: 'אף מורה',
-          itemsShowLimit: this.teachers.length,
+          itemsShowLimit: 10,
           allowSearchFilter: true,
           searchPlaceholderText: 'חפוש'
         };
-        this.loaded=true;
+        this.loaded = true;
       },
         err => console.error(err)
       );
@@ -124,14 +122,22 @@ export class AddOccasionComponent implements OnInit {
 
   onItemSelect(item: Teacher) {
     this.teacherIDs.push(item.Id);
-    console.log(item);
+    console.log(`${item} נוספה`);
+  }
+  onItemDeSelect(item: Teacher){
+    this.arrayRemove( this.teacherIDs,item.Id);
+    console.log(`${item} הוסרה`);
   }
   onSelectAll(items: Teacher[]) {
+    /*items.forEach(i => {
+      this.teacherIDs.push(i.Id);
+    });*/
     console.log(items);
   }
 
   onChooseLayer() {
     var layerIDs = [];
+    debugger;
     for (const key in this.isCheckedLayers) {
       if (this.isCheckedLayers.hasOwnProperty(key)) {
         if (this.isCheckedLayers[key]) {
@@ -148,7 +154,7 @@ export class AddOccasionComponent implements OnInit {
       );
   }
 
-   onAddOccasion() {
+  onAddOccasion() {
     this.classIDs = [];
     for (const key in this.isCheckedClasses) {//add the classes TOFIX! add the classes again
       if (this.isCheckedClasses.hasOwnProperty(key)) {
@@ -186,7 +192,7 @@ export class AddOccasionComponent implements OnInit {
       FromLesson: this.fromLesson,
       ToLesson: this.toLesson,
       OccasionType: this.typeId,
-      Subject:this.subject,
+      Subject: this.subject,
       Dairies: this.dairyIDs,
       Classes: this.classIDs,
       Rooms: this.roomIDs,

@@ -16,8 +16,8 @@
         </div>
         <div class="d-flex-column" *ngFor="let columnData of data.Cells">
             <div class="cell"  *ngFor="let cellData of columnData" [ngStyle]="{'flex': cellData.RowSpan,'background-color': '#'+cellData.Color}">
-                <p><span>מורה </span>{{cellData.SubTitle}}</p>
-                <p><span>מקצוע </span>{{cellData.EventTitle}}</p>
+                <p>{{cellData.TeacherName}}</p>
+                <p>{{cellData.SubjectName}}</p>
             </div>
         </div>
     </div>

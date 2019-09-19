@@ -30,37 +30,75 @@ namespace BL
             return orderSchedule;
         }
 
-        public List<List<ScheduleDTO>> OrderByDays(List<ScheduleDTO> groups)
+        public List<List<ScheduleRequest>> OrderByDays(List<ScheduleRequest> groups)
         {
-            List<Schedule> sch = _CastDTO.DTOToSchedule(groups);
-            List<List<ScheduleDTO>> orderSchedule = new List<List<ScheduleDTO>>();
+            //List<ScheduleRequest> sch = _CastDTO.DTOToSchedule(groups);
+            List<List<ScheduleRequest>> orderSchedule = new List<List<ScheduleRequest>>();
             int numOfDays = 6;//TODO change to the web config
-            for (int day = 0; day < numOfDays; day++)
+            for (int day = 1; day <= numOfDays; day++)
             {
-                var s = _CastDTO.ScheduleToDTO(sch.Where(lsn => lsn.Day == day).ToList());
+                var s =  MergeLessons(groups.Where(lsn => lsn.WeekDay == day).ToList());
                 s.Sort();
                 orderSchedule.Add(s);
             }
             return orderSchedule;
         }
+        /*
+         SubTitle: 'שרה',
+            EventTitle: 'מתמטיקה',
+            Color: 'ccffcc',
+            RowSpan: 2,
+            EditUrl: 'login'
+            Day:''
+            Hour:''
+            class:''
 
-        public List<List<ScheduleDTO>> GetScheduleByClass(int layer, int number)
+         */
+        public List<ScheduleRequest> MergeLessons(List<ScheduleRequest> schedule)
+        {
+            var n = new List<ScheduleRequest>();
+            for (int i = 0; i < n.Count; i++)
+            {
+                var t = n.FirstOrDefault(l => schedule[i].Cls == l.Cls &&
+                schedule[i].SubjectName == l.SubjectName &&
+                schedule[i].Hour == l.Hour);
+                if (t != null)
+                {
+                    t.TeacherName += "" + schedule[i].TeacherName;
+                }
+                else
+                    n.Add(t);
+            }
+            return n;
+        }
+
+        public List<List<ScheduleRequest>> GetScheduleByClass(int layer, int number)
         {
             Console.WriteLine("in GetScheduleByClass");
             using (Entities db = new Entities())
             {
-                return OrderByDays(_CastDTO.ScheduleToDTO(db.Schedules.Where(s=>
-                s.Group.Classes.Any(c=> c.Layer == layer && c.Number == number)).ToList()));
+                return OrderByDays(db.Schedules.Select(
+                     s => new ScheduleRequest
+                     {
+                         TeacherName = s.Group.Teacher1.Name,
+                         SubjectName = s.Group.Subject1.Name,
+                         Color = "ccffcc",
+                         RowSpan = 1,
+                         EditUrl = "login",
+                         Cls = s.Group.Classes.FirstOrDefault().Layer * 100 + s.Group.Classes.FirstOrDefault().Number,
+                         Hour = s.Hour,
+                         WeekDay = s.WeekDay
+                     }).Where(l => l.Cls == layer * 100 + number).ToList());
+
             }
         }
 
-        public List<List<ScheduleDTO>> GetScheduleByTeacher(int teacherId)
+        public List<List<ScheduleRequest>> GetScheduleByTeacher(int teacherId)
         {
             Console.WriteLine("in GetScheduleByTeacher");
             using (Entities db = new Entities())
             {
-                return OrderByDays(_CastDTO.ScheduleToDTO(db.Schedules.Where(s =>
-                s.Group.Teacher == teacherId).ToList()));
+                return OrderByDays(db.Schedules.Select(s => new ScheduleRequest { TeacherName = s.Group.Teacher1.Name, SubjectName = s.Group.Subject1.Name, Color = "ccffcc", RowSpan = 1, EditUrl = "login", Cls = s.Group.Classes.FirstOrDefault().Layer * 100 + s.Group.Classes.FirstOrDefault().Number, Hour = s.Hour, WeekDay = s.WeekDay }).Where(l => l.TeacherName == l.TeacherName).ToList());
             }
         }
     }

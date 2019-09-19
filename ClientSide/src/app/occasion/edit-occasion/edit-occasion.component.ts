@@ -79,15 +79,16 @@ export class EditOccasionComponent implements OnInit {
 
   }
   onChangeType(e){
-    console.log(e);
     this.occ.OccasionType = e;
+        console.log(`onChangeType ${e}`);
+debugger;
   }
 
   onEditOccasion() {
     this.occService.update(this.occ)
       .subscribe(res => {
         console.log(`עודכן בהצלחה ${res}`);
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('/occasion/occasion');
       }, err => console.error(err))
   }
 

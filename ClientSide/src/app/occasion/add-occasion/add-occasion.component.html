@@ -71,22 +71,25 @@
       <div>
         <b>מלוות</b>
         <ng-multiselect-dropdown placeholder="בחירת מלווה" [data]="dropdownList" [(ngModel)]="selectedItems" [settings]="dropdownSettings"
-        [formControl]="addOccasion.controls['teacherCrtl']" name="chooseTeacher" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)">
+         name="chooseTeacher" (onSelect)="onItemSelect($event)" (onSelectAll)="onSelectAll($event)"(onDeSelect)="onItemDeSelect($event)">
+         <!-- [formControl]="addOccasion.controls['teacherCrtl']" -->
         </ng-multiselect-dropdown>
       </div>
       <div>
         <b>בחירת מחזור</b>
         <div *ngFor="let layer of layers">
           <label for="layer{{layer.Id}}">{{layer.Name}}</label>
-          <input type="checkbox" value="{{layer.Id}}" id="layer{{layer.Id}}" name="layer{{layer.Id}}" [formControl]="addOccasion.controls['layersCtrl']"
+          <input type="checkbox" value="{{layer.Id}}" id="layer{{layer.Id}}" name="layer{{layer.Id}}" 
             [(ngModel)]="isCheckedLayers[layer.Id]">
+            <!-- [formControl]="addOccasion.controls['layersCtrl']" -->
         </div>
       </div>
       <div>
         <b (click)="onChooseLayer()" class="pointer">בחירת כיתות</b>
         <div *ngFor="let cls of classes">
           <label for="cls{{cls.Id}}">{{cls.Name}}</label>
-          <input type="checkbox" value="{{cls.Id}}" id="cls{{cls.Id}}" name="cls{{cls.Id}}" [formControl]="addOccasion.controls['classCtrl']"  [(ngModel)]="isCheckedClasses[cls.Id]">
+          <input type="checkbox" value="{{cls.Id}}" id="cls{{cls.Id}}" name="cls{{cls.Id}}" [(ngModel)]="isCheckedClasses[cls.Id]">
+          <!-- [formControl]="addOccasion.controls['classCtrl']"  -->
         </div>
       </div>
       <div *ngIf="!addOccasion.valid" class="alert alert-danger"> הטופס אינו מושלם, יש לודא כי כל שדות החובה מלאים</div>
