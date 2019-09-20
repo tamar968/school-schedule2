@@ -8,7 +8,7 @@ namespace BL
 {
     public class ScheduleManager
     {
-        public List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)
+        public static List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)
         {
             using (Entities db = new Entities())
             {
@@ -16,7 +16,7 @@ namespace BL
             }
         }
 
-        public List<List<DairyDTO>> OrderByClass(List<DairyDTO> schedules)
+        public static List<List<DairyDTO>> OrderByClass(List<DairyDTO> schedules)
         {
             List<Dairy> sch = _CastDTO.DTOToDairy(schedules);
             List<List<DairyDTO>> orderSchedule = new List<List<DairyDTO>>();
@@ -30,14 +30,14 @@ namespace BL
             return orderSchedule;
         }
 
-        public List<List<ScheduleRequest>> OrderByDays(List<ScheduleRequest> groups)
+        public static List<List<ScheduleRequest>> OrderByDays(List<ScheduleRequest> groups)
         {
             //List<ScheduleRequest> sch = _CastDTO.DTOToSchedule(groups);
             List<List<ScheduleRequest>> orderSchedule = new List<List<ScheduleRequest>>();
             int numOfDays = 6;//TODO change to the web config
             for (int day = 1; day <= numOfDays; day++)
             {
-                var s =  MergeLessonsByTeacher(groups.Where(lsn => lsn.WeekDay == day).ToList());
+                var s = MergeLessonsByTeacher(groups.Where(lsn => lsn.WeekDay == day).ToList());
                 s.Sort();
                 orderSchedule.Add(s);
             }
@@ -54,7 +54,7 @@ namespace BL
             class:''
 
          */
-        public List<ScheduleRequest> MergeLessonsByTeacher(List<ScheduleRequest> schedule)
+        public static List<ScheduleRequest> MergeLessonsByTeacher(List<ScheduleRequest> schedule)
         {
             List<ScheduleRequest> n = null;
             for (int i = 0; i < schedule.Count; i++)
@@ -81,7 +81,7 @@ namespace BL
             return n;
         }
 
-        public List<List<ScheduleRequest>> GetScheduleByClass(int layer, int number)
+        public static List<List<ScheduleRequest>> GetScheduleByClass(int layer, int number)
         {
             Console.WriteLine("in GetScheduleByClass");
             using (Entities db = new Entities())
@@ -102,13 +102,17 @@ namespace BL
             }
         }
 
-        public List<List<ScheduleRequest>> GetScheduleByTeacher(int teacherId)
+        public static List<List<ScheduleRequest>> GetScheduleByTeacher(int teacherId)
         {
             Console.WriteLine("in GetScheduleByTeacher");
             using (Entities db = new Entities())
             {
                 return OrderByDays(db.Schedules.Select(s => new ScheduleRequest { TeacherName = s.Group.Teacher1.Name, SubjectName = s.Group.Subject1.Name, Color = "ccffcc", RowSpan = 1, EditUrl = "login", Cls = s.Group.Classes.FirstOrDefault().Layer * 100 + s.Group.Classes.FirstOrDefault().Number, Hour = s.Hour, WeekDay = s.WeekDay }).Where(l => l.TeacherName == l.TeacherName).ToList());
             }
+        }
+        public static List<List<ScheduleRequest>> GetScheduleByLayer(int layer)
+        {
+            return null;
         }
     }
 }
