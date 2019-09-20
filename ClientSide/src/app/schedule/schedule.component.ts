@@ -14,7 +14,9 @@ export class ScheduleComponent implements OnInit {
   constructor(private schService: ScheduleService) { }
   cells: Schedule[][];
   ngOnInit() {
-    this.schService.getClass(9,2,new Date).subscribe(
+    const layer = 10;
+    const clsnum = 2;
+    this.schService.getClass(layer,clsnum,new Date).subscribe(
       d => {
         d.forEach(i => this.resizeArrayToN(i, 8, { TeacherName: '', RowSpan: 1, Color: 'white' } as Schedule));
         this.cells = d;

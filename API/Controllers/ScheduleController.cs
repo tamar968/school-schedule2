@@ -20,7 +20,8 @@ namespace API.Controllers
         {
             try
             {
-                return Ok(ScheduleManager.GetScheduleByClass(clsReq.c, clsReq.n));//TODO with date
+                ScheduleManager s = new ScheduleManager();
+                return Ok(s.GetScheduleByClass(clsReq.c, clsReq.n));//TODO with date
             }
             catch (Exception e)
             {
@@ -40,7 +41,8 @@ namespace API.Controllers
         {
             try
             {
-                return Ok(ScheduleManager.GetScheduleByTeacher(teachReq.id));//TODO with date
+                ScheduleManager s = new ScheduleManager();
+                return Ok(s.GetScheduleByTeacher(teachReq.id));//TODO with date
             }
             catch (Exception e)
             {
@@ -59,7 +61,8 @@ namespace API.Controllers
         {
             try
             {
-                return Ok(ScheduleManager.GetScheduleByLayer(layReq.l));//TODO 1.implement 2.with date
+                ScheduleManager s = new ScheduleManager();
+                return Ok(s.GetScheduleByLayer(layReq.l));//TODO 1.implement 2.with date
             }
             catch (Exception e)
             {

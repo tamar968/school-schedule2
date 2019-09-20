@@ -17,13 +17,6 @@ namespace BL
                 { 13, "יג" },
                 { 14, "יד" }
             };
-        public List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)
-        {
-            using (Entities db = new Entities())
-            {
-                return OrderByClass(_CastDTO.DairyToDTO(db.Dairies.Where(lsn => date <= lsn.FromDate && date >= lsn.ToDate && lsn.Classes.Any(c => c.Layer == layer)).ToList()));
-            }
-        }
 
         public List<List<DairyDTO>> OrderByClass(List<DairyDTO> schedules)
         {
@@ -38,7 +31,6 @@ namespace BL
             }
             return orderSchedule;
         }
-
         public List<List<ScheduleRequest>> OrderByDays(List<ScheduleRequest> groups)
         {
             //List<ScheduleRequest> sch = _CastDTO.DTOToSchedule(groups);
@@ -46,24 +38,37 @@ namespace BL
             int numOfDays = 6;//TODO change to the web config
             for (int day = 1; day <= numOfDays; day++)
             {
-                var s =  MergeLessonsByTeacher(groups.Where(lsn => lsn.WeekDay == day).ToList());
+                var s = MergeLessonsByTeacher(groups.Where(lsn => lsn.WeekDay == day).ToList());
                 s.Sort();
                 orderSchedule.Add(s);
             }
             return orderSchedule;
         }
-        /*
-         SubTitle: 'שרה',
-            EventTitle: 'מתמטיקה',
-            Color: 'ccffcc',
-            RowSpan: 2,
-            EditUrl: 'login'
-            Day:''
-            Hour:''
-            class:''
-            className:''
 
-         */
+        public List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)
+        {
+            using (Entities db = new Entities())
+            {
+                return OrderByClass(_CastDTO.DairyToDTO(db.Dairies.Where(lsn => date <= lsn.FromDate && date >= lsn.ToDate && lsn.Classes.Any(c => c.Layer == layer)).ToList()));
+            }
+        }
+
+        public List<List<ScheduleRequest>> GetScheduleByLayer(int l)
+        {
+            return null;//GetScheduleByDate(DateTime.Today, 9);
+        }
+        /*
+SubTitle: 'שרה',
+   EventTitle: 'מתמטיקה',
+   Color: 'ccffcc',
+   RowSpan: 2,
+   EditUrl: 'login'
+   Day:''
+   Hour:''
+   class:''
+   className:''
+
+*/
         public List<ScheduleRequest> MergeLessonsByTeacher(List<ScheduleRequest> schedule)
         {
             List<ScheduleRequest> n = null;
@@ -130,6 +135,12 @@ namespace BL
             return (cls % 10).ToString();
         }
 
+        private string GetLayerFromCls(int cls)
+        {
+           
+            return pairs[cls / 100];
+        }
+
         public List<List<ScheduleRequest>> GetScheduleByClass(int layer, int number)
         {
             Console.WriteLine("in GetScheduleByClass");
@@ -145,16 +156,10 @@ namespace BL
                          EditUrl = "login",
                          Cls = s.Group.Classes.FirstOrDefault().Layer * 100 + s.Group.Classes.FirstOrDefault().Number,
                          Hour = s.Hour,
-                         WeekDay = s.WeekDay                         
+                         WeekDay = s.WeekDay
                      }).Where(l => l.Cls == layer * 100 + number).ToList());
 
             }
-        }
-
-        private string GetLayerFromCls(int cls)
-        {
-           
-            return pairs[cls / 100];
         }
 
         public List<List<ScheduleRequest>> GetScheduleByTeacher(int teacherId)
