@@ -1,4 +1,4 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
 <h3>המערכת</h3>
 
 <div class="schedule-container">
@@ -17,7 +17,7 @@
         <div class="d-flex-column" *ngFor="let columnData of data.Cells">
             <div class="cell"  *ngFor="let cellData of columnData" [ngStyle]="{'flex': cellData.RowSpan,'background-color': '#'+cellData.Color}">
                 <p>{{cellData.TeacherName}}</p>
-                <p>{{cellData.SubjectName}}</p>
+                <p><b>{{cellData.SubjectName}}</b></p>
             </div>
         </div>
     </div>

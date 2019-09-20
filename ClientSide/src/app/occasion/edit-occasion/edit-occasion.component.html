@@ -19,11 +19,11 @@
         class="alert alert-danger">
         סוג ארוע' הינו שדה חובה'
     </div>
-    <div *ngIf="OccasionType===4" class="form-group row">
+    <div *ngIf="occ.OccasionType==4" class="form-group row">
         <label for="" class="col-sm-2 col-form-label">מקצוע</label>
         <div class="col-sm-10">
             <select class="custom-select mr-sm-2" [formControl]="editOccasion.controls['subjCtrl']"
-                [(ngModel)]="occ.Subject" id="inlineFormCustomSelect" value="{{occ.Subject}}">
+                [ngModel]="occ.Subject" (ngModelChange)="onChangeSub($event)" id="inlineFormCustomSelect" value="{{occ.Subject}}">
                 <option value="{{s.Id}}" *ngFor="let s of subjects">{{s.Name}}</option>
             </select>
         </div>
@@ -55,9 +55,9 @@
         <div class="">
             <input class="form-control" type="text" placeholder="yyyy-mm-dd" value="" name="toDate"
                 [formControl]="editOccasion.controls['toCtrl']" [(ngModel)]="occ.ToDate" ngbDatepicker
-                #d1="ngbDatepicker">
+                #d2="ngbDatepicker">
             <div class="input-group-append">
-                <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button">
+                <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button">
                     <img class="i" src="assets/img/calendar.png">
                 </button>
             </div>
@@ -67,7 +67,7 @@
         <label for="" class="col-sm-2 col-form-label">משעור</label>
         <div class="col-sm-10">
             <select class="custom-select mr-sm-2" [formControl]="editOccasion.controls['fromLsnCtrl']"
-                [(ngModel)]="occ.FromLesson" value="{{fromLsn}}" id="inlineFormCustomSelect">
+                [ngModel]="occ.FromLesson"(ngModelChange)="onChangeFromLsn($event)" value="{{fromLsn}}" id="inlineFormCustomSelect">
                 <option value="{{h}}" *ngFor="let h of hours" [selected]="occ.FromLesson===h">{{h}}</option>
             </select> </div>
 
@@ -80,7 +80,7 @@
         <label for="" class="col-sm-2 col-form-label">עד שעור</label>
         <div class="col-sm-10">
             <select class="custom-select mr-sm-2" [formControl]="editOccasion.controls['toLsnCtrl']"
-                [(ngModel)]="occ.ToLesson" value="{{toLsn}}" id="inlineFormCustomSelect">
+                [ngModel]="occ.ToLesson"(ngModelChange)="onChangeToLsn($event)" value="{{toLsn}}" id="inlineFormCustomSelect">
                 <option value="{{h}}" *ngFor="let h of hours" [selected]="occ.ToLesson===h">{{h}}</option>
             </select> </div>
     </div>

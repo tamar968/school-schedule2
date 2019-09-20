@@ -27,17 +27,17 @@ export class EditOccasionComponent implements OnInit {
   ) {
     this.editOccasion = this.fb.group({
       'fromCtrl': [null, Validators.required/*Validators.compose([Validators.required, Validators.pattern('20[0-9]{2}-[0-1][0-9]-[0-3][0-9]*')])*/],
-      'toCtrl': [false/*null, Validators.compose([Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')])*/],
+      'toCtrl': [null, Validators.required/*Validators.compose([Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')])*/],
       'typeCtrl': [null, Validators.required],
       'fromLsnCtrl': [null, Validators.required /*Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
       'toLsnCtrl': [false/*null,Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
       'subjCtrl': [false],
     })
     console.log(this.editOccasion);
-    /*this.addOccasion.valueChanges.subscribe( (form: any) => {
-      console.log('form changed to:', form);
+    this.editOccasion.valueChanges.subscribe( (form: any) => {
+      console.log('form changed to:', form,'fb:',this.editOccasion);
     }
-    );*/
+    );/**/
   }
 
   loaded = false;
@@ -81,9 +81,20 @@ export class EditOccasionComponent implements OnInit {
   onChangeType(e){
     this.occ.OccasionType = e;
         console.log(`onChangeType ${e}`);
-debugger;
+        console.log(this.editOccasion)
   }
-
+  onChangeSub(e){
+    this.occ.Subject = e;
+        console.log(`onChangeSub ${e}`);
+  }
+  onChangeFromLsn(e){
+    this.occ.FromLesson = e;
+        console.log(`onChangeFromLsn ${e}`);
+  }
+  onChangeToLsn(e){
+    this.occ.ToLesson = e;
+        console.log(`onChangeToLsn ${e}`);
+  }
   onEditOccasion() {
     this.occService.update(this.occ)
       .subscribe(res => {
@@ -93,17 +104,17 @@ debugger;
   }
 
   delete(id: number) {
-    var res = confirm(`האם ארוע ${this.occ.OccasionType} זה בטוח למחיקה?`)
+    var res = confirm(`האם ארוע ${this.occ.OccasionTypeName} זה בטוח למחיקה?`)
     if (res === true) {
       this.occService.delete(id)
         .subscribe(res => {
           console.log(`נמחק בהצלחה ${res}`);
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('occasion/occasion');
         }, err => console.error(err))
     }
     else alert(`מחיקת הארוע בוטלה`);
   }
   navigateToList() {
-    this.router.navigate([`/occasion/occasion`]);
+    this.router.navigate([`occasion/occasion`]);
   }
 }

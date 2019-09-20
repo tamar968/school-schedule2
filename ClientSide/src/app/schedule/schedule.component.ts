@@ -14,7 +14,7 @@ export class ScheduleComponent implements OnInit {
   constructor(private schService: ScheduleService) { }
   cells: Schedule[][];
   ngOnInit() {
-    this.schService.get().subscribe(
+    this.schService.getClass(9,2,new Date).subscribe(
       d => {
         d.forEach(i => this.resizeArrayToN(i, 8, { TeacherName: '', RowSpan: 1, Color: 'white' } as Schedule));
         this.cells = d;
@@ -46,7 +46,6 @@ export class ScheduleComponent implements OnInit {
   }
   resizeArrayToN(a: Schedule[], n: number, o: Schedule) {
     let l = a.length;
-    debugger
     if (l < n) {
       for (let index = 0; l + index < n; index++) {
         a.push(o);
