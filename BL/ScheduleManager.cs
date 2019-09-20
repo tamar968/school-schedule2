@@ -44,19 +44,6 @@ namespace BL
             }
             return orderSchedule;
         }
-
-        public List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)
-        {
-            using (Entities db = new Entities())
-            {
-                return OrderByClass(_CastDTO.DairyToDTO(db.Dairies.Where(lsn => date <= lsn.FromDate && date >= lsn.ToDate && lsn.Classes.Any(c => c.Layer == layer)).ToList()));
-            }
-        }
-
-        public List<List<ScheduleRequest>> GetScheduleByLayer(int l)
-        {
-            return null;//GetScheduleByDate(DateTime.Today, 9);
-        }
         /*
 SubTitle: 'שרה',
    EventTitle: 'מתמטיקה',
@@ -137,7 +124,7 @@ SubTitle: 'שרה',
 
         private string GetLayerFromCls(int cls)
         {
-           
+
             return pairs[cls / 100];
         }
 
@@ -169,15 +156,30 @@ SubTitle: 'שרה',
             {
                 return OrderByDays(
                     db.Schedules.Select(s =>
-                    new ScheduleRequest {
+                    new ScheduleRequest
+                    {
                         TeacherName = s.Group.Teacher1.Name,
                         SubjectName = s.Group.Subject1.Name,
                         Color = "ccffcc",
                         RowSpan = 1,
                         EditUrl = "login",
                         //Cls = s.Group.Classes.FirstOrDefault().Layer * 100 + s.Group.Classes.FirstOrDefault().Number,
-                        Hour = s.Hour, WeekDay = s.WeekDay }).Where(l => l.TeacherName == l.TeacherName).ToList());
+                        Hour = s.Hour,
+                        WeekDay = s.WeekDay
+                    }).Where(l => l.TeacherName == l.TeacherName).ToList());
             }
+        }
+        public List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)
+        {
+            using (Entities db = new Entities())
+            {
+                return OrderByClass(_CastDTO.DairyToDTO(db.Dairies.Where(lsn => date <= lsn.FromDate && date >= lsn.ToDate && lsn.Classes.Any(c => c.Layer == layer)).ToList()));
+            }
+        }
+
+        public List<List<ScheduleRequest>> GetScheduleByLayer(int l)
+        {
+            return null;//GetScheduleByDate(DateTime.Today, 9);
         }
     }
 }

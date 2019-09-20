@@ -54,7 +54,7 @@ export class ViewAbsenceComponent implements OnInit {
     },
       err => console.error(err)
     );
-     this.absenceForTeacherService.get(11).subscribe(absence=> {
+     this.absenceForTeacherService.get(9).subscribe(absence=> {
      this.absence=absence;
      this.fromDate = this.absence.FromDate;
      console.log("this.fromDate:"+this.fromDate.getDate() +" "+this.absence.FromDate.getDate())
