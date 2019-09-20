@@ -46,7 +46,6 @@ export class ScheduleComponent implements OnInit {
   }
   resizeArrayToN(a: Schedule[], n: number, o: Schedule) {
     let l = a.length;
-    debugger
     if (l < n) {
       for (let index = 0; l + index < n; index++) {
         a.push(o);

@@ -28,12 +28,12 @@ export class ViewOccasionComponent implements OnInit {
     private teaService: TeacherService
 
   ) { }
-loaded=false;
+  loaded = false;
   private occ: Occasion;
   //dairies: 
-  private classes: Class[]=[];
+  private classes: Class[] = [];
   //rooms: 
-  private teachers: Teacher[]=[];
+  private teachers: Teacher[] = [];
 
   ngOnInit() {
 
@@ -44,10 +44,12 @@ loaded=false;
           .subscribe(occType => {
             this.occ.OccasionTypeName = occType.Name;
           }, err => console.error(err))
-        this.subService.getSubjects().subscribe(s=>{
-          this.occ.SubjectName=s.filter(s1=> s1.Id === this.occ.Subject)[0].Name;
-console.log(occ.SubjectName);debugger;
-        }, e => console.error(e))  
+        if (occ.Subject != null) {
+          this.subService.getSubjects().subscribe(s => {
+            this.occ.SubjectName = s.filter(s1 => s1.Id === this.occ.Subject)[0].Name;
+            console.log(occ.SubjectName);
+          }, e => console.error(e))
+        }
         this.clsService.getClasses().subscribe(clss => {
           this.occ.Classes.forEach(c => this.classes.push(clss.filter(cl => cl.Id === c)[0]));
         }, e => console.error(e));
@@ -55,7 +57,7 @@ console.log(occ.SubjectName);debugger;
           this.occ.Teachers.forEach(t => this.teachers.push(teachers.filter(t1 => t1.Id === t)[0]));
         }, e => console.error(e));
         console.log(occ);
-        this.loaded=true;
+        this.loaded = true;
       }, err => console.error(err))
 
   }
