@@ -31,8 +31,10 @@ namespace TestCode
             //var x = BL.Class.ClassByLayer;
             var s = new ScheduleManager();
 
-            var l = s.GetScheduleByClass(9, 2);
-            Console.WriteLine(l.Count());
+            //var l1 = s.GetScheduleByClass(9, 2);
+            //Console.WriteLine(l1.Count());
+
+            var l2 = s.GetScheduleByTeacher(2);
             //Console.ReadLine();
         }
     }

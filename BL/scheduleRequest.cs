@@ -16,7 +16,8 @@ namespace BL
         public int WeekDay { get; set; }
         public int Hour { get; set; }
         public int Cls { get; set; }
-
+        public string Layer { get; set; }
+        public string ClsNum { get; set; }
         public int CompareTo(object obj)
         {
             return Hour - (obj as ScheduleRequest).Hour;
