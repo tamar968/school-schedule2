@@ -62,10 +62,10 @@ export class AddOccasionComponent implements OnInit {
       'typeCtrl': [null, Validators.required],
       'fromLsnCtrl': [null, Validators.required /*Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
       'toLsnCtrl': [false/*null,Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
-      'subjCtrl': [false]/*,
+      'subjCtrl': [false],
       'layersCtrl': [false],
       'classCtrl': [false],
-      'teacherCrtl': [false]*/
+      'teacherCrtl': [false]/**/
     })
     console.log(this.addOccasion);
     /*this.addOccasion.valueChanges.subscribe( (form: any) => {
@@ -165,7 +165,7 @@ export class AddOccasionComponent implements OnInit {
     }
     this.occationService.add(this.get()).subscribe(
       res => {
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('occasion/occasion');
         console.log("הארוע נוסף בהצלחה")
       }
       ,

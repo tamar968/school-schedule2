@@ -111,6 +111,7 @@
           <Property Name="FromDate" Type="date" />
           <Property Name="ToDate" Type="date" />
           <Property Name="OccasionType" Type="int" />
+          <Property Name="Subject" Type="int" />
           <Property Name="FromLesson" Type="int" />
           <Property Name="ToLesson" Type="int" />
         </EntityType>
@@ -821,13 +822,13 @@
           <Property Name="Hour" Type="Int32" Nullable="false" />
           <Property Name="CalculateHours" Type="Decimal" Precision="4" Scale="2" />
           <Property Name="Cause" Type="Int32" />
-          <NavigationProperty Name="Occasion" Relationship="Self.FK_Dairy_Ocation" FromRole="Dairy" ToRole="Occasion" />
           <NavigationProperty Name="OccasionType" Relationship="Self.FK_Dairy_OcationType" FromRole="Dairy" ToRole="OccasionType" />
           <NavigationProperty Name="Room" Relationship="Self.FK_Dairy_Room" FromRole="Dairy" ToRole="Room" />
           <NavigationProperty Name="Subject" Relationship="Self.FK_Dairy_Subject" FromRole="Dairy" ToRole="Subject" />
           <NavigationProperty Name="Teacher" Relationship="ESTYTAMARModel.FK_Dairy_Teacher" FromRole="Dairy" ToRole="Teacher" />
           <NavigationProperty Name="Classes" Relationship="ESTYTAMARModel.DairyForClasses" FromRole="Dairy" ToRole="Class" />
           <NavigationProperty Name="Group" Relationship="ESTYTAMARModel.FK_Dairy_Group" FromRole="Dairy" ToRole="Group" />
+          <NavigationProperty Name="Occasion" Relationship="ESTYTAMARModel.FK_Dairy_Ocation" FromRole="Dairy" ToRole="Occasion" />
           </EntityType>
         <EntityType Name="HourType">
           <Key>
@@ -838,22 +839,6 @@
           <Property Name="Name" Type="String" MaxLength="70" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_HourType" FromRole="HourType" ToRole="Group" />
         </EntityType>
-        <EntityType Name="Occasion">
-          <Key>
-            <PropertyRef Name="Id" />
-          </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="FromDate" Type="DateTime" Precision="0" />
-          <Property Name="ToDate" Type="DateTime" Precision="0" />
-          <Property Name="OccasionType" Type="Int32" />
-          <Property Name="FromLesson" Type="Int32" />
-          <Property Name="ToLesson" Type="Int32" />
-          <NavigationProperty Name="Dairies" Relationship="Self.FK_Dairy_Ocation" FromRole="Occasion" ToRole="Dairy" />
-          <NavigationProperty Name="OccasionType1" Relationship="Self.FK_Ocation_OcationType" FromRole="Occasion" ToRole="OccasionType" />
-          <NavigationProperty Name="Rooms" Relationship="Self.RoomsForOccasion" FromRole="Occasion" ToRole="Room" />
-          <NavigationProperty Name="Classes" Relationship="ESTYTAMARModel.ClassesForOccasion" FromRole="Occasion" ToRole="Class" />
-          <NavigationProperty Name="Teachers" Relationship="ESTYTAMARModel.TeachersForOccasion" FromRole="Occasion" ToRole="Teacher" />
-        </EntityType>
         <EntityType Name="OccasionType">
           <Key>
             <PropertyRef Name="Id" />
@@ -861,7 +846,7 @@
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
           <NavigationProperty Name="Dairies" Relationship="Self.FK_Dairy_OcationType" FromRole="OccasionType" ToRole="Dairy" />
-          <NavigationProperty Name="Occasions" Relationship="Self.FK_Ocation_OcationType" FromRole="OccasionType" ToRole="Occasion" />
+          <NavigationProperty Name="Occasions" Relationship="ESTYTAMARModel.FK_Ocation_OcationType" FromRole="OccasionType" ToRole="Occasion" />
         </EntityType>
         <EntityType Name="PayAbsence">
           <Key>
@@ -891,10 +876,10 @@
           <Property Name="ClassId" Type="Int32" />
           <Property Name="UseFor" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="Dairies" Relationship="Self.FK_Dairy_Room" FromRole="Room" ToRole="Dairy" />
-          <NavigationProperty Name="Occasions" Relationship="Self.RoomsForOccasion" FromRole="Room" ToRole="Occasion" />
           <NavigationProperty Name="Class" Relationship="ESTYTAMARModel.FK_Room_Class" FromRole="Room" ToRole="Class" />
           <NavigationProperty Name="Schedules" Relationship="ESTYTAMARModel.FK_Schedule_Room" FromRole="Room" ToRole="Schedule" />
           <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_Room" FromRole="Room" ToRole="Group" />
+          <NavigationProperty Name="Occasions" Relationship="ESTYTAMARModel.RoomsForOccasion" FromRole="Room" ToRole="Occasion" />
         </EntityType>
         <EntityType Name="SchoolType">
           <Key>
@@ -923,18 +908,6 @@
             </Principal>
             <Dependent Role="AbsencesForTeacher">
               <PropertyRef Name="Type" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="FK_Dairy_Ocation">
-          <End Role="Occasion" Type="Self.Occasion" Multiplicity="0..1" />
-          <End Role="Dairy" Type="Self.Dairy" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="Occasion">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Dairy">
-              <PropertyRef Name="OccasionId" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -974,28 +947,11 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="FK_Ocation_OcationType">
-          <End Role="OccasionType" Type="Self.OccasionType" Multiplicity="0..1" />
-          <End Role="Occasion" Type="Self.Occasion" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="OccasionType">
-              <PropertyRef Name="Id" />
-            </Principal>
-            <Dependent Role="Occasion">
-              <PropertyRef Name="OccasionType" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="RoomsForOccasion">
-          <End Role="Occasion" Type="Self.Occasion" Multiplicity="*" />
-          <End Role="Room" Type="Self.Room" Multiplicity="*" />
-        </Association>
         <EntityContainer Name="Entities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Absences" EntityType="Self.Absence" />
           <EntitySet Name="AbsencesForTeachers" EntityType="Self.AbsencesForTeacher" />
           <EntitySet Name="Dairies" EntityType="Self.Dairy" />
           <EntitySet Name="HourTypes" EntityType="Self.HourType" />
-          <EntitySet Name="Occasions" EntityType="Self.Occasion" />
           <EntitySet Name="OccasionTypes" EntityType="Self.OccasionType" />
           <EntitySet Name="PayAbsences" EntityType="Self.PayAbsence" />
           <EntitySet Name="Reformas" EntityType="Self.Reforma" />
@@ -1005,10 +961,6 @@
           <AssociationSet Name="FK_AbsencesForTeacher_Absence1" Association="Self.FK_AbsencesForTeacher_Absence1">
             <End Role="Absence" EntitySet="Absences" />
             <End Role="AbsencesForTeacher" EntitySet="AbsencesForTeachers" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Dairy_Ocation" Association="Self.FK_Dairy_Ocation">
-            <End Role="Occasion" EntitySet="Occasions" />
-            <End Role="Dairy" EntitySet="Dairies" />
           </AssociationSet>
           <AssociationSet Name="FK_Dairy_OcationType" Association="Self.FK_Dairy_OcationType">
             <End Role="OccasionType" EntitySet="OccasionTypes" />
@@ -1021,14 +973,6 @@
           <AssociationSet Name="FK_Dairy_Subject" Association="Self.FK_Dairy_Subject">
             <End Role="Subject" EntitySet="Subjects" />
             <End Role="Dairy" EntitySet="Dairies" />
-          </AssociationSet>
-          <AssociationSet Name="FK_Ocation_OcationType" Association="Self.FK_Ocation_OcationType">
-            <End Role="OccasionType" EntitySet="OccasionTypes" />
-            <End Role="Occasion" EntitySet="Occasions" />
-          </AssociationSet>
-          <AssociationSet Name="RoomsForOccasion" Association="Self.RoomsForOccasion">
-            <End Role="Occasion" EntitySet="Occasions" />
-            <End Role="Room" EntitySet="Rooms" />
           </AssociationSet>
           <FunctionImport Name="FILL_CONST_TABLES" />
           <FunctionImport Name="TRUNCATE_MONTHLY_TABLES" />
@@ -1047,10 +991,6 @@
             <End Role="Teacher" EntitySet="Teachers" />
             <End Role="Dairy" EntitySet="Dairies" />
           </AssociationSet>
-          <AssociationSet Name="ClassesForOccasion" Association="ESTYTAMARModel.ClassesForOccasion">
-            <End Role="Occasion" EntitySet="Occasions" />
-            <End Role="Class" EntitySet="Classes" />
-          </AssociationSet>
           <AssociationSet Name="DairyForClasses" Association="ESTYTAMARModel.DairyForClasses">
             <End Role="Class" EntitySet="Classes" />
             <End Role="Dairy" EntitySet="Dairies" />
@@ -1062,10 +1002,6 @@
           <AssociationSet Name="SubjectsForClass" Association="ESTYTAMARModel.SubjectsForClass">
             <End Role="Class" EntitySet="Classes" />
             <End Role="Subject" EntitySet="Subjects" />
-          </AssociationSet>
-          <AssociationSet Name="TeachersForOccasion" Association="ESTYTAMARModel.TeachersForOccasion">
-            <End Role="Occasion" EntitySet="Occasions" />
-            <End Role="Teacher" EntitySet="Teachers" />
           </AssociationSet>
           <EntitySet Name="Schedules" EntityType="ESTYTAMARModel.Schedule" />
           <AssociationSet Name="FK_Schedule_Room" Association="ESTYTAMARModel.FK_Schedule_Room">
@@ -1113,6 +1049,27 @@
             <End Role="Class" EntitySet="Classes" />
             <End Role="Group" EntitySet="Groups" />
           </AssociationSet>
+          <EntitySet Name="Occasions" EntityType="ESTYTAMARModel.Occasion" />
+          <AssociationSet Name="FK_Dairy_Ocation" Association="ESTYTAMARModel.FK_Dairy_Ocation">
+            <End Role="Occasion" EntitySet="Occasions" />
+            <End Role="Dairy" EntitySet="Dairies" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Ocation_OcationType" Association="ESTYTAMARModel.FK_Ocation_OcationType">
+            <End Role="OccasionType" EntitySet="OccasionTypes" />
+            <End Role="Occasion" EntitySet="Occasions" />
+          </AssociationSet>
+          <AssociationSet Name="ClassesForOccasion" Association="ESTYTAMARModel.ClassesForOccasion">
+            <End Role="Occasion" EntitySet="Occasions" />
+            <End Role="Class" EntitySet="Classes" />
+          </AssociationSet>
+          <AssociationSet Name="RoomsForOccasion" Association="ESTYTAMARModel.RoomsForOccasion">
+            <End Role="Occasion" EntitySet="Occasions" />
+            <End Role="Room" EntitySet="Rooms" />
+          </AssociationSet>
+          <AssociationSet Name="TeachersForOccasion" Association="ESTYTAMARModel.TeachersForOccasion">
+            <End Role="Occasion" EntitySet="Occasions" />
+            <End Role="Teacher" EntitySet="Teachers" />
+          </AssociationSet>
         </EntityContainer>
         <EntityType Name="Class">
           <Key>
@@ -1124,10 +1081,10 @@
           <Property Name="Number" Type="Int32" Nullable="false" />
           <Property Name="SchoolType" Type="Int32" />
           <NavigationProperty Name="Rooms" Relationship="ESTYTAMARModel.FK_Room_Class" FromRole="Class" ToRole="Room" />
-          <NavigationProperty Name="Occasions" Relationship="ESTYTAMARModel.ClassesForOccasion" FromRole="Class" ToRole="Occasion" />
           <NavigationProperty Name="Dairies" Relationship="ESTYTAMARModel.DairyForClasses" FromRole="Class" ToRole="Dairy" />
           <NavigationProperty Name="Subjects" Relationship="ESTYTAMARModel.SubjectsForClass" FromRole="Class" ToRole="Subject" />
           <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.ClassesForGroup" FromRole="Class" ToRole="Group" />
+          <NavigationProperty Name="Occasions" Relationship="ESTYTAMARModel.ClassesForOccasion" FromRole="Class" ToRole="Occasion" />
         </EntityType>
         <EntityType Name="sysdiagram">
           <Key>
@@ -1148,8 +1105,8 @@
           <NavigationProperty Name="AbsencesForTeachers" Relationship="ESTYTAMARModel.FK_AbsencesForTeacher_Teacher" FromRole="Teacher" ToRole="AbsencesForTeacher" />
           <NavigationProperty Name="Dairies" Relationship="ESTYTAMARModel.FK_Dairy_Teacher" FromRole="Teacher" ToRole="Dairy" />
           <NavigationProperty Name="PayAbsences" Relationship="ESTYTAMARModel.PayAbsencesForTeacher" FromRole="Teacher" ToRole="PayAbsence" />
-          <NavigationProperty Name="Occasions" Relationship="ESTYTAMARModel.TeachersForOccasion" FromRole="Teacher" ToRole="Occasion" />
           <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_Teacher" FromRole="Teacher" ToRole="Group" />
+          <NavigationProperty Name="Occasions" Relationship="ESTYTAMARModel.TeachersForOccasion" FromRole="Teacher" ToRole="Occasion" />
         </EntityType>
         <Association Name="FK_AbsencesForTeacher_Teacher">
           <End Type="ESTYTAMARModel.Teacher" Role="Teacher" Multiplicity="1" />
@@ -1187,10 +1144,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="ClassesForOccasion">
-          <End Type="ESTYTAMARModel.Occasion" Role="Occasion" Multiplicity="*" />
-          <End Type="ESTYTAMARModel.Class" Role="Class" Multiplicity="*" />
-        </Association>
         <Association Name="DairyForClasses">
           <End Type="ESTYTAMARModel.Class" Role="Class" Multiplicity="*" />
           <End Type="ESTYTAMARModel.Dairy" Role="Dairy" Multiplicity="*" />
@@ -1202,10 +1155,6 @@
         <Association Name="SubjectsForClass">
           <End Type="ESTYTAMARModel.Class" Role="Class" Multiplicity="*" />
           <End Type="ESTYTAMARModel.Subject" Role="Subject" Multiplicity="*" />
-        </Association>
-        <Association Name="TeachersForOccasion">
-          <End Type="ESTYTAMARModel.Occasion" Role="Occasion" Multiplicity="*" />
-          <End Type="ESTYTAMARModel.Teacher" Role="Teacher" Multiplicity="*" />
         </Association>
         <EntityType Name="Schedule">
           <Key>
@@ -1370,6 +1319,59 @@
           <End Type="ESTYTAMARModel.Class" Role="Class" Multiplicity="*" />
           <End Type="ESTYTAMARModel.Group" Role="Group" Multiplicity="*" />
         </Association>
+        <EntityType Name="Occasion">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FromDate" Type="DateTime" Precision="0" />
+          <Property Name="ToDate" Type="DateTime" Precision="0" />
+          <Property Name="OccasionType" Type="Int32" />
+          <Property Name="Subject" Type="Int32" />
+          <Property Name="FromLesson" Type="Int32" />
+          <Property Name="ToLesson" Type="Int32" />
+          <NavigationProperty Name="Dairies" Relationship="ESTYTAMARModel.FK_Dairy_Ocation" FromRole="Occasion" ToRole="Dairy" />
+          <NavigationProperty Name="OccasionType1" Relationship="ESTYTAMARModel.FK_Ocation_OcationType" FromRole="Occasion" ToRole="OccasionType" />
+          <NavigationProperty Name="Classes" Relationship="ESTYTAMARModel.ClassesForOccasion" FromRole="Occasion" ToRole="Class" />
+          <NavigationProperty Name="Rooms" Relationship="ESTYTAMARModel.RoomsForOccasion" FromRole="Occasion" ToRole="Room" />
+          <NavigationProperty Name="Teachers" Relationship="ESTYTAMARModel.TeachersForOccasion" FromRole="Occasion" ToRole="Teacher" />
+        </EntityType>
+        <Association Name="FK_Dairy_Ocation">
+          <End Type="ESTYTAMARModel.Occasion" Role="Occasion" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Dairy" Role="Dairy" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Occasion">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Dairy">
+              <PropertyRef Name="OccasionId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Ocation_OcationType">
+          <End Type="ESTYTAMARModel.OccasionType" Role="OccasionType" Multiplicity="0..1" />
+          <End Type="ESTYTAMARModel.Occasion" Role="Occasion" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="OccasionType">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Occasion">
+              <PropertyRef Name="OccasionType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ClassesForOccasion">
+          <End Type="ESTYTAMARModel.Occasion" Role="Occasion" Multiplicity="*" />
+          <End Type="ESTYTAMARModel.Class" Role="Class" Multiplicity="*" />
+        </Association>
+        <Association Name="RoomsForOccasion">
+          <End Type="ESTYTAMARModel.Occasion" Role="Occasion" Multiplicity="*" />
+          <End Type="ESTYTAMARModel.Room" Role="Room" Multiplicity="*" />
+        </Association>
+        <Association Name="TeachersForOccasion">
+          <End Type="ESTYTAMARModel.Occasion" Role="Occasion" Multiplicity="*" />
+          <End Type="ESTYTAMARModel.Teacher" Role="Teacher" Multiplicity="*" />
+        </Association>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1428,18 +1430,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Occasions">
-            <EntityTypeMapping TypeName="ESTYTAMARModel.Occasion">
-              <MappingFragment StoreEntitySet="Occasion">
-                <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
-                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
-                <ScalarProperty Name="OccasionType" ColumnName="OccasionType" />
-                <ScalarProperty Name="FromLesson" ColumnName="FromLesson" />
-                <ScalarProperty Name="ToLesson" ColumnName="ToLesson" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="OccasionTypes">
             <EntityTypeMapping TypeName="ESTYTAMARModel.OccasionType">
               <MappingFragment StoreEntitySet="OccasionType">
@@ -1492,14 +1482,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="RoomsForOccasion" TypeName="ESTYTAMARModel.RoomsForOccasion" StoreEntitySet="RoomsForOccasion">
-            <EndProperty Name="Occasion">
-              <ScalarProperty Name="Id" ColumnName="OccasionId" />
-            </EndProperty>
-            <EndProperty Name="Room">
-              <ScalarProperty Name="Id" ColumnName="RoomId" />
-            </EndProperty>
-          </AssociationSetMapping>
           <FunctionImportMapping FunctionImportName="FILL_CONST_TABLES" FunctionName="ESTYTAMARModel.Store.FILL_CONST_TABLES" />
           <FunctionImportMapping FunctionImportName="TRUNCATE_MONTHLY_TABLES" FunctionName="ESTYTAMARModel.Store.TRUNCATE_MONTHLY_TABLES" />
           <EntitySetMapping Name="Classes">
@@ -1532,14 +1514,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <AssociationSetMapping Name="ClassesForOccasion" TypeName="ESTYTAMARModel.ClassesForOccasion" StoreEntitySet="ClassesForOccasion">
-            <EndProperty Name="Class">
-              <ScalarProperty Name="Num" ColumnName="ClassId" />
-            </EndProperty>
-            <EndProperty Name="Occasion">
-              <ScalarProperty Name="Id" ColumnName="OccasionId" />
-            </EndProperty>
-          </AssociationSetMapping>
           <AssociationSetMapping Name="DairyForClasses" TypeName="ESTYTAMARModel.DairyForClasses" StoreEntitySet="DairyForClasses">
             <EndProperty Name="Dairy">
               <ScalarProperty Name="Id" ColumnName="DairyId" />
@@ -1562,14 +1536,6 @@
             </EndProperty>
             <EndProperty Name="Class">
               <ScalarProperty Name="Num" ColumnName="ClassId" />
-            </EndProperty>
-          </AssociationSetMapping>
-          <AssociationSetMapping Name="TeachersForOccasion" TypeName="ESTYTAMARModel.TeachersForOccasion" StoreEntitySet="TeachersForOccasion">
-            <EndProperty Name="Teacher">
-              <ScalarProperty Name="Num" ColumnName="TeacherId" />
-            </EndProperty>
-            <EndProperty Name="Occasion">
-              <ScalarProperty Name="Id" ColumnName="OccasionId" />
             </EndProperty>
           </AssociationSetMapping>
           <EntitySetMapping Name="Schedules">
@@ -1607,6 +1573,43 @@
             </EndProperty>
             <EndProperty Name="Class">
               <ScalarProperty Name="Num" ColumnName="ClassId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="Occasions">
+            <EntityTypeMapping TypeName="ESTYTAMARModel.Occasion">
+              <MappingFragment StoreEntitySet="Occasion">
+                <ScalarProperty Name="ToLesson" ColumnName="ToLesson" />
+                <ScalarProperty Name="FromLesson" ColumnName="FromLesson" />
+                <ScalarProperty Name="Subject" ColumnName="Subject" />
+                <ScalarProperty Name="OccasionType" ColumnName="OccasionType" />
+                <ScalarProperty Name="ToDate" ColumnName="ToDate" />
+                <ScalarProperty Name="FromDate" ColumnName="FromDate" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="ClassesForOccasion" TypeName="ESTYTAMARModel.ClassesForOccasion" StoreEntitySet="ClassesForOccasion">
+            <EndProperty Name="Class">
+              <ScalarProperty Name="Num" ColumnName="ClassId" />
+            </EndProperty>
+            <EndProperty Name="Occasion">
+              <ScalarProperty Name="Id" ColumnName="OccasionId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="RoomsForOccasion" TypeName="ESTYTAMARModel.RoomsForOccasion" StoreEntitySet="RoomsForOccasion">
+            <EndProperty Name="Room">
+              <ScalarProperty Name="Id" ColumnName="RoomId" />
+            </EndProperty>
+            <EndProperty Name="Occasion">
+              <ScalarProperty Name="Id" ColumnName="OccasionId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TeachersForOccasion" TypeName="ESTYTAMARModel.TeachersForOccasion" StoreEntitySet="TeachersForOccasion">
+            <EndProperty Name="Teacher">
+              <ScalarProperty Name="Num" ColumnName="TeacherId" />
+            </EndProperty>
+            <EndProperty Name="Occasion">
+              <ScalarProperty Name="Id" ColumnName="OccasionId" />
             </EndProperty>
           </AssociationSetMapping>
         </EntityContainerMapping>

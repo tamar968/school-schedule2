@@ -93,7 +93,7 @@ namespace BL
                          SubjectName = s.Group.Subject1.Name,
                          Color = "ccffcc",
                          RowSpan = 1,
-                         EditUrl = "login",
+                         EditUrl = "",
                          Cls = s.Group.Classes.FirstOrDefault().Layer * 100 + s.Group.Classes.FirstOrDefault().Number,
                          Hour = s.Hour,
                          WeekDay = s.WeekDay

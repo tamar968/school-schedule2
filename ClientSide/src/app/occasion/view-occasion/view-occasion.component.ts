@@ -30,7 +30,6 @@ export class ViewOccasionComponent implements OnInit {
   ) { }
 loaded=false;
   private occ: Occasion;
-  private subject: Subject=null;
   //dairies: 
   private classes: Class[]=[];
   //rooms: 
@@ -46,7 +45,8 @@ loaded=false;
             this.occ.OccasionTypeName = occType.Name;
           }, err => console.error(err))
         this.subService.getSubjects().subscribe(s=>{
-          this.subject=s.filter(s1=> s1.Id === this.occ.Subject)[0];
+          this.occ.SubjectName=s.filter(s1=> s1.Id === this.occ.Subject)[0].Name;
+console.log(occ.SubjectName);debugger;
         }, e => console.error(e))  
         this.clsService.getClasses().subscribe(clss => {
           this.occ.Classes.forEach(c => this.classes.push(clss.filter(cl => cl.Id === c)[0]));
@@ -60,6 +60,6 @@ loaded=false;
 
   }
   navigateToList() {
-    this.router.navigate([`/occasion/occasion`]);
+    this.router.navigate([`occasion/occasion`]);
   }
 }

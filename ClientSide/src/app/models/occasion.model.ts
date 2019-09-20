@@ -7,6 +7,7 @@ export interface Occasion {
     OccasionType: number,
     OccasionTypeName: string,
     Subject: number,
+    SubjectName: string,
     Dairies: number[],
     Classes: number[],
     Rooms: number[],

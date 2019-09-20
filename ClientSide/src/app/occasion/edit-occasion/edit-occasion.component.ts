@@ -81,9 +81,19 @@ export class EditOccasionComponent implements OnInit {
   onChangeType(e){
     this.occ.OccasionType = e;
         console.log(`onChangeType ${e}`);
-debugger;
   }
-
+  onChangeSub(e){
+    this.occ.Subject = e;
+        console.log(`onChangeSub ${e}`);
+  }
+  onChangeFromLsn(e){
+    this.occ.FromLesson = e;
+        console.log(`onChangeFromLsn ${e}`);
+  }
+  onChangeToLsn(e){
+    this.occ.ToLesson = e;
+        console.log(`onChangeToLsn ${e}`);
+  }
   onEditOccasion() {
     this.occService.update(this.occ)
       .subscribe(res => {
@@ -93,17 +103,17 @@ debugger;
   }
 
   delete(id: number) {
-    var res = confirm(`האם ארוע ${this.occ.OccasionType} זה בטוח למחיקה?`)
+    var res = confirm(`האם ארוע ${this.occ.OccasionTypeName} זה בטוח למחיקה?`)
     if (res === true) {
       this.occService.delete(id)
         .subscribe(res => {
           console.log(`נמחק בהצלחה ${res}`);
-          this.router.navigateByUrl('');
+          this.router.navigateByUrl('occasion/occasion');
         }, err => console.error(err))
     }
     else alert(`מחיקת הארוע בוטלה`);
   }
   navigateToList() {
-    this.router.navigate([`/occasion/occasion`]);
+    this.router.navigate([`occasion/occasion`]);
   }
 }

@@ -53,6 +53,7 @@ namespace BL
                 var occ = db.Occasions.FirstOrDefault(o => o.Id == occasion.Id);
                 occ.Id = occasion.Id;
                 occ.OccasionType = occasion.OccasionType;
+                occ.Subject = occasion.Subject;
                 occ.FromDate = _CastDTO.DTOToDate(occasion.FromDate);
                 occ.ToDate = _CastDTO.DTOToDate(occasion.ToDate);
                 occ.FromLesson = occasion.FromLesson;

@@ -16,25 +16,31 @@ namespace API.Controllers
     {
         [HttpPost]
         [Route("get/class")]
-        public IHttpActionResult Get([FromBody]int c, int n, DateDTO d)
+        public IHttpActionResult Get([FromBody]ClassRequest clsReq)
         {
             try
             {
-                return Ok(ScheduleManager.GetScheduleByClass(c, n));//TODO with date
+                return Ok(ScheduleManager.GetScheduleByClass(clsReq.c, clsReq.n));//TODO with date
             }
             catch (Exception e)
             {
                 LogManager.LogException(e);
                 return InternalServerError(e);
             }
+        }
+        public class ClassRequest
+        {
+            public int c { get; set; }
+            public int n { get; set; }
+            public DateDTO d { get; set; }
         }
         [HttpPost]
         [Route("get/teacher")]
-        public IHttpActionResult Get([FromBody]int id, DateDTO d)
+        public IHttpActionResult Get([FromBody]TeacherRequest teachReq)
         {
             try
             {
-                return Ok(ScheduleManager.GetScheduleByTeacher(id));//TODO with date
+                return Ok(ScheduleManager.GetScheduleByTeacher(teachReq.id));//TODO with date
             }
             catch (Exception e)
             {
@@ -42,19 +48,29 @@ namespace API.Controllers
                 return InternalServerError(e);
             }
         }
+        public class TeacherRequest
+        {
+            public int id { get; set; }
+            public DateDTO d { get; set; }
+        }
         [HttpPost]
         [Route("get/layer")]
-        public IHttpActionResult GetLayer([FromBody]int c, DateDTO d)
+        public IHttpActionResult GetLayer([FromBody]LayerRequest layReq)
         {
             try
             {
-                return Ok(ScheduleManager.GetScheduleByLayer(c));//TODO 1.implement 2.with date
+                return Ok(ScheduleManager.GetScheduleByLayer(layReq.l));//TODO 1.implement 2.with date
             }
             catch (Exception e)
             {
                 LogManager.LogException(e);
                 return InternalServerError(e);
             }
+        }
+        public class LayerRequest
+        {
+            public int l { get; set; }
+            public DateDTO d { get; set; }
         }
     }
 }
