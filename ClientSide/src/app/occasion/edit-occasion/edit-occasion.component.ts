@@ -31,7 +31,7 @@ export class EditOccasionComponent implements OnInit {
       'typeCtrl': [null, Validators.required],
       'fromLsnCtrl': [null, Validators.required /*Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
       'toLsnCtrl': [false/*null,Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
-      'subjCtrl': [false],
+      'subjCtrl': [[]],
     })
     console.log(this.editOccasion);
     this.editOccasion.valueChanges.subscribe( (form: any) => {

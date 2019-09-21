@@ -51,10 +51,10 @@ export class ViewOccasionComponent implements OnInit {
           }, e => console.error(e))
         }
         this.clsService.getClasses().subscribe(clss => {
-          this.occ.Classes.forEach(c => this.classes.push(clss.filter(cl => cl.Id === c)[0]));
+          this.occ.Classes.forEach(c => this.classes.push(clss.filter(cl => cl.Num === c)[0]));
         }, e => console.error(e));
         this.teaService.getTeachers().subscribe(teachers => {
-          this.occ.Teachers.forEach(t => this.teachers.push(teachers.filter(t1 => t1.Id === t)[0]));
+          this.occ.Teachers.forEach(t => this.teachers.push(teachers.filter(t1 => t1.Num === t)[0]));
         }, e => console.error(e));
         console.log(occ);
         this.loaded = true;

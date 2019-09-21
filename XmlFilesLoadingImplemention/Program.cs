@@ -34,7 +34,7 @@ namespace TestCode
             //var l1 = s.GetScheduleByClass(9, 2);
             //Console.WriteLine(l1.Count());
 
-            var l2 = s.GetScheduleByTeacher(2);
+            var l2 = s.GetScheduleByTeacher(1081);
             //Console.ReadLine();
         }
     }

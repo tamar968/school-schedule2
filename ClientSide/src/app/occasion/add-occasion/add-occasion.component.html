@@ -87,8 +87,8 @@
       <div>
         <b (click)="onChooseLayer()" class="pointer">בחירת כיתות</b>
         <div *ngFor="let cls of classes">
-          <label for="cls{{cls.Id}}">{{cls.Name}}</label>
-          <input type="checkbox" value="{{cls.Id}}"[formControl]="addOccasion.controls['classCtrl']"  id="cls{{cls.Id}}" name="cls{{cls.Id}}" [(ngModel)]="isCheckedClasses[cls.Id]">
+          <label for="cls{{cls.Num}}">{{cls.Name}}</label>
+          <input type="checkbox" value="{{cls.Num}}" [formControl]="addOccasion.controls['classCtrl']"  id="cls{{cls.Num}}" name="cls{{cls.Num}}" [(ngModel)]="isCheckedClasses[cls.Num]">
           <!--  -->
         </div>
       </div>

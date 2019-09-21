@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router'
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
-import { StudyTimeComponent } from './study-time/study-time.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AddAbsenceComponent } from './Absences/add-absence/add-absence.component';
@@ -18,16 +17,17 @@ import { ViewOccasionComponent } from './occasion/view-occasion/view-occasion.co
 import { EditOccasionComponent } from './occasion/edit-occasion/edit-occasion.component';
 import { OccasionComponent } from './occasion/occasion/occasion.component';
 import { LoadFilesComponent } from './load-files/load-files.component';
-import { AbsencesComponent } from './Absences/absences/absences.component'
+import { AbsencesComponent } from './Absences/absences/absences.component';
+import { EditScheduleComponent } from './schedule/edit-schedule/edit-schedule.component';
+import { EditAbsenceComponent } from './Absences/edit-absence/edit-absence.component'
 const ROUTES: Routes = [
   { path: "login", component: LoginComponent },
   { path: "load", component: LoadFilesComponent },//, canActivate: [AdminGuard]
   { path: "schedule", component: ScheduleComponent },
-  { path: "studyTime/:number", component: StudyTimeComponent },// id of אוביקט שעת לימוד
   { path: "absence-for-teacher/absences", component: AbsencesComponent },
   { path: "absence-for-teacher/add", component: AddAbsenceComponent, canActivate: [AdminGuard] },
   { path: "absence-for-teacher/view/:number", component: ViewAbsenceComponent },  
-  { path: "absence-for-teacher/edit/:number", component: ViewAbsenceComponent, canActivate: [AdminGuard] },
+  { path: "absence-for-teacher/edit/:number", component: EditAbsenceComponent, canActivate: [AdminGuard] },
   { path: "occasion/occasion", component: OccasionComponent },
   { path: "occasion/add", component: AddOccasionComponent, canActivate: [AdminGuard] },
   { path: "occasion/view/:number", component: ViewOccasionComponent },
@@ -39,7 +39,6 @@ const ROUTES: Routes = [
 @NgModule({
   declarations: [
     AppComponent,
-    StudyTimeComponent,
     HomeComponent,
     LoginComponent,
     AddAbsenceComponent,
@@ -50,7 +49,9 @@ const ROUTES: Routes = [
     EditOccasionComponent,
     OccasionComponent,
     LoadFilesComponent,
-    AbsencesComponent
+    AbsencesComponent,
+    EditScheduleComponent,
+    EditAbsenceComponent
   ],
   imports: [
     BrowserModule,

@@ -1,10 +1,7 @@
 ﻿using DAL;
 using DTO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BL
 {
@@ -23,15 +20,9 @@ namespace BL
                 }
                 if (occasion.Classes.Count != 0)
                 {
-                    List<DAL.Class> classes;
-                    if (occasion.Classes.First() > 20)
-                    {
-                        classes = db.Classes.Where(c => occasion.Classes.Contains(c.Num)).ToList();//מיפוי כיתות //Id=>Class
-                    }
-                    else// אם לא בחרו כיתות נשלחו מחזור/ים במשתנה כיתות 
-                    {
-                        classes = _CastDTO.DTOToClass(Class.GetByLayers(occasion.Classes.ToList()));
-                    }
+                    //occasion.Classes = Class.GetByLayers(occasion.Classes.ToList()).Select(cls => cls.Num).ToList();
+                    List<DAL.Class> classes = db.Classes.Where(c => occasion.Classes.Contains(c.Num)).ToList();//מיפוי כיתות //Id=>Class
+                    
                     foreach (DAL.Class cls in classes)
                     {
                         occasionDb.Classes.Add(cls);

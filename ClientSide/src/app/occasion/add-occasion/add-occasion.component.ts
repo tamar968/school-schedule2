@@ -62,10 +62,10 @@ export class AddOccasionComponent implements OnInit {
       'typeCtrl': [null, Validators.required],
       'fromLsnCtrl': [null, Validators.required /*Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
       'toLsnCtrl': [false/*null,Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
-      'subjCtrl': [false],
-      'layersCtrl': [false],
-      'classCtrl': [false],
-      'teacherCrtl': [false]/**/
+      'subjCtrl': [null],
+      'layersCtrl': [[]],
+      'classCtrl': [[]],
+      'teacherCrtl': [[]]/**/
     })
     console.log(this.addOccasion);
     /*this.addOccasion.valueChanges.subscribe( (form: any) => {
@@ -100,7 +100,7 @@ export class AddOccasionComponent implements OnInit {
         this.dropdownList = this.teachers;
         this.dropdownSettings = {
           singleSelection: false,
-          idField: 'Id',
+          idField: 'Num',
           textField: 'Name',
           selectAllText: 'כל המורות',
           unSelectAllText: 'אף מורה',
@@ -121,16 +121,16 @@ export class AddOccasionComponent implements OnInit {
   }
 
   onItemSelect(item: Teacher) {
-    this.teacherIDs.push(item.Id);
-    console.log(`${item} נוספה`);
+    this.teacherIDs.push(item.Num);
+    console.log(item, 'נוספה', this.teacherIDs);
   }
   onItemDeSelect(item: Teacher){
-    this.arrayRemove( this.teacherIDs,item.Id);
-    console.log(`${item} הוסרה`);
+    this.arrayRemove( this.teacherIDs,item.Num);
+    console.log(item, 'הוסרה', this.teacherIDs);
   }
   onSelectAll(items: Teacher[]) {
     /*items.forEach(i => {
-      this.teacherIDs.push(i.Id);
+      this.teacherIDs.push(i.Num);
     });*/
     console.log(items);
   }

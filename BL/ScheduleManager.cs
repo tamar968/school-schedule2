@@ -8,15 +8,6 @@ namespace BL
 {
     public class ScheduleManager
     {
-        readonly Dictionary<int, string> pairs = new Dictionary<int, string>
-            {
-                { 9, "ט" },
-                { 10, "י" },
-                { 11, "יא" },
-                { 12, "יב" },
-                { 13, "יג" },
-                { 14, "יד" }
-            };
 
         public List<List<DairyDTO>> OrderByClass(List<DairyDTO> schedules)
         {
@@ -58,10 +49,10 @@ SubTitle: 'שרה',
 */
         public List<ScheduleRequest> MergeLessonsByTeacher(List<ScheduleRequest> schedule)
         {
-            List<ScheduleRequest> n = null;
+            List<ScheduleRequest> n = new List<ScheduleRequest>();
             for (int i = 0; i < schedule.Count; i++)
             {
-                if (n == null)
+                if (!n.Any())
                 {
                     n = new List<ScheduleRequest>
                     {
@@ -84,67 +75,48 @@ SubTitle: 'שרה',
             }
             return n;
         }
-        public List<ScheduleRequest> MergeLessonsByClasses(List<ScheduleRequest> schedule)
-        {
-            List<ScheduleRequest> n = null;
-            for (int i = 0; i < schedule.Count; i++)
-            {
-                var current = schedule[i];
-                current.Layer = GetLayerFromCls(current.Cls);
-                current.ClsNum = GetClsNumFromCls(current.Cls);
+        //public List<ScheduleRequest> MergeLessonsByClasses(List<ScheduleRequest> schedule)
+        //{
+        //    List<ScheduleRequest> n = null;
+        //    for (int i = 0; i < schedule.Count; i++)
+        //    {
+        //        var current = schedule[i];
+        //        current.Layer = GetStringLayerFromCls(current.Cls);
+        //        current.ClsNum = GetClsNumFromCls(current.Cls);
 
-                if (n == null)
-                {
-                    n = new List<ScheduleRequest>
-                    {
-                        current
-                    };
-                    continue;
-                }
-                else
-                {
-                    var t = n?.FirstOrDefault(l => current.Cls == l.Cls &&
-                  current.SubjectName == l.SubjectName &&
-                  current.Hour == l.Hour);
-                    if (t != null)
-                    {
-                        t.ClsNum += " , " + current.ClsNum;
-                    }
-                    else
-                        n.Add(current);
-                }
-            }
-            return n;
-        }
-
-        private string GetClsNumFromCls(int cls)
-        {
-            return (cls % 10).ToString();
-        }
-
-        private string GetLayerFromCls(int cls)
-        {
-
-            return pairs[cls / 100];
-        }
-
+        //        if (n == null)
+        //        {
+        //            n = new List<ScheduleRequest>
+        //            {
+        //                current
+        //            };
+        //            continue;
+        //        }
+        //        else
+        //        {
+        //            var t = n?.FirstOrDefault(l => current.Cls == l.Cls &&
+        //          current.SubjectName == l.SubjectName &&
+        //          current.Hour == l.Hour);
+        //            if (t != null)
+        //            {
+        //                t.ClsNum += " , " + current.ClsNum;
+        //            }
+        //            else
+        //                n.Add(current);
+        //        }
+        //    }
+        //    return n;
+        //}
         public List<List<ScheduleRequest>> GetScheduleByClass(int layer, int number)
         {
             Console.WriteLine("in GetScheduleByClass");
             using (Entities db = new Entities())
             {
-                return OrderByDays(db.Schedules.Select(
-                     s => new ScheduleRequest
-                     {
-                         TeacherName = s.Group.Teacher1.Name,
-                         SubjectName = s.Group.Subject1.Name,
-                         Color = "ccffcc",
-                         RowSpan = 1,
-                         EditUrl = "login",
-                         Cls = s.Group.Classes.FirstOrDefault().Layer * 100 + s.Group.Classes.FirstOrDefault().Number,
-                         Hour = s.Hour,
-                         WeekDay = s.WeekDay
-                     }).Where(l => l.Cls == layer * 100 + number).ToList());
+                var cls = db.Classes.Single(c => c.Layer == layer && c.Number == number);
+                return OrderByDays(db.Schedules
+                     .Where(s => s.Group.Classes.Contains(cls))
+                     .Select(ScheduleRequest.CustScheduleToScheduleRequest)
+                     .ToList());
 
             }
         }
@@ -155,18 +127,10 @@ SubTitle: 'שרה',
             using (Entities db = new Entities())
             {
                 return OrderByDays(
-                    db.Schedules.Select(s =>
-                    new ScheduleRequest
-                    {
-                        TeacherName = s.Group.Teacher1.Name,
-                        SubjectName = s.Group.Subject1.Name,
-                        Color = "ccffcc",
-                        RowSpan = 1,
-                        EditUrl = "login",
-                        //Cls = s.Group.Classes.FirstOrDefault().Layer * 100 + s.Group.Classes.FirstOrDefault().Number,
-                        Hour = s.Hour,
-                        WeekDay = s.WeekDay
-                    }).Where(l => l.TeacherName == l.TeacherName).ToList());
+                    db.Schedules
+                    .Where(l => l.Group.Teacher == teacherId)
+                    .Select(ScheduleRequest.CustScheduleToScheduleRequest)
+                    .ToList());
             }
         }
         public List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)
