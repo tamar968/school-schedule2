@@ -1,13 +1,32 @@
-
+<div *ngIf="!loaded" class="text-center">
+    <div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
 <h3>המערכת</h3>
-<select name="teacher"  class="select" [ngModel]="teacherId" (ngModelChange)="onChangeTeacher($event)">
-    <option [value]="teacher.Num" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
-  </select>
-  <select name="class"  class="select" [ngModel]="clsId" (ngModelChange)="onChangeClass($event)">
-    <option [value]="cls.Num" *ngFor="let cls of classes">{{cls.Name}}</option>
-  </select>
+<div class="nav nav-tabs" id="myTab" role="tablist">
+    <a class="nav-item nav-link " [ngClass]="{'active':classTb}" (click)="onChooseTab('classTb')" aria-controls="home"
+        aria-selected="true">כיתה</a>
+    <a class="nav-item nav-link " [ngClass]="{'active':teacherTb}" (click)="onChooseTab('teacherTb')"
+        aria-controls="profile" aria-selected="false">מורה</a>
+</div>
 
-<div class="schedule-container">
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+        <label class="input-group-text" for="inputGroupSelect01">{{classTb?'כיתה':'מורה'}}</label>
+    </div>
+    <select *ngIf="teacherTb" class="custom-select" name="teacher" class="select" [ngModel]="teacherId"
+        (ngModelChange)="onChangeTeacher($event)">
+        <option [value]="teacher.Num" *ngFor="let teacher of teachers">{{teacher.Name}}
+        </option>
+    </select>
+    <select *ngIf="classTb" class="custom-select" name="class" class="select" [ngModel]="clsId"
+        (ngModelChange)="onChangeClass($event)">
+        <option [value]="cls.Num" *ngFor="let cls of classes">{{cls.Name}}</option>
+    </select>
+</div>
+
+<div *ngIf="loaded" class="schedule-container">
     <div class="d-flex full-width">
         <div>&nbsp;</div>
         <div class="colmn" *ngFor="let column of data.ColumnTitles">
@@ -16,17 +35,18 @@
     </div>
     <div class="d-flex full-height">
         <div class="d-flex-column">
-            <div  class="rows" *ngFor="let row of data.RowTitles">
+            <div class="rows" *ngFor="let row of data.RowTitles">
                 {{row}}
             </div>
         </div>
         <div class="d-flex-column" *ngFor="let columnData of data.Cells">
-            <div class="cell"  *ngFor="let cellData of columnData" [ngStyle]="{'flex': cellData.RowSpan,'background-color': '#'+cellData.Color}">
+            <div class="cell" *ngFor="let cellData of columnData"
+                [ngStyle]="{'flex': cellData.RowSpan,'background-color': '#'+cellData.Color}">
                 <p>{{cellData.TeacherName}}</p>
                 <p>{{cellData.Layer}}{{cellData.ClsNum}}</p>
                 <p><b>{{cellData.SubjectName}}</b></p>
             </div>
         </div>
     </div>
-    
+
 </div>

@@ -16,49 +16,62 @@ export class ScheduleComponent implements OnInit {
 
   data: ScheduleData;
   teacherId: number;
-  teachers:Teacher[];
-  clsId:number;
+  teachers: Teacher[];
+  clsId: number;
   layer: number;
   clsnum: number;
   classes: Class[];
+loaded=false;
+  teacherTb = false;
+  classTb = false;
+
   constructor(private schService: ScheduleService,
-     private teacherService: TeacherService,
-     private classService: ClassService) { }
+    private teacherService: TeacherService,
+    private classService: ClassService) { }
   cells: Schedule[][];
   ngOnInit() {
     this.teacherService.getTeachers()
-    .subscribe(teachers =>
-      this.teachers = teachers,
-      err => console.error(err)
-    );
+      .subscribe(teachers =>
+        this.teachers = teachers,
+        err => console.error(err)
+      );
     this.classService.getClasses()
-    .subscribe(
-      cls=>this.classes = cls,
-      err => console.error(err)
-    );
+      .subscribe(
+        cls => this.classes = cls,
+        err => console.error(err)
+      );
     //this.classes
     this.teacherId = 1093;
     this.getScheduleByTeacher();
   }
-  onChangeTeacher(e)
-  {
+  onChooseTab(tab: string) {
+    if (tab == "teacherTb") {
+      this.teacherTb = true;
+      this.classTb = false;
+    }
+    else if (tab == "classTb") {
+      this.classTb = true;
+      this.teacherTb = false;
+    }
+
+  }
+  onChangeTeacher(e) {
     this.teacherId = e;
     console.log(this.teacherId);
     this.getScheduleByTeacher();
 
   }
-  onChangeClass(e)
-  {
+  onChangeClass(e) {
     this.clsId = e;
     console.log(this.clsId);
     this.getScheduleByClass();
 
   }
-  getScheduleByTeacher(){
+  getScheduleByTeacher() {
     const layer = 10;
     const clsnum = 2;
     //const teacherId = 1242
-    this.schService.getTeacher( this.teacherId,new Date).subscribe(
+    this.schService.getTeacher(this.teacherId, new Date).subscribe(
       d => {
         d.forEach(i => this.resizeArrayToN(i, 8, { TeacherName: '', RowSpan: 1, Color: 'white' } as Schedule));
         this.cells = d;
@@ -84,11 +97,12 @@ export class ScheduleComponent implements OnInit {
           ],
           Cells: this.cells
         };
+        this.loaded=true;
       }
       , e => console.error(e)
     )
   }
-  getScheduleByClass(){
+  getScheduleByClass() {
     this.schService.getClassById(this.clsId).subscribe(
       d => {
         d.forEach(i => this.resizeArrayToN(i, 8, { TeacherName: '', RowSpan: 1, Color: 'white' } as Schedule));
