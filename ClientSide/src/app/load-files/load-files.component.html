@@ -1,12 +1,14 @@
-<input placeholder="נא הדביקי את ניתוב תקיה" type="text" accept=".xml" (change)="fileEvent($event)"  />
-<div *ngIf="success && clicked" class="alert alert-success" role="alert">
-    !טעינת הקבצים הסתימה בהצלחה
+<div class="input-group mb-3">
+    <div class="input-group-append">
+        <button class="btn btn-outline-secondary" [disabled]="!currentDirFiles" (click)="onLoad()"
+            type="button">טעינה</button>
+    </div><input type="text" class="form-control" placeholder="נא הדביקי את ניתוב התיקיה" aria-label="ניתוב תיקיה"
+        (change)="dirEvent($event)" aria-describedby="basic-addon2">
+    
+    <div *ngIf="success && clicked" class="alert alert-success" role="alert">
+        !טעינת הקבצים הסתימה בהצלחה
+    </div>
+    <div *ngIf="!success && clicked" class="alert alert-danger" role="alert">
+        !טעינת הקבצים נכשלה
+    </div>
 </div>
-<div *ngIf="!success && clicked" class="alert alert-danger" role="alert">
-    !טעינת הקבצים נכשלה
-</div>
-<button [disabled]="!currentInputFile" class="btn btn-outline-success" (click)="onLoad('')">טעינה</button>
-
-<!-- It allows you to select directories.
-     The multiple attribute is a good fallback for browsers that support multiple file selection
-      but not directory selection. -->

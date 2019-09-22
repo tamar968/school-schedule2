@@ -11,28 +11,24 @@ export class LoadFilesComponent implements OnInit {
   constructor(private loadDirService: LoadDirService) { }
   success = false;
   clicked = false;
-  currentInputFile;
+  currentDirFiles = '';
 
   ngOnInit() {
   }
-  fileEvent(fileInput) {
-    console.log(fileInput);
-     this.currentInputFile = fileInput.target.files[0].path;
-    console.log(this.currentInputFile);
-    debugger;
-
-    let fileName = this.currentInputFile.name;
+  dirEvent(dirInput) {
+    console.log(dirInput);
+    this.currentDirFiles = dirInput.currentTarget.value;
   }
   onLoad() {
-    console.log(this.currentInputFile);
     //TODO remove the file name from the path
-    console.log(this.currentInputFile);
-    this.loadDirService.onLoading(this.currentInputFile).subscribe(res => {
-      this.clicked = true;
-      this.success = true;
-    }, err => {
-      this.clicked = true;
-      console.log(err)
-    });
+    console.log(this.currentDirFiles);
+    this.loadDirService.onLoading(this.currentDirFiles)
+      .subscribe(res => {
+        this.clicked = true;
+        this.success = true;
+      }, err => {
+        this.clicked = true;
+        console.log(err)
+      });
   }
 }
