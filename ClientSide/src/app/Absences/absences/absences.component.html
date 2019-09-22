@@ -23,7 +23,7 @@
                 <th scope="row">{{aft.Id}}</th>
                 <td>{{aft.TeacherName}}</td>
                 <td>{{aft.TypeName}}</td>
-                <td>{{aft.FromDate.thisDate | date:'shortDate'}}</td>                
+                <td>{{aft.FromDate.Month}}/{{aft.FromDate.Day}}/{{aft.FromDate.Year}}</td>                
                 <td>{{aft.FromLesson}}</td>
                 <td>{{aft.TeacherStandInName}}</td>
                 <td class="table-success center" (click)="navigateToEdit(aft.Id)">עריכה</td>

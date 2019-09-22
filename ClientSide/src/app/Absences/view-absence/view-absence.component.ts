@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AbsenceForTeacher } from 'src/app/models/absence-for-teacher.model';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AbsenceForTeacherService } from 'src/app/services/absence-for-teacher.service';
+import { TeacherService } from 'src/app/services/teacher.service';
+import { AbsenceService } from 'src/app/services/absence.service';
 
 @Component({
   selector: 'app-view-absence',
@@ -10,19 +12,28 @@ import { AbsenceForTeacherService } from 'src/app/services/absence-for-teacher.s
 })
 export class ViewAbsenceComponent implements OnInit {
 
-  constructor(private aftService: AbsenceForTeacherService, private activatedRoute: ActivatedRoute,private router:Router) { }
+  constructor(
+    private aftService: AbsenceForTeacherService,
+    private activatedRoute: ActivatedRoute,
+    private router: Router,
+    private teaService: TeacherService,
+    private absTypeService: AbsenceService
+  ) { }
   loaded = false;
-  abs: AbsenceForTeacher;
+  abs: AbsenceForTeacher = null;
 
   ngOnInit() {
     this.aftService.get(Number(this.activatedRoute.snapshot.params['number']))
-      .subscribe(abs => this.abs = abs,e=>console.error(e))
-    //console.log(this.activeRoute.params["id"]);
-    //console.log(this.activeRoute.snapshot.params['username']);
-    //this.activeRoute.params.subscribe(params => {console.log(params['username'])})
+      .subscribe(abs => {
+        this.abs = abs;
+        this.teaService.get(abs.TeacherId).subscribe(t => this.abs.TeacherName = t.Name, e => console.error(e));
+        if (this.abs.TeacherStandIn)
+          this.teaService.get(abs.TeacherStandIn).subscribe(t => this.abs.TeacherStandInName = t.Name, e => console.error(e));
+        this.absTypeService.getAbsence(abs.Type).subscribe(t => this.abs.TypeName = t.Name, e => console.error(e));
+      }, e => console.error(e))
     this.loaded = true;
   }
-navigateToList(){
-  this.router.navigate([`absence-for-teacher/absences`]);
-}
+  navigateToList() {
+    this.router.navigate([`absence-for-teacher/absences`]);
+  }
 }

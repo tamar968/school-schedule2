@@ -137,7 +137,6 @@ export class AddOccasionComponent implements OnInit {
 
   onChooseLayer() {
     var layerIDs = [];
-    debugger;
     for (const key in this.isCheckedLayers) {
       if (this.isCheckedLayers.hasOwnProperty(key)) {
         if (this.isCheckedLayers[key]) {

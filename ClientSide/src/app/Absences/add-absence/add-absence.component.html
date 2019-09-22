@@ -86,7 +86,8 @@
       <label for="standInTeacher">ממלאת מקום</label>
       <select #standInTeacher name="standInTeacher" class="select" [formControl]="addAbsence.controls['teaStndInCrtl']"
         [(ngModel)]="teacherStandIn">
-        <option *ngFor="let teacher of teachers" [value]="teacher.Num" [disabled]="teacher.Num==teacherId">{{teacher.Name}}</option>
+        <option *ngFor="let teacher of teachers" [value]="teacher.Num" [disabled]="teacher.Num==teacherId">
+          {{teacher.Name}}</option>
       </select>
     </div>
     <div *ngIf="!addAbsence.valid" class="alert alert-danger"> הטופס אינו מושלם, יש לודא כי כל שדות החובה מלאים</div>

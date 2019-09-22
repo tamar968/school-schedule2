@@ -5,6 +5,7 @@ import { Schedule } from '../models/schedule.model';
 import { TeacherService } from '../services/teacher.service';
 import { Teacher } from '../models/teacher.model';
 import { ClassService } from '../services/class.service';
+import { Class } from '../models/class.model';
 
 @Component({
   selector: 'app-schedule',
@@ -19,7 +20,7 @@ export class ScheduleComponent implements OnInit {
   clsId:number;
   layer: number;
   clsnum: number;
-  classes: import("c:/workspace/school-schedule2/ClientSide/src/app/models/class.model").Class[];
+  classes: Class[];
   constructor(private schService: ScheduleService,
      private teacherService: TeacherService,
      private classService: ClassService) { }

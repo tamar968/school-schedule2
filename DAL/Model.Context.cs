@@ -38,7 +38,6 @@ namespace DAL
         public virtual DbSet<SchoolType> SchoolTypes { get; set; }
         public virtual DbSet<Subject> Subjects { get; set; }
         public virtual DbSet<Class> Classes { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<Teacher> Teachers { get; set; }
         public virtual DbSet<Schedule> Schedules { get; set; }
         public virtual DbSet<Group> Groups { get; set; }

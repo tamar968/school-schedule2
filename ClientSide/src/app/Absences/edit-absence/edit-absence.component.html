@@ -10,50 +10,61 @@
      -->
      <div class="form-group">
       <label for="abscentTeacher">מורה חסרה</label>
-      <select #abscentTeacher name="abscentTeacher" class="select" [(ngModel)]="teacherId">
-        <option [value]="teacher.Id" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
+      <select #abscentTeacher name="abscentTeacher" class="select" [formControl]="editAbsence.controls['teaCtrl']" [(ngModel)]="teacherId">
+        <option [value]="teacher.Num" *ngFor="let teacher of teachers" [selected]="teacher.Num==teacherId">{{teacher.Name}}</option>
       </select>
     </div>
+    <div *ngIf="editAbsence.controls['teaCtrl'].hasError('required') && editAbsence.controls['teaCtrl'].touched"
+    class="alert alert-danger">
+    'מורה' הינו שדה חובה
+  </div>
 <div dir="ltr">
-    <div class="form-group">
       <div class="input-group">
         <input class="form-control" placeholder="yyyy-mm-dd"
-               name="fromDate" [(ngModel)]="fromDate" ngbDatepicker #d1="ngbDatepicker">
+               name="fromDate" [(ngModel)]="fromDate" [formControl]="editAbsence.controls['fromCtrl']" ngbDatepicker #d1="ngbDatepicker">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"><img class="i" src="assets/img/calendar.png"></button>
         </div>
-      </div>
-    </div>
+    </div><div *ngIf="editAbsence.controls['fromCtrl'].hasError('required') && editAbsence.controls['fromCtrl'].touched"
+    class="alert alert-danger">
+    'מתאריך' הינו שדה חובה
+  </div>
   </div>
   <div dir="ltr">
-    <div class="form-group">
       <div class="input-group">
         <input class="form-control" placeholder="yyyy-mm-dd"
                name="toDate" [(ngModel)]="toDate" ngbDatepicker #d2="ngbDatepicker">
         <div class="input-group-append">
           <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"><img class="i" src="assets/img/calendar.png"></button>
         </div>
-      </div>
     </div>
   </div>
   <div class="form-group">
     <label for="absenceType">סוג חסור</label>
-    <select #abscentTeacher name="absenceType" class="select" [(ngModel)]="absenceTypeId">
+    <select #abscentTeacher name="absenceType" class="select" [formControl]="editAbsence.controls['typeCtrl']" [(ngModel)]="absenceTypeId">
       <option [value]="abs.Id" *ngFor="let abs of absenceTypes">{{abs.Name}}</option>
     </select>
+    <div *ngIf="editAbsence.controls['typeCtrl'].hasError('required') && editAbsence.controls['typeCtrl'].touched"
+    class="alert alert-danger">
+    'סוג חיסור' הינו שדה חובה
+  </div>
   </div>
   <div>
     <p></p>
     <div >
      <label>משיעור</label>
-      <select #fromLessonIn class="select"  name="fromLesson" [(ngModel)]="fromLesson">
-      <option *ngFor="let lsn of lessons" [value]="lsn.Id" >{{lsn.Name}}</option>
+      <select #fromLessonIn class="select" name="fromLesson" [formControl]="editAbsence.controls['fromLsnCtrl']" [(ngModel)]="fromLesson">
+      <option *ngFor="let lsn of lessons" [value]="lsn" >{{lsn}}</option>
       </select>
-    </div>  
+    </div>   <div
+    *ngIf="editAbsence.controls['fromLsnCtrl'].hasError('required') && editAbsence.controls['fromLsnCtrl'].touched"
+    class="alert alert-danger">
+    'משיעור' הינו שדה חובה
+  </div>
     <div >
         <label>עד שיעור:</label> 
         <select #toLessonIn name="toLesson" [(ngModel)] = "toLesson">
-         <option *ngFor="let lsn of lessons" [value]="lsn.Id" >{{lsn.Name}}</option>
+         <option *ngFor="let lsn of lessons" [value]="lsn" >{{lsn}}</option>
          </select>
        </div>      
   </div>
@@ -65,11 +76,12 @@
     <div *ngIf="wholeDay" class="form-group">
         <label for="standInTeacher">ממלאת מקום</label>
         <select #standInTeacher name="standInTeacher" class="select" [(ngModel)]="teacherStandIn">
-          <option [value]="teacher.Id" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
+          <option [value]="teacher.Num"  [disabled]="teacher.Num==teacherId" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
           </select>
     </div>
-
-    <button type="submit" class="btn btn-default button" (click)="onUpdateAbsence()">עדכון</button>
+    <div *ngIf="!editAbsence.valid" class="alert alert-danger"> הטופס אינו מושלם, יש לודא כי כל שדות החובה מלאים</div>
+    <div *ngIf="editAbsence.valid" class="alert alert-success">הטופס מוכן</div>
+    <button type="submit" class="btn btn-default button" [disabled]="!editAbsence.valid" (click)="onUpdateAbsence()">עדכון</button>
     <a (click)="delete(id)" title="הנך בטוחה שברצונך למחוק?" class="card-link btn btn-outline-danger">מחיקה</a>
     <a (click)="navigateToList()" class="card-link btn btn-secondary">חזרה לרשימה</a>
 </form>

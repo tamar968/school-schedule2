@@ -7,6 +7,7 @@ import { TeacherService } from '../../services/teacher.service';
 import { AbsenceForTeacherService } from '../../services/absence-for-teacher.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { LessonHoursService } from 'src/app/services/lesson-hours.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-edit-absence',
@@ -29,6 +30,7 @@ export class EditAbsenceComponent implements OnInit {
   toLesson: number;
   id: number;
   absenceTypes: Absence[];
+  editAbsence: FormGroup;
 
   constructor(
     private absenceService: AbsenceService,
@@ -36,7 +38,18 @@ export class EditAbsenceComponent implements OnInit {
     private absenceForTeacherService: AbsenceForTeacherService,
     private router: Router,
     private activeRoute: ActivatedRoute,
-    private lessonSevrice: LessonHoursService) { }
+    private lessonSevrice: LessonHoursService,
+    private fb: FormBuilder
+    ) { 
+      this.editAbsence = this.fb.group({
+      'fromCtrl': [null, Validators.required/*Validators.compose([Validators.required, Validators.pattern('20[0-9]{2}-[0-1][0-9]-[0-3][0-9]*')])*/],
+      'toCtrl': [false/*null, Validators.compose([Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')])*/],
+      'typeCtrl': [null, Validators.required],
+      'fromLsnCtrl': [null, Validators.required /*Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
+      'toLsnCtrl': [false/*null,Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
+      'teaCtrl': [null, Validators.required],
+      'teaStndInCrtl': [false]/**/
+    })}
 
   ngOnInit() {
     this.teacherService.getTeachers()
@@ -72,6 +85,7 @@ export class EditAbsenceComponent implements OnInit {
   }
   get() {
     var absence = {
+      Id:this.id,
       TeacherId: this.teacherId,
       FromDate: this.fromDate,
       ToDate: this.toDate,
@@ -85,8 +99,9 @@ export class EditAbsenceComponent implements OnInit {
     return absence;
   }
   onUpdateAbsence() {
+    console.log(this.absence);debugger;
     this.absenceForTeacherService.update(this.get()).subscribe(
-      res => {
+            res => {
         this.router.navigateByUrl('absence-for-teacher/absences');
         console.log("החסור למורה עודכן בהצלחה")
       }
