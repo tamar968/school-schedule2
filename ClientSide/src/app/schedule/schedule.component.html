@@ -1,5 +1,8 @@
 
 <h3>המערכת</h3>
+<select #abscentTeacher name="abscentTeacher"  class="select" [ngModel]="teacherId" (ngModelChange)="onChangeTeacher($event)">
+    <option [value]="teacher.Num" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
+  </select>
 
 <div class="schedule-container">
     <div class="d-flex full-width">
@@ -17,8 +20,10 @@
         <div class="d-flex-column" *ngFor="let columnData of data.Cells">
             <div class="cell"  *ngFor="let cellData of columnData" [ngStyle]="{'flex': cellData.RowSpan,'background-color': '#'+cellData.Color}">
                 <p>{{cellData.TeacherName}}</p>
+                <p>{{cellData.Layer}}{{cellData.ClsNum}}</p>
                 <p><b>{{cellData.SubjectName}}</b></p>
             </div>
         </div>
     </div>
+    
 </div>

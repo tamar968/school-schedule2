@@ -22,15 +22,30 @@ namespace BL
             }
             return orderSchedule;
         }
-        public List<List<ScheduleRequest>> OrderByDays(List<ScheduleRequest> groups)
+        public List<List<ScheduleRequest>> OrderByDaysTeachers(List<ScheduleRequest> groups)
         {
             //List<ScheduleRequest> sch = _CastDTO.DTOToSchedule(groups);
             List<List<ScheduleRequest>> orderSchedule = new List<List<ScheduleRequest>>();
             int numOfDays = 6;//TODO change to the web config
             for (int day = 1; day <= numOfDays; day++)
             {
-                var s = MergeLessonsByTeacher(groups.Where(lsn => lsn.WeekDay == day).ToList());
-                s.Sort();
+                var s = MergeLessonsByClasses(groups.Where(lsn => lsn.WeekDay == day).ToList());
+                if(s!=null&&s.Count>0)
+                     s.Sort();
+                orderSchedule.Add(s);
+            }
+            return orderSchedule;
+        }
+        public List<List<ScheduleRequest>> OrderByDaysClasses(List<ScheduleRequest> groups)
+        {
+            //List<ScheduleRequest> sch = _CastDTO.DTOToSchedule(groups);
+            List<List<ScheduleRequest>> orderSchedule = new List<List<ScheduleRequest>>();
+            int numOfDays = 6;//TODO change to the web config
+            for (int day = 1; day <= numOfDays; day++)
+            {
+                var s = MergeLessonsByClasses(groups.Where(lsn => lsn.WeekDay == day).ToList());
+                if (s != null && s.Count > 0)
+                    s.Sort();
                 orderSchedule.Add(s);
             }
             return orderSchedule;
@@ -75,47 +90,60 @@ SubTitle: 'שרה',
             }
             return n;
         }
-        //public List<ScheduleRequest> MergeLessonsByClasses(List<ScheduleRequest> schedule)
-        //{
-        //    List<ScheduleRequest> n = null;
-        //    for (int i = 0; i < schedule.Count; i++)
-        //    {
-        //        var current = schedule[i];
-        //        current.Layer = GetStringLayerFromCls(current.Cls);
-        //        current.ClsNum = GetClsNumFromCls(current.Cls);
+        public List<ScheduleRequest> MergeLessonsByClasses(List<ScheduleRequest> schedule)
+        {
+            List<ScheduleRequest> newList = new List<ScheduleRequest> ();
+            for (int i = 0; i < schedule.Count; i++)
+            {
+                var current = schedule[i];
+                //current.Layer = GetStringLayerFromCls(current.Cls);
+                //current.ClsNum = GetClsNumFromCls(current.Cls);
 
-        //        if (n == null)
-        //        {
-        //            n = new List<ScheduleRequest>
-        //            {
-        //                current
-        //            };
-        //            continue;
-        //        }
-        //        else
-        //        {
-        //            var t = n?.FirstOrDefault(l => current.Cls == l.Cls &&
-        //          current.SubjectName == l.SubjectName &&
-        //          current.Hour == l.Hour);
-        //            if (t != null)
-        //            {
-        //                t.ClsNum += " , " + current.ClsNum;
-        //            }
-        //            else
-        //                n.Add(current);
-        //        }
-        //    }
-        //    return n;
-        //}
+                if (newList == null)
+                {
+                    newList = new List<ScheduleRequest>
+                    {
+                        current
+                    };
+                    continue;
+                }
+                else
+                {
+                    var t = newList?.FirstOrDefault(l => current.Cls == l.Cls &&
+                  current.SubjectName == l.SubjectName &&
+                  current.Hour == l.Hour);
+                    if (t != null)
+                    {
+                        t.ClsNum += " , " + current.ClsNum;
+                    }
+                    else
+                        newList.Add(current);
+                }
+            }
+            return newList;
+        }
+
+        private string GetClsNumFromCls(int cls)
+        {
+            var clsNum = cls % 100;
+            return ScheduleRequest.pairs[clsNum];
+        }
+
+        private string GetStringLayerFromCls(int cls)
+        {
+            var layer = cls / 100;
+           return ScheduleRequest.pairs[layer];
+        }
+
         public List<List<ScheduleRequest>> GetScheduleByClass(int layer, int number)
         {
             Console.WriteLine("in GetScheduleByClass");
             using (Entities db = new Entities())
             {
                 var cls = db.Classes.Single(c => c.Layer == layer && c.Number == number);
-                return OrderByDays(db.Schedules
+                return OrderByDaysClasses(db.Schedules
                      .Where(s => s.Group.Classes.Contains(cls))
-                     .Select(ScheduleRequest.CustScheduleToScheduleRequest)
+                     .Select(ScheduleRequest.CastScheduleToScheduleRequest)
                      .ToList());
 
             }
@@ -126,11 +154,10 @@ SubTitle: 'שרה',
             Console.WriteLine("in GetScheduleByTeacher");
             using (Entities db = new Entities())
             {
-                return OrderByDays(
-                    db.Schedules
-                    .Where(l => l.Group.Teacher == teacherId)
-                    .Select(ScheduleRequest.CustScheduleToScheduleRequest)
-                    .ToList());
+                var newList = new List<ScheduleRequest>();
+                db.Schedules.Where(l => l.Group.Teacher == teacherId).ToList().ForEach(s => newList.AddRange(ScheduleRequest.CastScheduleToScheduleRequestList(s)));
+                return OrderByDaysTeachers(newList) ;
+               
             }
         }
         public List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)

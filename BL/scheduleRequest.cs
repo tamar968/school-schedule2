@@ -23,7 +23,7 @@ namespace BL
             return Hour - (obj as ScheduleRequest).Hour;
         }
 
-        readonly static Dictionary<int, string> pairs = new Dictionary<int, string>
+        public readonly static Dictionary<int, string> pairs = new Dictionary<int, string>
             {
                 { 9, "ט" },
                 { 10, "י" },
@@ -33,13 +33,14 @@ namespace BL
                 { 14, "יד" }
             };
 
-        public static ScheduleRequest CustDairyDTOToScheduleRequest(DairyDTO dairy)
+        public static ScheduleRequest CastDairyDTOToScheduleRequest(DairyDTO dairy)
         {
             return null;
         }
-        public static ScheduleRequest CustScheduleToScheduleRequest(Schedule s)
+        public static ScheduleRequest CastScheduleToScheduleRequest(Schedule s)
         {
             var cls = s.Group.Classes.FirstOrDefault();
+
             return new ScheduleRequest
             {
                 TeacherName = s.Group.Teacher1.Name,
@@ -53,12 +54,36 @@ namespace BL
                 WeekDay = s.WeekDay
             };
         }
-        public static List<ScheduleRequest> CustScheduleToScheduleRequest(List<Schedule> ScheduleList)
+        public static List<ScheduleRequest> CastScheduleToScheduleRequestList(Schedule s)
+        {
+            List<ClassDTO> classes = _CastDTO.ClassToDTO(s.Group.Classes.ToList());
+            List<ScheduleRequest> newList = new List<ScheduleRequest>();
+            foreach (var cls in classes)
+            {
+                newList.Add(
+                    new ScheduleRequest
+                    {
+                        TeacherName = s.Group.Teacher1.Name,
+                        SubjectName = s.Group.Subject1.Name,
+                        Color = "ccff55",
+                        RowSpan = 1,
+                        EditUrl = "login",
+                        Layer = pairs[cls.Layer],
+                        ClsNum = cls.Number.ToString(),
+                        Hour = s.Hour,
+                        WeekDay = s.WeekDay
+                    }
+                    );
+            }
+            return newList;
+        }
+
+        public static List<ScheduleRequest> CastScheduleToScheduleRequest(List<Schedule> ScheduleList)
         {
             var sch = new List<ScheduleRequest>();
             foreach (var s in ScheduleList)
             {
-                sch.Add(CustScheduleToScheduleRequest(s));
+                sch.Add(CastScheduleToScheduleRequest(s));
             }
             return sch;
         }

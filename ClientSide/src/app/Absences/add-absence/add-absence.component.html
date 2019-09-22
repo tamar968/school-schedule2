@@ -4,8 +4,8 @@
   
      <div class="form-group">
       <label for="abscentTeacher">מורה חסרה</label>
-      <select #abscentTeacher name="abscentTeacher" class="select" [(ngModel)]="teacherId">
-        <option [value]="teacher.Id" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
+      <select #abscentTeacher name="abscentTeacher" (onModelChange)="getScheduleByTeacher()" class="select" [ngModel]="teacherId">
+        <option [value]="teacher.num" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
       </select>
     </div>
 <div dir="ltr">
