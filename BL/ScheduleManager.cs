@@ -192,7 +192,7 @@ SubTitle: 'שרה',
                 List<ScheduleRequest> newList = new List<ScheduleRequest>();
                 //  db.Schedules.Where(l => l.Group.Teacher == teacherId).ToList().ForEach(s => newList.AddRange(ScheduleRequest.CastScheduleToScheduleRequestList(s)));
 
-                db.Schedules.Where(l => l.Group.Classes.Any(c=> c.Num ==clsId)).ToList()
+                db.Schedules.Where(l => l.Group.Classes.Any(c=> c.Num ==clsId)).ToList()?
                     .ForEach(s => newList.AddRange(ScheduleRequest.CastScheduleToScheduleRequestList(s)));
                 return OrderByDaysClasses(newList.Where(s=> s.Cls == clsId).ToList());
             }

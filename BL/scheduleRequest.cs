@@ -64,6 +64,7 @@ namespace BL
             if(classes!=null&&classes.Count>0)
             foreach (var cls in classes)
             {
+                    if(cls!=null)
                 newList.Add(
                     new ScheduleRequest
                     {
