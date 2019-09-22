@@ -51,7 +51,7 @@ export class EditAbsenceComponent implements OnInit {
       },
         err => console.error(err)
       );
-    this.absenceForTeacherService.get(9).subscribe(absence => {
+    this.absenceForTeacherService.get(Number(this.activeRoute.snapshot.params['number'])).subscribe(absence => {
       this.absence = absence;
       this.fromDate = this.absence.FromDate;
       //console.log("this.fromDate:"+this.fromDate.getDate() +" "+this.absence.FromDate.getDate())
@@ -85,7 +85,6 @@ export class EditAbsenceComponent implements OnInit {
     return absence;
   }
   onUpdateAbsence() {
-
     this.absenceForTeacherService.update(this.get()).subscribe(
       res => {
         this.router.navigateByUrl('absence-for-teacher/absences');
@@ -94,6 +93,20 @@ export class EditAbsenceComponent implements OnInit {
       ,
       err => console.error(err)
     );
-
+  }
+  delete(id: number) {
+    var res = confirm(`האם חיסור זה בטוח למחיקה?`)
+    if (res === true) {
+      this.absenceForTeacherService.delete(id)
+        .subscribe(data => {
+          this.router.navigate([`absence-for-teacher/absences`]);
+          console.log(data);
+        }, err => console.error(err));
+    } else {
+      alert(`מחיקת הארוע בוטלה`);
+    }
+  }
+  navigateToList() {
+    this.router.navigate([`absence-for-teacher/absences`]);
   }
 }

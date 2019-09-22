@@ -8,6 +8,8 @@ import { AbsenceForTeacher } from './../../models/absence-for-teacher.model';
 import { AbsenceForTeacherService } from '../../services/absence-for-teacher.service';
 import { Lesson } from 'src/app/models/lesson.model';
 import { ClassService } from 'src/app/services/class.service';
+import { LessonHoursService } from 'src/app/services/lesson-hours.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 @Component({
   selector: 'app-add-absence',
   templateUrl: './add-absence.component.html',
@@ -23,17 +25,32 @@ export class AddAbsenceComponent implements OnInit {
   teachers: Teacher[];
   absenceTypes: Absence[];
   absenceTypeId: number;
-  lessons: Lesson[];
+  lessons: number[];
   isCheckedLessons: boolean[];
   fromLesson: number;
   toLesson: number;
+
+  addAbsence:FormGroup
+
+  loaded = false;
+
   constructor(
     private absenceService: AbsenceService,
     private teacherService: TeacherService,
     private absenceForTeacherService: AbsenceForTeacherService,
     private router: Router,
-    private classService: ClassService,
-    ) { }
+    private lessonService: LessonHoursService,
+    private fb: FormBuilder
+  ) {
+    this.addAbsence = this.fb.group({
+    'fromCtrl': [null, Validators.required/*Validators.compose([Validators.required, Validators.pattern('20[0-9]{2}-[0-1][0-9]-[0-3][0-9]*')])*/],
+    'toCtrl': [false/*null, Validators.compose([Validators.required, Validators.pattern('[0-9]{4}-[0-9]{2}-[0-9]{2}')])*/],
+    'typeCtrl': [null, Validators.required],
+    'fromLsnCtrl': [null, Validators.required /*Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
+    'toLsnCtrl': [false/*null,Validators.compose([Validators.required,Validators.pattern('[0-9]*'),Validators.maxLength(1),Validators.minLength(1)])*/],
+    'teaCtrl': [null, Validators.required],
+    'teaStndInCrtl': [false]/**/
+  }) }
 
   ngOnInit() {
     this.teacherService.getTeachers()
@@ -45,20 +62,12 @@ export class AddAbsenceComponent implements OnInit {
       subscribe(absenceTypes => {
         this.absenceTypes = absenceTypes;
         // console.log(absenceTypes);
+        this.loaded = true;
       },
         err => console.error(err)
       );
-   this.isCheckedLessons = [];
-      this.lessons = [ //TODO get this list from the server
-      {Id: 1,  Name:"ראשון"},
-      {Id: 2, Name: "שני"},
-      {Id: 3, Name: "שלישי"},
-      {Id: 4, Name: "רביעי"},
-      {Id: 5, Name: "חמישי"},
-      {Id: 6, Name: "שישי"},
-      {Id: 7, Name: "שביעי"},
-      {Id: 8, Name: "שמיני"},
-    ];
+    this.isCheckedLessons = [];
+    this.lessons = this.lessonService.get();
   }
 
 
@@ -66,7 +75,7 @@ export class AddAbsenceComponent implements OnInit {
 
     this.absenceForTeacherService.add(this.get()).subscribe(
       res => {
-        this.router.navigateByUrl('');
+        this.router.navigateByUrl('absence-for-teacher/absences');
         console.log("החסור למורה נוסף בהצלחה")
       }
       ,
@@ -76,15 +85,15 @@ export class AddAbsenceComponent implements OnInit {
   }
 
   get() {
-    console.log(this.fromLesson,this.toLesson);
+    console.log(this.fromDate);
     var absence = {
       TeacherId: this.teacherId,
       FromDate: this.fromDate,
-      ToDate: this.toDate,
+      ToDate: this.toDate?this.toDate : this.fromDate,
       TeacherStandIn: this.wholeDay ? this.teacherStandIn : null,
       Type: this.absenceTypeId,
-      FromLesson:this.fromLesson,
-      ToLesson:this.toLesson
+      FromLesson: this.fromLesson,
+      ToLesson: this.toLesson?this.toLesson : this.fromLesson 
     } as AbsenceForTeacher;
 
     console.log(absence);

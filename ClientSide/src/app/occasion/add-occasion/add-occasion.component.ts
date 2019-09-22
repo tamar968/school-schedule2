@@ -163,6 +163,10 @@ export class AddOccasionComponent implements OnInit {
         }
       }
     }
+    if (this.classIDs.length == 0){
+      alert('לא נבחרו כיתות')
+      return;
+    }
     this.occationService.add(this.get()).subscribe(
       res => {
         this.router.navigateByUrl('occasion/occasion');
@@ -173,24 +177,19 @@ export class AddOccasionComponent implements OnInit {
     );
   }
   get() {
-    if (this.toDate == null) {
-      this.toDate = this.fromDate;
-    }
-    if (this.toLesson == null) {
-      this.toLesson = this.fromLesson;
-    }
-    if (this.classIDs.length == 0) {
+   
+    /* if (this.classIDs.length == 0){
       for (var i = 0; i < this.layers.length; i++) {
         if (this.isCheckedLayers[this.layers[i].Id]) {
           this.classIDs.push(this.layers[i].Id);
         }
       }
-    }
-    var occasion = {
+    }*/
+        var occasion = {
       FromDate: this.fromDate,
-      ToDate: this.toDate,
+      ToDate: this.toDate?this.toDate : this.fromDate,
       FromLesson: this.fromLesson,
-      ToLesson: this.toLesson,
+      ToLesson: this.toLesson?this.toLesson : this.fromLesson,
       OccasionType: this.typeId,
       Subject: this.subject,
       Dairies: this.dairyIDs,

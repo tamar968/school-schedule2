@@ -14,16 +14,18 @@
                 <th scope="col">מתאריך</th>
                 <th scope="col">משעור</th>
                 <th scope="col">ממלאת מקום</th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
             </tr>
         </thead>
         <tbody>
             <tr *ngFor="let aft of absForTeachers">
                 <th scope="row">{{aft.Id}}</th>
-                <td>{{aft.TeacherId}}</td>
-                <td>{{aft.Type}}</td>
-                <td>{{aft.FromDate?.thisDate}}</td>                
+                <td>{{aft.TeacherName}}</td>
+                <td>{{aft.TypeName}}</td>
+                <td>{{aft.FromDate.thisDate | date:'shortDate'}}</td>                
                 <td>{{aft.FromLesson}}</td>
-                <td>{{aft.TeacherStandIn}}</td>
+                <td>{{aft.TeacherStandInName}}</td>
                 <td class="table-success center" (click)="navigateToEdit(aft.Id)">עריכה</td>
                 <td class="table-secondary center" (click)="navigateToView(aft.Id)">פרטים מלאים</td>
             </tr>

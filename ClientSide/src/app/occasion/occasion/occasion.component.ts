@@ -36,7 +36,8 @@ classes:Class[];
       .subscribe(occasions => {
         this.occasions = occasions;
         this.occasions.map(o=>o.OccasionTypeName=this.occTypes.filter(ot=>ot.Id===o.OccasionType)[0].Name);
-        
+        console.log(occasions)
+
         this.loaded=true;
       },err=>console.error(err))
   }
