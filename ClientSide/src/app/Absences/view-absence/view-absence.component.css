@@ -69,6 +69,13 @@ border-radius: .25rem;
 label{
 margin: 8px;
 }
+.card{
+  width: 50vw;
+}
+p{
+  margin: 3vh;
+  font-size: x-large;
+}
 
 
   

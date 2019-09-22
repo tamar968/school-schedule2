@@ -1,0 +1,10 @@
+.container {
+    padding: 4vw;
+    box-shadow: 2.2px 3px 7.2px #88888C;
+  }
+  .block{
+      display: block;
+  }
+  .btn{
+    margin: 4vh;
+  }

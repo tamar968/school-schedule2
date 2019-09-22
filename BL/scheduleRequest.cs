@@ -68,9 +68,9 @@ namespace BL
                 newList.Add(
                     new ScheduleRequest
                     {
-                        TeacherName = s.Group.Teacher1.Name,
-                        SubjectName = s.Group.Subject1.Name,
-                        Color = s.Group.Subject1.Color,
+                        TeacherName = s.Group.Teacher1?.Name,
+                        SubjectName = s.Group.Subject1?.Name,
+                        Color = s.Group.Subject1?.Color,
                         RowSpan = 1,
                         EditUrl = "login",
                         Layer = pairs[cls.Layer],
