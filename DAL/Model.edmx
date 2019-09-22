@@ -187,6 +187,7 @@
           </Key>
           <Property Name="Id" Type="int" Nullable="false" />
           <Property Name="Name" Type="nvarchar" MaxLength="30" Nullable="false" />
+          <Property Name="Color" Type="nchar" MaxLength="10" />
         </EntityType>
         <EntityType Name="SubjectsForClass">
           <Key>
@@ -887,6 +888,7 @@
           <NavigationProperty Name="Dairies" Relationship="Self.FK_Dairy_Subject" FromRole="Subject" ToRole="Dairy" />
           <NavigationProperty Name="Classes" Relationship="ESTYTAMARModel.SubjectsForClass" FromRole="Subject" ToRole="Class" />
           <NavigationProperty Name="Groups" Relationship="ESTYTAMARModel.FK_Group_Subject" FromRole="Subject" ToRole="Group" />
+          <Property Name="Color" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
         </EntityType>
         <Association Name="FK_AbsencesForTeacher_Absence1">
           <End Role="Absence" Type="Self.Absence" Multiplicity="1" />
@@ -1455,6 +1457,7 @@
           <EntitySetMapping Name="Subjects">
             <EntityTypeMapping TypeName="ESTYTAMARModel.Subject">
               <MappingFragment StoreEntitySet="Subject">
+                <ScalarProperty Name="Color" ColumnName="Color" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
