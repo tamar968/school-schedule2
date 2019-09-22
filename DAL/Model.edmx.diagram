@@ -20,7 +20,6 @@
         <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Room" ManuallyRouted="false" />
         <AssociationConnector Association="ESTYTAMARModel.FK_Dairy_Subject" ManuallyRouted="false" />
         <EntityTypeShape EntityType="ESTYTAMARModel.Class" Width="1.5" PointX="5.625" PointY="13.25" />
-        <EntityTypeShape EntityType="ESTYTAMARModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
         <EntityTypeShape EntityType="ESTYTAMARModel.Teacher" Width="1.5" PointX="8.625" PointY="7.75" />
         <AssociationConnector Association="ESTYTAMARModel.FK_AbsencesForTeacher_Teacher" />
         <AssociationConnector Association="ESTYTAMARModel.FK_Room_Class" />
