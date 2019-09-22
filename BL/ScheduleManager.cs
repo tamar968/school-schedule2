@@ -8,15 +8,8 @@ namespace BL
 {
     public class ScheduleManager
     {
-        public static List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)
-        {
-            using (Entities db = new Entities())
-            {
-                return OrderByClass(_CastDTO.DairyToDTO(db.Dairies.Where(lsn => date <= lsn.FromDate && date >= lsn.ToDate && lsn.Classes.Any(c => c.Layer == layer)).ToList()));
-            }
-        }
 
-        public static List<List<DairyDTO>> OrderByClass(List<DairyDTO> schedules)
+        public List<List<DairyDTO>> OrderByClass(List<DairyDTO> schedules)
         {
             List<Dairy> sch = _CastDTO.DTOToDairy(schedules);
             List<List<DairyDTO>> orderSchedule = new List<List<DairyDTO>>();
@@ -29,8 +22,7 @@ namespace BL
             }
             return orderSchedule;
         }
-
-        public static List<List<ScheduleRequest>> OrderByDays(List<ScheduleRequest> groups)
+        public List<List<ScheduleRequest>> OrderByDays(List<ScheduleRequest> groups)
         {
             //List<ScheduleRequest> sch = _CastDTO.DTOToSchedule(groups);
             List<List<ScheduleRequest>> orderSchedule = new List<List<ScheduleRequest>>();
@@ -44,25 +36,28 @@ namespace BL
             return orderSchedule;
         }
         /*
-         SubTitle: 'שרה',
-            EventTitle: 'מתמטיקה',
-            Color: 'ccffcc',
-            RowSpan: 2,
-            EditUrl: 'login'
-            Day:''
-            Hour:''
-            class:''
+SubTitle: 'שרה',
+   EventTitle: 'מתמטיקה',
+   Color: 'ccffcc',
+   RowSpan: 2,
+   EditUrl: 'login'
+   Day:''
+   Hour:''
+   class:''
+   className:''
 
-         */
-        public static List<ScheduleRequest> MergeLessonsByTeacher(List<ScheduleRequest> schedule)
+*/
+        public List<ScheduleRequest> MergeLessonsByTeacher(List<ScheduleRequest> schedule)
         {
-            List<ScheduleRequest> n = null;
+            List<ScheduleRequest> n = new List<ScheduleRequest>();
             for (int i = 0; i < schedule.Count; i++)
             {
-                if (n == null)
+                if (!n.Any())
                 {
-                    n = new List<ScheduleRequest>();
-                    n.Add(schedule[i]);
+                    n = new List<ScheduleRequest>
+                    {
+                        schedule[i]
+                    };
                     continue;
                 }
                 else
@@ -80,39 +75,75 @@ namespace BL
             }
             return n;
         }
+        //public List<ScheduleRequest> MergeLessonsByClasses(List<ScheduleRequest> schedule)
+        //{
+        //    List<ScheduleRequest> n = null;
+        //    for (int i = 0; i < schedule.Count; i++)
+        //    {
+        //        var current = schedule[i];
+        //        current.Layer = GetStringLayerFromCls(current.Cls);
+        //        current.ClsNum = GetClsNumFromCls(current.Cls);
 
-        public static List<List<ScheduleRequest>> GetScheduleByClass(int layer, int number)
+        //        if (n == null)
+        //        {
+        //            n = new List<ScheduleRequest>
+        //            {
+        //                current
+        //            };
+        //            continue;
+        //        }
+        //        else
+        //        {
+        //            var t = n?.FirstOrDefault(l => current.Cls == l.Cls &&
+        //          current.SubjectName == l.SubjectName &&
+        //          current.Hour == l.Hour);
+        //            if (t != null)
+        //            {
+        //                t.ClsNum += " , " + current.ClsNum;
+        //            }
+        //            else
+        //                n.Add(current);
+        //        }
+        //    }
+        //    return n;
+        //}
+        public List<List<ScheduleRequest>> GetScheduleByClass(int layer, int number)
         {
             Console.WriteLine("in GetScheduleByClass");
             using (Entities db = new Entities())
             {
-                return OrderByDays(db.Schedules.Select(
-                     s => new ScheduleRequest
-                     {
-                         TeacherName = s.Group.Teacher1.Name,
-                         SubjectName = s.Group.Subject1.Name,
-                         Color = "ccffcc",
-                         RowSpan = 1,
-                         EditUrl = "",
-                         Cls = s.Group.Classes.FirstOrDefault().Layer * 100 + s.Group.Classes.FirstOrDefault().Number,
-                         Hour = s.Hour,
-                         WeekDay = s.WeekDay
-                     }).Where(l => l.Cls == layer * 100 + number).ToList());
+                var cls = db.Classes.Single(c => c.Layer == layer && c.Number == number);
+                return OrderByDays(db.Schedules
+                     .Where(s => s.Group.Classes.Contains(cls))
+                     .Select(ScheduleRequest.CustScheduleToScheduleRequest)
+                     .ToList());
 
             }
         }
 
-        public static List<List<ScheduleRequest>> GetScheduleByTeacher(int teacherId)
+        public List<List<ScheduleRequest>> GetScheduleByTeacher(int teacherId)
         {
             Console.WriteLine("in GetScheduleByTeacher");
             using (Entities db = new Entities())
             {
-                return OrderByDays(db.Schedules.Select(s => new ScheduleRequest { TeacherName = s.Group.Teacher1.Name, SubjectName = s.Group.Subject1.Name, Color = "ccffcc", RowSpan = 1, EditUrl = "login", Cls = s.Group.Classes.FirstOrDefault().Layer * 100 + s.Group.Classes.FirstOrDefault().Number, Hour = s.Hour, WeekDay = s.WeekDay }).Where(l => l.TeacherName == l.TeacherName).ToList());
+                return OrderByDays(
+                    db.Schedules
+                    .Where(l => l.Group.Teacher == teacherId)
+                    .Select(ScheduleRequest.CustScheduleToScheduleRequest)
+                    .ToList());
             }
         }
-        public static List<List<ScheduleRequest>> GetScheduleByLayer(int layer)
+        public List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)
         {
-            return null;
+            using (Entities db = new Entities())
+            {
+                return OrderByClass(_CastDTO.DairyToDTO(db.Dairies.Where(lsn => date <= lsn.FromDate && date >= lsn.ToDate && lsn.Classes.Any(c => c.Layer == layer)).ToList()));
+            }
+        }
+
+        public List<List<ScheduleRequest>> GetScheduleByLayer(int l)
+        {
+            return null;//GetScheduleByDate(DateTime.Today, 9);
         }
     }
 }

@@ -3,16 +3,15 @@
       <span class="sr-only">Loading...</span>
     </div>
   </div>
-<h2 class="container">ארוע</h2>
 <div *ngIf="loaded" class="card center" style="width: 18rem;">
+  <h2 class="container">פרטי ארוע</h2>
   <div class="card-body">
-    <h5 class="card-title">{{occ?.Id}}</h5>
-    <p class="card-text"><b>סוג ארוע</b> {{occ?.OccasionTypeName}} </p>
+    <h5 class="card-title">{{occ?.OccasionTypeName}}</h5>
     <h6 class="card-subtitle mb-2 text-muted"><b>מתאריך</b> {{occ?.FromDate.thisDate | date:'shortDate'}} </h6>
     <h6 *ngIf="occ?.ToDate.thisDate" class="card-subtitle mb-2 text-muted"><b>עד תאריך</b> {{occ?.ToDate.thisDate | date:'shortDate'}} </h6>
     <h6 class="card-subtitle mb-2 text-muted"><b>משעור</b> {{occ?.FromLesson}} </h6>
     <h6 *ngIf="occ?.ToLesson" class="card-subtitle mb-2 text-muted"><b>עד שעור</b> {{occ?.ToLesson}} </h6>
-    <p *ngIf="occ?.Subject"><b>מקצוע</b> {{occ?.SubjectName}} </p>
+    <p *ngIf="occ?.Subject" class="card-text"><b>מקצוע</b> {{occ?.SubjectName}} </p>
     <!-- <p>Dairies</p> -->
     <p *ngFor="let c of classes"><b>כיתה</b> {{c.Name}} </p>
     <!-- <p>Rooms</p> -->

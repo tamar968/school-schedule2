@@ -8,6 +8,7 @@ import { TeacherService } from '../../services/teacher.service';
 import { AbsenceForTeacherService } from '../../services/absence-for-teacher.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ClassService } from '../../services/class.service';
+import { LessonHoursService } from 'src/app/services/lesson-hours.service';
 
 @Component({
   selector: 'app-view-absence',
@@ -23,7 +24,7 @@ export class ViewAbsenceComponent implements OnInit {
   wholeDay: boolean;
   teachers:Teacher[];
   absenceTypeId: number;
-  lessons: Lesson[];
+  lessons: Number[];
   isCheckedLessons: boolean[];
   fromLesson: number;
   toLesson: number;
@@ -35,7 +36,7 @@ export class ViewAbsenceComponent implements OnInit {
     private absenceForTeacherService: AbsenceForTeacherService,
     private router: Router,
     private activeRoute:ActivatedRoute,
-    private classService: ClassService,
+    private lessonSevrice: LessonHoursService,
   ) {}
 
   ngOnInit() {  
@@ -54,10 +55,10 @@ export class ViewAbsenceComponent implements OnInit {
     },
       err => console.error(err)
     );
-     this.absenceForTeacherService.get(11).subscribe(absence=> {
+     this.absenceForTeacherService.get(9).subscribe(absence=> {
      this.absence=absence;
      this.fromDate = this.absence.FromDate;
-     console.log("this.fromDate:"+this.fromDate.getDate() +" "+this.absence.FromDate.getDate())
+     //console.log("this.fromDate:"+this.fromDate.getDate() +" "+this.absence.FromDate.getDate())
     this.toDate = this.absence.ToDate;
     this.teacherId =this.absence.TeacherId;
     this.teacherStandIn = this.absence.TeacherStandIn;
@@ -66,17 +67,7 @@ export class ViewAbsenceComponent implements OnInit {
     this.toLesson = this.absence.ToLesson;
     this.id = this.absence.Id;    
     this.wholeDay = this.teacherStandIn!=null;
-    this.lessons = [ //TODO get this list from the server
-      {Id: 1,  Name:"ראשון"},
-      {Id: 2, Name: "שני"},
-      {Id: 3, Name: "שלישי"},
-      {Id: 4, Name: "רביעי"},
-      {Id: 5, Name: "חמישי"},
-      {Id: 6, Name: "שישי"},
-      {Id: 7, Name: "שביעי"},
-      {Id: 8, Name: "שמיני"},
-    ];
-
+    this.lessons = this.lessonSevrice.get();
      console.log(this.absence);
     },
     err=> console.error(err)

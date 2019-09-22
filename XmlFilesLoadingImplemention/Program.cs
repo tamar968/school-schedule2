@@ -29,8 +29,12 @@ namespace TestCode
             //});
             //var z = BL.Class.ClassByLayer.Keys;
             //var x = BL.Class.ClassByLayer;
-            var l = ScheduleManager.GetScheduleByClass(9, 2);
-            Console.WriteLine(l.Count());
+            var s = new ScheduleManager();
+
+            //var l1 = s.GetScheduleByClass(9, 2);
+            //Console.WriteLine(l1.Count());
+
+            var l2 = s.GetScheduleByTeacher(1081);
             //Console.ReadLine();
         }
     }

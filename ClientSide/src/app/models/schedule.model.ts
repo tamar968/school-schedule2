@@ -7,4 +7,6 @@ export interface Schedule {
     WeekDay: number;
     Hour: number;
     Cls: number;
+    Layer: string;
+    ClsNum :string;
 }
