@@ -1,71 +1,98 @@
-<form role="form" >
-<div  class="container">
-  <h2>העדרות למורה</h2>
-  
-     <div class="form-group">
+<div *ngIf="!loaded" class="text-center">
+  <div class="spinner-border text-success" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<form *ngIf="loaded" role="form">
+  <div class="container">
+    <h2>העדרות למורה</h2>
+    <div class="form-group">
       <label for="abscentTeacher">מורה חסרה</label>
-      <select #abscentTeacher name="abscentTeacher" class="select" [(ngModel)]="teacherId">
-        <option [value]="teacher.Id" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
+      <select #abscentTeacher name="abscentTeacher" class="select" [formControl]="addAbsence.controls['teaCtrl']"
+        [(ngModel)]="teacherId">
+        <option [value]="teacher.Num" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
       </select>
+      <div *ngIf="addAbsence.controls['teaCtrl'].hasError('required') && addAbsence.controls['teaCtrl'].touched"
+        class="alert alert-danger">
+        'מורה' הינו שדה חובה
+      </div>
     </div>
-<div dir="ltr">
-    <div class="form-group">
+    <div dir="ltr">
       <div class="input-group">
-        <input class="form-control" placeholder="yyyy-mm-dd"
-               name="fromDate" [(ngModel)]="fromDate" ngbDatepicker #d1="ngbDatepicker">
+        <input class="form-control" placeholder="yyyy-mm-dd" name="fromDate"
+          [formControl]="addAbsence.controls['fromCtrl']" [(ngModel)]="fromDate" ngbDatepicker #d1="ngbDatepicker">
         <div class="input-group-append">
-          <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"><img class="i" src="assets/img/calendar.png"></button>
+          <button class="btn btn-outline-secondary calendar" (click)="d1.toggle()" type="button"><img class="i"
+              src="assets/img/calendar.png"></button>
+        </div>
+        <div *ngIf="addAbsence.controls['fromCtrl'].hasError('required') && addAbsence.controls['fromCtrl'].touched"
+          class="alert alert-danger">
+          'מתאריך' הינו שדה חובה
         </div>
       </div>
     </div>
-  </div>
-  <div dir="ltr">
-    <div class="form-group">
-      <div class="input-group">
-        <input class="form-control" placeholder="yyyy-mm-dd"
-               name="toDate" [(ngModel)]="toDate" ngbDatepicker #d2="ngbDatepicker">
-        <div class="input-group-append">
-          <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"><img class="i" src="assets/img/calendar.png"></button>
+    <div dir="ltr">
+      <div class="form-group">
+        <div class="input-group">
+          <input class="form-control" placeholder="yyyy-mm-dd" name="toDate"
+            [formControl]="addAbsence.controls['toCtrl']" [(ngModel)]="toDate" ngbDatepicker #d2="ngbDatepicker">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary calendar" (click)="d2.toggle()" type="button"><img class="i"
+                src="assets/img/calendar.png"></button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="form-group">
-    <label for="absenceType">סוג חסור</label>
-    <select #abscentTeacher name="absenceType" class="select" [(ngModel)]="absenceTypeId">
-      <option [value]="abs.Id" *ngFor="let abs of absenceTypes">{{abs.Name}}</option>
-    </select>
-  </div>
-  <div>
-    <p></p>
-    <div >
-     <label>משיעור</label>
-      <select class="select"  name="fromLesson" [(ngModel)]="fromLesson">
-      <option *ngFor="let lsn of lessons" id="flsn{{lsn.Id}}" name="flsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]">{{lsn.Name}}</option>
+    <div class="form-group">
+      <label for="absenceType">סוג חסור</label>
+      <select #abscentTeacher name="absenceType" class="select" [formControl]="addAbsence.controls['typeCtrl']"
+        [(ngModel)]="absenceTypeId">
+        <option [value]="abs.Id" *ngFor="let abs of absenceTypes">{{abs.Name}}</option>
       </select>
-        <!-- <input type="checkbox" id="{{lsn.Id}}" name="lsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]"> -->
-    </div>  
-    <div >
-        <label>עד שיעור:</label> 
-        <select name="toLesson" [(ngModel)] = "toLesson">
-         <option *ngFor="let lsn of lessons" id="tlsn{{lsn.Id}}" name="tlsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]">{{lsn.Name}}</option>
-         </select>
-           <!-- <input type="checkbox" id="{{lsn.Id}}" name="lsn{{lsn.Id}}" value="{{lsn.Id}}" [(ngModel)]="isCheckedLessons[lsn.Id]"> -->
-       </div>      
-  </div>
+      <div *ngIf="addAbsence.controls['typeCtrl'].hasError('required') && addAbsence.controls['typeCtrl'].touched"
+        class="alert alert-danger">
+        'סוג חיסור' הינו שדה חובה
+      </div>
+    </div>
+    <div>
+      <p></p>
+      <div>
+        <label>משיעור</label>
+        <select class="select" name="fromLesson" [formControl]="addAbsence.controls['fromLsnCtrl']"
+          [(ngModel)]="fromLesson">
+          <option *ngFor="let lsn of lessons" id="flsn{{lsn}}" value="{{lsn}}">{{lsn}}</option>
+        </select>
+        <div
+          *ngIf="addAbsence.controls['fromLsnCtrl'].hasError('required') && addAbsence.controls['fromLsnCtrl'].touched"
+          class="alert alert-danger">
+          'משיעור' הינו שדה חובה
+        </div>
+        <!--  [(ngModel)]="isCheckedLessons[lsn]"<input type="checkbox" id="{{lsn}}" name="lsn{{lsn}}" value="{{lsn}}" [(ngModel)]="isCheckedLessons[lsn]"> -->
+      </div>
+      <div>
+        <label>עד שיעור:</label>
+        <select name="toLesson" [formControl]="addAbsence.controls['toLsnCtrl']" [(ngModel)]="toLesson">
+          <option *ngFor="let lsn of lessons" id="tlsn{{lsn}}" value="{{lsn}}">{{lsn}}</option>
+        </select>
+        <!--[(ngModel)]="isCheckedLessons[lsn]" <input type="checkbox" id="{{lsn}}" name="lsn{{lsn}}" value="{{lsn}}" [(ngModel)]="isCheckedLessons[lsn]"> -->
+      </div>
+    </div>
 
     <div class="checkbox">
       <input type="checkbox" name="wholeDay" [(ngModel)]="wholeDay"><label>טיפול יומי גורף</label>
     </div>
 
     <div *ngIf="wholeDay" class="form-group">
-        <label for="standInTeacher">ממלאת מקום</label>
-        <select #standInTeacher name="standInTeacher" class="select" [(ngModel)]="teacherStandIn">
-          <option [value]="teacher.Id" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
-          </select>
+      <label for="standInTeacher">ממלאת מקום</label>
+      <select #standInTeacher name="standInTeacher" class="select" [formControl]="addAbsence.controls['teaStndInCrtl']"
+        [(ngModel)]="teacherStandIn">
+        <option [value]="teacher.Num" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
+      </select>
     </div>
+    <div *ngIf="!addAbsence.valid" class="alert alert-danger"> הטופס אינו מושלם, יש לודא כי כל שדות החובה מלאים</div>
+    <div *ngIf="addAbsence.valid" class="alert alert-success">הטופס מוכן</div>
+    <button type="submit" class="btn btn-default button" [disabled]="!addAbsence.valid"
+      (click)="onAddAbsence()">אישור</button>
 
-    <button type="submit" class="btn btn-default button" (click)="onAddAbsence()">אישור</button>
- 
-</div>
- </form>
+  </div>
+</form>
