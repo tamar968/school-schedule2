@@ -14,6 +14,9 @@ export class ScheduleService {
   public getClass(c: number, n: number, d: Date): Observable<Schedule[][]> {
     return this.http.post<Schedule[][]>(`${this.baseUrl}/get/class`, { c, n, d });
   }
+  public getClassById(clsId:number): Observable<Schedule[][]> {
+    return this.http.post<Schedule[][]>(`${this.baseUrl}/get/class`, { clsId });
+  }
   public getTeacher(id: number, d: Date): Observable<Schedule[][]> {
     return this.http.post<Schedule[][]>(`${this.baseUrl}/get/teacher`, { id, d });
   }

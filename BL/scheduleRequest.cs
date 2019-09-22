@@ -40,24 +40,28 @@ namespace BL
         public static ScheduleRequest CastScheduleToScheduleRequest(Schedule s)
         {
             var cls = s.Group.Classes.FirstOrDefault();
-
-            return new ScheduleRequest
-            {
-                TeacherName = s.Group.Teacher1.Name,
-                SubjectName = s.Group.Subject1.Name,
-                Color = "ccff55",
-                RowSpan = 1,
-                EditUrl = "login",
-                Layer = pairs[cls.Layer],
-                ClsNum = cls.Number.ToString(),
-                Hour = s.Hour,
-                WeekDay = s.WeekDay
-            };
+            if (cls != null)
+                return new ScheduleRequest
+                {
+                    TeacherName = s.Group.Teacher1.Name,
+                    SubjectName = s.Group.Subject1.Name,
+                    Color = "ccff55",
+                    RowSpan = 1,
+                    EditUrl = "login",
+                    Layer = pairs[cls.Layer],
+                    Cls = cls.Num,
+                    ClsNum = cls.Number.ToString(),
+                    Hour = s.Hour,
+                    WeekDay = s.WeekDay
+                };
+            else
+                throw new Exception ("CastScheduleToScheduleRequest");
         }
         public static List<ScheduleRequest> CastScheduleToScheduleRequestList(Schedule s)
         {
             List<ClassDTO> classes = _CastDTO.ClassToDTO(s.Group.Classes.ToList());
             List<ScheduleRequest> newList = new List<ScheduleRequest>();
+            if(classes!=null&&classes.Count>0)
             foreach (var cls in classes)
             {
                 newList.Add(
@@ -69,6 +73,7 @@ namespace BL
                         RowSpan = 1,
                         EditUrl = "login",
                         Layer = pairs[cls.Layer],
+                        Cls = cls.Num,
                         ClsNum = cls.Number.ToString(),
                         Hour = s.Hour,
                         WeekDay = s.WeekDay

@@ -213,7 +213,7 @@ namespace DTO
                 OccasionType = occ.OccasionType,
                 Subject = occ.Subject,
                 Dairies = occ.Dairies.Select(d => d.Id).ToList(),
-                Classes = occ.Classes.Select(c => c.Num).ToList(),
+                //Classes = occ.Classes.Select(c => c.Num).ToList(),
                 Rooms = occ.Rooms.Select(r => r.Id).ToList(),
                 Teachers = occ.Teachers.Select(t => t.Num).ToList()
             };

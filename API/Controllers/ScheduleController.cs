@@ -21,7 +21,7 @@ namespace API.Controllers
             try
             {
                 ScheduleManager s = new ScheduleManager();
-                return Ok(s.GetScheduleByClass(clsReq.c, clsReq.n));//TODO with date
+                return Ok(s.GetScheduleByClass(clsReq.ClsId));//TODO with date
             }
             catch (Exception e)
             {
@@ -31,9 +31,10 @@ namespace API.Controllers
         }
         public class ClassRequest
         {
-            public int c { get; set; }
-            public int n { get; set; }
-            public DateDTO d { get; set; }
+            public int ClsId { get; set; }
+            //public int c { get; set; }
+            //public int n { get; set; }
+            //public DateDTO d { get; set; }
         }
         [HttpPost]
         [Route("get/teacher")]

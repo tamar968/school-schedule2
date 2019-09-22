@@ -1,7 +1,10 @@
 
 <h3>המערכת</h3>
-<select #abscentTeacher name="abscentTeacher"  class="select" [ngModel]="teacherId" (ngModelChange)="onChangeTeacher($event)">
+<select name="teacher"  class="select" [ngModel]="teacherId" (ngModelChange)="onChangeTeacher($event)">
     <option [value]="teacher.Num" *ngFor="let teacher of teachers">{{teacher.Name}}</option>
+  </select>
+  <select name="class"  class="select" [ngModel]="clsId" (ngModelChange)="onChangeClass($event)">
+    <option [value]="cls.Num" *ngFor="let cls of classes">{{cls.Name}}</option>
   </select>
 
 <div class="schedule-container">

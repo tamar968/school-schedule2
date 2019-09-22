@@ -30,8 +30,8 @@ namespace BL
             for (int day = 1; day <= numOfDays; day++)
             {
                 var s = MergeLessonsByClasses(groups.Where(lsn => lsn.WeekDay == day).ToList());
-                if(s!=null&&s.Count>0)
-                     s.Sort();
+                if (s != null && s.Count > 0)
+                    s.Sort();
                 orderSchedule.Add(s);
             }
             return orderSchedule;
@@ -43,7 +43,7 @@ namespace BL
             int numOfDays = 6;//TODO change to the web config
             for (int day = 1; day <= numOfDays; day++)
             {
-                var s = MergeLessonsByClasses(groups.Where(lsn => lsn.WeekDay == day).ToList());
+                var s = MergeLessonsByTeacher(groups.Where(lsn => lsn.WeekDay == day).ToList());
                 if (s != null && s.Count > 0)
                     s.Sort();
                 orderSchedule.Add(s);
@@ -80,8 +80,9 @@ SubTitle: 'שרה',
                     var t = n?.FirstOrDefault(l => schedule[i].Cls == l.Cls &&
                   schedule[i].SubjectName == l.SubjectName &&
                   schedule[i].Hour == l.Hour);
-                    if (t != null)
+                    if (t != null)// &&! t.TeacherName.Contains(schedule[i].TeacherName))
                     {
+                        if(!t.TeacherName.Contains(schedule[i].TeacherName))
                         t.TeacherName += " , " + schedule[i].TeacherName;
                     }
                     else
@@ -92,7 +93,7 @@ SubTitle: 'שרה',
         }
         public List<ScheduleRequest> MergeLessonsByClasses(List<ScheduleRequest> schedule)
         {
-            List<ScheduleRequest> newList = new List<ScheduleRequest> ();
+            List<ScheduleRequest> newList = new List<ScheduleRequest>();
             for (int i = 0; i < schedule.Count; i++)
             {
                 var current = schedule[i];
@@ -132,20 +133,68 @@ SubTitle: 'שרה',
         private string GetStringLayerFromCls(int cls)
         {
             var layer = cls / 100;
-           return ScheduleRequest.pairs[layer];
+            return ScheduleRequest.pairs[layer];
         }
 
+        //public List<List<ScheduleRequest>> GetScheduleByClass(int layer, int number)
+        //{
+        //    Console.WriteLine("in GetScheduleByClass");
+        //    using (Entities db = new Entities())
+        //    {
+        //        var cls = db.Classes.Single(c => c.Layer == layer && c.Number == number);
+        //        var newList = db.Schedules
+        //             .Where(s => s.Group.Classes.Contains(cls))
+        //             .Select(ScheduleRequest.CastScheduleToScheduleRequest)
+        //             .ToList();
+        //        return OrderByDaysClasses(newList);
+
+        //    }
+        //}
         public List<List<ScheduleRequest>> GetScheduleByClass(int layer, int number)
         {
             Console.WriteLine("in GetScheduleByClass");
             using (Entities db = new Entities())
             {
-                var cls = db.Classes.Single(c => c.Layer == layer && c.Number == number);
-                return OrderByDaysClasses(db.Schedules
-                     .Where(s => s.Group.Classes.Contains(cls))
-                     .Select(ScheduleRequest.CastScheduleToScheduleRequest)
-                     .ToList());
+                return OrderByDaysClasses(db.Schedules.Select(ScheduleRequest.CastScheduleToScheduleRequest
+                     //s => new ScheduleRequest
+                     //{
+                     //    TeacherName = s.Group.Teacher1.Name,
+                     //    SubjectName = s.Group.Subject1.Name,
+                     //    Color = "ccffcc",
+                     //    RowSpan = 1,
+                     //    EditUrl = "login",
+                     //    //Cls = s.Group.Classes.FirstOrDefault().Layer * 100 + s.Group.Classes.FirstOrDefault().Number,
+                     //    Hour = s.Hour,
+                     //    WeekDay = s.WeekDay}
+                     ).Where(l => l.Cls == layer * 100 + number).ToList());
 
+            }
+        }
+        //public List<List<ScheduleRequest>> GetScheduleByClass(int clsId)
+        //{
+        //    Console.WriteLine("in GetScheduleByClass");
+        //    using (Entities db = new Entities())
+        //    {
+        //        var cls = db.Classes.Single(c => c.Num == clsId);
+        //        return OrderByDaysClasses(db.Schedules
+        //             .Where(s => s.Group.Classes.Contains(cls))
+        //             .Select(ScheduleRequest.CastScheduleToScheduleRequest)
+        //             .ToList());
+
+        //    }
+        //}
+        public List<List<ScheduleRequest>> GetScheduleByClass(int clsId)
+        {
+            Console.WriteLine("in GetScheduleByClass");
+            using (Entities db = new Entities())
+            {
+                var cls = db.Classes.Single(c => c.Num == clsId);
+                List<ScheduleRequest> newList = new List<ScheduleRequest>();
+                //  db.Schedules.Where(l => l.Group.Teacher == teacherId).ToList().ForEach(s => newList.AddRange(ScheduleRequest.CastScheduleToScheduleRequestList(s)));
+
+                db.Schedules.Where(l => l.Group.Classes.Any(c=> c.Num ==clsId)).ToList()
+                    .ForEach(s => newList.AddRange(ScheduleRequest.CastScheduleToScheduleRequestList(s)));
+                return OrderByDaysClasses(newList.Where(s=> s.Cls == clsId).ToList());
             }
         }
 
@@ -156,8 +205,8 @@ SubTitle: 'שרה',
             {
                 var newList = new List<ScheduleRequest>();
                 db.Schedules.Where(l => l.Group.Teacher == teacherId).ToList().ForEach(s => newList.AddRange(ScheduleRequest.CastScheduleToScheduleRequestList(s)));
-                return OrderByDaysTeachers(newList) ;
-               
+                return OrderByDaysTeachers(newList);
+
             }
         }
         public List<List<DairyDTO>> GetScheduleByDate(DateTime date, int layer)

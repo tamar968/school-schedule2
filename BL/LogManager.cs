@@ -25,7 +25,15 @@ namespace BL
                 eventLog.Source = "SchoolSchedule";
                 string msg = GetInnerExceptionMessage(e);
                 Console.WriteLine(msg);
-                eventLog.WriteEntry(msg, EventLogEntryType.Error);
+                try
+                {
+                    eventLog.WriteEntry(msg, EventLogEntryType.Error);
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("cannot write to EventViewr");
+                }
             } 
         }
         /// <summary>
