@@ -51,3 +51,7 @@ font-size: x-large;
 .custom-select{
   width: 50vw;
 }
+.active{
+color: green !important;
+font-weight: bold;
+}

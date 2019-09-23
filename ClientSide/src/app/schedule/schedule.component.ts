@@ -24,6 +24,7 @@ export class ScheduleComponent implements OnInit {
 loaded=false;
   teacherTb = false;
   classTb = false;
+  currentTb:string;
 
   constructor(private schService: ScheduleService,
     private teacherService: TeacherService,
@@ -51,10 +52,12 @@ loaded=false;
     if (tab == "teacherTb") {
       this.teacherTb = true;
       this.classTb = false;
+      this.currentTb = 'מורה';
     }
     else if (tab == "classTb") {
       this.classTb = true;
       this.teacherTb = false;
+      this.currentTb = 'כיתה';
     }
 
   }

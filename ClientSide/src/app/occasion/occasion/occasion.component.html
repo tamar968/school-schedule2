@@ -24,8 +24,8 @@
         <td>{{occ.FromDate.thisDate | date:'shortDate'}}</td>
         <td>{{occ.ToDate.thisDate | date:'shortDate'}}</td>
         <td><span *ngFor="let c of occ.Classes">{{this.classes[c].Name}}, </span></td>
-        <td class="table-success center" (click)="navigateToEdit(occ.Id)">עריכה</td>
-        <td class="table-secondary center" (click)="navigateToView(occ.Id)">פרטים מלאים</td>
+        <td class="table-success center pointer" (click)="navigateToEdit(occ.Id)">עריכה</td>
+        <td class="table-secondary center pointer" (click)="navigateToView(occ.Id)">פרטים מלאים</td>
       </tr>
     </tbody>
   </table>
