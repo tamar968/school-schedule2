@@ -39,3 +39,10 @@ position: absolute;
 bottom: 0;
 width: 120px;
 }
+.logo{
+  position: absolute;
+  top:10vh;
+  left:7vw;
+  opacity: 0.7;
+  width: 180px;
+  }

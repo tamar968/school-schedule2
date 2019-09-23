@@ -15,10 +15,3 @@ h1,h2{
     /* make fill color to transparent so that masked background color will be shown*/
     -webkit-text-fill-color: transparent;
 }
-.logo{
-position: absolute;
-top:10vh;
-left:7vw;
-opacity: 0.7;
-width: 180px;
-}
