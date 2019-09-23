@@ -57,6 +57,8 @@ namespace BL
             using (Entities db = new Entities())
             {
                 var occ = db.Occasions.FirstOrDefault(o => o.Id == occasionId);
+                occ.Teachers.Clear();
+                occ.Classes.Clear();
                 db.Occasions.Remove(occ);
                 db.SaveChanges();
             }
