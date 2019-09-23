@@ -124,8 +124,8 @@ export class AddOccasionComponent implements OnInit {
     this.teacherIDs.push(item.Num);
     console.log(item, 'נוספה', this.teacherIDs);
   }
-  onItemDeSelect(item: Teacher){
-    this.arrayRemove( this.teacherIDs,item.Num);
+  onItemDeSelect(item: Teacher) {
+    this.arrayRemove(this.teacherIDs, item.Num);
     console.log(item, 'הוסרה', this.teacherIDs);
   }
   onSelectAll(items: Teacher[]) {
@@ -144,6 +144,10 @@ export class AddOccasionComponent implements OnInit {
         }
       }
     }
+    this.onGetClass(layerIDs);
+  }
+
+  onGetClass(layerIDs: number[]) {
     this.classService.getClassesByLayers(layerIDs)//get all the classes by the layers that had been chosen.
       .subscribe(classes => {
         this.classes = classes;
@@ -155,17 +159,25 @@ export class AddOccasionComponent implements OnInit {
 
   onAddOccasion() {
     this.classIDs = [];
-    for (const key in this.isCheckedClasses) {//add the classes TOFIX! add the classes again
+    for (const key in this.isCheckedClasses) {
       if (this.isCheckedClasses.hasOwnProperty(key)) {
         if (this.isCheckedClasses[key]) {
           this.classIDs.push(Number(key));
         }
       }
     }
-    if (this.classIDs.length == 0){
-      alert('לא נבחרו כיתות')
-      return;
-    }
+    if (this.classIDs.length == 0) {
+      var layers = [];
+      for (var i = 0; i < this.layers.length; i++) {
+        if (this.isCheckedLayers[this.layers[i].Id]) {
+          layers.push(this.layers[i].Id);
+        }
+      }
+      this.onGetClass(layers);
+      this.classes.forEach(e => {
+        this.classIDs.push(e.Num);
+      }); 
+    }/**/
     this.occationService.add(this.get()).subscribe(
       res => {
         this.router.navigateByUrl('occasion/occasion');
@@ -176,19 +188,12 @@ export class AddOccasionComponent implements OnInit {
     );
   }
   get() {
-   
-    /* if (this.classIDs.length == 0){
-      for (var i = 0; i < this.layers.length; i++) {
-        if (this.isCheckedLayers[this.layers[i].Id]) {
-          this.classIDs.push(this.layers[i].Id);
-        }
-      }
-    }*/
-        var occasion = {
+
+    var occasion = {
       FromDate: this.fromDate,
-      ToDate: this.toDate?this.toDate : this.fromDate,
+      ToDate: this.toDate ? this.toDate : this.fromDate,
       FromLesson: this.fromLesson,
-      ToLesson: this.toLesson?this.toLesson : this.fromLesson,
+      ToLesson: this.toLesson ? this.toLesson : this.fromLesson,
       OccasionType: this.typeId,
       Subject: this.subject,
       Dairies: this.dairyIDs,

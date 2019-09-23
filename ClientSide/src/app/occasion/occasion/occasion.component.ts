@@ -14,41 +14,41 @@ import { Class } from 'src/app/models/class.model';
 })
 export class OccasionComponent implements OnInit {
 
-  constructor(public router: Router,private clsService:ClassService,private occService:OccasionService,private occTypesService:OccasionTypeService) { }
-  loaded=false;
-  occTypes:OccasionType[];
-  occasions:Occasion[];
-classes:Class[];
+  constructor(public router: Router, private clsService: ClassService, private occService: OccasionService, private occTypesService: OccasionTypeService) { }
+  loaded = false;
+  occTypes: OccasionType[];
+  occasions: Occasion[];
+  classes: Class[];
   ngOnInit() {
     this.occTypesService.getOccasionTypes()
-    .subscribe(occTypes => {
-      this.occTypes = occTypes;
-      console.log(occTypes);
-    },err=>console.error(err))
-    
+      .subscribe(occTypes => {
+        this.occTypes = occTypes;
+        console.log(occTypes);
+      }, err => console.error(err))
+
     this.clsService.getClasses()
-        .subscribe(clss => {
-          this.classes=clss;
-          console.log(this.classes);
-        },err=>console.error(err))
+      .subscribe(clss => {
+        this.classes = clss;
+        console.log(this.classes);
+      }, err => console.error(err))
 
     this.occService.getall()
       .subscribe(occasions => {
         this.occasions = occasions;
-        this.occasions.map(o=>o.OccasionTypeName=this.occTypes.filter(ot=>ot.Id===o.OccasionType)[0].Name);
+        this.occasions.map(o => o.OccasionTypeName = this.occTypes.filter(ot => ot.Id === o.OccasionType)[0].Name);
         console.log(occasions)
 
-        this.loaded=true;
-      },err=>console.error(err))
+        this.loaded = true;
+      }, err => console.error(err))
   }
-  
+
   navigateToAdd() {
     this.router.navigate([`/occasion/add`]);
   }
-  navigateToEdit(id:number){
+  navigateToEdit(id: number) {
     this.router.navigate([`/occasion/edit/${id}`]);
   }
-  navigateToView(id:number){
+  navigateToView(id: number) {
     this.router.navigate([`/occasion/view/${id}`]);
   }
 }

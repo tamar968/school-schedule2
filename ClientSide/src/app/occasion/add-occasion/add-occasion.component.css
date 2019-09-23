@@ -60,3 +60,11 @@ float: left
 .input-grp{
   width: 50%;
 }
+.choosecls{
+  display: inline-block;
+}
+.wrp{
+  padding: 2vh;
+  display:flex;
+  justify-content: space-between;
+}

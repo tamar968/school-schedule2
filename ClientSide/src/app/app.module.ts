@@ -23,7 +23,7 @@ import { EditAbsenceComponent } from './Absences/edit-absence/edit-absence.compo
 import { AboutComponent } from './about/about.component'
 const ROUTES: Routes = [
   { path: "login", component: LoginComponent },
-  { path: "load", component: LoadFilesComponent },//, canActivate: [AdminGuard]
+  { path: "load", component: LoadFilesComponent , canActivate: [AdminGuard]},
   { path: "schedule", component: ScheduleComponent },
   { path: "absence-for-teacher/absences", component: AbsencesComponent },
   { path: "absence-for-teacher/add", component: AddAbsenceComponent, canActivate: [AdminGuard] },
