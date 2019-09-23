@@ -37,12 +37,15 @@ loaded=false;
       );
     this.classService.getClasses()
       .subscribe(
-        cls => this.classes = cls,
+        cls => {this.classes = cls;
+        this.loaded = true;
+        },
         err => console.error(err)
+        
       );
     //this.classes
-    this.teacherId = 1093;
-    this.getScheduleByTeacher();
+    // this.teacherId = 1093;
+    // this.getScheduleByTeacher();
   }
   onChooseTab(tab: string) {
     if (tab == "teacherTb") {

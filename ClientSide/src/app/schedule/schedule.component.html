@@ -29,7 +29,7 @@
 <div *ngIf="loaded" class="schedule-container">
     <div class="d-flex full-width">
         <div>&nbsp;</div>
-        <div class="colmn" *ngFor="let column of data.ColumnTitles">
+        <div class="colmn" *ngFor="let column of data?.ColumnTitles">
             {{column}}
         </div>
     </div>

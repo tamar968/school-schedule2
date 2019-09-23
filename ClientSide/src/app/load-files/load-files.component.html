@@ -1,14 +1,25 @@
-<div class="input-group mb-3">
-    <div class="input-group-append">
-        <button class="btn btn-outline-secondary" [disabled]="!currentDirFiles" (click)="onLoad()"
-            type="button">טעינה</button>
-    </div><input type="text" class="form-control" placeholder="נא הדביקי את ניתוב התיקיה" aria-label="ניתוב תיקיה"
-        (change)="dirEvent($event)" aria-describedby="basic-addon2">
-    
-    <div *ngIf="success && clicked" class="alert alert-success" role="alert">
-        !טעינת הקבצים הסתימה בהצלחה
-    </div>
-    <div *ngIf="!success && clicked" class="alert alert-danger" role="alert">
-        !טעינת הקבצים נכשלה
+<div class="container">
+    <h1>טעינת קבצים ואתחול מערכת</h1>
+    <div class="input-group mb-3" style="margin:5%">
+        <div>
+            <!-- class="input-group-append" -->
+            <p class="block">
+                בחר/י בסייר הקבצים את תיקיית הקבצים שברצונך לטעון והעתיקי את הניתוב לכאן👇 
+            </p>
+            <br>
+       <input type="text" class="form-control" placeholder="נא הדביקי את ניתוב התיקיה"
+                aria-label="ניתוב תיקיה" (change)="dirEvent($event)" aria-describedby="basic-addon2">
+
+            <div *ngIf="success && clicked" class="alert alert-success" role="alert">
+                !טעינת הקבצים הסתימה בהצלחה
+            </div>
+            <div *ngIf="!success && clicked" class="alert alert-danger" role="alert">
+                !טעינת הקבצים נכשלה
+            </div>
+            <div class="block">
+                    <button class="btn btn-outline-secondary" [disabled]="!currentDirFiles" (click)="onLoad()"
+                        type="button">טעינה</button>
+                </div>
+        </div>
     </div>
 </div>

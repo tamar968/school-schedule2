@@ -3,18 +3,18 @@
     <span class="sr-only">Loading...</span>
   </div>
 </div>
-<div *ngIf="loaded" class="card center" style="width: 18rem;">
-  <h2 class="container">פרטי חיסור</h2>
+<div *ngIf="loaded" class="card container">
+  <h2>פרטי חיסור</h2>
   <div class="card-body">
-    <h5 class="card-title">{{abs?.TypeName}}</h5>
-    <p *ngIf="abs?.TeacherId" class="card-text"><b>מורה</b> {{abs?.TeacherName}} </p>
-    <h6 class="card-subtitle mb-2 text-muted"><b>מתאריך</b>
-      {{abs?.FromDate.Month}}/{{abs?.FromDate.Day}}/{{abs?.FromDate.Year}} </h6>
-    <h6 *ngIf="abs?.ToDate.thisDate" class="card-subtitle mb-2 text-muted"><b>עד תאריך</b>
-      {{abs?.FromDate.Month}}/{{abs?.FromDate.Day}}/{{abs?.FromDate.Year}} </h6>
-    <h6 class="card-subtitle mb-2 text-muted"><b>משעור</b> {{abs?.FromLesson}} </h6>
-    <h6 *ngIf="abs?.ToLesson" class="card-subtitle mb-2 text-muted"><b>עד שעור</b> {{abs?.ToLesson}} </h6>
-    <p *ngIf="abs?.TeacherStandIn" class="card-text"><b>מורה ממלאת מקום</b> {{abs?.TeacherStandInName}} </p>
+    <p>{{abs?.TypeName}}</p>
+    <p *ngIf="abs?.TeacherId" ><b>מורה</b> {{abs?.TeacherName}} </p>
+    <p><b>מתאריך</b>
+      {{abs?.FromDate.Month}}/{{abs?.FromDate.Day}}/{{abs?.FromDate.Year}} </p>
+    <p *ngIf="abs?.ToDate.thisDate" ><b>עד תאריך</b>
+      {{abs?.FromDate.Month}}/{{abs?.FromDate.Day}}/{{abs?.FromDate.Year}} </p>
+    <p ><b>משעור</b> {{abs?.FromLesson}} </p>
+    <p *ngIf="abs?.ToLesson"><b>עד שעור</b> {{abs?.ToLesson}} </p>
+    <p *ngIf="abs?.TeacherStandIn" ><b>מורה ממלאת מקום</b> {{abs?.TeacherStandInName}} </p>
     <a (click)="navigateToList()" class="card-link btn btn-secondary">חזרה לרשימה</a>
   </div>
 </div>

@@ -1,49 +1,53 @@
 .schedule-container {
-    width: 100vw;
-    height: 100vh;
-    padding: 15vh;
-    padding-top: 5vh;
-  }
-  
-  .d-flex {
-    display: flex;
-  }
-  
-  .d-flex-column {
-    display: flex;
-    flex-direction: column;
-  }
-  
-  .full-height {
-    height: 190%;
-  }
-  
-  .full-width {
-    width: 100%;
-  }
-  
-  .d-flex div,
-  .d-flex-column div {
-    flex: 1;
-  }
-  
-  .d-flex div,
-  .d-flex-column div,
-  .schedule-container {
-    border: 1px solid black;
-  }
-  .colmn{
+  width: 100vw;
+  height: 100vh;
+  padding: 15vh;
+  padding-top: 5vh;
+}
+
+.d-flex {
+  display: flex;
+}
+
+.d-flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.full-height {
+  height: 150%;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.d-flex div,
+.d-flex-column div {
+  flex: 1;
+}
+
+.d-flex div,
+.d-flex-column div
+ {
+  border: 1px solid black;
+}
+/* .schedule-container */
+.colmn{
 text-align: center;
 font-weight: bold;
 text-decoration-line: underline;
-  }
-  .rows{
+}
+.rows{
 text-align: center;
 font-weight: bold;
-  }
-  .cell{
+}
+.cell{
 text-align: center;
-  }
+}
 .font-xx-large{
-  font-size: xx-large;
+font-size: x-large;
+}
+.custom-select{
+  width: 50vw;
 }

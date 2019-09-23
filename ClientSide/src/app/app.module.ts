@@ -19,7 +19,8 @@ import { OccasionComponent } from './occasion/occasion/occasion.component';
 import { LoadFilesComponent } from './load-files/load-files.component';
 import { AbsencesComponent } from './Absences/absences/absences.component';
 import { EditScheduleComponent } from './schedule/edit-schedule/edit-schedule.component';
-import { EditAbsenceComponent } from './Absences/edit-absence/edit-absence.component'
+import { EditAbsenceComponent } from './Absences/edit-absence/edit-absence.component';
+import { AboutComponent } from './about/about.component'
 const ROUTES: Routes = [
   { path: "login", component: LoginComponent },
   { path: "load", component: LoadFilesComponent },//, canActivate: [AdminGuard]
@@ -32,6 +33,7 @@ const ROUTES: Routes = [
   { path: "occasion/add", component: AddOccasionComponent, canActivate: [AdminGuard] },
   { path: "occasion/view/:number", component: ViewOccasionComponent },
   { path: "occasion/edit/:number", component: EditOccasionComponent, canActivate: [AdminGuard] },
+  { path: "about", component: AboutComponent },
   { path: "", component: HomeComponent },
   { path: "**", redirectTo: "" }
 ]
@@ -51,7 +53,8 @@ const ROUTES: Routes = [
     LoadFilesComponent,
     AbsencesComponent,
     EditScheduleComponent,
-    EditAbsenceComponent
+    EditAbsenceComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
