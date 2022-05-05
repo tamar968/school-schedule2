@@ -1,0 +1,49 @@
+﻿git config --global http.sslVerify false
+eq4606
+548524606eq
+
+https://stackoverflow.com/questions/4253165/insert-update-many-to-many-entity-framework-how-do-i-do-it
+
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/security/enabling-cross-origin-requests-in-web-api
+https://stackoverflow.com/questions/52726032/angular-5-http-post-request-turns-to-options-and-returns-404
+https://angular.io/guide/http
+https://github.com/angular/angular/issues/19535
+https://stackoverflow.com/questions/28426872/read-webconfigurationmanager-appsettings-from-asp-net
+https://docs.microsoft.com/en-us/dotnet/api/system.configuration.appsettingssection?view=netframework-4.8
+https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html
+https://scotch.io/courses/build-your-first-angular-website/adding-an-imagelogo-in-angular
+https://codepen.io/aoguzhan/pen/WJzGmN?&page=1
+https://codepen.io/avivbuen/pen/PbBjXq?&page=1
+https://docs.microsoft.com/en-us/aspnet/web-api/overview/getting-started-with-aspnet-web-api/action-results
+https://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+https://confluence.atlassian.com/bitbucketserverkb/ssl-certificate-problem-unable-to-get-local-issuer-certificate-816521128.html
+https://nodejs.org/en/
+https://stackoverflow.com/questions/8191459/how-do-i-update-node-js
+https://update.angular.io/#6.1:8.0
+https://getbootstrap.com/docs/4.3/getting-started/download/
+https://ng-bootstrap.github.io/#/components/datepicker/examples
+https://docs.microsoft.com/en-us/azure/devops/repos/git/gitquickstart?view=azure-devops&tabs=visual-studio/
+https://stackoverflow.com/questions/29957878/convert-c-sharp-datetime-to-angular-date
+https://stackoverflow.com/questions/38271273/experimental-decorators-warning-in-typescript-compilation
+https://stackoverflow.com/questions/6384659/a-dependent-property-in-a-referentialconstraint-is-mapped-to-a-store-generated-c
+https://stackoverflow.com/questions/5995317/how-to-convert-c-sharp-nullable-int-to-int
+https://www.npmjs.com/package/ng-multiselect-dropdown
+https://www.freecodecamp.org/news/48-answers-on-stack-overflow-to-the-most-popular-angular-questions-52f9eb430ab0/
+https://angular.io/guide/http
+https://angular.io/tutorial/toh-pt6  get all and by id http angular
+https://stackoverflow.com/questions/47068222/angular-4-checkbox-change-value/47068667
+https://love2dev.com/blog/javascript-remove-from-array/
+https://www.w3schools.com/cssref/tryit.asp?filename=trycss_cursor
+https://stackoverflow.com/questions/2155930/how-do-i-remedy-the-the-breakpoint-will-not-currently-be-hit-no-symbols-have-b
+https://www.w3schools.com/tags/att_input_pattern.asp
+https://www.regextester.com/
+https://stackoverflow.com/questions/36647308/visual-studio-2015-git-error-message-cannot-pull-switch-because-there-are-uncom
+https://angular.io/api/common/Time
+https://github.com/scotch-io/angular-2-form-validation/blob/master/src/app/app.formvalidation.ts
+https://regex101.com/
+https://www.techiediaries.com/angular-course-router-guards/
+https://stackoverflow.com/questions/1899428/break-point-is-not-hitting-while-debugging
+https://www.w3schools.com/howto/howto_css_custom_checkbox.asp how to css custom checkbox
+https://www.w3schools.com/howto/howto_custom_select.asp how to custom select
+https://www.flaticon.com/home  icons
+https://stackoverflow.com/questions/9688867/git-pull-not-pulling-everything

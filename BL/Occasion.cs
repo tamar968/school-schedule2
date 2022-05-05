@@ -1,10 +1,7 @@
 ﻿using DAL;
 using DTO;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace BL
 {
@@ -16,16 +13,22 @@ namespace BL
             {
                 DAL.Occasion occasionDb = _CastDTO.DTOToOccasion(occasion);
                 db.Occasions.Add(occasionDb);
-                var teachers = db.Teachers.Where(t => occasion.Teachers.Contains(t.Id));
+                var teachers = db.Teachers.Where(t => occasion.Teachers.Contains(t.Num));
                 foreach (DAL.Teacher teacher in teachers)
                 {
                     occasionDb.Teachers.Add(teacher);
                 }
-                var classes = db.Classes.Where(c => occasion.Classes.Contains(c.Id));
-                foreach (DAL.Class cls in classes)
+                if (occasion.Classes.Count != 0)
                 {
-                    occasionDb.Classes.Add(cls);
+                    //occasion.Classes = Class.GetByLayers(occasion.Classes.ToList()).Select(cls => cls.Num).ToList();
+                    List<DAL.Class> classes = db.Classes.Where(c => occasion.Classes.Contains(c.Num)).ToList();//מיפוי כיתות //Id=>Class
+                    
+                    foreach (DAL.Class cls in classes)
+                    {
+                        occasionDb.Classes.Add(cls);
+                    }
                 }
+
                 var rooms = db.Rooms.Where(r => occasion.Rooms.Contains(r.Id));
                 foreach (DAL.Room room in rooms)
                 {
@@ -41,8 +44,11 @@ namespace BL
                 var occ = db.Occasions.FirstOrDefault(o => o.Id == occasion.Id);
                 occ.Id = occasion.Id;
                 occ.OccasionType = occasion.OccasionType;
+                occ.Subject = occasion.Subject;
                 occ.FromDate = _CastDTO.DTOToDate(occasion.FromDate);
                 occ.ToDate = _CastDTO.DTOToDate(occasion.ToDate);
+                occ.FromLesson = occasion.FromLesson;
+                occ.ToLesson = occasion.ToLesson;
                 db.SaveChanges();
             }
         }
@@ -51,6 +57,8 @@ namespace BL
             using (Entities db = new Entities())
             {
                 var occ = db.Occasions.FirstOrDefault(o => o.Id == occasionId);
+                occ.Teachers.Clear();
+                occ.Classes.Clear();
                 db.Occasions.Remove(occ);
                 db.SaveChanges();
             }

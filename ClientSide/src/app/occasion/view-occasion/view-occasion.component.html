@@ -1,0 +1,21 @@
+<div *ngIf="!loaded"  class="text-center">
+    <div class="spinner-border text-success" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+<div *ngIf="loaded" class="card container" style="width: 18rem;">
+  <h2 >פרטי ארוע</h2>
+  <div >
+    <p >{{occ?.OccasionTypeName}}</p>
+    <p ><b>מתאריך</b> {{occ?.FromDate.thisDate | date:'shortDate'}} </p>
+    <p *ngIf="occ?.ToDate.thisDate" ><b>עד תאריך</b> {{occ?.ToDate.thisDate | date:'shortDate'}} </p>
+    <p ><b>משעור</b> {{occ?.FromLesson}} </p>
+    <p *ngIf="occ?.ToLesson" ><b>עד שעור</b> {{occ?.ToLesson}} </p>
+    <p *ngIf="occ?.Subject" ><b>מקצוע</b> {{occ?.SubjectName}} </p>
+    <!-- <p>Dairies</p> -->
+    <p *ngFor="let c of classes"><b>כיתה</b> {{c.Name}} </p>
+    <!-- <p>Rooms</p> -->
+    <p *ngFor="let t of teachers"><b>מורה</b> {{t.Name}} </p>
+    <a (click)="navigateToList()" class="card-link btn btn-secondary">חזרה לרשימה</a>
+  </div>
+</div>

@@ -15,4 +15,7 @@ export class OccasionTypeService {
   public getOccasionTypes():Observable<OccasionType[]> {
     return this.http.get<OccasionType[]>(`${this.baseUrl}/get/all`);
   }
+  public get(id:number):Observable<OccasionType> {
+    return this.http.get<OccasionType>(`${this.baseUrl}/get/${id}`);
+  }
 }

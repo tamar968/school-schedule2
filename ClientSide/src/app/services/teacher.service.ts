@@ -11,7 +11,20 @@ export class TeacherService {
   constructor(private http:HttpClient) { } 
   
   private baseUrl = AppComponent.getBaseUrl()+'/teacher'; 
- 
+  public add(teacher: Teacher): Observable<Teacher> {
+    return this.http.post<Teacher>(`${this.baseUrl}/add`, teacher);
+  }
+  public update(teacher: Teacher): Observable<Teacher> {
+    return this.http.post<Teacher>(`${this.baseUrl}/update`,teacher);
+  }
+
+  public delete(Id: number): Observable<Teacher> {
+    return this.http.post<Teacher>(`${this.baseUrl}/delete`, Id);
+  }
+
+  public get(Id: number): Observable<Teacher> {
+    return this.http.get<Teacher>(`${this.baseUrl}/get/${Id}`);
+  }
   public getTeachers():Observable<Teacher[]>{
     return this.http.get<Teacher[]>(`${this.baseUrl}/get/all`);
   }

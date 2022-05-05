@@ -20,9 +20,10 @@ namespace DAL
         public System.DateTime FromDate { get; set; }
         public System.DateTime ToDate { get; set; }
         public Nullable<int> TeacherStandIn { get; set; }
+        public Nullable<int> FromLesson { get; set; }
+        public Nullable<int> ToLesson { get; set; }
     
         public virtual Absence Absence { get; set; }
         public virtual Teacher Teacher { get; set; }
-        public virtual Teacher Teacher1 { get; set; }
     }
 }

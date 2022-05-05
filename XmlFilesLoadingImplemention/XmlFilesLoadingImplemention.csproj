@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{48F1F108-AE6C-4FF1-8955-A617719D4C77}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>TestCode</RootNamespace>
+    <AssemblyName>TestCode</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="ClassDiagramXML.cd" />
+    <None Include="packages.config" />
+    <None Include="SQL_files\Diagram_DB.docx" />
+    <None Include="XML_files\AUTOBACKUP\TalData1.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData10.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData11.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData12.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData13.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData14.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData15.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData16.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData17.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData18.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData19.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData2.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData20.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData21.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData22.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData23.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData24.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData25.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData26.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData27.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData28.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData29.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData3.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData30.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData31.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData32.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData33.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData34.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData35.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData36.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData37.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData38.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData39.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData4.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData40.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData41.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData42.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData43.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData44.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData45.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData46.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData47.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData48.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData49.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData5.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData50.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData6.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData7.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData8.zip" />
+    <None Include="XML_files\AUTOBACKUP\TalData9.zip" />
+    <None Include="XML_files\BACKUP\TalData1.zip" />
+    <None Include="XML_files\BACKUP\TalData10.zip" />
+    <None Include="XML_files\BACKUP\TalData11.zip" />
+    <None Include="XML_files\BACKUP\TalData12.zip" />
+    <None Include="XML_files\BACKUP\TalData13.zip" />
+    <None Include="XML_files\BACKUP\TalData14.zip" />
+    <None Include="XML_files\BACKUP\TalData15.zip" />
+    <None Include="XML_files\BACKUP\TalData16.zip" />
+    <None Include="XML_files\BACKUP\TalData17.zip" />
+    <None Include="XML_files\BACKUP\TalData18.zip" />
+    <None Include="XML_files\BACKUP\TalData19.zip" />
+    <None Include="XML_files\BACKUP\TalData2.zip" />
+    <None Include="XML_files\BACKUP\TalData20.zip" />
+    <None Include="XML_files\BACKUP\TalData21.zip" />
+    <None Include="XML_files\BACKUP\TalData22.zip" />
+    <None Include="XML_files\BACKUP\TalData23.zip" />
+    <None Include="XML_files\BACKUP\TalData24.zip" />
+    <None Include="XML_files\BACKUP\TalData25.zip" />
+    <None Include="XML_files\BACKUP\TalData26.zip" />
+    <None Include="XML_files\BACKUP\TalData27.zip" />
+    <None Include="XML_files\BACKUP\TalData28.zip" />
+    <None Include="XML_files\BACKUP\TalData29.zip" />
+    <None Include="XML_files\BACKUP\TalData3.zip" />
+    <None Include="XML_files\BACKUP\TalData30.zip" />
+    <None Include="XML_files\BACKUP\TalData31.zip" />
+    <None Include="XML_files\BACKUP\TalData32.zip" />
+    <None Include="XML_files\BACKUP\TalData33.zip" />
+    <None Include="XML_files\BACKUP\TalData34.zip" />
+    <None Include="XML_files\BACKUP\TalData35.zip" />
+    <None Include="XML_files\BACKUP\TalData36.zip" />
+    <None Include="XML_files\BACKUP\TalData37.zip" />
+    <None Include="XML_files\BACKUP\TalData38.zip" />
+    <None Include="XML_files\BACKUP\TalData39.zip" />
+    <None Include="XML_files\BACKUP\TalData4.zip" />
+    <None Include="XML_files\BACKUP\TalData40.zip" />
+    <None Include="XML_files\BACKUP\TalData41.zip" />
+    <None Include="XML_files\BACKUP\TalData42.zip" />
+    <None Include="XML_files\BACKUP\TalData43.zip" />
+    <None Include="XML_files\BACKUP\TalData44.zip" />
+    <None Include="XML_files\BACKUP\TalData45.zip" />
+    <None Include="XML_files\BACKUP\TalData46.zip" />
+    <None Include="XML_files\BACKUP\TalData47.zip" />
+    <None Include="XML_files\BACKUP\TalData48.zip" />
+    <None Include="XML_files\BACKUP\TalData49.zip" />
+    <None Include="XML_files\BACKUP\TalData5.zip" />
+    <None Include="XML_files\BACKUP\TalData50.zip" />
+    <None Include="XML_files\BACKUP\TalData6.zip" />
+    <None Include="XML_files\BACKUP\TalData7.zip" />
+    <None Include="XML_files\BACKUP\TalData8.zip" />
+    <None Include="XML_files\BACKUP\TalData9.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BL\BL.csproj">
+      <Project>{65AA10E2-DB7C-4AD0-8653-C0A4ABB5B63E}</Project>
+      <Name>BL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DTO\DTO.csproj">
+      <Project>{A95D51D2-FBC9-4589-8F8C-90FD65AC5156}</Project>
+      <Name>DTO</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="General\TODO.html" />
+    <Content Include="SQL_files\scriptDB.sql" />
+    <Content Include="XML_files\blocks.xml" />
+    <Content Include="XML_files\classes.xml" />
+    <Content Include="XML_files\GormimMeshalmim.xml" />
+    <Content Include="XML_files\groups.xml" />
+    <Content Include="XML_files\groupsHistory.xml" />
+    <Content Include="XML_files\history.xml" />
+    <Content Include="XML_files\hourName.xml" />
+    <Content Include="XML_files\pupilInGroup.xml" />
+    <Content Include="XML_files\pupils.xml" />
+    <Content Include="XML_files\RobotSteps.xml" />
+    <Content Include="XML_files\rooms.xml" />
+    <Content Include="XML_files\schedule.xml" />
+    <Content Include="XML_files\SibotGmul.xml" />
+    <Content Include="XML_files\subjects.xml" />
+    <Content Include="XML_files\teachers.xml" />
+    <Content Include="XML_files\teken.xml" />
+    <Content Include="XML_files\tekenKitot.xml" />
+    <Content Include="XML_files\tosaftiyot.xml" />
+    <Content Include="XML_files\yaadim.xml" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -14,7 +14,7 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                db.Dairies.Add(_CastDTO.DTOToDairy(lesson));
+                db.Dairies .Add(_CastDTO.DTOToDairy(lesson));
                 db.SaveChanges();
             }
         }
@@ -22,10 +22,10 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                var dairy = db.Dairies.FirstOrDefault(l => l.Id == lesson.Id);
+                var dairy = db.Dairies .FirstOrDefault(l => l.Num == lesson.Num);
                 dairy.CalculateHours = lesson.CalculateHours;
                 dairy.Cause = lesson.Cause;
-                dairy.ClassId = lesson.ClassId;
+                dairy.GroupId = lesson.GroupId;
                 dairy.FromDate = _CastDTO.DTOToDate(lesson.FromDate);
                 dairy.ToDate = _CastDTO.DTOToDate(lesson.ToDate);
                 dairy.Hour = lesson.Hour;
@@ -44,8 +44,8 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                var dairy = db.Dairies.FirstOrDefault(l => l.Id == lessonId);
-                db.Dairies.Remove(dairy);
+                var dairy = db.Dairies .FirstOrDefault(l => l.Id == lessonId);
+                db.Dairies .Remove(dairy);
                 db.SaveChanges();
             }
         }
@@ -53,14 +53,14 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                return _CastDTO.DairyToDTO(db.Dairies.FirstOrDefault(l => l.Id == id));
+                return _CastDTO.DairyToDTO(db.Dairies .FirstOrDefault(l => l.Id == id));
             }
         }
         public static List<DairyDTO> Get()
         {
             using (Entities db = new Entities())
             {
-                return _CastDTO.DairyToDTO(db.Dairies.ToList());
+                return _CastDTO.DairyToDTO(db.Dairies .ToList());
             }
         }
     }

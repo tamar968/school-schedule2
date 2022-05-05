@@ -8,7 +8,6 @@ namespace DTO
 {
     public class GroupDTO
     {
-        public int Id { get; set; }
         public int Num { get; set; }
         public int? Teacher { get; set; }
         public int? Subject { get; set; }
@@ -21,6 +20,6 @@ namespace DTO
         public int? HourType { get; set; }
         public int? SubHourType { get; set; }
         public ICollection<int> Classes { get; set; }
-
+        public ICollection<int> Dairies { get; set; }
     }
 }

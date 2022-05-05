@@ -1,0 +1,20 @@
+<div *ngIf="!loaded" class="text-center">
+  <div class="spinner-border text-success" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+<div *ngIf="loaded" class="card container">
+  <h2>פרטי חיסור</h2>
+  <div class="card-body">
+    <p>{{abs?.TypeName}}</p>
+    <p *ngIf="abs?.TeacherId" ><b>מורה</b> {{abs?.TeacherName}} </p>
+    <p><b>מתאריך</b>
+      {{abs?.FromDate.Month}}/{{abs?.FromDate.Day}}/{{abs?.FromDate.Year}} </p>
+    <p *ngIf="abs?.ToDate.thisDate" ><b>עד תאריך</b>
+      {{abs?.FromDate.Month}}/{{abs?.FromDate.Day}}/{{abs?.FromDate.Year}} </p>
+    <p ><b>משעור</b> {{abs?.FromLesson}} </p>
+    <p *ngIf="abs?.ToLesson"><b>עד שעור</b> {{abs?.ToLesson}} </p>
+    <p *ngIf="abs?.TeacherStandIn" ><b>מורה ממלאת מקום</b> {{abs?.TeacherStandInName}} </p>
+    <a (click)="navigateToList()" class="card-link btn btn-secondary">חזרה לרשימה</a>
+  </div>
+</div>

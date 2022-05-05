@@ -1,0 +1,34 @@
+<div *ngIf="!loaded" class="text-center">
+    <div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<div *ngIf="loaded">
+    <button class="btn btn-success btn-lg" (click)="navigateToAdd()">הוספת חסור למורה</button>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">מורה</th>
+                <th scope="col">סוג</th>
+                <th scope="col">מתאריך</th>
+                <th scope="col">משעור</th>
+                <th scope="col">ממלאת מקום</th>
+                <th scope="col"> </th>
+                <th scope="col"> </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let aft of absForTeachers">
+                <th scope="row">{{aft.Id}}</th>
+                <td>{{aft.TeacherName}}</td>
+                <td>{{aft.TypeName}}</td>
+                <td>{{aft.FromDate.Month}}/{{aft.FromDate.Day}}/{{aft.FromDate.Year}}</td>                
+                <td>{{aft.FromLesson}}</td>
+                <td>{{aft.TeacherStandInName}}</td>
+                <td class="table-success center pointer " (click)="navigateToEdit(aft.Id)">עריכה</td>
+                <td class="table-secondary center pointer" (click)="navigateToView(aft.Id)">פרטים מלאים</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

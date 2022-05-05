@@ -1,5 +1,5 @@
 # Add bin path in the home directory ontop of the PATH variable
-export PATH="$HOME/bin:$PATH"
+export PATH="/cmd/:$HOME/bin:$PATH"
 
 # Allow SSH to ask via GUI if the terminal is not usable
 test -n "$SSH_ASKPASS" || {

@@ -1,0 +1,10 @@
+
+  /* Add padding to containers */
+  .container {
+    padding: 4vw;
+    border: 1px solid;
+    box-shadow: 5px 10px #888888;
+  }
+  .thx{
+    text-align: end;
+  }

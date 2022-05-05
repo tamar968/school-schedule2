@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace BL
 {
+    /// <summary>
+    /// this class take care of exceptions
+    /// </summary>
     public class LogManager
     {
         /// <summary>
@@ -16,12 +19,22 @@ namespace BL
         /// <param name="e"></param>
         public static void LogException(Exception e)
         {
-            File.AppendAllText("D:\\logs.txt", GetInnerExceptionMessage(e));//our file in bin/debug folder
+            // File.AppendAllText("C:\\workspace\\logs.txt", GetInnerExceptionMessage(e));//our file in bin/debug folder
             using (EventLog eventLog = new EventLog())
             {
                 eventLog.Source = "SchoolSchedule";
-                eventLog.WriteEntry(GetInnerExceptionMessage(e), EventLogEntryType.Error);
-            }/**/
+                string msg = GetInnerExceptionMessage(e);
+                Console.WriteLine(msg);
+                try
+                {
+                    eventLog.WriteEntry(msg, EventLogEntryType.Error);
+
+                }
+                catch (Exception)
+                {
+                    Console.WriteLine("cannot write to EventViewr");
+                }
+            } 
         }
         /// <summary>
         /// find all the inner exception messages

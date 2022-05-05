@@ -11,7 +11,7 @@ namespace BL
     public class Class
     {
 
-        enum eLayers
+        enum ELayers
         {
             ט = 9,
             י = 10,
@@ -43,7 +43,7 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                var cls = db.Classes.FirstOrDefault(c => c.Id == _class.Id);
+                var cls = db.Classes.FirstOrDefault(c => c.Num == _class.Num);
                 cls.Name = _class.Name;
                 cls.Layer = _class.Layer;
                 cls.Num = _class.Num;
@@ -56,7 +56,7 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                var cls = db.Classes.FirstOrDefault(c => c.Id == _classId);
+                var cls = db.Classes.FirstOrDefault(c => c.Num == _classId);
                 db.Classes.Remove(cls);
                 db.SaveChanges();
             }
@@ -65,7 +65,7 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                return _CastDTO.ClassToDTO(db.Classes.FirstOrDefault(c => c.Id == id));
+                return _CastDTO.ClassToDTO(db.Classes.FirstOrDefault(c => c.Num == id));
             }
         }
         public static List<ClassDTO> Get()

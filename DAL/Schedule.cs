@@ -15,11 +15,13 @@ namespace DAL
     public partial class Schedule
     {
         public int Num { get; set; }
+        public int GroupId { get; set; }
         public int WeekDay { get; set; }
         public int Day { get; set; }
         public int Hour { get; set; }
         public Nullable<int> Room { get; set; }
     
         public virtual Room Room1 { get; set; }
+        public virtual Group Group { get; set; }
     }
 }

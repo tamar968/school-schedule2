@@ -27,6 +27,9 @@ namespace DAL
         public Nullable<System.DateTime> FromDate { get; set; }
         public Nullable<System.DateTime> ToDate { get; set; }
         public Nullable<int> OccasionType { get; set; }
+        public Nullable<int> Subject { get; set; }
+        public Nullable<int> FromLesson { get; set; }
+        public Nullable<int> ToLesson { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Dairy> Dairies { get; set; }

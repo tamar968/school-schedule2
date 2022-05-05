@@ -22,11 +22,14 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                var absForTea = db.AbsencesForTeachers.FirstOrDefault(a => a.Id == absenceForTeacher.Id);
+                 var absForTea = db.AbsencesForTeachers.FirstOrDefault(a => a.Id == absenceForTeacher.Id);
                 absForTea.TeacherId = absenceForTeacher.TeacherId;
                 absForTea.TeacherStandIn = absenceForTeacher.TeacherStandIn;
                 absForTea.FromDate = _CastDTO.DTOToDate(absenceForTeacher.FromDate);
                 absForTea.ToDate = _CastDTO.DTOToDate(absenceForTeacher.ToDate);
+                absForTea.FromLesson = absenceForTeacher.FromLesson;
+                absForTea.ToLesson = absenceForTeacher.ToLesson;
+                absForTea.Type=absenceForTeacher.Type;
                 db.SaveChanges();
             }
         }

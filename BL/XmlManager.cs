@@ -1,57 +1,82 @@
-﻿using System;
+﻿
+using DAL;
+using DTO;
+using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
-using DAL;
-using DTO;
+
 namespace BL
 {
     public class XmlManager
     {
-        private Dictionary<string, Action<string>> fileNameToAction;
+        private readonly Dictionary<string, Action<string>> fileNameToAction;
         public XmlManager()
         {
-            fileNameToAction = new Dictionary<string, Action<string>>();
-            fileNameToAction["classes.xml"] = LoadClasses;
-            fileNameToAction["groups.xml"] = LoadGroups;
-            fileNameToAction["rooms.xml"] = LoadRooms;
-            fileNameToAction["schedule.xml"] = LoadSchedule;
-            fileNameToAction["subjects.xml"] = LoadSubjects;
-            fileNameToAction["teachers.xml"] = LoadTeachers;
+            fileNameToAction = new Dictionary<string, Action<string>>
+            {
+                ["teachers.xml"] = LoadTeachers,
+                ["classes.xml"] = LoadClasses,
+                ["subjects.xml"] = LoadSubjects,
+                ["rooms.xml"] = LoadRooms,
+                ["groups.xml"] = LoadGroups,
+                ["schedule.xml"] = LoadSchedule
+            };
         }
 
         public void LoadDirectory(string path)
         {
-            ClearDB();
+            ResetDB();
             var directoryInfo = new DirectoryInfo(path);
             var files = directoryInfo.GetFiles();
-            foreach (var file in files)
+            foreach (var fileActionPair in fileNameToAction)
             {
-                Action<string> action;
-                if (fileNameToAction.TryGetValue(file.Name, out action))
-                {
-                    action?.Invoke(file.FullName);
-                }
+                var file = files.Single(f => f.Name == fileActionPair.Key);
+                Console.WriteLine("Loading {0}....", file.FullName);
+                fileActionPair.Value?.Invoke(file.FullName);
             }
         }
-        public void ClearDB()
+        public void ResetDB()
         {
-           
-            var conn = new SqlConnection("data source=SQL-SERVER; initial catalog=!ESTY&TAMAR; integrated security=True");
-            SqlCommand cmd;
-            conn.Open();
 
-           
-            cmd = new SqlCommand("sp_MSforeachtable 'DELETE FROM ?'", conn);
-            cmd.ExecuteNonQuery();
+            int secWait = 5;
+            Console.WriteLine("delete db {0} second along", secWait);
+            System.Threading.Thread.Sleep(secWait * 1000);
+            //Console.WriteLine("create connection...");
+            // var conn = new SqlConnection("data source=SQLSRV; initial catalog=!ESTY&TAMAR; integrated security=True");
+            //var conn = new SqlConnection("data source=DESKTOP-7A0S24C; initial catalog=!ESTY&TAMAR; integrated security=True");
+            //Console.WriteLine("connect success!");
+            //conn.Open();
+            Console.WriteLine("delete....");
+            using (Entities db = new Entities())
+            {
+                try
+                {
+                    db.FILL_CONST_TABLES();
+                }
+                catch (Exception e)
+                {
+                    LogManager.LogException(e);
+                }
+                try
+                {
+                    db.TRUNCATE_MONTHLY_TABLES();
+                }
+                catch (Exception e)
+                {
+                    LogManager.LogException(e);
+                }
 
-            
-            conn.Close();
+            }
+            //SqlCommand cmd;
+            //cmd = new SqlCommand("sp_MSforeachtable 'DELETE FROM ?'", conn);
+            //cmd.ExecuteNonQuery();
+            Console.WriteLine("delete successfuly");
+
+            //conn.Close();
         }
         public void LoadClasses(string path)
         {
@@ -62,15 +87,15 @@ namespace BL
                 {
                     foreach (XmlClasses.rootData rootData in root.data)
                     {
-                        db.Classes.Add(_CastDTO.DTOToClass(new ClassDTO()
+                        var c = _CastDTO.DTOToClass(new ClassDTO()
                         {
                             Layer = rootData.layer,
                             Name = rootData.name,
                             Num = rootData.num,
                             Number = rootData.class_number,
                             SchoolType = rootData.schooltype
-                        }));
-
+                        });
+                        db.Classes.Add(c);
                     }
                     db.SaveChanges();
                 }
@@ -89,23 +114,24 @@ namespace BL
                 {
                     foreach (XmlGroups.rootGroup rootData in root.group)
                     {
-                        db.Groups.Add(_CastDTO.DTOToGroup(new GroupDTO()
+                        var t = _CastDTO.DTOToGroup(new GroupDTO()
                         {
                             Num = rootData.num,
-                            Teacher = rootData.tea,
-                            Subject = rootData.subj,
-                            Room = rootData.sroom,
+                            Teacher = rootData.tea == -1 ? null : (int?)rootData.tea,
+                            Subject = rootData.subj == -1 ? null : (int?)rootData.subj,
+                            Room = rootData.sroom == -1 || rootData.sroom > 200 ? null : (int?)rootData.sroom,
                             Hours = rootData.no_of_hours,
                             CalculateHours = rootData.calculate_hours,
-                            SchoolType = rootData.schooltype,
+                            SchoolType = rootData.schooltype == 0 ? null : (int?)rootData.schooltype,
                             Reforma = rootData.reforma,
-                            PayAbsence = rootData.goremMeshalem,
-                            HourType = rootData.sug,
-                            SubHourType = rootData.sub_sug
-                        }));
+                            PayAbsence = rootData.goremMeshalem == 0 ? null : (int?)rootData.goremMeshalem,
+                            HourType = null, //TODO rootData.sug == 0 ? null : (int?)rootData.sug,
+                            SubHourType = null, // rootData.sub_sug == 0 ? null : (int?)rootData.sub_sug,
+                        });
+                        db.Groups.Add(t);
+                        t.Classes = rootData.classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Num == c.num)).ToList();
                     }
                     db.SaveChanges();
-
                 }
             }
             catch (Exception e)
@@ -124,13 +150,14 @@ namespace BL
                     foreach (XmlRooms.rootData rootData in root.data)
                     {
                         var roomDataNum = rootData.num.ToString();
-                        db.Rooms.Add(_CastDTO.DTOToRoom(new RoomDTO()
+                        var r = _CastDTO.DTOToRoom(new RoomDTO()
                         {
-                            ClassId = db.Classes.Where(c => c.Name == rootData.name).FirstOrDefault()?.Id,
+                            ClassId = db.Classes.Where(c => c.Name == rootData.name).FirstOrDefault()?.Num,
                             Floor = int.Parse(roomDataNum[2].ToString()),
                             Number = int.Parse(roomDataNum[2].ToString()) * 100 + int.Parse(roomDataNum[3].ToString()),
                             UseFor = rootData.name
-                        }));
+                        });
+                        db.Rooms.Add(r);
                     }
                     db.SaveChanges();
                 }
@@ -150,19 +177,21 @@ namespace BL
                 {
                     foreach (XmlSchedule.rootGroup rootData in root.group)
                     {
-                        //TODO
-                        foreach (XmlSchedule.rootGroupSchedule rootGroupSchedule in rootData.schedule)
-                        {
-                            db.Schedules.Add(_CastDTO.DTOToSchedule(new ScheduleDTO()
+                        if (rootData.schedule != null)
+                            foreach (XmlSchedule.rootGroupSchedule rootGroupSchedule in rootData.schedule)
                             {
-                                Day = rootGroupSchedule.day,
-                                Hour = rootGroupSchedule.hour,
-                                WeekDay = rootGroupSchedule.weekDay,
-                                Room = rootGroupSchedule.weekDay
-                            }));
-                        }
+                                var s = _CastDTO.DTOToSchedule(new ScheduleDTO()
+                                {
+                                    Day = rootGroupSchedule.day,
+                                    Hour = rootGroupSchedule.hour,
+                                    WeekDay = rootGroupSchedule.weekDay,
+                                    Room = rootGroupSchedule.weekDay,
+                                    GroupId = rootData.num,
+                                });
+                                db.Schedules.Add(s);
+                            }
+                        db.SaveChanges();
                     }
-                    db.SaveChanges();
                 }
             }
             catch (Exception e)
@@ -205,11 +234,13 @@ namespace BL
                 {
                     foreach (XmlTeachers.rootData rootData in root.data)
                     {
-                        db.Teachers.Add(_CastDTO.DTOToTeacher(new TeacherDTO()
+                        var t = _CastDTO.DTOToTeacher(new TeacherDTO()
                         {
                             Num = rootData.num,
                             Name = rootData.name,
-                        }));
+                        });
+                        db.Teachers.Add(t);
+                        //t.PayAbsences = rootData.details.goremMeshalem;
                     }
                     db.SaveChanges();
                 }
@@ -219,7 +250,6 @@ namespace BL
                 LogManager.LogException(e);
 
             }
-
         }
         /// <summary>
         /// read xml file
@@ -235,6 +265,7 @@ namespace BL
             T root = (T)serializer.Deserialize(stringReader);
             return root;
         }
-        
+
     }
 }
+

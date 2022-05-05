@@ -21,7 +21,7 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                var abs = db.Teachers.FirstOrDefault(t => t.Id == teacher.Id);
+                var abs = db.Teachers.FirstOrDefault(t => t.Num == teacher.Num);
                  abs.Name =teacher.Name;
                 db.SaveChanges();
             }
@@ -30,7 +30,7 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                var abs = db.Teachers.FirstOrDefault(t => t.Id == teacherId);
+                var abs = db.Teachers.FirstOrDefault(t => t.Num == teacherId);
                 db.Teachers.Remove(abs);
                 db.SaveChanges();
             }
@@ -46,7 +46,7 @@ namespace BL
         {
             using (Entities db = new Entities())
             {
-                return _CastDTO.TeacherToDTO(db.Teachers.FirstOrDefault(l => l.Id == id));
+                return _CastDTO.TeacherToDTO(db.Teachers.FirstOrDefault(l => l.Num == id));
             }
         }
     }

@@ -1,0 +1,54 @@
+<div *ngIf="!loaded" class="text-center">
+    <div class="spinner-border text-success" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+<h3>המערכת</h3>
+<div class="nav nav-tabs" id="myTab" role="tablist">
+    <a class="nav-item nav-link font-xx-large" [ngClass]="{'active':classTb}" (click)="onChooseTab('classTb')"
+        aria-controls="home" aria-selected="true">כיתה</a>
+    <a class="nav-item nav-link font-xx-large" [ngClass]="{'active':teacherTb}" (click)="onChooseTab('teacherTb')"
+        aria-controls="profile" aria-selected="false">מורה</a>
+</div>
+
+<div class="input-group mb-3">
+    <div *ngIf="currentTb" class="input-group">
+        <!-- <label class="input-group-text font-xx-large" for="inputGroupSelect01" >{{currentTb}}</label> -->
+        <label>בחרי {{currentTb}}</label>
+    </div>
+
+    <select *ngIf="teacherTb" class="custom-select font-xx-large" name="teacher" [ngModel]="teacherId"
+        (ngModelChange)="onChangeTeacher($event)">
+        <option [value]="teacher.Num" *ngFor="let teacher of teachers">{{teacher.Name}}
+        </option>
+    </select>
+    <select *ngIf="classTb" class="custom-select font-xx-large" name="class" [ngModel]="clsId"
+        (ngModelChange)="onChangeClass($event)">
+        <option [value]="cls.Num" *ngFor="let cls of classes">{{cls.Name}}</option>
+    </select>
+</div>
+
+<div *ngIf="loaded && data" class="schedule-container">
+    <div class="d-flex full-width">
+        <div>&nbsp;</div>
+        <div class="colmn" *ngFor="let column of data?.ColumnTitles">
+            {{column}}
+        </div>
+    </div>
+    <div class="d-flex full-height">
+        <div class="d-flex-column">
+            <div class="rows" *ngFor="let row of data.RowTitles">
+                {{row}}
+            </div>
+        </div>
+        <div class="d-flex-column" *ngFor="let columnData of data.Cells">
+            <div class="cell" *ngFor="let cellData of columnData"
+                [ngStyle]="{'flex': cellData.RowSpan,'background-color': '#'+cellData.Color}">
+                <p>{{cellData.TeacherName}}</p>
+                <p>{{cellData.Layer}}{{cellData.ClsNum}}</p>
+                <p><b>{{cellData.SubjectName}}</b></p>
+            </div>
+        </div>
+    </div>
+
+</div>

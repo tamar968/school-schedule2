@@ -25,7 +25,7 @@ namespace DAL
         public Nullable<int> TeacherId { get; set; }
         public Nullable<int> SubjectId { get; set; }
         public Nullable<int> TypeId { get; set; }
-        public Nullable<int> ClassId { get; set; }
+        public Nullable<int> GroupId { get; set; }
         public Nullable<int> RoomId { get; set; }
         public bool IsGrouped { get; set; }
         public Nullable<int> OccasionId { get; set; }
@@ -36,13 +36,13 @@ namespace DAL
         public Nullable<decimal> CalculateHours { get; set; }
         public Nullable<int> Cause { get; set; }
     
-        public virtual Class Class { get; set; }
         public virtual OccasionType OccasionType { get; set; }
         public virtual Room Room { get; set; }
         public virtual Subject Subject { get; set; }
         public virtual Teacher Teacher { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Class> Classes { get; set; }
+        public virtual Group Group { get; set; }
         public virtual Occasion Occasion { get; set; }
     }
 }

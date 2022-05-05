@@ -2,9 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace DTO
 {
@@ -33,10 +30,13 @@ namespace DTO
         {
             return new AbsencesForTeacherDTO()
             {
+                Id = absForTea.Id,
                 TeacherId = absForTea.TeacherId,
                 TeacherStandIn = absForTea.TeacherStandIn,
-                FromDate =DateToDTO(absForTea.FromDate),
+                FromDate = DateToDTO(absForTea.FromDate),
                 ToDate = DateToDTO(absForTea.ToDate),
+                FromLesson = absForTea.FromLesson,
+                ToLesson = absForTea.ToLesson,
                 Type = absForTea.Type
             };
         }
@@ -48,11 +48,14 @@ namespace DTO
         {
             return new AbsencesForTeacher()
             {
+                Id = absForTea.Id,
                 TeacherId = absForTea.TeacherId,
                 TeacherStandIn = absForTea.TeacherStandIn,
                 FromDate = DTOToDate(absForTea.FromDate),
                 ToDate = DTOToDate(absForTea.ToDate),
-                Type = absForTea.Type
+                FromLesson = absForTea.FromLesson,
+                ToLesson = absForTea.ToLesson,
+                Type = absForTea.Type,
             };
         }
         public static List<AbsencesForTeacher> DTOToAbsencesForTeacher(List<AbsencesForTeacherDTO> absForTeaList)
@@ -63,7 +66,7 @@ namespace DTO
         #region Class
         public static ClassDTO ClassToDTO(Class cls)
         {
-            return new ClassDTO() { Id = cls.Id, Name = cls.Name, Layer = cls.Layer, Num = cls.Num, Number = cls.Number, SchoolType = cls.SchoolType };
+            return new ClassDTO() { Num = cls.Num, Name = cls.Name, Layer = cls.Layer, Number = cls.Number, SchoolType = cls.SchoolType };
         }
         public static List<ClassDTO> ClassToDTO(List<Class> clsList)
         {
@@ -71,7 +74,7 @@ namespace DTO
         }
         public static Class DTOToClass(ClassDTO cls)
         {
-            return new Class() { Id = cls.Id, Name = cls.Name, Layer = cls.Layer, Num = cls.Num, Number = cls.Number, SchoolType = cls.SchoolType };
+            return new Class() { Num = cls.Num, Name = cls.Name, Layer = cls.Layer, Number = cls.Number, SchoolType = cls.SchoolType };
         }
         public static List<Class> DTOToClass(List<ClassDTO> clsList)
         {
@@ -84,7 +87,7 @@ namespace DTO
             return new DairyDTO()
             {
                 Id = dairy.Id,
-                ClassId = dairy.ClassId,
+                GroupId = dairy.GroupId,
                 Num = dairy.Num,
                 CalculateHours = dairy.CalculateHours,
                 Cause = dairy.Cause,
@@ -97,7 +100,8 @@ namespace DTO
                 SubjectId = dairy.SubjectId,
                 TeacherId = dairy.TeacherId,
                 ToDate = DateToDTO(dairy.ToDate),
-                TypeId = dairy.TypeId
+                TypeId = dairy.TypeId,
+                //Classes = dairy.Classes.Select(c => c.Num).ToList()
             };
         }
         public static List<DairyDTO> DairyToDTO(List<Dairy> dairyList)
@@ -109,7 +113,7 @@ namespace DTO
             return new Dairy()
             {
                 Id = dairy.Id,
-                ClassId = dairy.ClassId,
+                GroupId = dairy.GroupId,
                 Num = dairy.Num,
                 CalculateHours = dairy.CalculateHours,
                 Cause = dairy.Cause,
@@ -122,8 +126,10 @@ namespace DTO
                 SubjectId = dairy.SubjectId,
                 TeacherId = dairy.TeacherId,
                 ToDate = DTOToDate(dairy.ToDate),
-                TypeId = dairy.TypeId
+                TypeId = dairy.TypeId,
+                //Classes = dairy.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Num == c)).ToList()
             };
+
         }
         public static List<Dairy> DTOToDairy(List<DairyDTO> dairyList)
         {
@@ -135,18 +141,19 @@ namespace DTO
         {
             return new GroupDTO()
             {
-                Id = grp.Id,
+                Num = grp.Num,
                 CalculateHours = grp.CalculateHours,
                 Hours = grp.Hours,
                 HourType = grp.HourType,
                 SubHourType = grp.SubHourType,
-                Num = grp.Num,
                 PayAbsence = grp.PayAbsence,
                 Reforma = grp.Reforma,
                 Room = grp.Room,
                 SchoolType = grp.SchoolType,
                 Subject = grp.Subject,
-                Teacher = grp.Teacher
+                Teacher = grp.Teacher,
+                //Classes = grp.Classes.Select(c => c.Num).ToList(),
+                //Dairies = grp.Dairies.Select(d => d.Id).ToList()
             };
         }
         public static List<GroupDTO> GroupToDTO(List<Group> grpList)
@@ -155,21 +162,24 @@ namespace DTO
         }
         public static Group DTOToGroup(GroupDTO grp)
         {
-            return new Group()
+
+            var s = new Group()
             {
-                Id = grp.Id,
+                Num = grp.Num,
                 CalculateHours = grp.CalculateHours,
                 Hours = grp.Hours,
                 HourType = grp.HourType,
                 SubHourType = grp.SubHourType,
-                Num = grp.Num,
                 PayAbsence = grp.PayAbsence,
                 Reforma = grp.Reforma,
                 Room = grp.Room,
                 SchoolType = grp.SchoolType,
                 Subject = grp.Subject,
-                Teacher = grp.Teacher
+                Teacher = grp.Teacher,
+                //Classes = grp.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Num == c)).ToList(),
+                // Dairies = grp.Dairies?.Select(d => db.Dairies.FirstOrDefault(da => da.Id == d)).ToList()
             };
+            return s;
         }
         public static List<Group> DTOToGroup(List<GroupDTO> grpList)
         {
@@ -198,7 +208,14 @@ namespace DTO
                 Id = occ.Id,
                 FromDate = DateToDTO(occ.FromDate),
                 ToDate = DateToDTO(occ.ToDate),
-                OccasionType = occ.OccasionType
+                FromLesson = occ.FromLesson,
+                ToLesson = occ.ToLesson,
+                OccasionType = occ.OccasionType,
+                Subject = occ.Subject,
+                Dairies = occ.Dairies.Select(d => d.Id).ToList(),
+                Classes = occ.Classes.Select(c => c.Num).ToList(),
+                Rooms = occ.Rooms.Select(r => r.Id).ToList(),
+                Teachers = occ.Teachers.Select(t => t.Num).ToList()
             };
         }
 
@@ -213,7 +230,14 @@ namespace DTO
                 Id = occ.Id,
                 FromDate = DTOToDate(occ.FromDate),
                 ToDate = DTOToDate(occ.ToDate),
-                OccasionType = occ.OccasionType
+                FromLesson = occ.FromLesson,
+                ToLesson = occ.ToLesson,
+                OccasionType = occ.OccasionType,
+                Subject = occ.Subject,
+                //Classes = occ.Classes.Select(c => db.Classes.FirstOrDefault(cl => cl.Num == c)).ToList(),
+                //Teachers = occ.Teachers.Select(t => db.Teachers.FirstOrDefault(tea => tea.Num == t)).ToList(),
+                //Dairies = occ.Dairies.Select(d => db.Dairies.FirstOrDefault(da => da.Id == d)).ToList(),
+                //Rooms = occ.Rooms.Select(r => db.Rooms.FirstOrDefault(ro => ro.Id == r)).ToList()
             };
         }
         public static List<Occasion> DTOToOccasion(List<OccasionDTO> occList)
@@ -348,6 +372,7 @@ namespace DTO
             return new ScheduleDTO()
             {
                 Day = schedule.Day,
+                GroupId = schedule.GroupId,
                 Hour = schedule.Hour,
                 Num = schedule.Num,
                 Room = schedule.Room,
@@ -366,7 +391,8 @@ namespace DTO
                 Hour = schedule.Hour,
                 Num = schedule.Num,
                 Room = schedule.Room,
-                WeekDay = schedule.WeekDay
+                WeekDay = schedule.WeekDay,
+                GroupId = schedule.GroupId
             };
         }
         public static List<Schedule> DTOToSchedule(List<ScheduleDTO> schList)
@@ -395,7 +421,7 @@ namespace DTO
         #region Teacher
         public static TeacherDTO TeacherToDTO(Teacher teacher)
         {
-            return new TeacherDTO() { Id = teacher.Id, Name = teacher.Name, Num = teacher.Num };
+            return new TeacherDTO() { Num = teacher.Num, Name = teacher.Name };
         }
         public static List<TeacherDTO> TeacherToDTO(List<Teacher> teacherList)
         {
@@ -403,7 +429,7 @@ namespace DTO
         }
         public static Teacher DTOToTeacher(TeacherDTO teacher)
         {
-            return new Teacher() { Id = teacher.Id, Name = teacher.Name, Num = teacher.Num };
+            return new Teacher() { Num = teacher.Num, Name = teacher.Name };
         }
         public static List<Teacher> DTOToTeacher(List<TeacherDTO> teacherList)
         {

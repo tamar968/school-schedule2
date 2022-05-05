@@ -1,0 +1,32 @@
+.i{
+    width: 20px;
+    height: 20px;
+    margin: 0px 10px 0px 10px;
+  }
+  li:hover {
+    color: white;
+    background-color: darkgreen;
+  }
+    li{
+    color: black;
+    display: inline;
+    background-color: #4CAF50;
+    padding: 20px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;  
+    font-family: sans-serif;
+   }
+  ul{
+    background-color: #4CAF50;
+    padding: 20px;
+  }
+  .pointer {cursor: -webkit-pointer; cursor: pointer;}
+.center{
+  text-align: center;
+}
+.btn{
+  margin: 4vh;
+}
+.center :hover{
+  font-size: 18px;
+}

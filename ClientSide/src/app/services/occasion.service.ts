@@ -9,11 +9,24 @@ import { Observable } from 'rxjs';
 })
 export class OccasionService {
 
-  constructor(private http:HttpClient) { }
-  private baseUrl=AppComponent.getBaseUrl()+"/occasion";  
+  constructor(private http: HttpClient) { }
+  private baseUrl = AppComponent.getBaseUrl() + "/occasion";
 
-  public add(occasion:Occasion):Observable<Occasion> {
+  public add(occasion: Occasion): Observable<Occasion> {
     return this.http.post<Occasion>(`${this.baseUrl}/add`, occasion);
   }
-  
+  public update(occasion: Occasion): Observable<Occasion> {
+    return this.http.post<Occasion>(`${this.baseUrl}/update`,occasion);
+  }
+
+  public delete(Id: number): Observable<Occasion> {
+    return this.http.post<Occasion>(`${this.baseUrl}/delete`, Id);
+  }
+
+  public get(Id: number): Observable<Occasion> {
+    return this.http.get<Occasion>(`${this.baseUrl}/get/${Id}`);
+  }
+  public getall(): Observable<Occasion[]> {
+    return this.http.get<Occasion[]>(`${this.baseUrl}/get/all`);
+  }
 }
